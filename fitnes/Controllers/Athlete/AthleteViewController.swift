@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseFirestore
 
-class MainViewController: UIViewController {
+class AthleteViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
@@ -18,12 +18,6 @@ class MainViewController: UIViewController {
         InventoryModel(logoImageView: #imageLiteral(resourceName: "skippingrope"), titleLabel: "Штанга", descriptionLabel: "Описание 2"),
         InventoryModel(logoImageView: #imageLiteral(resourceName: "skippingrope"), titleLabel: "Скакалка", descriptionLabel: "Описание 3")
     ]
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        setNavigationTitle()
-    }
 
     @IBAction func profileButtonTapped(_ sender: Any) {
         FirestoreService.shared.getProfile {
@@ -41,16 +35,10 @@ class MainViewController: UIViewController {
         inventory.append(newInventoryVC.newPlace!)
         tableView.reloadData()
     }
-    
-    private func setNavigationTitle() {
-        switch currentProfleRole {
-        case .Athlete: title = "Экран атлета"
-        case .Trainer: title = "Экран тренера"
-        }
-    }
 }
 
-extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+// MARK: - UI Table View Data Source, UI Table View Delegate
+extension AthleteViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         inventory.count
     }
@@ -67,7 +55,8 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
 }
 
-extension MainViewController {
+// MARK: - UI Table Height For Row At
+extension AthleteViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
     }

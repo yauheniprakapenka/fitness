@@ -17,4 +17,18 @@ extension UIViewController {
         present(alertController, animated: true)
     }
     
+    func defineRoleAndPresentViewController() {
+        switch currentProfleRole {
+        case .Athlete:
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "AthleteVC") as! AthleteViewController
+            let navController = UINavigationController(rootViewController: vc)
+            navController.modalPresentationStyle = .fullScreen
+            present(navController, animated:true)
+        case .Trainer:
+            let vc = storyboard!.instantiateViewController(withIdentifier: "TrainerVC") as! TrainerViewController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: true)
+        }
+    }
+    
 }

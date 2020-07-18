@@ -10,7 +10,7 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="mainID" id="BYZ-38-t0r" customClass="MainViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AthleteVC" id="BYZ-38-t0r" customClass="AthleteViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="94" y="275"/>
+            <point key="canvasLocation" x="3" y="885"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="GiZ-wI-HNi">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Niu-hj-I03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="93" y="995"/>
+            <point key="canvasLocation" x="3" y="1605"/>
         </scene>
         <!--Новый инвентарь-->
         <scene sceneID="LEi-AV-Tme">
@@ -269,7 +269,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ5-yY-kQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2UV-zw-gv8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1991" y="275"/>
+            <point key="canvasLocation" x="1900" y="885"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="HVd-D9-2uU">
@@ -459,7 +459,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHz-Ex-7BU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-816" y="275"/>
+            <point key="canvasLocation" x="-907" y="885"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YtC-mf-80H">
@@ -480,7 +480,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxZ-Yn-R2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1081" y="275"/>
+            <point key="canvasLocation" x="990" y="885"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="KYR-fG-HOg">
@@ -566,6 +566,70 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqc-QA-Zvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="54" y="-548"/>
+        </scene>
+        <!--Trainer View Controller-->
+        <scene sceneID="TMH-qm-Eiw">
+            <objects>
+                <viewController storyboardIdentifier="TrainerVC" id="u9N-N6-tr7" customClass="TrainerViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qtM-Ah-XQS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FCf-ze-w1m">
+                                <rect key="frame" x="40" y="170.5" width="334" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIY-sq-IeM">
+                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Атлеты"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QkQ-tz-U7M">
+                                        <rect key="frame" x="128.5" y="0.0" width="205.5" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Расписание"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="uAo-6G-ETo">
+                                <rect key="frame" x="40" y="249.5" width="334" height="39"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="amQ-bb-E2x">
+                                        <rect key="frame" x="0.0" y="0.0" width="157" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Упражнения"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOR-nl-n09">
+                                        <rect key="frame" x="167" y="0.0" width="167" height="39"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                        <state key="normal" title="Мессенджер"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Тренер" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4c9-tp-Fgp">
+                                <rect key="frame" x="40" y="104" width="334" height="26.5"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="uAo-6G-ETo" secondAttribute="trailing" constant="40" id="3JK-4M-ieS"/>
+                            <constraint firstItem="uAo-6G-ETo" firstAttribute="top" secondItem="FCf-ze-w1m" secondAttribute="bottom" constant="40" id="IMH-aE-qDH"/>
+                            <constraint firstItem="FCf-ze-w1m" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="Icx-gc-X6U"/>
+                            <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="FCf-ze-w1m" secondAttribute="trailing" constant="40" id="TMi-gH-E1h"/>
+                            <constraint firstItem="4c9-tp-Fgp" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="Vys-qr-vfr"/>
+                            <constraint firstItem="uAo-6G-ETo" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="a10-Qa-G4V"/>
+                            <constraint firstItem="4c9-tp-Fgp" firstAttribute="top" secondItem="dHP-sp-8pH" secondAttribute="top" constant="60" id="g3q-wj-b6L"/>
+                            <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="4c9-tp-Fgp" secondAttribute="trailing" constant="40" id="yY8-Xj-GPG"/>
+                            <constraint firstItem="FCf-ze-w1m" firstAttribute="top" secondItem="4c9-tp-Fgp" secondAttribute="bottom" constant="40" id="z4e-Qd-hvK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dHP-sp-8pH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3xF-aQ-dhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="164"/>
         </scene>
     </scenes>
     <resources>

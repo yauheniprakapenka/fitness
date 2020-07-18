@@ -26,10 +26,7 @@ class LoginViewController: UIViewController {
                 profileInfo.email = user.email ?? ""
                 profileInfo.uid = user.uid
                 
-                let vc = self.storyboard!.instantiateViewController(withIdentifier: "mainID") as! MainViewController
-                let navController = UINavigationController(rootViewController: vc)
-                navController.modalPresentationStyle = .fullScreen
-                self.present(navController, animated:true, completion: nil)
+                self.defineRoleAndPresentViewController()
 
             case .failure(let error):
                 self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
