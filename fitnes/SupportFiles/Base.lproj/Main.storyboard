@@ -78,7 +78,7 @@
                     <navigationItem key="navigationItem" title="Main" id="Zus-MU-1vk">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="person.crop.circle" catalog="system" id="3fy-VB-Gvj">
                             <connections>
-                                <segue destination="nA2-IT-lps" kind="presentation" id="Kbt-of-gmF"/>
+                                <action selector="profileButtonTapped:" destination="BYZ-38-t0r" id="ijL-yr-7NV"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="viX-VR-xVy">
@@ -98,13 +98,13 @@
         <!--Profile View Controller-->
         <scene sceneID="GiZ-wI-HNi">
             <objects>
-                <viewController id="nA2-IT-lps" customClass="ProfileViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileID" id="nA2-IT-lps" customClass="ProfileViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ew-8p-1EA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2l-4s-YRl">
-                                <rect key="frame" x="40" y="120" width="334" height="20.5"/>
+                                <rect key="frame" x="40" y="164" width="334" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

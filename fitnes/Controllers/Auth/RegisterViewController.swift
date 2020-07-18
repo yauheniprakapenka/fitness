@@ -20,10 +20,10 @@ class RegisterViewController: UIViewController {
             switch result {
             case .success(let user):
                 
-                fitnesUser.email = String(user.email ?? "")
-                fitnesUser.uid = String(user.uid)
+                profileInfo.email = String(user.email ?? "")
+                profileInfo.uid = String(user.uid)
                 
-                FirestoreService.shared.saveUser(email: fitnesUser.email, uid: fitnesUser.uid)
+                FirestoreService.shared.saveProfile(email: profileInfo.email, uid: profileInfo.uid)
                 
                 let vc = self.storyboard!.instantiateViewController(withIdentifier: "mainID") as! MainViewController
                 let navController = UINavigationController(rootViewController: vc)

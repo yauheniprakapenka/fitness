@@ -8,13 +8,13 @@
 
 import Foundation
 
-enum ValidationError {
+enum FieldValidatorError {
     case fieldIisNodFilled
     case invalidEmail
     case passwordMismatch
 }
 
-extension ValidationError: LocalizedError {
+extension FieldValidatorError: LocalizedError {
     var errorDescription: String? {
         switch self {
         case .fieldIisNodFilled:

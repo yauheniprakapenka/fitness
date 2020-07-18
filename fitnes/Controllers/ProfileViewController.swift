@@ -15,8 +15,8 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        FirestoreService.shared.getData()
+        print(profileInfo.profileInfo)
         
-        profileLabel.text = fitnesUser.profileInfo
+        profileLabel.text = profileInfo.profileInfo
     }
 }
