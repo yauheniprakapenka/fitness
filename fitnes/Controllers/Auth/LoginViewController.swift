@@ -17,8 +17,8 @@ class LoginViewController: UIViewController {
         AuthService.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { (result) in
             switch result {
             case .success(let user):
-                fitnesUser.email = user.email ?? ""
-                fitnesUser.uid = user.uid
+                profileInfo.email = user.email ?? ""
+                profileInfo.uid = user.uid
                 
                 let vc = self.storyboard!.instantiateViewController(withIdentifier: "mainID") as! MainViewController
                 let navController = UINavigationController(rootViewController: vc)

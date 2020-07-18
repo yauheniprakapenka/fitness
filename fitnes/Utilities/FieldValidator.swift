@@ -8,14 +8,12 @@
 
 import Foundation
 
-class Validator {
-    
-    static let shared = Validator()
+class FieldValidator {
+    static let shared = FieldValidator()
 }
 
-// MARK: - Registration text fields validation
-
-extension Validator {
+// MARK: - Registration
+extension FieldValidator {
     func registerFieldsIsFilled(email: String?, password: String?, confirmPassword: String?) -> Bool {
         guard let email = email, let password = password, let confirmPassword = confirmPassword, email != "", password != "", confirmPassword != "" else {
             return false
@@ -24,9 +22,9 @@ extension Validator {
     }
 }
 
-// MARK: - Login text fields validation
 
-extension Validator {
+// MARK: - Login
+extension FieldValidator {
     func loginFieldsIsFilled(email: String?, password: String?) -> Bool {
         guard let email = email, let password = password, email != "", password != "" else {
             return false
@@ -35,9 +33,9 @@ extension Validator {
     }
 }
 
-// MARK: - Email validation
 
-extension Validator {
+// MARK: - Email
+extension FieldValidator {
     func isSimpleEmail(email: String) -> Bool {
         let emailRegEx = "^.+@.+\\..{2,}$"
         return check(text: email, regEx: emailRegEx)

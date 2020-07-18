@@ -15,8 +15,8 @@ class FirestoreService {
     
     static let shared = FirestoreService()
 
-    func saveUser(email: String, uid: String) {
-        db.collection("users").document(fitnesUser.uid).setData([
+    func saveProfile(email: String, uid: String) {
+        db.collection("users").document(profileInfo.uid).setData([
             "email": email,
             "uid": uid,
             "name": "",
@@ -29,20 +29,21 @@ class FirestoreService {
         }
     }
     
-    func getData() {
-        let docRef = db.collection("users").document(fitnesUser.uid)
+    func getProfile(completion: @escaping () -> Void) {
+        let docRef = db.collection("users").document(profileInfo.uid)
 
         docRef.getDocument { (document, error) in
             let result = Result {
-                try document?.data(as: FitnesUser.self)
+                try document?.data(as: ProfileInfoModel.self)
             }
             
             switch result {
             case .success(let firestoreUser):
                 if let firestoreUser = firestoreUser {
-                    fitnesUser.email = firestoreUser.email
-                    fitnesUser.name = firestoreUser.name
-                    fitnesUser.uid = firestoreUser.uid
+                    profileInfo.email = firestoreUser.email
+                    profileInfo.name = firestoreUser.name
+                    profileInfo.uid = firestoreUser.uid
+                    completion()
                 } else {
                     print("Document does not exist")
                 }
@@ -51,6 +52,5 @@ class FirestoreService {
             }
         }
     }
-    
 }
 

@@ -6,7 +6,9 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct FitnesUser: Codable {
+var profileInfo = ProfileInfoModel(email: "", name: "", uid: "")
+
+struct ProfileInfoModel: Decodable {
     var email: String
     var name: String
     var uid: String
@@ -19,5 +21,3 @@ struct FitnesUser: Codable {
         """
     }
 }
-
-var fitnesUser = FitnesUser(email: "", name: "", uid: "")

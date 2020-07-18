@@ -19,21 +19,13 @@ class MainViewController: UIViewController {
         InventoryModel(logoImageView: #imageLiteral(resourceName: "skippingrope"), titleLabel: "Скакалка", descriptionLabel: "Описание 3")
     ]
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        db.collection("users").getDocuments() { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
-                }
-            }
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        FirestoreService.shared.getProfile {
+            let vc = self.storyboard!.instantiateViewController(withIdentifier: "ProfileID") as! ProfileViewController
+            self.present(vc, animated:true, completion: nil)
         }
-        
     }
-
+    
     @IBAction func unwindSegue(segue: UIStoryboardSegue) {
         guard let newInventoryVC = segue.source as? AddInventoryViewController else {
             return
