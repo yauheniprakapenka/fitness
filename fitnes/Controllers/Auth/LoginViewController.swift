@@ -17,7 +17,14 @@ class LoginViewController: UIViewController {
         AuthService.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { (result) in
             switch result {
             case .success(let user):
-                self.showAlert(title: "Успешно", message: "")
+                fitnesUser.email = user.email ?? ""
+                fitnesUser.uid = user.uid
+                
+                let vc = self.storyboard!.instantiateViewController(withIdentifier: "mainID") as! MainViewController
+                let navController = UINavigationController(rootViewController: vc)
+                navController.modalPresentationStyle = .fullScreen
+                self.present(navController, animated:true, completion: nil)
+
             case .failure(let error):
                 self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
             }

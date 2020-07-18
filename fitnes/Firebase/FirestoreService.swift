@@ -7,6 +7,7 @@
 //
 
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 let db = Firestore.firestore()
 
@@ -14,27 +15,42 @@ class FirestoreService {
     
     static let shared = FirestoreService()
 
-    func saveUser() {
-        var ref: DocumentReference? = nil
-        ref = db.collection("users").addDocument(data: [
-            "email": fitnesUser.email,
-            "uid": fitnesUser.uid,
-            "name": "nil"
+    func saveUser(email: String, uid: String) {
+        db.collection("users").document(fitnesUser.uid).setData([
+            "email": email,
+            "uid": uid,
+            "name": "",
         ]) { err in
             if let err = err {
-                print("Error adding document: \(err)")
+                print("Error writing document: \(err)")
             } else {
-                print("Document added with ID: \(ref!.documentID)")
+                print("Document successfully written!")
+            }
+        }
+    }
+    
+    func getData() {
+        let docRef = db.collection("users").document(fitnesUser.uid)
+
+        docRef.getDocument { (document, error) in
+            let result = Result {
+                try document?.data(as: FitnesUser.self)
+            }
+            
+            switch result {
+            case .success(let firestoreUser):
+                if let firestoreUser = firestoreUser {
+                    fitnesUser.email = firestoreUser.email
+                    fitnesUser.name = firestoreUser.name
+                    fitnesUser.uid = firestoreUser.uid
+                } else {
+                    print("Document does not exist")
+                }
+            case .failure(let error):
+                print("Error decoding city: \(error)")
             }
         }
     }
     
 }
 
-struct FitnesUser {
-    var email: String
-    var name: String
-    var uid: String
-}
-
-var fitnesUser = FitnesUser(email: "", name: "", uid: "")

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CECEBE5A56A6F87B8A1A823 /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */; };
+		3E10DA2F24C330F600163F26 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA2E24C330F600163F26 /* ProfileViewController.swift */; };
+		3E10DA3124C3317900163F26 /* ProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfo.swift */; };
 		3E235B3324BE1B0B004DDBD6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3224BE1B0B004DDBD6 /* CustomTableViewCell.swift */; };
 		3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3524BE288D004DDBD6 /* InventoryModel.swift */; };
 		3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
+		3E10DA2E24C330F600163F26 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		3E10DA3024C3317900163F26 /* ProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfo.swift; sourceTree = "<group>"; };
 		3E235B3224BE1B0B004DDBD6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3E235B3524BE288D004DDBD6 /* InventoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModel.swift; sourceTree = "<group>"; };
 		3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				3E235B3524BE288D004DDBD6 /* InventoryModel.swift */,
+				3E10DA3024C3317900163F26 /* ProfileInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -176,6 +181,7 @@
 				3EE2DDE224C0DAA800D85CAE /* Auth */,
 				3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */,
 				3EE3900424BCE78A003AF6D8 /* MainViewController.swift */,
+				3E10DA2E24C330F600163F26 /* ProfileViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -304,10 +310,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E10DA3124C3317900163F26 /* ProfileInfo.swift in Sources */,
 				3EE3900524BCE78A003AF6D8 /* MainViewController.swift in Sources */,
 				3E235B3324BE1B0B004DDBD6 /* CustomTableViewCell.swift in Sources */,
 				3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */,
 				3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */,
+				3E10DA2F24C330F600163F26 /* ProfileViewController.swift in Sources */,
 				3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* Validator.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
