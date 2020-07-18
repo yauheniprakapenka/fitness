@@ -280,7 +280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123@123.by" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yTL-6C-UX3">
-                                <rect key="frame" x="40" y="122" width="334" height="34"/>
+                                <rect key="frame" x="40" y="138" width="334" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -290,7 +290,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gaa-Zk-qtN">
-                                <rect key="frame" x="40" y="327" width="334" height="34"/>
+                                <rect key="frame" x="40" y="298" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="S4q-CV-9cG"/>
                                 </constraints>
@@ -298,25 +298,25 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите почту" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NHW-YP-atn">
-                                <rect key="frame" x="40" y="80" width="120.5" height="22"/>
+                                <rect key="frame" x="40" y="112" width="120.5" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Введите пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FCp-XI-cMG">
-                                <rect key="frame" x="40" y="176" width="334" height="22"/>
+                                <rect key="frame" x="40" y="192" width="334" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повторите пароль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JVG-Hu-Cb0">
-                                <rect key="frame" x="40" y="281" width="334" height="22"/>
+                                <rect key="frame" x="40" y="272" width="334" height="22"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dom-Ge-UMY">
-                                <rect key="frame" x="40" y="401" width="334" height="60"/>
+                                <rect key="frame" x="40" y="423" width="334" height="60"/>
                                 <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="NVt-yw-z3n"/>
@@ -329,6 +329,22 @@
                                     <action selector="registerButton:" destination="Mhw-aV-JKo" eventType="touchUpInside" id="Wdp-ah-Odl"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="WWo-Uf-7rY">
+                                <rect key="frame" x="40" y="352" width="334" height="32"/>
+                                <segments>
+                                    <segment title="Атлет"/>
+                                    <segment title="Тренер"/>
+                                </segments>
+                                <connections>
+                                    <action selector="roleSegmentedControlTapped:" destination="Mhw-aV-JKo" eventType="valueChanged" id="eqK-L7-vEG"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Регистрация" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3rc-nz-eZZ">
+                                <rect key="frame" x="40" y="40" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -336,24 +352,31 @@
                             <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" secondItem="gaa-Zk-qtN" secondAttribute="trailing" constant="40" id="7mx-Sn-ONe"/>
                             <constraint firstItem="gaa-Zk-qtN" firstAttribute="leading" secondItem="KHZ-ya-eZk" secondAttribute="leading" constant="40" id="7nq-71-lea"/>
                             <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" secondItem="JVG-Hu-Cb0" secondAttribute="trailing" constant="40" id="9hL-RQ-PY9"/>
-                            <constraint firstItem="yTL-6C-UX3" firstAttribute="top" secondItem="NHW-YP-atn" secondAttribute="bottom" constant="20" id="BkU-1O-v5T"/>
+                            <constraint firstItem="yTL-6C-UX3" firstAttribute="top" secondItem="NHW-YP-atn" secondAttribute="bottom" constant="4" id="BkU-1O-v5T"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="leading" secondItem="FCp-XI-cMG" secondAttribute="leading" id="GjR-1J-A9Q"/>
+                            <constraint firstItem="dom-Ge-UMY" firstAttribute="leading" secondItem="WWo-Uf-7rY" secondAttribute="trailing" constant="-334" id="GuB-Ac-Uho"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="leading" secondItem="KHZ-ya-eZk" secondAttribute="leading" constant="40" id="LPG-3t-KA8"/>
                             <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" secondItem="a5s-fT-xCY" secondAttribute="trailing" constant="40" id="Mbc-mT-sta"/>
+                            <constraint firstItem="WWo-Uf-7rY" firstAttribute="top" secondItem="gaa-Zk-qtN" secondAttribute="bottom" constant="20" id="NXh-ot-PRB"/>
                             <constraint firstItem="gaa-Zk-qtN" firstAttribute="leading" secondItem="JVG-Hu-Cb0" secondAttribute="leading" id="O7Y-Gm-bhB"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="trailing" secondItem="yTL-6C-UX3" secondAttribute="trailing" id="Q4g-bL-4Oz"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="leading" secondItem="yTL-6C-UX3" secondAttribute="leading" id="Qf1-TY-TXJ"/>
-                            <constraint firstItem="dom-Ge-UMY" firstAttribute="top" secondItem="gaa-Zk-qtN" secondAttribute="bottom" constant="40" id="Uqy-Cx-ff5"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="trailing" secondItem="FCp-XI-cMG" secondAttribute="trailing" id="Va9-J4-NFk"/>
-                            <constraint firstItem="gaa-Zk-qtN" firstAttribute="top" secondItem="JVG-Hu-Cb0" secondAttribute="bottom" constant="24" id="Vc7-s7-zoz"/>
+                            <constraint firstItem="gaa-Zk-qtN" firstAttribute="top" secondItem="JVG-Hu-Cb0" secondAttribute="bottom" constant="4" id="Vc7-s7-zoz"/>
+                            <constraint firstItem="dom-Ge-UMY" firstAttribute="top" secondItem="WWo-Uf-7rY" secondAttribute="bottom" constant="40" id="WV7-mz-Rlp"/>
                             <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" secondItem="dom-Ge-UMY" secondAttribute="trailing" constant="40" id="WY0-KE-JLL"/>
+                            <constraint firstItem="3rc-nz-eZZ" firstAttribute="top" secondItem="KHZ-ya-eZk" secondAttribute="top" constant="40" id="akE-i9-BNm"/>
                             <constraint firstItem="dom-Ge-UMY" firstAttribute="leading" secondItem="KHZ-ya-eZk" secondAttribute="leading" constant="40" id="cgF-Cp-HPX"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="leading" secondItem="NHW-YP-atn" secondAttribute="leading" id="dZe-Ny-Q2V"/>
                             <constraint firstItem="JVG-Hu-Cb0" firstAttribute="leading" secondItem="KHZ-ya-eZk" secondAttribute="leading" constant="40" id="deq-38-F1z"/>
+                            <constraint firstItem="3rc-nz-eZZ" firstAttribute="leading" secondItem="KHZ-ya-eZk" secondAttribute="leading" constant="40" id="eaj-cQ-2Pw"/>
                             <constraint firstItem="a5s-fT-xCY" firstAttribute="top" secondItem="ChC-Wh-B4Z" secondAttribute="top" constant="218" id="f0k-Fm-QHa"/>
                             <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NHW-YP-atn" secondAttribute="trailing" symbolic="YES" id="hA9-FK-lD2"/>
-                            <constraint firstItem="JVG-Hu-Cb0" firstAttribute="top" secondItem="a5s-fT-xCY" secondAttribute="bottom" constant="29" id="ljO-eM-gez"/>
-                            <constraint firstItem="a5s-fT-xCY" firstAttribute="top" secondItem="FCp-XI-cMG" secondAttribute="bottom" constant="20" id="tQH-Sq-h3y"/>
+                            <constraint firstItem="WWo-Uf-7rY" firstAttribute="leading" secondItem="KHZ-ya-eZk" secondAttribute="leading" constant="40" id="ihO-xY-2dX"/>
+                            <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" secondItem="3rc-nz-eZZ" secondAttribute="trailing" constant="40" id="jgN-fU-MM2"/>
+                            <constraint firstItem="JVG-Hu-Cb0" firstAttribute="top" secondItem="a5s-fT-xCY" secondAttribute="bottom" constant="20" id="ljO-eM-gez"/>
+                            <constraint firstItem="a5s-fT-xCY" firstAttribute="top" secondItem="FCp-XI-cMG" secondAttribute="bottom" constant="4" id="tQH-Sq-h3y"/>
+                            <constraint firstItem="KHZ-ya-eZk" firstAttribute="trailing" secondItem="WWo-Uf-7rY" secondAttribute="trailing" constant="40" id="wS7-YH-S8C"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KHZ-ya-eZk"/>
                     </view>
@@ -361,36 +384,12 @@
                         <outlet property="emailTextField" destination="yTL-6C-UX3" id="yEh-tj-vh1"/>
                         <outlet property="passwordConfirmTextField" destination="gaa-Zk-qtN" id="6KT-Pb-Pei"/>
                         <outlet property="passwordTextfield" destination="a5s-fT-xCY" id="0PQ-Pv-R2V"/>
+                        <outlet property="roleSegmentedControl" destination="WWo-Uf-7rY" id="gvl-mQ-eOx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jVi-60-TKs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="55" y="-1207"/>
-        </scene>
-        <!--Profile View Controller-->
-        <scene sceneID="2cP-yE-kSk">
-            <objects>
-                <viewController id="Onx-6n-j5t" customClass="ProfileViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="LNV-TS-DzF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ZdA-wO-Akj">
-                                <rect key="frame" x="142" y="499" width="131" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
-                                </segments>
-                            </segmentedControl>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="hfz-79-ytj"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jq1-lw-vAn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="878" y="-1207"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIT-fE-2qz">
@@ -491,16 +490,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AnO-f5-6C5">
-                                <rect key="frame" x="40" y="150" width="334" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123@123.by" borderStyle="roundedRect" placeholder="email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AnO-f5-6C5">
+                                <rect key="frame" x="40" y="100" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="34" id="BtA-dt-pDS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSD-L2-IRz">
-                                <rect key="frame" x="40" y="224" width="334" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gSD-L2-IRz">
+                                <rect key="frame" x="40" y="174" width="334" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="34" id="FVF-Uk-qAI"/>
                                     <constraint firstAttribute="height" constant="34" id="exl-5r-tVm"/>
@@ -509,36 +508,59 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSv-7l-Sgq">
-                                <rect key="frame" x="40" y="338" width="334" height="60"/>
+                                <rect key="frame" x="40" y="319" width="334" height="60"/>
                                 <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="Jts-E7-pDp"/>
                                 </constraints>
-                                <state key="normal" title="Продолжит">
+                                <state key="normal" title="Продолжить">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="qQX-S9-dpb" eventType="touchUpInside" id="iXj-YV-zJA"/>
                                 </connections>
                             </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Th2-Cr-J1I">
+                                <rect key="frame" x="40" y="248" width="334" height="32"/>
+                                <segments>
+                                    <segment title="Атлет"/>
+                                    <segment title="Тренер"/>
+                                </segments>
+                                <connections>
+                                    <action selector="roleSegmentedControlTapped:" destination="qQX-S9-dpb" eventType="valueChanged" id="vfi-Lo-QIx"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войти" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-zp-xpl">
+                                <rect key="frame" x="40" y="40" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="D7Q-Iq-5vJ" firstAttribute="trailing" secondItem="Th2-Cr-J1I" secondAttribute="trailing" constant="40" id="3dF-BS-ZDU"/>
                             <constraint firstItem="gSD-L2-IRz" firstAttribute="top" secondItem="AnO-f5-6C5" secondAttribute="bottom" constant="40" id="Gvq-Ti-Jij"/>
-                            <constraint firstItem="gSv-7l-Sgq" firstAttribute="top" secondItem="gSD-L2-IRz" secondAttribute="bottom" constant="80" id="Oej-2M-OAB"/>
+                            <constraint firstItem="D7Q-Iq-5vJ" firstAttribute="trailing" secondItem="xwf-zp-xpl" secondAttribute="trailing" constant="40" id="Ij1-My-3WA"/>
                             <constraint firstItem="D7Q-Iq-5vJ" firstAttribute="trailing" secondItem="gSv-7l-Sgq" secondAttribute="trailing" constant="40" id="ShI-xN-Zb5"/>
                             <constraint firstItem="AnO-f5-6C5" firstAttribute="leading" secondItem="D7Q-Iq-5vJ" secondAttribute="leading" constant="40" id="WPj-T5-BgY"/>
-                            <constraint firstItem="AnO-f5-6C5" firstAttribute="top" secondItem="D7Q-Iq-5vJ" secondAttribute="top" constant="150" id="ceh-uk-5jd"/>
+                            <constraint firstItem="AnO-f5-6C5" firstAttribute="top" secondItem="D7Q-Iq-5vJ" secondAttribute="top" constant="100" id="ceh-uk-5jd"/>
                             <constraint firstItem="D7Q-Iq-5vJ" firstAttribute="trailing" secondItem="gSD-L2-IRz" secondAttribute="trailing" constant="40" id="fZ3-EH-0M9"/>
+                            <constraint firstItem="xwf-zp-xpl" firstAttribute="top" secondItem="D7Q-Iq-5vJ" secondAttribute="top" constant="40" id="hNb-zF-hal"/>
+                            <constraint firstItem="gSv-7l-Sgq" firstAttribute="top" secondItem="Th2-Cr-J1I" secondAttribute="bottom" constant="40" id="nEl-g6-jwk"/>
                             <constraint firstItem="gSv-7l-Sgq" firstAttribute="leading" secondItem="D7Q-Iq-5vJ" secondAttribute="leading" constant="40" id="oDI-Db-Oly"/>
+                            <constraint firstItem="xwf-zp-xpl" firstAttribute="leading" secondItem="D7Q-Iq-5vJ" secondAttribute="leading" constant="40" id="oS6-mE-rqJ"/>
                             <constraint firstItem="D7Q-Iq-5vJ" firstAttribute="trailing" secondItem="AnO-f5-6C5" secondAttribute="trailing" constant="40" id="qc9-qz-7di"/>
+                            <constraint firstItem="Th2-Cr-J1I" firstAttribute="top" secondItem="gSD-L2-IRz" secondAttribute="bottom" constant="40" id="qzU-qd-2mA"/>
                             <constraint firstItem="gSD-L2-IRz" firstAttribute="leading" secondItem="D7Q-Iq-5vJ" secondAttribute="leading" constant="40" id="uNR-WW-eOU"/>
+                            <constraint firstItem="Th2-Cr-J1I" firstAttribute="leading" secondItem="D7Q-Iq-5vJ" secondAttribute="leading" constant="40" id="wYf-Ad-l1W"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="D7Q-Iq-5vJ"/>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="AnO-f5-6C5" id="5eP-Aa-qH3"/>
                         <outlet property="passwordTextField" destination="gSD-L2-IRz" id="tmf-39-ezC"/>
+                        <outlet property="roleSegmentedControl" destination="Th2-Cr-J1I" id="39E-6Z-Gpo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqc-QA-Zvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

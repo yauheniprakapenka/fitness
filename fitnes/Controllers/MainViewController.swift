@@ -18,6 +18,12 @@ class MainViewController: UIViewController {
         InventoryModel(logoImageView: #imageLiteral(resourceName: "skippingrope"), titleLabel: "Штанга", descriptionLabel: "Описание 2"),
         InventoryModel(logoImageView: #imageLiteral(resourceName: "skippingrope"), titleLabel: "Скакалка", descriptionLabel: "Описание 3")
     ]
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        setNavigationTitle()
+    }
 
     @IBAction func profileButtonTapped(_ sender: Any) {
         FirestoreService.shared.getProfile {
@@ -35,7 +41,13 @@ class MainViewController: UIViewController {
         inventory.append(newInventoryVC.newPlace!)
         tableView.reloadData()
     }
-
+    
+    private func setNavigationTitle() {
+        switch currentProfleRole {
+        case .Athlete: title = "Экран атлета"
+        case .Trainer: title = "Экран тренера"
+        }
+    }
 }
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {

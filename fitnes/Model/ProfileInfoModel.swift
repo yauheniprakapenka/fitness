@@ -21,3 +21,4 @@ struct ProfileInfoModel: Decodable {
         """
     }
 }
+

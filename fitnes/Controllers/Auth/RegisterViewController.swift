@@ -14,7 +14,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextfield: UITextField!
     @IBOutlet var passwordConfirmTextField: UITextField!
-
+    
+    @IBOutlet var roleSegmentedControl: UISegmentedControl!
+    
+    @IBAction func roleSegmentedControlTapped(_ sender: Any) {
+        ProfileRoleModel.shared.setProfileRole(selectedSegmentIndex: roleSegmentedControl.selectedSegmentIndex)
+    }
+    
     @IBAction func registerButton(_ sender: Any) {
         AuthService.shared.register(email: emailTextField.text, password: passwordTextfield.text, confirmPassword: passwordConfirmTextField.text) { (result) in
             switch result {
