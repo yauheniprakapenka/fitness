@@ -76,6 +76,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Main" id="Zus-MU-1vk">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="person.crop.circle" catalog="system" id="3fy-VB-Gvj">
+                            <connections>
+                                <segue destination="nA2-IT-lps" kind="presentation" id="Kbt-of-gmF"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="viX-VR-xVy">
                             <connections>
                                 <segue destination="cfq-eL-aR5" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="AIt-m9-uwj"/>
@@ -88,7 +93,38 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+            <point key="canvasLocation" x="94" y="275"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="GiZ-wI-HNi">
+            <objects>
+                <viewController id="nA2-IT-lps" customClass="ProfileViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Ew-8p-1EA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v2l-4s-YRl">
+                                <rect key="frame" x="40" y="120" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="v2l-4s-YRl" firstAttribute="top" secondItem="Ex0-vM-nRq" secondAttribute="top" constant="120" id="Zv5-wp-5px"/>
+                            <constraint firstItem="Ex0-vM-nRq" firstAttribute="trailing" secondItem="v2l-4s-YRl" secondAttribute="trailing" constant="40" id="qu4-ZL-qB7"/>
+                            <constraint firstItem="v2l-4s-YRl" firstAttribute="leading" secondItem="Ex0-vM-nRq" secondAttribute="leading" constant="40" id="tYJ-nF-jrD"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ex0-vM-nRq"/>
+                    </view>
+                    <connections>
+                        <outlet property="profileLabel" destination="v2l-4s-YRl" id="Umn-TE-Mx5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Niu-hj-I03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="93" y="995"/>
         </scene>
         <!--Новый инвентарь-->
         <scene sceneID="LEi-AV-Tme">
@@ -233,7 +269,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ5-yY-kQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2UV-zw-gv8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2939.130434782609" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1991" y="275"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="HVd-D9-2uU">
@@ -424,7 +460,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHz-Ex-7BU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-816" y="275"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YtC-mf-80H">
@@ -445,7 +481,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxZ-Yn-R2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2028.985507246377" y="138.61607142857142"/>
+            <point key="canvasLocation" x="1081" y="275"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="KYR-fG-HOg">
@@ -512,5 +548,6 @@
     </scenes>
     <resources>
         <image name="default" width="512" height="512"/>
+        <image name="person.crop.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>
