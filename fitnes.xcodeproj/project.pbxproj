@@ -10,6 +10,7 @@
 		1CECEBE5A56A6F87B8A1A823 /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */; };
 		3E10DA2F24C330F600163F26 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA2E24C330F600163F26 /* ProfileViewController.swift */; };
 		3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */; };
+		3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */; };
 		3E235B3324BE1B0B004DDBD6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3224BE1B0B004DDBD6 /* CustomTableViewCell.swift */; };
 		3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3524BE288D004DDBD6 /* InventoryModel.swift */; };
 		3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */; };
@@ -34,6 +35,7 @@
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
 		3E10DA2E24C330F600163F26 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
+		3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleModel.swift; sourceTree = "<group>"; };
 		3E235B3224BE1B0B004DDBD6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3E235B3524BE288D004DDBD6 /* InventoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModel.swift; sourceTree = "<group>"; };
 		3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 			children = (
 				3E235B3524BE288D004DDBD6 /* InventoryModel.swift */,
 				3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */,
+				3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
 				3E87232724BFAD35005FC365 /* ViewController + Extension.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
+				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 			);
