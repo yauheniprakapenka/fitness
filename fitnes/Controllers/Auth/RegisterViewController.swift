@@ -31,10 +31,7 @@ class RegisterViewController: UIViewController {
                 
                 FirestoreService.shared.saveProfile(email: profileInfo.email, uid: profileInfo.uid)
                 
-                let vc = self.storyboard!.instantiateViewController(withIdentifier: "mainID") as! MainViewController
-                let navController = UINavigationController(rootViewController: vc)
-                navController.modalPresentationStyle = .fullScreen
-                self.present(navController, animated:true, completion: nil)
+                self.defineRoleAndPresentViewController()
                 
             case .failure(let error):
                 self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
