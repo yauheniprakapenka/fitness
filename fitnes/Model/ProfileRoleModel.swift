@@ -6,8 +6,6 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-import Foundation
-
 enum ProfileRoleEnum {
     case Athlete, Trainer
 }
@@ -18,8 +16,8 @@ class ProfileRoleModel {
     
     static let shared = ProfileRoleModel()
     
-    func setProfileRole(selectedSegmentIndex: Int) {
-        switch selectedSegmentIndex {
+    func setProfileRole(index: Int) {
+        switch index {
         case 0:
             currentProfleRole = .Athlete
             print("Athlete")

@@ -1,20 +1,13 @@
 //
-//  FirestoreService.swift
+//  FirestoreServiceProfile.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 17.07.2020.
+//  Created by yauheni prakapenka on 19.07.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-import FirebaseFirestore
-import FirebaseFirestoreSwift
-
-let db = Firestore.firestore()
-
-class FirestoreService {
+extension FirestoreService {
     
-    static let shared = FirestoreService()
-
     func saveProfile(email: String, uid: String) {
         db.collection("users").document(profileInfo.uid).setData([
             "email": email,
@@ -31,7 +24,7 @@ class FirestoreService {
     
     func getProfile(completion: @escaping () -> Void) {
         let docRef = db.collection("users").document(profileInfo.uid)
-
+        
         docRef.getDocument { (document, error) in
             let result = Result {
                 try document?.data(as: ProfileInfoModel.self)
@@ -40,6 +33,7 @@ class FirestoreService {
             switch result {
             case .success(let firestoreUser):
                 if let firestoreUser = firestoreUser {
+                    print("Document exist")
                     profileInfo.email = firestoreUser.email
                     profileInfo.name = firestoreUser.name
                     profileInfo.uid = firestoreUser.uid
@@ -48,9 +42,8 @@ class FirestoreService {
                     print("Document does not exist")
                 }
             case .failure(let error):
-                print("Error decoding city: \(error)")
+                print("Error decoding: \(error)")
             }
         }
     }
 }
-

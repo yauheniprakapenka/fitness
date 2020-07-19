@@ -16,7 +16,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var roleSegmentedControl: UISegmentedControl!
     
     @IBAction func roleSegmentedControlTapped(_ sender: Any) {
-        ProfileRoleModel.shared.setProfileRole(selectedSegmentIndex: roleSegmentedControl.selectedSegmentIndex)
+        ProfileRoleModel.shared.setProfileRole(index: roleSegmentedControl.selectedSegmentIndex)
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {
@@ -34,5 +34,3 @@ class LoginViewController: UIViewController {
         }
     }
 }
-
-

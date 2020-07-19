@@ -12,13 +12,19 @@
 		3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */; };
 		3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */; };
 		3E10DA3624C3915D00163F26 /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3524C3915D00163F26 /* TrainerViewController.swift */; };
+		3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3824C39C0F00163F26 /* TrainerModel.swift */; };
 		3E235B3324BE1B0B004DDBD6 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3224BE1B0B004DDBD6 /* CustomTableViewCell.swift */; };
 		3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3524BE288D004DDBD6 /* InventoryModel.swift */; };
 		3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */; };
+		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
+		3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */; };
+		3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
 		3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232124BF9FC4005FC365 /* AuthService.swift */; };
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
 		3E87232724BFAD35005FC365 /* ViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* ViewController + Extension.swift */; };
+		3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */; };
+		3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */; };
 		3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */; };
 		3EE2DDDE24C0CF7E00D85CAE /* FieldValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* FieldValidator.swift */; };
 		3EE2DDE024C0D4D800D85CAE /* FieldValidatorError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* FieldValidatorError.swift */; };
@@ -38,13 +44,19 @@
 		3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
 		3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleModel.swift; sourceTree = "<group>"; };
 		3E10DA3524C3915D00163F26 /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
+		3E10DA3824C39C0F00163F26 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
 		3E235B3224BE1B0B004DDBD6 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		3E235B3524BE288D004DDBD6 /* InventoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModel.swift; sourceTree = "<group>"; };
 		3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
+		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
+		3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceProfile.swift; sourceTree = "<group>"; };
+		3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceExercise.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E87232124BF9FC4005FC365 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E87232624BFAD35005FC365 /* ViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + Extension.swift"; sourceTree = "<group>"; };
+		3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EE2DDDD24C0CF7E00D85CAE /* FieldValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidator.swift; sourceTree = "<group>"; };
 		3EE2DDDF24C0D4D800D85CAE /* FieldValidatorError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldValidatorError.swift; sourceTree = "<group>"; };
@@ -85,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				3E10DA3524C3915D00163F26 /* TrainerViewController.swift */,
+				3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -123,15 +136,28 @@
 				3E235B3524BE288D004DDBD6 /* InventoryModel.swift */,
 				3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */,
 				3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */,
+				3E10DA3824C39C0F00163F26 /* TrainerModel.swift */,
+				3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		3E64BCF424C45D9B0014E91B /* FIrestore */ = {
+			isa = PBXGroup;
+			children = (
+				3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */,
+				3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */,
+				3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */,
+				3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */,
+			);
+			path = FIrestore;
 			sourceTree = "<group>";
 		};
 		3E87232024BF9FB2005FC365 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
+				3E64BCF424C45D9B0014E91B /* FIrestore */,
 				3E87232124BF9FC4005FC365 /* AuthService.swift */,
-				3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */,
 			);
 			path = Firebase;
 			sourceTree = "<group>";
@@ -335,13 +361,18 @@
 				3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */,
 				3EE3900524BCE78A003AF6D8 /* AthleteViewController.swift in Sources */,
 				3E235B3324BE1B0B004DDBD6 /* CustomTableViewCell.swift in Sources */,
+				3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */,
 				3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */,
+				3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */,
 				3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */,
 				3E10DA2F24C330F600163F26 /* ProfileViewController.swift in Sources */,
 				3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */,
+				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* FieldValidator.swift in Sources */,
+				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* FieldValidatorError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
+				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
 				3E87232724BFAD35005FC365 /* ViewController + Extension.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
@@ -349,6 +380,7 @@
 				3E10DA3624C3915D00163F26 /* TrainerViewController.swift in Sources */,
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
+				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
