@@ -16,9 +16,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet var passwordConfirmTextField: UITextField!
     
     @IBOutlet var roleSegmentedControl: UISegmentedControl!
-    
+
     @IBAction func roleSegmentedControlTapped(_ sender: Any) {
-        ProfileRoleModel.shared.setProfileRole(selectedSegmentIndex: roleSegmentedControl.selectedSegmentIndex)
+        ProfileRoleModel.shared.setProfileRole(index: roleSegmentedControl.selectedSegmentIndex)
     }
     
     @IBAction func registerButton(_ sender: Any) {
@@ -34,7 +34,7 @@ class RegisterViewController: UIViewController {
                 self.defineRoleAndPresentViewController()
                 
             case .failure(let error):
-                self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
+                self.showAlert(title: "", message: error.localizedDescription)
             }
         }
     }
