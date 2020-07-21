@@ -10,19 +10,20 @@ import UIKit
 
 extension FirestoreService {
     
-    func getExercises() {
+    func fetchExercisesList(completion: @escaping () -> ()) {
         let docRef = db.collection("exercises").document(profileInfo.uid)
         
         docRef.getDocument { (document, error) in
             let result = Result {
-                try document?.data(as: AllExercisesModel.self)
+                try document?.data(as: ExercisesListModel.self)
             }
             
             switch result {
             case .success(let firestoreTrainer):
                 if let firestoreExercisesModel = firestoreTrainer {
-                    allExercises.exercises = firestoreExercisesModel.exercises
-                    print(allExercises.exercises)
+                    exersisesList.exercises = firestoreExercisesModel.exercises
+                    print("Упражнения профиля: \(exersisesList.exercises)")
+                    completion()
                 } else {
                     print("Document does not exist")
                 }
@@ -32,8 +33,8 @@ extension FirestoreService {
         }
     }
     
-    func isExerciseExist(name: String) -> Bool {
-        if allExercises.exercises.contains(where: {$0 == name}) {
+    func isExerciseInListExist(name: String) -> Bool {
+        if exersisesList.exercises.contains(where: {$0 == name}) {
             print("Exersise is exists")
             return true
         }
@@ -42,13 +43,11 @@ extension FirestoreService {
         return false
     }
     
-    func addExersiseToExersises(name: String) {
-        print(allExercises.exercises)
-        allExercises.exercises.append(name)
-        print(allExercises.exercises)
+    func addExersiseToList(name: String) {
+        exersisesList.exercises.append(name)
         
         db.collection("exercises").document(profileInfo.uid).setData([
-            "exercises": allExercises.exercises
+            "exercises": exersisesList.exercises
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -58,14 +57,13 @@ extension FirestoreService {
         }
     }
     
-    func saveExercise(name: String, description: String, criteria: String, inventory: String, urlVideo: String, exerciseType: String) {
+    func saveExercise(name: String, type: String, description: String, equipment: String, videoUrl: String) {
         db.collection("exercises").document(profileInfo.uid).collection(name).document(name).setData([
             "name": name,
+            "type": type,
             "description": description,
-            "criteria": criteria,
-            "inventory": inventory,
-            "urlVideo": urlVideo,
-            "exerciseType": exerciseType
+            "equipment": equipment,
+            "videoUrl": videoUrl
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -74,4 +72,42 @@ extension FirestoreService {
             }
         }
     }
+    
+    func fetchExercises(userListExercises: [String]) {
+        exercises = [exerciseModel]()
+
+        for userExercise in userListExercises {
+            let docRef = db.collection("exercises").document(profileInfo.uid).collection(userExercise).document(userExercise)
+            docRef.getDocument { (document, error) in
+                let result = Result {
+                    try document?.data(as: exerciseModel.self)
+                }
+                
+                switch result {
+                case .success(let firestoreExercise):
+                    if let firestoreExercise = firestoreExercise {
+                        let profileExercise = exerciseModel(
+                            name: firestoreExercise.name,
+                            type: firestoreExercise.type,
+                            description: firestoreExercise.description,
+                            equipment: firestoreExercise.equipment,
+                            videoUrl: firestoreExercise.videoUrl
+                        )
+                        exercises.append(profileExercise)
+                        self.countExercises()
+                    } else {
+                        print("Document does not exist")
+                    }
+                case .failure(let error):
+                    print("Error decoding: \(error)")
+                }
+            }
+        }
+    }
+    
+    private func countExercises() {
+        print("Итого \(exercises)")
+        print("Итого упражнений: \(exercises.count)")
+    }
+    
 }

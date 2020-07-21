@@ -6,17 +6,12 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct ExerciseModel {
+var exercises = [exerciseModel]()
+
+struct exerciseModel: Decodable {
     var name: String
+    var type: String
     var description: String
-    var criteria: String
-    var inventory: String
-    var urlVideo: String
-    var exerciseType: String
+    var equipment: String
+    var videoUrl: String
 }
-
-struct AllExercisesModel: Decodable {
-    var exercises: [String]
-}
-
-var allExercises = AllExercisesModel(exercises: [])

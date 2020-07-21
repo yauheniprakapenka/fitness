@@ -44,7 +44,7 @@ extension AthleteViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomInventoryTableViewCell
         cell.logoImageView?.image = inventory[indexPath.row].logoImageView
         cell.imageView?.layer.cornerRadius = cell.logoImageView.frame.size.height / 2
         cell.imageView?.clipsToBounds = true

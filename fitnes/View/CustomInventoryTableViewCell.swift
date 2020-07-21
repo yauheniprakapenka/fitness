@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomTableViewCell: UITableViewCell {
+class CustomInventoryTableViewCell: UITableViewCell {
     
     @IBOutlet var logoImageView: UIImageView!
     @IBOutlet var titleLabel: UILabel!

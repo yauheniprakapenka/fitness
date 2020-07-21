@@ -11,26 +11,26 @@ import UIKit
 class AddExerciseViewController: UIViewController {
     
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var descriptionTextField: UITextField!
-    @IBOutlet var criteriaTextField: UITextField!
-    @IBOutlet var inventoryTextField: UITextField!
-    @IBOutlet var urlVideoTextField: UITextField!
-    @IBOutlet var exerciseTypeTextField: UITextField!
+    @IBOutlet var descriptionLabel: UITextField!
+    @IBOutlet var equipmentLabel: UITextField!
+    @IBOutlet var typeLabel: UITextField!
+    @IBOutlet var videoUrlLabel: UITextField!
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        FirestoreService.shared.getExercises()
+        FirestoreService.shared.fetchExercisesList() { }
         
-        if FirestoreService.shared.isExerciseExist(name: nameTextField.text ?? "") {
+        if FirestoreService.shared.isExerciseInListExist(name: nameTextField.text ?? "") {
             showAlert(title: "", message: "Такое название упражнения уже существует. Придумайте новое.")
         } else {
             FirestoreService.shared.saveExercise(name: nameTextField.text ?? "",
-                                                 description: descriptionTextField.text ?? "",
-                                                 criteria: criteriaTextField.text ?? "",
-                                                 inventory: inventoryTextField.text ?? "",
-                                                 urlVideo: urlVideoTextField.text ?? "",
-                                                 exerciseType: exerciseTypeTextField.text ?? "")
+                                                 type: typeLabel.text ?? "",
+                                                 description: descriptionLabel.text ?? "",
+                                                 equipment: equipmentLabel.text ?? "",
+                                                 videoUrl: videoUrlLabel.text ?? "")
             
-            FirestoreService.shared.addExersiseToExersises(name: nameTextField.text ?? "")
+            FirestoreService.shared.addExersiseToList(name: nameTextField.text ?? "")
+            
+            
         }
     }
 }
