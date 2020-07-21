@@ -18,12 +18,8 @@ class ProfileRoleModel {
     
     func setProfileRole(index: Int) {
         switch index {
-        case 0:
-            currentProfleRole = .Athlete
-            print("Athlete")
-        case 1:
-            currentProfleRole = .Trainer
-            print("Trainer")
+        case 0: currentProfleRole = .Athlete
+        case 1: currentProfleRole = .Trainer
         default: print("ERROR: unknown profile role")
         }
     }

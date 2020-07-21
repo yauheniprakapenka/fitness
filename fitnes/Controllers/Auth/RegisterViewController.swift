@@ -31,7 +31,7 @@ class RegisterViewController: UIViewController {
                 
                 FirestoreService.shared.saveProfile(email: profileInfo.email, uid: profileInfo.uid)
                 
-                self.defineRoleAndPresentViewController()
+                self.presentRoleProfile()
                 
             case .failure(let error):
                 self.showAlert(title: "", message: error.localizedDescription)

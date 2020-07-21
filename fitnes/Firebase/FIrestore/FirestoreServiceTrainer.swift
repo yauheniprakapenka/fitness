@@ -8,7 +8,7 @@
 
 extension FirestoreService {
     
-    func createTrainerIfNotExist(completion: @escaping () -> ()) {
+    func isTrainerExist(completion: @escaping () -> ()) {
         let docRef = db.collection("trainers").document(profileInfo.uid)
         
         docRef.getDocument { (document, error) in
@@ -19,9 +19,9 @@ extension FirestoreService {
             switch result {
             case .success(let firestoreUser):
                 if let firestoreUser = firestoreUser {
-                    print("Document exist")
+//                    print("Document exist")
                 } else {
-                    print("Document does not exist")
+//                    print("Document does not exist")
                     completion()
                 }
             case .failure(let error):
@@ -30,7 +30,7 @@ extension FirestoreService {
         }
     }
     
-    func saveTrainer(uid: String) {
+    func createTrainer(uid: String) {
         db.collection("trainers").document(profileInfo.uid).setData([
             "uid": uid,
             "name": ""

@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
                 profileInfo.email = user.email ?? ""
                 profileInfo.uid = user.uid
                 
-                self.defineRoleAndPresentViewController()
+                self.presentRoleProfile()
 
             case .failure(let error):
                 self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
