@@ -657,7 +657,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="+"/>
                                 <connections>
-                                    <segue destination="8vl-Mg-dMB" kind="presentation" id="fU4-E0-psN"/>
+                                    <action selector="addButtonTapped:" destination="qEp-HS-RhH" eventType="touchUpInside" id="4Kg-ip-OEk"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UYE-Y4-lHs">
@@ -714,6 +714,17 @@
                                     <outlet property="delegate" destination="qEp-HS-RhH" id="34H-0N-ywJ"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iUu-a2-tgB">
+                                <rect key="frame" x="30" y="74" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="dT1-dS-5NU"/>
+                                    <constraint firstAttribute="height" constant="24" id="wpi-Bc-09R"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="goforward" catalog="system"/>
+                                <connections>
+                                    <action selector="refreshButtonTapped:" destination="qEp-HS-RhH" eventType="touchUpInside" id="4bE-iZ-xVm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -725,12 +736,15 @@
                             <constraint firstItem="UYE-Y4-lHs" firstAttribute="top" secondItem="LWQ-wG-BVB" secondAttribute="bottom" constant="38" id="eje-nc-heY"/>
                             <constraint firstItem="JFE-qw-03p" firstAttribute="trailing" secondItem="xws-RP-55y" secondAttribute="trailing" constant="20" id="hl6-bv-rax"/>
                             <constraint firstItem="UYE-Y4-lHs" firstAttribute="trailing" secondItem="JFE-qw-03p" secondAttribute="trailing" id="knW-Gk-nd5"/>
+                            <constraint firstItem="iUu-a2-tgB" firstAttribute="leading" secondItem="JFE-qw-03p" secondAttribute="leading" constant="30" id="rIe-S4-mQu"/>
+                            <constraint firstItem="iUu-a2-tgB" firstAttribute="top" secondItem="JFE-qw-03p" secondAttribute="top" constant="30" id="sjj-nl-q9q"/>
                             <constraint firstItem="xws-RP-55y" firstAttribute="top" secondItem="JFE-qw-03p" secondAttribute="top" constant="20" id="ynH-Ty-yts"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JFE-qw-03p"/>
                     </view>
                     <connections>
                         <outlet property="tableView" destination="UYE-Y4-lHs" id="iJj-lU-h4r"/>
+                        <segue destination="8vl-Mg-dMB" kind="modal" identifier="AddExerciseID" modalPresentationStyle="fullScreen" id="1Hz-tV-6Qu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z70-wV-J3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -742,14 +756,14 @@
             <objects>
                 <viewController id="8vl-Mg-dMB" customClass="AddExerciseViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q10-Yc-VTV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-Sa-tYM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCU-jx-Fx4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="942"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="952"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить упражнение" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znZ-qI-7Ga">
                                                 <rect key="frame" x="40" y="40" width="334" height="21"/>
@@ -841,6 +855,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bPl-YA-RwF"/>
                     </view>
+                    <navigationItem key="navigationItem" id="NmE-Z6-ApK"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="hQX-LY-7m8" id="Voc-ez-oVK"/>
                         <outlet property="equipmentLabel" destination="yxC-B3-dQC" id="guT-Ic-E8G"/>
@@ -856,6 +871,7 @@
     </scenes>
     <resources>
         <image name="default" width="512" height="512"/>
+        <image name="goforward" catalog="system" width="121" height="128"/>
         <image name="person.crop.circle" catalog="system" width="128" height="121"/>
     </resources>
 </document>

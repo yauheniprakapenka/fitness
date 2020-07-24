@@ -105,8 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				3E10DA3524C3915D00163F26 /* TrainerViewController.swift */,
-				3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */,
 				3E64BCFC24C473E60014E91B /* ExcersisesViewController.swift */,
+				3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";

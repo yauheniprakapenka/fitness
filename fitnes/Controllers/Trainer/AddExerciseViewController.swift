@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol AddExerciseViewControllerDelegate {
+    func updateUI()
+}
+
 class AddExerciseViewController: UIViewController {
     
     @IBOutlet var nameTextField: UITextField!
@@ -16,21 +20,49 @@ class AddExerciseViewController: UIViewController {
     @IBOutlet var typeLabel: UITextField!
     @IBOutlet var videoUrlLabel: UITextField!
     
+    var delegate: AddExerciseViewControllerDelegate!
+    
     @IBAction func saveButtonTapped(_ sender: Any) {
-        FirestoreService.shared.fetchExercisesList() { }
         
-        if FirestoreService.shared.isExerciseInListExist(name: nameTextField.text ?? "") {
-            showAlert(title: "", message: "Такое название упражнения уже существует. Придумайте новое.")
-        } else {
-            FirestoreService.shared.saveExercise(name: nameTextField.text ?? "",
-                                                 type: typeLabel.text ?? "",
-                                                 description: descriptionLabel.text ?? "",
-                                                 equipment: equipmentLabel.text ?? "",
-                                                 videoUrl: videoUrlLabel.text ?? "")
+        let queue = DispatchQueue(label: "test", attributes: .concurrent)
+        let semaphore = DispatchSemaphore(value: 1)
+        
+        queue.async {
+            semaphore.wait()
             
-            FirestoreService.shared.addExersiseToList(name: nameTextField.text ?? "")
+            FirestoreService.shared.fetchExercisesList() {
+                let isExerciseExistInList = FirestoreService.shared.isExerciseExist(name: self.nameTextField.text ?? "")
+                if isExerciseExistInList {
+                    self.showAlert(title: "", message: "Имя упражнения уже существует")
+                    return
+                }
+                
+                semaphore.signal()
+            }
+        }
+        
+        queue.async {
+            semaphore.wait()
             
-            
+            DispatchQueue.main.async {
+                FirestoreService.shared.saveExercise(name: self.nameTextField.text ?? "",
+                                                     type: self.typeLabel.text ?? "",
+                                                     description: self.descriptionLabel.text ?? "",
+                                                     equipment: self.equipmentLabel.text ?? "",
+                                                     videoUrl: self.videoUrlLabel.text ?? "")
+                
+                FirestoreService.shared.addExersiseToList(name: self.nameTextField.text ?? "")
+                
+                FirestoreService.shared.fetchExercisesList() {
+                    FirestoreService.shared.fetchExercises(userListExercises: exersisesList.currentExercises)
+                }
+                
+                self.dismiss(animated: true) {
+                    self.delegate.updateUI()
+                }
+            }
+            semaphore.signal()
         }
     }
 }
+

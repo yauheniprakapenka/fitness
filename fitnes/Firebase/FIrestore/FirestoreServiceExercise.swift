@@ -10,44 +10,50 @@ import UIKit
 
 extension FirestoreService {
     
-    func fetchExercisesList(completion: @escaping () -> ()) {
+    // MARK: - Получить лист упражнений
+    func fetchExercisesList(completion: @escaping () -> Void) {
         let docRef = db.collection("exercises").document(profileInfo.uid)
-        
         docRef.getDocument { (document, error) in
             let result = Result {
                 try document?.data(as: ExercisesListModel.self)
             }
-            
+
             switch result {
-            case .success(let firestoreTrainer):
-                if let firestoreExercisesModel = firestoreTrainer {
-                    exersisesList.exercises = firestoreExercisesModel.exercises
-                    print("Упражнения профиля: \(exersisesList.exercises)")
+            case .success(let exercisesList):
+                if let exercisesList = exercisesList {
+                    exersisesList.currentExercises = exercisesList.currentExercises
+                    print("Упражнения профиля: \(exersisesList.currentExercises)")
                     completion()
                 } else {
                     print("Document does not exist")
+                    completion()
                 }
+
             case .failure(let error):
                 print("Error decoding: \(error)")
             }
         }
     }
     
-    func isExerciseInListExist(name: String) -> Bool {
-        if exersisesList.exercises.contains(where: {$0 == name}) {
-            print("Exersise is exists")
+    
+    // MARK: - Проверить, существует ли такое название упражнения в листе упражнений
+    func isExerciseExist(name: String) -> Bool {
+        if exersisesList.currentExercises.contains(where: {$0 == name}) {
+            print("Имя упражнения уже существует")
             return true
         }
         
-        print("Exersise is not exists, create it.")
+        print("Упражнение не существует. Создаем его.")
         return false
     }
     
+    
+    // MARK: - Добавить упражнение в лист упражнений
     func addExersiseToList(name: String) {
-        exersisesList.exercises.append(name)
+        exersisesList.currentExercises.append(name)
         
         db.collection("exercises").document(profileInfo.uid).setData([
-            "exercises": exersisesList.exercises
+            "currentExercises": exersisesList.currentExercises
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -57,7 +63,9 @@ extension FirestoreService {
         }
     }
     
+    // MARK: - Сохранить само упражнение
     func saveExercise(name: String, type: String, description: String, equipment: String, videoUrl: String) {
+        print(#function)
         db.collection("exercises").document(profileInfo.uid).collection(name).document(name).setData([
             "name": name,
             "type": type,
@@ -73,6 +81,7 @@ extension FirestoreService {
         }
     }
     
+    // MARK: - Получить все упражнения
     func fetchExercises(userListExercises: [String]) {
         exercises = [exerciseModel]()
 
@@ -94,7 +103,9 @@ extension FirestoreService {
                             videoUrl: firestoreExercise.videoUrl
                         )
                         exercises.append(profileExercise)
-                        self.countExercises()
+                    
+                        print("Упражнения профиля: \(exersisesList.currentExercises)")
+                      
                     } else {
                         print("Document does not exist")
                     }
@@ -104,10 +115,5 @@ extension FirestoreService {
             }
         }
     }
-    
-    private func countExercises() {
-        print("Итого \(exercises)")
-        print("Итого упражнений: \(exercises.count)")
-    }
-    
+
 }
