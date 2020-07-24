@@ -18,8 +18,6 @@ class TrainerViewController: UIViewController {
         FirestoreService.shared.isTrainerExist() {
             FirestoreService.shared.createTrainer(uid: profileInfo.uid)
         }
-        
-        fetchProfileExercises()
     }
     
     // MARK: - IBActions
@@ -27,24 +25,5 @@ class TrainerViewController: UIViewController {
     @IBAction func exerciseButtonTapped(_ sender: Any) {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ExerciseVC") as! ExcersisesViewController
         present(vc, animated: true)
-    }
-    
-    // MARK: - Private methods
-    
-    private func fetchProfileExercises() {
-        let semaphore = DispatchSemaphore(value: 1)
-        
-        DispatchQueue.global().async {
-            semaphore.wait()
-            FirestoreService.shared.fetchExercisesList() {
-                semaphore.signal()
-            }
-        }
-        
-        DispatchQueue.global().async {
-            semaphore.wait()
-            FirestoreService.shared.fetchExercises(userListExercises: exersisesList.exercises)
-            semaphore.signal()
-        }
     }
 }

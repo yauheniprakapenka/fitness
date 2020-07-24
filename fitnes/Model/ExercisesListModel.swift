@@ -6,8 +6,8 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-var exersisesList = ExercisesListModel(exercises: [])
+var exersisesList = ExercisesListModel(currentExercises: [])
 
 struct ExercisesListModel: Decodable {
-    var exercises: [String]
+    var currentExercises: [String]
 }
