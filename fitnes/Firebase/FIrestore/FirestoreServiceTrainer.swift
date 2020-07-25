@@ -43,7 +43,7 @@ extension FirestoreService {
         }
     }
     
-    func getTrainer() {
+    func fetchTrainer() {
         let docRef = db.collection("trainers").document(profileInfo.uid)
         
         docRef.getDocument { (document, error) in
