@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qQX-S9-dpb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0eD-uW-dy8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="1196"/>
+            <point key="canvasLocation" x="10" y="1351"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="GiZ-wI-HNi">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Niu-hj-I03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="1916"/>
+            <point key="canvasLocation" x="10" y="2071"/>
         </scene>
         <!--Новый инвентарь-->
         <scene sceneID="LEi-AV-Tme">
@@ -269,7 +269,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ5-yY-kQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2UV-zw-gv8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1900" y="1196"/>
+            <point key="canvasLocation" x="1907" y="1351"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="HVd-D9-2uU">
@@ -459,7 +459,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHz-Ex-7BU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-907" y="1196"/>
+            <point key="canvasLocation" x="-900" y="1351"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YtC-mf-80H">
@@ -480,7 +480,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxZ-Yn-R2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="990" y="1196"/>
+            <point key="canvasLocation" x="997" y="1351"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="KYR-fG-HOg">
@@ -632,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xF-aQ-dhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="164"/>
+            <point key="canvasLocation" x="101" y="281"/>
         </scene>
         <!--Excersises View Controller-->
         <scene sceneID="Dju-IO-mYW">
@@ -744,26 +744,102 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="UYE-Y4-lHs" id="iJj-lU-h4r"/>
-                        <segue destination="8vl-Mg-dMB" kind="modal" identifier="AddExerciseID" modalPresentationStyle="fullScreen" id="1Hz-tV-6Qu"/>
+                        <segue destination="8vl-Mg-dMB" kind="presentation" identifier="AddExercise" id="uxB-Ki-Tgk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z70-wV-J3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="989.85507246376824" y="162.72321428571428"/>
+            <point key="canvasLocation" x="1039" y="281"/>
+        </scene>
+        <!--Exercise View Controller-->
+        <scene sceneID="dSO-KJ-d8g">
+            <objects>
+                <viewController storyboardIdentifier="SelectedExerciseVC" id="8CO-ut-C5F" customClass="ExerciseViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YTp-j8-mMG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqS-0q-Zze">
+                                <rect key="frame" x="40" y="104" width="334" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJn-Vs-tjy">
+                                <rect key="frame" x="40" y="145" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="equipment" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xda-71-Gt9">
+                                <rect key="frame" x="40" y="185.5" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="type" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h37-jr-4bs">
+                                <rect key="frame" x="40" y="226" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="oRE-Wu-etY">
+                                <rect key="frame" x="0.0" y="286.5" width="414" height="300"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="sAh-ui-2Mg"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="7ge-zR-oiK" firstAttribute="trailing" secondItem="CJn-Vs-tjy" secondAttribute="trailing" constant="40" id="0pq-hI-E2y"/>
+                            <constraint firstItem="7ge-zR-oiK" firstAttribute="trailing" secondItem="oqS-0q-Zze" secondAttribute="trailing" constant="40" id="3v0-Rg-9DX"/>
+                            <constraint firstItem="oRE-Wu-etY" firstAttribute="top" secondItem="h37-jr-4bs" secondAttribute="bottom" constant="40" id="5bp-sy-4w9"/>
+                            <constraint firstItem="xda-71-Gt9" firstAttribute="top" secondItem="CJn-Vs-tjy" secondAttribute="bottom" constant="20" id="5cy-Fo-CmZ"/>
+                            <constraint firstItem="oqS-0q-Zze" firstAttribute="top" secondItem="7ge-zR-oiK" secondAttribute="top" constant="60" id="6dc-tP-cMB"/>
+                            <constraint firstItem="CJn-Vs-tjy" firstAttribute="top" secondItem="oqS-0q-Zze" secondAttribute="bottom" constant="20" id="9O8-SR-mq0"/>
+                            <constraint firstItem="h37-jr-4bs" firstAttribute="top" secondItem="xda-71-Gt9" secondAttribute="bottom" constant="20" id="DaY-Cq-Ue3"/>
+                            <constraint firstItem="CJn-Vs-tjy" firstAttribute="leading" secondItem="7ge-zR-oiK" secondAttribute="leading" constant="40" id="Jc7-JW-k5Y"/>
+                            <constraint firstItem="oRE-Wu-etY" firstAttribute="leading" secondItem="7ge-zR-oiK" secondAttribute="leading" id="JeF-R3-2lB"/>
+                            <constraint firstItem="xda-71-Gt9" firstAttribute="leading" secondItem="7ge-zR-oiK" secondAttribute="leading" constant="40" id="hra-TI-m4Q"/>
+                            <constraint firstItem="h37-jr-4bs" firstAttribute="leading" secondItem="7ge-zR-oiK" secondAttribute="leading" constant="40" id="ix8-Km-8Xh"/>
+                            <constraint firstItem="7ge-zR-oiK" firstAttribute="trailing" secondItem="h37-jr-4bs" secondAttribute="trailing" constant="40" id="nxg-sa-cQ1"/>
+                            <constraint firstItem="oqS-0q-Zze" firstAttribute="leading" secondItem="7ge-zR-oiK" secondAttribute="leading" constant="40" id="rTN-ah-ot2"/>
+                            <constraint firstItem="7ge-zR-oiK" firstAttribute="trailing" secondItem="xda-71-Gt9" secondAttribute="trailing" constant="40" id="tP1-wH-cir"/>
+                            <constraint firstItem="oRE-Wu-etY" firstAttribute="trailing" secondItem="7ge-zR-oiK" secondAttribute="trailing" id="tPq-UY-U3h"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7ge-zR-oiK"/>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="CJn-Vs-tjy" id="Yqx-Hg-LON"/>
+                        <outlet property="equipmentLabel" destination="xda-71-Gt9" id="1FC-dO-nBw"/>
+                        <outlet property="nameLabel" destination="oqS-0q-Zze" id="rLe-Ez-I9B"/>
+                        <outlet property="typeLabel" destination="h37-jr-4bs" id="Q14-Nc-xYn"/>
+                        <outlet property="youtubeWebView" destination="oRE-Wu-etY" id="vo6-mc-Pq6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PAc-a1-oDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1905.7971014492755" y="598.66071428571422"/>
         </scene>
         <!--Add Exercise View Controller-->
         <scene sceneID="c2m-FS-2P5">
             <objects>
-                <viewController id="8vl-Mg-dMB" customClass="AddExerciseViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddExerciseID" id="8vl-Mg-dMB" customClass="AddExerciseViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="q10-Yc-VTV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hOF-Sa-tYM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CCU-jx-Fx4">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="952"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="942"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Добавить упражнение" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="znZ-qI-7Ga">
                                                 <rect key="frame" x="40" y="40" width="334" height="21"/>
@@ -771,27 +847,28 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g53-mV-cuK">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Рывок в сед" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g53-mV-cuK">
                                                 <rect key="frame" x="40" y="101" width="334" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="description" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQX-LY-7m8">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Описание" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hQX-LY-7m8">
                                                 <rect key="frame" x="40" y="155" width="334" height="34"/>
+                                                <string key="text">Рывок – это упражнение в тяжелой атлетике, в котором спортсмен должен осуществить подъем штанги над головой одним движением (с помоста на полностью выпрямленные руки), при этом подседая под неё. Затем, удерживая штангу над головой, спортсмен должен подняться, полностью выпрямив ноги.",</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="equipment" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxC-B3-dQC">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="barbell/штанга" borderStyle="roundedRect" placeholder="Инвентарь" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yxC-B3-dQC">
                                                 <rect key="frame" x="40" y="209" width="334" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="type" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNU-aj-nGh">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="weightlifting/с отягощением" borderStyle="roundedRect" placeholder="Тип" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JNU-aj-nGh">
                                                 <rect key="frame" x="40" y="263" width="334" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="videoUrl" borderStyle="roundedRect" placeholder="Название" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Uj-RG-DeO">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="https://www.youtube.com/watch?v=9xQp2sldyts" borderStyle="roundedRect" placeholder="ссылка" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Uj-RG-DeO">
                                                 <rect key="frame" x="40" y="317" width="334" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -857,16 +934,16 @@
                     </view>
                     <navigationItem key="navigationItem" id="NmE-Z6-ApK"/>
                     <connections>
-                        <outlet property="descriptionLabel" destination="hQX-LY-7m8" id="Voc-ez-oVK"/>
-                        <outlet property="equipmentLabel" destination="yxC-B3-dQC" id="guT-Ic-E8G"/>
+                        <outlet property="descriptionTextField" destination="hQX-LY-7m8" id="Voc-ez-oVK"/>
+                        <outlet property="equipmentTextField" destination="yxC-B3-dQC" id="guT-Ic-E8G"/>
                         <outlet property="nameTextField" destination="g53-mV-cuK" id="HHU-yN-CHh"/>
-                        <outlet property="typeLabel" destination="JNU-aj-nGh" id="UtY-wr-hPU"/>
-                        <outlet property="videoUrlLabel" destination="5Uj-RG-DeO" id="AGb-cV-UPY"/>
+                        <outlet property="typeTextField" destination="JNU-aj-nGh" id="UtY-wr-hPU"/>
+                        <outlet property="videoUrlTextField" destination="5Uj-RG-DeO" id="AGb-cV-UPY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BrT-d9-iAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1900.0000000000002" y="162.72321428571428"/>
+            <point key="canvasLocation" x="1874" y="-106"/>
         </scene>
     </scenes>
     <resources>
