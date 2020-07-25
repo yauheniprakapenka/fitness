@@ -15,6 +15,13 @@ class ExcersisesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        FirestoreService.shared.fetchExercisesList {
+            FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises) {
+                self.tableView.reloadData()
+            }
+           
+        }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -61,10 +68,10 @@ extension ExcersisesViewController {
 extension ExcersisesViewController: AddExerciseViewControllerDelegate {
     func updateUI() {
         FirestoreService.shared.fetchExercisesList() {
-            FirestoreService.shared.fetchExercises(userListExercises: exersisesList.currentExercises)
+            FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises) {}
         }
-      
+        
         self.tableView.reloadData()
     }
-
+    
 }

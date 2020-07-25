@@ -22,7 +22,7 @@ extension FirestoreService {
         }
     }
     
-    func getProfile(completion: @escaping () -> Void) {
+    func fetchProfile(completion: @escaping () -> Void) {
         let docRef = db.collection("users").document(profileInfo.uid)
         
         docRef.getDocument { (document, error) in

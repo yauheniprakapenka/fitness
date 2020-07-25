@@ -54,7 +54,7 @@ class AddExerciseViewController: UIViewController {
                 FirestoreService.shared.addExersiseToList(name: self.nameTextField.text ?? "")
                 
                 FirestoreService.shared.fetchExercisesList() {
-                    FirestoreService.shared.fetchExercises(userListExercises: exersisesList.currentExercises)
+                    FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises, completion: nil)
                 }
                 
                 self.dismiss(animated: true) {

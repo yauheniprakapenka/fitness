@@ -20,7 +20,7 @@ class AthleteViewController: UIViewController {
     ]
 
     @IBAction func profileButtonTapped(_ sender: Any) {
-        FirestoreService.shared.getProfile {
+        FirestoreService.shared.fetchProfile {
             let vc = self.storyboard!.instantiateViewController(withIdentifier: "ProfileID") as! ProfileViewController
             self.present(vc, animated:true, completion: nil)
         }

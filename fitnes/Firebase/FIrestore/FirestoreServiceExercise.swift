@@ -82,20 +82,20 @@ extension FirestoreService {
     }
     
     // MARK: - Получить все упражнения
-    func fetchExercises(userListExercises: [String]) {
-        exercises = [exerciseModel]()
+    func fetchExercises(list: [String], completion: (() -> Void)? = nil) {
+        exercises = [ExerciseModel]()
 
-        for userExercise in userListExercises {
-            let docRef = db.collection("exercises").document(profileInfo.uid).collection(userExercise).document(userExercise)
+        for exercise in list {
+            let docRef = db.collection("exercises").document(profileInfo.uid).collection(exercise).document(exercise)
             docRef.getDocument { (document, error) in
                 let result = Result {
-                    try document?.data(as: exerciseModel.self)
+                    try document?.data(as: ExerciseModel.self)
                 }
                 
                 switch result {
                 case .success(let firestoreExercise):
                     if let firestoreExercise = firestoreExercise {
-                        let profileExercise = exerciseModel(
+                        let profileExercise = ExerciseModel(
                             name: firestoreExercise.name,
                             type: firestoreExercise.type,
                             description: firestoreExercise.description,
@@ -105,7 +105,7 @@ extension FirestoreService {
                         exercises.append(profileExercise)
                     
                         print("Упражнения профиля: \(exersisesList.currentExercises)")
-                      
+                      completion?()
                     } else {
                         print("Document does not exist")
                     }
