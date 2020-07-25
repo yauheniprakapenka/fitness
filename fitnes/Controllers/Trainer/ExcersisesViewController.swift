@@ -70,7 +70,6 @@ extension ExcersisesViewController {
 
 // MARK: - Did Select Row At indexPath
 extension ExcersisesViewController {
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let exercise = exercises[indexPath.row]
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)

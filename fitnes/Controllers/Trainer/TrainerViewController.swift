@@ -22,4 +22,11 @@ class TrainerViewController: UIViewController {
         let vc = self.storyboard!.instantiateViewController(withIdentifier: "ExerciseVC") as! ExcersisesViewController
         present(vc, animated: true)
     }
+    
+    @IBAction func scheduleButtonTapped(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let scheduleVC = storyBoard.instantiateViewController(withIdentifier: "scheduleVC") as! ScheduleViewController
+        present(scheduleVC, animated: true, completion: nil)
+    }
+    
 }

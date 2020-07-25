@@ -28,6 +28,7 @@
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
 		3E87232724BFAD35005FC365 /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* ShowAlert.swift */; };
 		3E8DE57824CC0A6300DFB220 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE57724CC0A6300DFB220 /* ExerciseViewController.swift */; };
+		3E8DE57A24CC3DE800DFB220 /* ScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE57924CC3DE800DFB220 /* ScheduleViewController.swift */; };
 		3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */; };
 		3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */; };
 		3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */; };
@@ -65,6 +66,7 @@
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E87232624BFAD35005FC365 /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
 		3E8DE57724CC0A6300DFB220 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
+		3E8DE57924CC3DE800DFB220 /* ScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewController.swift; sourceTree = "<group>"; };
 		3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
 		3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 				3E64BCFC24C473E60014E91B /* ExcersisesViewController.swift */,
 				3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */,
 				3E8DE57724CC0A6300DFB220 /* ExerciseViewController.swift */,
+				3E8DE57924CC3DE800DFB220 /* ScheduleViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -378,6 +381,7 @@
 				3E235B3324BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift in Sources */,
 				3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */,
 				3E707E2C24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift in Sources */,
+				3E8DE57A24CC3DE800DFB220 /* ScheduleViewController.swift in Sources */,
 				3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */,
 				3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
