@@ -17,4 +17,23 @@ extension UIViewController {
         present(alertController, animated: true)
     }
     
+    func showEditScheduleAlert(selectedText: String, editedText: @escaping (String) -> Void) {
+        let ac = UIAlertController(title: "Редактирование", message: "Измените запись", preferredStyle: .alert)
+
+        let cancelAction = UIAlertAction(title: "Отменить", style: .default)
+
+        ac.addTextField { (textField) in
+            textField.text = selectedText
+        }
+       
+        let savetAction = UIAlertAction(title: "Сохранить", style: .default) { [unowned ac] _ in
+            let text = (ac.textFields![0].text ?? "") as String
+            editedText(text)
+        }
+
+        ac.addAction(cancelAction)
+        ac.addAction(savetAction)
+
+        present(ac, animated: true)
+    }
 }
