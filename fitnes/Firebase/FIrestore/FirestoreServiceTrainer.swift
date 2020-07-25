@@ -19,7 +19,7 @@ extension FirestoreService {
             switch result {
             case .success(let firestoreUser):
                 if let firestoreUser = firestoreUser {
-                    print("Document exist")
+                    print("Document exist: \(firestoreUser.name), \(firestoreUser.uid)")
                 } else {
 //                    print("Document does not exist")
                     completion()

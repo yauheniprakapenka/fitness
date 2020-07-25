@@ -15,10 +15,10 @@ protocol AddExerciseViewControllerDelegate {
 class AddExerciseViewController: UIViewController {
     
     @IBOutlet var nameTextField: UITextField!
-    @IBOutlet var descriptionLabel: UITextField!
-    @IBOutlet var equipmentLabel: UITextField!
-    @IBOutlet var typeLabel: UITextField!
-    @IBOutlet var videoUrlLabel: UITextField!
+    @IBOutlet var descriptionTextField: UITextField!
+    @IBOutlet var equipmentTextField: UITextField!
+    @IBOutlet var typeTextField: UITextField!
+    @IBOutlet var videoUrlTextField: UITextField!
     
     var delegate: AddExerciseViewControllerDelegate!
     
@@ -31,7 +31,7 @@ class AddExerciseViewController: UIViewController {
             semaphore.wait()
             
             FirestoreService.shared.fetchExercisesList() {
-                let isExerciseExistInList = FirestoreService.shared.isExerciseExist(name: self.nameTextField.text ?? "")
+                let isExerciseExistInList = FirestoreService.shared.isExerciseExist(name: self.nameTextField.text!)
                 if isExerciseExistInList {
                     self.showAlert(title: "", message: "Имя упражнения уже существует")
                     return
@@ -46,10 +46,10 @@ class AddExerciseViewController: UIViewController {
             
             DispatchQueue.main.async {
                 FirestoreService.shared.saveExercise(name: self.nameTextField.text ?? "",
-                                                     type: self.typeLabel.text ?? "",
-                                                     description: self.descriptionLabel.text ?? "",
-                                                     equipment: self.equipmentLabel.text ?? "",
-                                                     videoUrl: self.videoUrlLabel.text ?? "")
+                                                     type: self.typeTextField.text ?? "",
+                                                     description: self.descriptionTextField.text ?? "",
+                                                     equipment: self.equipmentTextField.text ?? "",
+                                                     videoUrl: self.videoUrlTextField.text ?? "")
                 
                 FirestoreService.shared.addExersiseToList(name: self.nameTextField.text ?? "")
                 

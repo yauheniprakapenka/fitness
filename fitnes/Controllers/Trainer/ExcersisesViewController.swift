@@ -14,29 +14,33 @@ class ExcersisesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        FirestoreService.shared.fetchExercisesList {
-            FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises) {
-                self.tableView.reloadData()
-            }
-           
-        }
-        
+        updateUI()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let AddExerciseVC = segue.destination as! AddExerciseViewController
-        AddExerciseVC.delegate = self
+        let vc = segue.destination as! AddExerciseViewController
+        vc.delegate = self
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        performSegue(withIdentifier: "AddExerciseID", sender: nil)
+        performSegue(withIdentifier: "AddExercise", sender: nil)
     }
     
     @IBAction func refreshButtonTapped(_ sender: Any) {
-        updateUI() 
+        updateUI()
     }
-    
+}
+
+
+// MARK: - Add Exercise View Controller Delegate
+extension ExcersisesViewController: AddExerciseViewControllerDelegate {
+    internal func updateUI() {
+        FirestoreService.shared.fetchExercisesList() {
+            FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises) {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 
 
@@ -64,14 +68,14 @@ extension ExcersisesViewController {
 }
 
 
-// MARK: - Add Exercise View Controller Delegate
-extension ExcersisesViewController: AddExerciseViewControllerDelegate {
-    func updateUI() {
-        FirestoreService.shared.fetchExercisesList() {
-            FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises) {}
-        }
-        
-        self.tableView.reloadData()
-    }
+// MARK: - Did Select Row At indexPath
+extension ExcersisesViewController {
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let exercise = exercises[indexPath.row]
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let exerciseVC = storyBoard.instantiateViewController(withIdentifier: "SelectedExerciseVC") as! ExerciseViewController
+        exerciseVC.exercise = exercise
+        present(exerciseVC, animated: true, completion: nil)
+    }
 }
