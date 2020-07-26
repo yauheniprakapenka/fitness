@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="497"/>
+            <point key="canvasLocation" x="159" y="1142"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="GiZ-wI-HNi">
@@ -124,7 +124,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Niu-hj-I03" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7" y="1217"/>
+            <point key="canvasLocation" x="159" y="1862"/>
         </scene>
         <!--Новый инвентарь-->
         <scene sceneID="LEi-AV-Tme">
@@ -269,7 +269,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bZ5-yY-kQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="2UV-zw-gv8" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1904" y="497"/>
+            <point key="canvasLocation" x="2057" y="1142"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="HVd-D9-2uU">
@@ -459,7 +459,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JHz-Ex-7BU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-901" y="497"/>
+            <point key="canvasLocation" x="-748" y="1142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="YtC-mf-80H">
@@ -480,7 +480,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QxZ-Yn-R2L" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="994" y="497"/>
+            <point key="canvasLocation" x="1146" y="1142"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="KYR-fG-HOg">
@@ -565,12 +565,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qqc-QA-Zvz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="-548"/>
+            <point key="canvasLocation" x="54" y="-510"/>
         </scene>
         <!--Trainer View Controller-->
         <scene sceneID="TMH-qm-Eiw">
             <objects>
-                <viewController storyboardIdentifier="TrainerVC" id="u9N-N6-tr7" customClass="TrainerViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="trainerID" id="u9N-N6-tr7" customClass="TrainerViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qtM-Ah-XQS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -607,6 +607,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Атлеты"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVY-aE-5r7">
+                                <rect key="frame" x="40" y="104" width="42" height="30"/>
+                                <state key="normal" title="Меню"/>
+                                <connections>
+                                    <action selector="sideMenuTapped:" destination="u9N-N6-tr7" eventType="touchUpInside" id="F9E-IK-VLh"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -616,6 +623,7 @@
                             <constraint firstItem="amQ-bb-E2x" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="Nkt-3L-gRQ"/>
                             <constraint firstItem="4c9-tp-Fgp" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="Vys-qr-vfr"/>
                             <constraint firstItem="amQ-bb-E2x" firstAttribute="top" secondItem="4c9-tp-Fgp" secondAttribute="bottom" constant="60" id="Xk9-sw-s52"/>
+                            <constraint firstItem="hVY-aE-5r7" firstAttribute="top" secondItem="dHP-sp-8pH" secondAttribute="top" constant="60" id="ZHv-5U-y4k"/>
                             <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="QkQ-tz-U7M" secondAttribute="trailing" constant="40" id="ZYo-Bv-5aq"/>
                             <constraint firstItem="eIY-sq-IeM" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="bXH-JV-QLZ"/>
                             <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="amQ-bb-E2x" secondAttribute="trailing" constant="40" id="ckL-u7-9RP"/>
@@ -623,6 +631,7 @@
                             <constraint firstItem="4c9-tp-Fgp" firstAttribute="top" secondItem="dHP-sp-8pH" secondAttribute="top" constant="60" id="g3q-wj-b6L"/>
                             <constraint firstItem="QkQ-tz-U7M" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="lHY-KB-TnY"/>
                             <constraint firstItem="jOR-nl-n09" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="qvZ-GX-TX5"/>
+                            <constraint firstItem="hVY-aE-5r7" firstAttribute="leading" secondItem="dHP-sp-8pH" secondAttribute="leading" constant="40" id="tw7-M7-Z3E"/>
                             <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="eIY-sq-IeM" secondAttribute="trailing" constant="40" id="u3g-8K-ybl"/>
                             <constraint firstItem="dHP-sp-8pH" firstAttribute="trailing" secondItem="4c9-tp-Fgp" secondAttribute="trailing" constant="40" id="yY8-Xj-GPG"/>
                         </constraints>
@@ -631,7 +640,22 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3xF-aQ-dhN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1557" y="-785"/>
+            <point key="canvasLocation" x="1748" y="64"/>
+        </scene>
+        <!--Container View Controller-->
+        <scene sceneID="nQm-36-WCZ">
+            <objects>
+                <viewController storyboardIdentifier="containerID" id="dgb-hA-yzy" customClass="ContainerViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CMX-b1-bFb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="F6w-Sw-12p"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3VE-F0-6BS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="906" y="-342"/>
         </scene>
         <!--Training View Controller-->
         <scene sceneID="5yD-EU-l9H">
@@ -700,7 +724,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJh-X6-uRS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2584.057971014493" y="-467.41071428571428"/>
+            <point key="canvasLocation" x="3313" y="370"/>
         </scene>
         <!--Add Training View Controller-->
         <scene sceneID="7Fj-3x-ly3">
@@ -760,7 +784,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="plO-Sp-TCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3353" y="-459"/>
+            <point key="canvasLocation" x="4122" y="370"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="bXN-e0-EWh">
+            <objects>
+                <viewController storyboardIdentifier="sideMenuID" id="hdQ-Bu-ZbW" customClass="SideMenuViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ggW-fk-EDc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Профиль" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsJ-aw-WdT">
+                                <rect key="frame" x="20" y="84" width="374" height="27"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dI2-YZ-d87">
+                                <rect key="frame" x="20" y="151" width="374" height="711"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sideMenuCellID" id="n69-aH-wJs">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="n69-aH-wJs" id="Jov-wa-ekA">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="hdQ-Bu-ZbW" id="u2c-rw-d0O"/>
+                                    <outlet property="delegate" destination="hdQ-Bu-ZbW" id="Bg2-Nc-iFo"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemGray4Color" red="0.81960784310000001" green="0.81960784310000001" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MmS-Ye-I4S" firstAttribute="trailing" secondItem="tsJ-aw-WdT" secondAttribute="trailing" constant="20" id="4dM-dl-MCO"/>
+                            <constraint firstItem="MmS-Ye-I4S" firstAttribute="trailing" secondItem="dI2-YZ-d87" secondAttribute="trailing" constant="20" id="BXc-Es-vqJ"/>
+                            <constraint firstItem="tsJ-aw-WdT" firstAttribute="leading" secondItem="MmS-Ye-I4S" secondAttribute="leading" constant="20" id="MpE-ib-I7C"/>
+                            <constraint firstItem="dI2-YZ-d87" firstAttribute="bottom" secondItem="MmS-Ye-I4S" secondAttribute="bottom" id="P8i-lZ-CNp"/>
+                            <constraint firstItem="dI2-YZ-d87" firstAttribute="leading" secondItem="MmS-Ye-I4S" secondAttribute="leading" constant="20" id="PM0-f1-oD8"/>
+                            <constraint firstItem="tsJ-aw-WdT" firstAttribute="top" secondItem="MmS-Ye-I4S" secondAttribute="top" constant="40" id="ToZ-Ra-Yg0"/>
+                            <constraint firstItem="dI2-YZ-d87" firstAttribute="top" secondItem="tsJ-aw-WdT" secondAttribute="bottom" constant="40" id="o16-oa-but"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MmS-Ye-I4S"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="dI2-YZ-d87" id="rmR-3j-8fc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Wi-FW-igT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1718.840579710145" y="-660.26785714285711"/>
         </scene>
         <!--Exerсises View Controller-->
         <scene sceneID="Dju-IO-mYW">
@@ -877,7 +955,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z70-wV-J3N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2574" y="-1173"/>
+            <point key="canvasLocation" x="3312" y="-354"/>
         </scene>
         <!--Exercise View Controller-->
         <scene sceneID="dSO-KJ-d8g">
@@ -953,7 +1031,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PAc-a1-oDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4093" y="-1173"/>
+            <point key="canvasLocation" x="4920" y="-354"/>
         </scene>
         <!--Add Exercise View Controller-->
         <scene sceneID="c2m-FS-2P5">
@@ -1071,7 +1149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BrT-d9-iAG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3330" y="-1172"/>
+            <point key="canvasLocation" x="4123" y="-354"/>
         </scene>
     </scenes>
     <resources>

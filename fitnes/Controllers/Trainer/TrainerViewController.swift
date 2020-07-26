@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol TrainerViewControllerDelegate {
+    func toggleMenu()
+}
+
 class TrainerViewController: UIViewController {
+    
+    var delegate: TrainerViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,4 +35,7 @@ class TrainerViewController: UIViewController {
         present(scheduleVC, animated: true, completion: nil)
     }
     
+    @IBAction func sideMenuTapped(_ sender: Any) {
+        delegate?.toggleMenu()
+    }
 }

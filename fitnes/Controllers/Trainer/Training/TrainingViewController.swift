@@ -8,11 +8,6 @@
 
 import UIKit
 
-struct TrainingModel {
-    var day: String
-    var training: [String]
-}
-
 class TrainingViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
