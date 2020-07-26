@@ -8,23 +8,23 @@
 
 import UIKit
 
-struct Calendar {
+struct TrainingModel {
     var day: String
-    var shedule: [String]
+    var training: [String]
 }
 
-class ScheduleViewController: UIViewController {
+class TrainingViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var calendar: [Calendar] = [
-        Calendar(day: "Понедельник", shedule: ["08:30 Земфира Приседания", "14:30 Лусине Геворкян Силовая тренировка", "14:30 Марта Силовая тренировка"]),
-        Calendar(day: "Вторник", shedule: ["13:30 Мария Приседания"]),
-        Calendar(day: "Среда", shedule: ["08:30 Екатерина Приседания", "11:30 Анастасия Силовая тренировка"]),
-        Calendar(day: "Четверг", shedule: ["08:30 Екатерина Приседания", "14:30 Лиза Силовая тренировка"]),
-        Calendar(day: "Пятница", shedule: ["16:30 Линда Приседания"]),
-        Calendar(day: "Суббота", shedule: ["11:30 Вика Приседания", "14:30 Лида Силовая тренировка"]),
-        Calendar(day: "Воскресенье", shedule: ["14:30 Екатерина Приседания"])
+    var trainings: [TrainingModel] = [
+        TrainingModel(day: "Понедельник", training: ["08:30 Земфира Приседания", "14:30 Лусине Геворкян Силовая тренировка", "14:30 Марта Силовая тренировка"]),
+        TrainingModel(day: "Вторник", training: ["13:30 Мария Приседания"]),
+        TrainingModel(day: "Среда", training: ["08:30 Екатерина Приседания", "11:30 Анастасия Силовая тренировка"]),
+        TrainingModel(day: "Четверг", training: ["08:30 Екатерина Приседания", "14:30 Лиза Силовая тренировка"]),
+        TrainingModel(day: "Пятница", training: ["16:30 Линда Приседания"]),
+        TrainingModel(day: "Суббота", training: ["11:30 Вика Приседания", "14:30 Лида Силовая тренировка"]),
+        TrainingModel(day: "Воскресенье", training: ["14:30 Екатерина Приседания"])
     ]
     
     override func viewDidLoad() {
@@ -33,23 +33,29 @@ class ScheduleViewController: UIViewController {
         let interaction = UIContextMenuInteraction(delegate: self)
         tableView.addInteraction(interaction)
     }
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "addTraining") as! AddTrainingViewController
+        present(vc, animated: true)
+    }
+    
 }
 
 
 // MARK: - UI Table View Data Source
-extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
+extension TrainingViewController: UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        calendar.count
+        trainings.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        calendar[section].shedule.count
+        trainings[section].training.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "scheduleCell", for: indexPath)
-        cell.textLabel?.text = calendar[indexPath.section].shedule[indexPath.row]
+        cell.textLabel?.text = trainings[indexPath.section].training[indexPath.row]
         return cell
     }
     
@@ -58,7 +64,7 @@ extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
         view.backgroundColor = #colorLiteral(red: 0.8719801903, green: 0.8719801903, blue: 0.8719801903, alpha: 1)
         
         let label = UILabel(frame: CGRect(x: 15, y: 0, width: view.frame.width - 15, height: 40))
-        label.text = calendar[section].day
+        label.text = trainings[section].day
         label.textColor = .black
         view.addSubview(label)
         return view
@@ -71,14 +77,14 @@ extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
         
         let add = UIAction(title: "Редактировать", image: UIImage(systemName: "square.and.pencil")) { action in
-            self.showEditScheduleAlert(selectedText: self.calendar[indexPath.section].shedule[indexPath.row]) { (editedText) in
-                self.calendar[indexPath.section].shedule[indexPath.row] = editedText
+            self.showEditScheduleAlert(selectedText: self.trainings[indexPath.section].training[indexPath.row]) { (editedText) in
+                self.trainings[indexPath.section].training[indexPath.row] = editedText
                 self.tableView.reloadData()
             }
         }
         
         let delete = UIAction(title: "Удалить", image: UIImage(systemName: "trash.fill"), attributes: [.destructive]) { action in
-            self.calendar[indexPath.section].shedule.remove(at: indexPath.row)
+            self.trainings[indexPath.section].training.remove(at: indexPath.row)
             
             print("Секция: \(indexPath.section), ряд: \(indexPath.row)")
             tableView.reloadData()
@@ -92,7 +98,7 @@ extension ScheduleViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 // MARK: - UI Context Menu Interaction Delegate
-extension ScheduleViewController: UIContextMenuInteractionDelegate {
+extension TrainingViewController: UIContextMenuInteractionDelegate {
     func contextMenuInteraction(_ interaction: UIContextMenuInteraction, configurationForMenuAtLocation location: CGPoint) -> UIContextMenuConfiguration? {
         return nil
     }

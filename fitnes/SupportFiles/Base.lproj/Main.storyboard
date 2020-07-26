@@ -633,10 +633,10 @@
             </objects>
             <point key="canvasLocation" x="1557" y="-785"/>
         </scene>
-        <!--Schedule View Controller-->
+        <!--Training View Controller-->
         <scene sceneID="5yD-EU-l9H">
             <objects>
-                <viewController storyboardIdentifier="scheduleVC" id="wdp-G6-RYg" customClass="ScheduleViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="scheduleVC" id="wdp-G6-RYg" customClass="TrainingViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1C0-dh-Krj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -665,10 +665,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYE-Go-z38">
+                                <rect key="frame" x="352" y="64" width="42" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="9V0-vR-OWD"/>
+                                    <constraint firstAttribute="width" constant="42" id="jVT-a0-KtK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="addButtonTapped:" destination="wdp-G6-RYg" eventType="touchUpInside" id="QUc-76-0Cf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="gOs-ja-l4C" firstAttribute="top" secondItem="qO1-hQ-x8h" secondAttribute="bottom" constant="40" id="1dV-mH-qIQ"/>
+                            <constraint firstItem="oYE-Go-z38" firstAttribute="top" secondItem="Rs8-XH-He4" secondAttribute="top" constant="20" id="40S-D1-jPw"/>
+                            <constraint firstItem="Rs8-XH-He4" firstAttribute="trailing" secondItem="oYE-Go-z38" secondAttribute="trailing" constant="20" id="YJK-Bp-Ld6"/>
                             <constraint firstItem="gOs-ja-l4C" firstAttribute="trailing" secondItem="Rs8-XH-He4" secondAttribute="trailing" id="bGs-OF-Kl1"/>
                             <constraint firstItem="gOs-ja-l4C" firstAttribute="bottom" secondItem="Rs8-XH-He4" secondAttribute="bottom" id="bad-tu-kgz"/>
                             <constraint firstItem="gOs-ja-l4C" firstAttribute="leading" secondItem="Rs8-XH-He4" secondAttribute="leading" id="c9w-ex-CAZ"/>
@@ -686,10 +702,70 @@
             </objects>
             <point key="canvasLocation" x="2584.057971014493" y="-467.41071428571428"/>
         </scene>
-        <!--Excersises View Controller-->
+        <!--Add Training View Controller-->
+        <scene sceneID="7Fj-3x-ly3">
+            <objects>
+                <viewController storyboardIdentifier="addTraining" id="UO5-wP-bYK" customClass="AddTrainingViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Cgh-ep-5a3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Создание тренировки" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UgR-RP-Dro">
+                                <rect key="frame" x="20" y="84" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Название" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eLP-Mu-3UI">
+                                <rect key="frame" x="40" y="145" width="334" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLY-HS-7ee">
+                                <rect key="frame" x="40" y="219" width="334" height="30"/>
+                                <state key="normal" title="Выберите секцию"/>
+                                <connections>
+                                    <action selector="typeSectionButtonTapped:" destination="UO5-wP-bYK" eventType="touchUpInside" id="smW-RC-COQ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="конфигурация тренировки" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wx-2g-V5z">
+                                <rect key="frame" x="40" y="289" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bLY-HS-7ee" firstAttribute="leading" secondItem="pI2-tE-NfX" secondAttribute="leading" constant="40" id="04h-iH-1iu"/>
+                            <constraint firstItem="UgR-RP-Dro" firstAttribute="top" secondItem="pI2-tE-NfX" secondAttribute="top" constant="40" id="5gQ-2j-HiV"/>
+                            <constraint firstItem="pI2-tE-NfX" firstAttribute="trailing" secondItem="UgR-RP-Dro" secondAttribute="trailing" constant="20" id="MGE-vu-gPG"/>
+                            <constraint firstItem="pI2-tE-NfX" firstAttribute="trailing" secondItem="bLY-HS-7ee" secondAttribute="trailing" constant="40" id="NKD-jy-QTA"/>
+                            <constraint firstItem="pI2-tE-NfX" firstAttribute="trailing" secondItem="eLP-Mu-3UI" secondAttribute="trailing" constant="40" id="Tx0-uu-Tii"/>
+                            <constraint firstItem="3wx-2g-V5z" firstAttribute="leading" secondItem="pI2-tE-NfX" secondAttribute="leading" constant="40" id="Ugx-Ue-rFW"/>
+                            <constraint firstItem="UgR-RP-Dro" firstAttribute="leading" secondItem="pI2-tE-NfX" secondAttribute="leading" constant="20" id="gqU-31-Jco"/>
+                            <constraint firstItem="eLP-Mu-3UI" firstAttribute="top" secondItem="UgR-RP-Dro" secondAttribute="bottom" constant="40" id="kgW-W7-zhh"/>
+                            <constraint firstItem="eLP-Mu-3UI" firstAttribute="leading" secondItem="pI2-tE-NfX" secondAttribute="leading" constant="40" id="qr7-0p-aAN"/>
+                            <constraint firstItem="bLY-HS-7ee" firstAttribute="top" secondItem="eLP-Mu-3UI" secondAttribute="bottom" constant="40" id="sQJ-SY-dpo"/>
+                            <constraint firstItem="3wx-2g-V5z" firstAttribute="top" secondItem="bLY-HS-7ee" secondAttribute="bottom" constant="40" id="uOl-d0-lbj"/>
+                            <constraint firstItem="pI2-tE-NfX" firstAttribute="trailing" secondItem="3wx-2g-V5z" secondAttribute="trailing" constant="40" id="xGi-Wb-TF3"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="pI2-tE-NfX"/>
+                    </view>
+                    <connections>
+                        <outlet property="configTrainingLabel" destination="3wx-2g-V5z" id="PKA-Aw-gbk"/>
+                        <outlet property="nameTextField" destination="eLP-Mu-3UI" id="pto-TO-6bs"/>
+                        <outlet property="typeSectionButton" destination="bLY-HS-7ee" id="6C9-Wc-2Eb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="plO-Sp-TCV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3353" y="-459"/>
+        </scene>
+        <!--Exerсises View Controller-->
         <scene sceneID="Dju-IO-mYW">
             <objects>
-                <viewController storyboardIdentifier="ExerciseVC" id="qEp-HS-RhH" customClass="ExcersisesViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ExerciseVC" id="qEp-HS-RhH" customClass="ExerсisesViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Tb-CQ-1HW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
