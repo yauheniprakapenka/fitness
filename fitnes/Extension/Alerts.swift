@@ -36,4 +36,36 @@ extension UIViewController {
 
         present(ac, animated: true)
     }
+    
+    func showTypeSectionAlert(amrap: @escaping (TypeSection) -> Void, emom: @escaping (TypeSection) -> Void, forTime: @escaping (TypeSection) -> Void, rest: @escaping (TypeSection) -> Void) {
+        
+        let ac = UIAlertController(title: "", message: "Выберите секцию", preferredStyle:     .actionSheet)
+        
+        let amrap = UIAlertAction(title: "AMRAP", style: .default) { _ in
+            amrap(TypeSection.amrap)
+        }
+        
+        let emom = UIAlertAction(title: "EMOM", style: .default) { _ in
+            emom(TypeSection.emom)
+        }
+        
+        let forTime = UIAlertAction(title: "FOR TIME", style: .default) { _ in
+            forTime(TypeSection.forTime)
+        }
+        
+        let rest = UIAlertAction(title: "REST", style: .default) { _ in
+            rest(TypeSection.rest)
+               }
+        
+        let cancel = UIAlertAction(title: "Отменить", style: .cancel)
+        
+        ac.addAction(amrap)
+        ac.addAction(emom)
+        ac.addAction(forTime)
+        ac.addAction(rest)
+        ac.addAction(cancel)
+        
+        present(ac, animated: true)
+    }
 }
+

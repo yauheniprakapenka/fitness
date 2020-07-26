@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExcersisesViewController: UIViewController {
+class ExerсisesViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
@@ -33,7 +33,7 @@ class ExcersisesViewController: UIViewController {
 
 
 // MARK: - Add Exercise View Controller Delegate
-extension ExcersisesViewController: AddExerciseViewControllerDelegate {
+extension ExerсisesViewController: AddExerciseViewControllerDelegate {
     internal func updateUI() {
         FirestoreService.shared.fetchExercisesList() {
             FirestoreService.shared.fetchExercises(list: exersisesList.currentExercises) {
@@ -45,7 +45,7 @@ extension ExcersisesViewController: AddExerciseViewControllerDelegate {
 
 
 // MARK: - UI Table View Data Source, UI Table View Delegate
-extension ExcersisesViewController: UITableViewDataSource, UITableViewDelegate {
+extension ExerсisesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         exercises.count
     }
@@ -61,7 +61,7 @@ extension ExcersisesViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 // MARK: - UI Table Height For Row At
-extension ExcersisesViewController {
+extension ExerсisesViewController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         84
     }
@@ -69,7 +69,7 @@ extension ExcersisesViewController {
 
 
 // MARK: - Did Select Row At indexPath
-extension ExcersisesViewController {
+extension ExerсisesViewController {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let exercise = exercises[indexPath.row]
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
