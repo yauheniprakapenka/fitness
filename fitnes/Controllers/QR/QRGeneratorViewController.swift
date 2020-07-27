@@ -8,12 +8,12 @@
 
 import UIKit
 
-class QRViewController: UIViewController {
+class QRGeneratorViewController: UIViewController {
     
     @IBOutlet var qrImageView: UIImageView!
     
     @IBAction func generateQRButtonTapped(_ sender: Any) {
-        let image = generateQRCode(string: "Hacking with Swift is the best iOS coding tutorial I've ever read!")
+        let image = generateQRCode(string: "Hello World")
         
         qrImageView.image = image
     }
