@@ -14,7 +14,7 @@ class MainViewController: UIViewController {
     
     @IBAction func qrButtonTapped(_ sender: Any) {
         
-        let vc = storyboard?.instantiateViewController(withIdentifier: "qrCodeId") as! QRViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "qrCodeId") as! QRGeneratorViewController
         
         present(vc, animated: true)
     }

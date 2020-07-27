@@ -419,10 +419,41 @@
             </objects>
             <point key="canvasLocation" x="55" y="-1207"/>
         </scene>
-        <!--View Controller-->
+        <!--Scanner View Controller-->
+        <scene sceneID="Emw-h2-7rW">
+            <objects>
+                <viewController id="fcQ-gg-zlU" customClass="QRScannerViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LKI-tD-7eH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WIp-Ym-1Cx">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hYl-RN-DMA" firstAttribute="trailing" secondItem="WIp-Ym-1Cx" secondAttribute="trailing" id="L4b-Gl-t9D"/>
+                            <constraint firstItem="WIp-Ym-1Cx" firstAttribute="top" secondItem="hYl-RN-DMA" secondAttribute="top" id="dMk-qd-XCj"/>
+                            <constraint firstItem="WIp-Ym-1Cx" firstAttribute="leading" secondItem="hYl-RN-DMA" secondAttribute="leading" id="wP1-dO-odN"/>
+                            <constraint firstItem="hYl-RN-DMA" firstAttribute="bottom" secondItem="WIp-Ym-1Cx" secondAttribute="bottom" id="yq8-FS-PFJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="hYl-RN-DMA"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="GMB-Uo-Fnm"/>
+                    <connections>
+                        <outlet property="previewView" destination="WIp-Ym-1Cx" id="z3H-jE-bK4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UKp-ut-eV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2134" y="-1624"/>
+        </scene>
+        <!--Generator View Controller-->
         <scene sceneID="0Kw-t5-6JE">
             <objects>
-                <viewController storyboardIdentifier="qrCodeId" id="Xro-DT-en6" customClass="QRViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="qrCodeId" id="Xro-DT-en6" customClass="QRGeneratorViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5SI-Nb-iby">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -445,14 +476,25 @@
                                     <constraint firstAttribute="height" constant="240" id="y51-mE-NuD"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRg-kQ-R9J">
+                                <rect key="frame" x="40" y="484" width="334" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Сканировать QR-код"/>
+                                <connections>
+                                    <segue destination="fcQ-gg-zlU" kind="modal" modalPresentationStyle="fullScreen" id="6vO-5o-aj3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="uRg-kQ-R9J" firstAttribute="top" secondItem="4T8-NF-YgH" secondAttribute="bottom" constant="80" id="6df-oj-n36"/>
                             <constraint firstItem="9YG-AA-V6l" firstAttribute="top" secondItem="PSM-ji-Tkq" secondAttribute="top" constant="40" id="8iP-f6-6F8"/>
                             <constraint firstItem="4T8-NF-YgH" firstAttribute="top" secondItem="9YG-AA-V6l" secondAttribute="bottom" constant="40" id="G3V-aw-wbw"/>
+                            <constraint firstItem="uRg-kQ-R9J" firstAttribute="leading" secondItem="PSM-ji-Tkq" secondAttribute="leading" constant="40" id="Nbz-EY-LaX"/>
                             <constraint firstItem="PSM-ji-Tkq" firstAttribute="trailing" secondItem="9YG-AA-V6l" secondAttribute="trailing" constant="40" id="OMy-po-mpz"/>
                             <constraint firstItem="4T8-NF-YgH" firstAttribute="centerX" secondItem="5SI-Nb-iby" secondAttribute="centerX" id="qhN-k7-mdz"/>
                             <constraint firstItem="9YG-AA-V6l" firstAttribute="leading" secondItem="PSM-ji-Tkq" secondAttribute="leading" constant="40" id="t7I-zN-C41"/>
+                            <constraint firstItem="PSM-ji-Tkq" firstAttribute="trailing" secondItem="uRg-kQ-R9J" secondAttribute="trailing" constant="40" id="xQx-ML-oDD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PSM-ji-Tkq"/>
                     </view>
