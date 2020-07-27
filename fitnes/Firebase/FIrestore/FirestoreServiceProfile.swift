@@ -8,11 +8,12 @@
 
 extension FirestoreService {
     
-    func saveProfile(email: String, uid: String) {
+    func saveProfile(email: String, uid: String, name: String, phone: String) {
         db.collection("users").document(profileInfo.uid).setData([
             "email": email,
             "uid": uid,
-            "name": "",
+            "name": name,
+            "phone": phone
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -37,6 +38,7 @@ extension FirestoreService {
                     profileInfo.email = firestoreUser.email
                     profileInfo.name = firestoreUser.name
                     profileInfo.uid = firestoreUser.uid
+                    profileInfo.phone = firestoreUser.phone
                     completion()
                 } else {
                     print("Document does not exist")

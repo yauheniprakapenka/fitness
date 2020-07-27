@@ -29,7 +29,7 @@ class RegisterViewController: UIViewController {
                 profileInfo.email = String(user.email ?? "")
                 profileInfo.uid = String(user.uid)
                 
-                FirestoreService.shared.saveProfile(email: profileInfo.email, uid: profileInfo.uid)
+                FirestoreService.shared.saveProfile(email: profileInfo.email, uid: profileInfo.uid, name: "Не указано", phone: "Не указано")
                 
                 self.presentRoleProfile()
                 

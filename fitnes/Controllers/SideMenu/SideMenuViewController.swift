@@ -18,9 +18,14 @@ class SideMenuViewController: UIViewController {
 
     let sideMenu: [SideMenuModel] = [
         SideMenuModel(menu: "ФИО"),
-        SideMenuModel(menu: "Телефон"),
-        SideMenuModel(menu: "Показатели")
+        SideMenuModel(menu: "QR")
     ]
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileID") as! ProfileViewController
+        present(vc, animated: true)
+    }
+    
 }
 
 
