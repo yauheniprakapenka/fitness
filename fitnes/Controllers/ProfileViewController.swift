@@ -10,13 +10,22 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     
-    @IBOutlet var profileLabel: UILabel!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+    @IBOutlet var phoneTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print(profileInfo.profileInfo)
-        
-        profileLabel.text = profileInfo.profileInfo
+        FirestoreService.shared.fetchProfile {
+            self.nameTextField.text = profileInfo.name
+            self.emailTextField.text = profileInfo.email
+            self.phoneTextField.text = profileInfo.phone
+        }
+//        print(profileInfo.profileInfo)
+//
+//        profileLabel.text = profileInfo.profileInfo
     }
+    
+    
 }
