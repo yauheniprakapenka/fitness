@@ -9,12 +9,36 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+    
+    @IBOutlet var tableView: UITableView!
+    
+    var items = 2
+    
+    @IBAction func addButtonTapped(_ sender: Any) {
+        items += 1
+        tableView.reloadData()
+        print("test")
     }
-
-
 }
 
+extension ViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        items
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
+        
+        cell.button.isHidden = true
+        cell.textfield.isHidden = false
+        
+        if indexPath.row == items - 1 {
+            cell.button.isHidden = false
+            cell.textfield.isHidden = true
+        }
+        
+        return cell
+    }
+    
+    
+}
