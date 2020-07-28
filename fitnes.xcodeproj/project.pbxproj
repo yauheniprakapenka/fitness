@@ -148,19 +148,16 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		3E235B3724BE29D8004DDBD6 /* SupportFiles */ = {
+		3E235B3724BE29D8004DDBD6 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
-				3EE3900024BCE78A003AF6D8 /* AppDelegate.swift */,
-				3EE3900224BCE78A003AF6D8 /* SceneDelegate.swift */,
 				3EE3900624BCE78A003AF6D8 /* Main.storyboard */,
 				3EE3900B24BCE78D003AF6D8 /* LaunchScreen.storyboard */,
-				3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */,
 			);
-			path = SupportFiles;
+			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		3E235B3824BE2A0E004DDBD6 /* Model */ = {
+		3E235B3824BE2A0E004DDBD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				3E235B3524BE288D004DDBD6 /* InventoryModel.swift */,
@@ -171,7 +168,7 @@
 				3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */,
 				3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		3E63718624CF4C5D00483A56 /* QR */ = {
@@ -206,8 +203,8 @@
 		3E87232524BFAD1E005FC365 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				3E87232624BFAD35005FC365 /* Alerts.swift */,
-				3E0C1CC624C61B7F001F249A /* PresentRoleProfile.swift */,
+				3EB0F97C24D0B0FB00AC97EB /* Other */,
+				3EB0F97B24D0B0D400AC97EB /* UI */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -248,13 +245,63 @@
 			path = SideMenu;
 			sourceTree = "<group>";
 		};
-		3EE2DDE124C0D8A100D85CAE /* Utilities */ = {
+		3EB0F97924D0B09600AC97EB /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		3EB0F97A24D0B0B100AC97EB /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				3EE3900024BCE78A003AF6D8 /* AppDelegate.swift */,
+				3EE3900224BCE78A003AF6D8 /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		3EB0F97B24D0B0D400AC97EB /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				3E87232624BFAD35005FC365 /* Alerts.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		3EB0F97C24D0B0FB00AC97EB /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				3E0C1CC624C61B7F001F249A /* PresentRoleProfile.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		3EB0F97D24D0B25C00AC97EB /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				3E87232024BF9FB2005FC365 /* Firebase */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		3EB0F97E24D0B4A200AC97EB /* Plist */ = {
+			isa = PBXGroup;
+			children = (
+				3EE3900E24BCE78D003AF6D8 /* Info.plist */,
+				3E87231E24BF9476005FC365 /* GoogleService-Info.plist */,
+			);
+			path = Plist;
+			sourceTree = "<group>";
+		};
+		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
 				3EE2DDDF24C0D4D800D85CAE /* FieldValidatorError.swift */,
 				3EE2DDDD24C0CF7E00D85CAE /* FieldValidator.swift */,
 			);
-			path = Utilities;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		3EE2DDE224C0DAA800D85CAE /* Auth */ = {
@@ -287,33 +334,34 @@
 		3EE38FFF24BCE78A003AF6D8 /* fitnes */ = {
 			isa = PBXGroup;
 			children = (
-				3EE2DDE124C0D8A100D85CAE /* Utilities */,
-				3E87232524BFAD1E005FC365 /* Extension */,
-				3E87232024BF9FB2005FC365 /* Firebase */,
-				3E235B3824BE2A0E004DDBD6 /* Model */,
+				3EB0F97A24D0B0B100AC97EB /* AppDelegate */,
+				3EB0F97924D0B09600AC97EB /* Assets */,
 				3E8DE58124CD9DE500DFB220 /* Enums */,
+				3E87232524BFAD1E005FC365 /* Extension */,
+				3E235B3824BE2A0E004DDBD6 /* Models */,
+				3EB0F97D24D0B25C00AC97EB /* Networking */,
+				3EB0F97E24D0B4A200AC97EB /* Plist */,
 				3E235B3424BE24C3004DDBD6 /* View */,
-				3EE3901624BCE863003AF6D8 /* Controllers */,
-				3E235B3724BE29D8004DDBD6 /* SupportFiles */,
-				3EE3900E24BCE78D003AF6D8 /* Info.plist */,
-				3E87231E24BF9476005FC365 /* GoogleService-Info.plist */,
+				3EE3901624BCE863003AF6D8 /* Scenes */,
+				3E235B3724BE29D8004DDBD6 /* Storyboard */,
+				3EE2DDE124C0D8A100D85CAE /* Utils */,
 			);
 			path = fitnes;
 			sourceTree = "<group>";
 		};
-		3EE3901624BCE863003AF6D8 /* Controllers */ = {
+		3EE3901624BCE863003AF6D8 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				3EE2DDE224C0DAA800D85CAE /* Auth */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E8DE58424CDA24600DFB220 /* SideMenu */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E10DA3424C3914600163F26 /* Trainer */,
-				3EE2DDE224C0DAA800D85CAE /* Auth */,
 				3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */,
 				3E10DA2E24C330F600163F26 /* ProfileViewController.swift */,
 				3E63718924CF5E5D00483A56 /* MainViewController.swift */,
 			);
-			path = Controllers;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		AFF08E7C7FC1742220804DF5 /* Frameworks */ = {
@@ -623,7 +671,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2H6CKN6S5G;
-				INFOPLIST_FILE = fitnes/Info.plist;
+				INFOPLIST_FILE = fitnes/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -642,7 +690,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2H6CKN6S5G;
-				INFOPLIST_FILE = fitnes/Info.plist;
+				INFOPLIST_FILE = fitnes/SupportFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
