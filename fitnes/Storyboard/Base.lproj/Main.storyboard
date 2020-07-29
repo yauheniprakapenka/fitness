@@ -90,10 +90,10 @@
             </objects>
             <point key="canvasLocation" x="159" y="1142"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Edit Profile View Controller-->
         <scene sceneID="GiZ-wI-HNi">
             <objects>
-                <viewController storyboardIdentifier="ProfileID" id="nA2-IT-lps" customClass="ProfileViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileID" id="nA2-IT-lps" customClass="EditProfileViewController" customModule="fitnes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Ew-8p-1EA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -419,21 +419,6 @@
             </objects>
             <point key="canvasLocation" x="55" y="-1207"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="uRP-hB-raA">
-            <objects>
-                <viewController id="0rx-5R-qxG" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nrW-yO-22i">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="42P-qF-OSJ"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="skL-eE-tl9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="916" y="-1931"/>
-        </scene>
         <!--Scanner View Controller-->
         <scene sceneID="Emw-h2-7rW">
             <objects>
@@ -564,6 +549,14 @@
                                 </state>
                                 <connections>
                                     <segue destination="Mhw-aV-JKo" kind="presentation" id="3C0-f1-auf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LvA-L3-FMk">
+                                <rect key="frame" x="176" y="593" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="профиль"/>
+                                <connections>
+                                    <action selector="profileButtonTapped:" destination="0eD-uW-dy8" eventType="touchUpInside" id="JGs-dD-fiG"/>
                                 </connections>
                             </button>
                         </subviews>
