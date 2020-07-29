@@ -22,7 +22,7 @@ class SideMenuViewController: UIViewController {
     ]
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileID") as! ProfileViewController
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ProfileID") as! EditProfileViewController
         present(vc, animated: true)
     }
     

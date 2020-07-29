@@ -10,6 +10,11 @@ import UIKit
 
 class MainViewController: UIViewController {
     
+    @IBAction func profileButtonTapped(_ sender: Any) {
+        
+        let vc = ProfileViewController()
+        present(vc, animated: true)
+    }
     
     
     @IBAction func qrButtonTapped(_ sender: Any) {
