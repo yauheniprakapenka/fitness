@@ -43,10 +43,10 @@ class ProfileViewController: UIViewController {
             moreButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             
-            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+            headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 20),
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            headerView.heightAnchor.constraint(equalToConstant: 160),
+            headerView.heightAnchor.constraint(equalToConstant: 90),
 
             itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
             itemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),

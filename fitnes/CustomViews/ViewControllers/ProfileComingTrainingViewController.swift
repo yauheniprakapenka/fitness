@@ -8,21 +8,25 @@
 
 import UIKit
 
-struct CustomData {
+struct ComingTrainingModel {
     var title: String
     var image: UIImage
+    var count: String
+    var street: String
+    var date: String
+    var time: String
 }
 
 class ProfileComingTrainingViewController: UIViewController {
     
-    let comingTrainingsLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .medium, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1))
+    let comingTrainingsLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1))
     
-    let data = [
-        CustomData(title: "One", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")),
-        CustomData(title: "Two", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")),
-        CustomData(title: "Three", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")),
-        CustomData(title: "Four", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")),
-        CustomData(title: "Five", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"))
+    let comingTraining = [
+        ComingTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), count: "15", street: "Ул. Немига", date: "23.08", time: "12:00"),
+        ComingTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), count: "12", street: "Ул. Кирова", date: "23.08", time: "12:00"),
+        ComingTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), count: "6", street: "Ул. Советская", date: "23.08", time: "12:00"),
+        ComingTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), count: "3", street: "Ул. Ленина", date: "23.08", time: "12:00"),
+        ComingTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), count: "1", street: "Ул. Поллеская", date: "23.08", time: "12:00")
     ]
     
     fileprivate let collectionView: UICollectionView = {
@@ -30,28 +34,24 @@ class ProfileComingTrainingViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(CustomCollectionCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(TrainingCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addSubviews()
-        layoutUI()
+        configureLayout()
         configureUIElements()
         
         collectionView.delegate = self
         collectionView.dataSource = self
     }
 
-    private func addSubviews() {
+    private func configureLayout() {
         view.addSubview(comingTrainingsLabel)
-    }
-    
-    private func layoutUI() {
+        
         view.addSubview(collectionView)
-        collectionView.backgroundColor = .white
         
         NSLayoutConstraint.activate([
             comingTrainingsLabel.topAnchor.constraint(equalTo: view.topAnchor),
@@ -67,6 +67,7 @@ class ProfileComingTrainingViewController: UIViewController {
     
     private func configureUIElements() {
         comingTrainingsLabel.text = "Ближайшие тренировки"
+        collectionView.backgroundColor = .white
     }
 }
 
@@ -77,12 +78,12 @@ extension ProfileComingTrainingViewController: UICollectionViewDelegateFlowLayou
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        data.count
+        comingTraining.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CustomCollectionCell
-        cell.data = self.data[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! TrainingCell
+        cell.data = self.comingTraining[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         
         cell.layer.shadowColor = UIColor.black.cgColor

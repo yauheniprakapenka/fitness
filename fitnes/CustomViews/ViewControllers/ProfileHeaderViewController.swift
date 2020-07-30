@@ -29,7 +29,7 @@ class ProfileHeaderViewController: UIViewController {
         let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 60),
+            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor),
             avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             avatarImageView.widthAnchor.constraint(equalToConstant: 90),
             avatarImageView.heightAnchor.constraint(equalTo: avatarImageView.widthAnchor),
