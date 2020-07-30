@@ -26,6 +26,7 @@
 		3E444AB424D2065E0004B978 /* ProfileItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */; };
 		3E444AB624D21ACC0004B978 /* FButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* FButton.swift */; };
 		3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* HorisontalLineView.swift */; };
+		3E444ABD24D3273F0004B978 /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABC24D3273F0004B978 /* MoreButton.swift */; };
 		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
 		3E63718A24CF5E5D00483A56 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718924CF5E5D00483A56 /* MainViewController.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
@@ -82,6 +83,7 @@
 		3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemsViewController.swift; sourceTree = "<group>"; };
 		3E444AB524D21ACC0004B978 /* FButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButton.swift; sourceTree = "<group>"; };
 		3E444ABA24D220760004B978 /* HorisontalLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorisontalLineView.swift; sourceTree = "<group>"; };
+		3E444ABC24D3273F0004B978 /* MoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		3E63718924CF5E5D00483A56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				3E444AB524D21ACC0004B978 /* FButton.swift */,
+				3E444ABC24D3273F0004B978 /* MoreButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -576,6 +579,7 @@
 				3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */,
 				3E707E2C24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift in Sources */,
 				3E8DE57A24CC3DE800DFB220 /* TrainingViewController.swift in Sources */,
+				3E444ABD24D3273F0004B978 /* MoreButton.swift in Sources */,
 				3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */,
 				3EB0F98024D0B91D00AC97EB /* ProfileViewController.swift in Sources */,
 				3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */,
