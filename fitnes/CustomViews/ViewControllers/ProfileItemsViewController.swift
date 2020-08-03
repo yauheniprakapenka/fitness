@@ -15,7 +15,7 @@ class ProfileItemsViewController: UIViewController {
     let stackView = UIStackView()
     let programView = ItemView(message: "Программ", count: "15")
     let athleteView = ItemView(message: "Атлета", count: "123")
-    let createButton = FButton(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать")
+    let createButton = ButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,10 +61,10 @@ class ProfileItemsViewController: UIViewController {
     }
     
     private func configureActionButton() {
-        createButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
     
-     @objc func actionButtonTapped() {
+     @objc func createButtonTapped() {
         print("button tapped")
     }
 }
