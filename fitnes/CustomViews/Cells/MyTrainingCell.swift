@@ -1,33 +1,28 @@
 //
-//  CustomCell.swift
+//  ProfileMyTrainingCell.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 29.07.2020.
+//  Created by yauheni prakapenka on 02.08.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
 import UIKit
 
-class TrainingCell: UICollectionViewCell {
+class MyTrainingCell: UICollectionViewCell {
     
-    var data: ComingTrainingModel? {
+    var data: MyTrainingModel? {
         didSet {
             guard let data = data else { return }
             logoImage.image = data.image
             trainingNameLabel.text = data.title
+            kindLabel.text = data.kind
             countLabel.text = data.count
-            dateLabel.text = data.date
-            streetlabel.text = data.street
-            timeLabel.text = data.time
         }
     }
     
     let trainingNameLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-    let circleView = CircleView(x: 105, y: 10, size: 32 , color: #colorLiteral(red: 0.0002395628253, green: 0.5160111189, blue: 0.9560294747, alpha: 1))
-    let countLabel = FTitleLabel(textAligment: .center, fontSize: 18, weight: .regular, color: .white)
-    let streetlabel = FTitleLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black)
-    let dateLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray)
-    let timeLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray)
+    let kindLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .regular, color: .black)
+    let countLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray)
     
     fileprivate let logoImage: UIImageView = {
         let imageView = UIImageView()
@@ -52,14 +47,12 @@ class TrainingCell: UICollectionViewCell {
     private func configureLayout() {
         contentView.addSubview(logoImage)
         contentView.addSubview(trainingNameLabel)
-        contentView.addSubview(circleView)
-        circleView.addSubview(countLabel)
-        contentView.addSubview(streetlabel)
-        contentView.addSubview(dateLabel)
-        contentView.addSubview(timeLabel)
+        contentView.addSubview(countLabel)
+        contentView.addSubview(kindLabel)
         
         trainingNameLabel.translatesAutoresizingMaskIntoConstraints = false
         countLabel.translatesAutoresizingMaskIntoConstraints = false
+        kindLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             logoImage.topAnchor.constraint(equalTo: contentView.topAnchor),
@@ -71,17 +64,11 @@ class TrainingCell: UICollectionViewCell {
             trainingNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             trainingNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
-            countLabel.centerXAnchor.constraint(equalTo: circleView.centerXAnchor),
-            countLabel.centerYAnchor.constraint(equalTo: circleView.centerYAnchor),
+            countLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+            countLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             
-            dateLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            dateLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            
-            streetlabel.bottomAnchor.constraint(equalTo: dateLabel.topAnchor, constant: -8),
-            streetlabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            
-            timeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            timeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8)
+            kindLabel.bottomAnchor.constraint(equalTo: countLabel.topAnchor, constant: -8),
+            kindLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
         ])
     }
     

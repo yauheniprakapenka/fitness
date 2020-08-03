@@ -10,35 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet var tableView: UITableView!
+    var scrollView: UIScrollView!
     
-    var items = 2
+    let label: UILabel = {
+        let label = UILabel()
+        label.backgroundColor = .red
+        label.text = "test"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textAlignment = .right
+        return label
+    }()
     
-    @IBAction func addButtonTapped(_ sender: Any) {
-        items += 1
-        tableView.reloadData()
-        print("test")
-    }
-}
-
-extension ViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        items
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
-        
-        cell.button.isHidden = true
-        cell.textfield.isHidden = false
-        
-        if indexPath.row == items - 1 {
-            cell.button.isHidden = false
-            cell.textfield.isHidden = true
-        }
-        
-        return cell
+    override func loadView() {
+        scrollView = UIScrollView()
+        view = scrollView
+        view.addSubview(label)
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        label.topAnchor.constraint(equalTo: view.topAnchor, constant: 60).isActive = true
+        label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+    }
     
 }
