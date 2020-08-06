@@ -16,6 +16,8 @@ class AthleteViewController: UIViewController {
     
     let headerView = UIView()
     let itemsView = UIView()
+    let comingTrainingView = UIView()
+    let myTrainingView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class AthleteViewController: UIViewController {
         configureMoreButton()
         configureHeaderLayout()
         configureItemsLayout()
+        configureComingTraininLayout()
+        configureMyTrainingLayout()
         
         AddChildVC()
     }
@@ -67,10 +71,30 @@ class AthleteViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
+    private func configureComingTraininLayout() {
+        scrollView.addSubview(comingTrainingView)
+        comingTrainingView.translatesAutoresizingMaskIntoConstraints = false
+        comingTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20).isActive = true
+        comingTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        comingTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
+    private func configureMyTrainingLayout() {
+        scrollView.addSubview(myTrainingView)
+        myTrainingView.translatesAutoresizingMaskIntoConstraints = false
+        myTrainingView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 100).isActive = true
+        myTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        myTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        myTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         self.add(childVC: HeaderViewController(), to: self.headerView)
         self.add(childVC: ItemsAthleteViewController(), to: self.itemsView)
+        self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
+        self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
