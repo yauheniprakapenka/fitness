@@ -30,6 +30,7 @@
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
 		3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */; };
 		3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */; };
+		3E82E21C24DCA8B100145E9D /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* MoreButton.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
 		3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232124BF9FC4005FC365 /* AuthService.swift */; };
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
@@ -85,6 +86,7 @@
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
 		3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCellNew.swift; sourceTree = "<group>"; };
 		3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCheckmarkButton.swift; sourceTree = "<group>"; };
+		3E82E21B24DCA8B100145E9D /* MoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E87232124BF9FC4005FC365 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -177,19 +179,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		3E444A6F24D1C7880004B978 /* CustomViews */ = {
+		3E444A6F24D1C7880004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E82E21A24DCA6B600145E9D /* CollectionCell */,
+				3E82E21A24DCA6B600145E9D /* CollectionCells */,
 				3ED7036F24DB38A900E4DB9F /* TextFields */,
 				3E444AB724D21AD10004B978 /* Buttons */,
 				3E444AA224D1E4AC0004B978 /* Cells */,
 				3E444AA524D1E5110004B978 /* ImageViews */,
-				3E444AAD24D1E5CB0004B978 /* Label */,
+				3E444AAD24D1E5CB0004B978 /* Labels */,
 				3E444AA824D1E5370004B978 /* ViewControllers */,
 				3E444AB024D201090004B978 /* Views */,
 			);
-			path = CustomViews;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		3E444AA224D1E4AC0004B978 /* Cells */ = {
@@ -220,12 +222,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		3E444AAD24D1E5CB0004B978 /* Label */ = {
+		3E444AAD24D1E5CB0004B978 /* Labels */ = {
 			isa = PBXGroup;
 			children = (
 				3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */,
 			);
-			path = Label;
+			path = Labels;
 			sourceTree = "<group>";
 		};
 		3E444AB024D201090004B978 /* Views */ = {
@@ -244,6 +246,7 @@
 				3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */,
 				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
 				3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */,
+				3E82E21B24DCA8B100145E9D /* MoreButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -268,14 +271,14 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		3E82E21A24DCA6B600145E9D /* CollectionCell */ = {
+		3E82E21A24DCA6B600145E9D /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
 				3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */,
 				3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */,
 				3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */,
 			);
-			path = CollectionCell;
+			path = CollectionCells;
 			sourceTree = "<group>";
 		};
 		3E87232024BF9FB2005FC365 /* Firebase */ = {
@@ -405,7 +408,6 @@
 			children = (
 				3EB0F97A24D0B0B100AC97EB /* AppDelegate */,
 				3EB0F97924D0B09600AC97EB /* Assets */,
-				3E444A6F24D1C7880004B978 /* CustomViews */,
 				3E8DE58124CD9DE500DFB220 /* Enums */,
 				3E87232524BFAD1E005FC365 /* Extension */,
 				3E235B3824BE2A0E004DDBD6 /* Models */,
@@ -415,6 +417,7 @@
 				3EE3901624BCE863003AF6D8 /* Screens */,
 				3E235B3724BE29D8004DDBD6 /* Storyboard */,
 				3EE2DDE124C0D8A100D85CAE /* Utils */,
+				3E444A6F24D1C7880004B978 /* Views */,
 			);
 			path = fitnes;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				3E444AB224D201350004B978 /* ItemView.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
+				3E82E21C24DCA8B100145E9D /* MoreButton.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,

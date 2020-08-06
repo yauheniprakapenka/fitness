@@ -12,14 +12,7 @@ class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
-    let moreButton: UIButton = {
-       let button = UIButton()
-        let largeConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .medium, scale: .small)
-        let more = UIImage(systemName: "ellipsis", withConfiguration: largeConfig)?.withTintColor(#colorLiteral(red: 0.3999670744, green: 0.4000185132, blue: 0.3999494314, alpha: 1), renderingMode: .alwaysOriginal)
-        button.setImage(more, for: .normal)
-        button.translatesAutoresizingMaskIntoConstraints = false
-        return button
-    }()
+    let moreButton = FMoreButton()
     
     let headerView = UIView()
     let itemsView = UIView()
