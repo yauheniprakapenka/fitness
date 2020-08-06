@@ -1,5 +1,5 @@
 //
-//  UserInfoItemsViewController.swift
+//  ItemsViewController.swift
 //  fitnes
 //
 //  Created by yauheni prakapenka on 29.07.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileItemsViewController: UIViewController {
+class ItemsViewController: UIViewController {
     
     let topHorisontalLineView = HorisontalLineView()
     let bottomHorisontalLineView = HorisontalLineView()

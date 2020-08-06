@@ -58,7 +58,7 @@ class AthleteViewController: UIViewController {
     
     private func AddChildVC() {
         view.backgroundColor = .white
-        self.add(childVC: ProfileHeaderViewController(), to: self.headerView)
+        self.add(childVC: HeaderViewController(), to: self.headerView)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

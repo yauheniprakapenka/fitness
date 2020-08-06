@@ -13,11 +13,11 @@
 		3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3824C39C0F00163F26 /* TrainerModel.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
-		3E444AAA24D1E5830004B978 /* ProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* ProfileHeaderViewController.swift */; };
-		3E444AAC24D1E5A40004B978 /* ProfileComingTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAB24D1E5A40004B978 /* ProfileComingTrainingViewController.swift */; };
+		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
+		3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */; };
 		3E444AAF24D1E5DD0004B978 /* FTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */; };
 		3E444AB224D201350004B978 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB124D201350004B978 /* ItemView.swift */; };
-		3E444AB424D2065E0004B978 /* ProfileItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */; };
+		3E444AB424D2065E0004B978 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ItemsViewController.swift */; };
 		3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */; };
 		3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* HorisontalLineView.swift */; };
 		3E444ABF24D340560004B978 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* CircleView.swift */; };
@@ -40,7 +40,7 @@
 		3E8DE58A24CDAB5C00DFB220 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */; };
 		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
 		3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */; };
-		3EC9CD5E24D87C1800B1F8C6 /* ProfileExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ProfileExercisesViewController.swift */; };
+		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
 		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */; };
 		3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */; };
 		3ED7036D24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */; };
@@ -56,7 +56,7 @@
 		3EE3900824BCE78A003AF6D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3900624BCE78A003AF6D8 /* Main.storyboard */; };
 		3EE3900D24BCE78D003AF6D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3900B24BCE78D003AF6D8 /* LaunchScreen.storyboard */; };
 		3EE3901824BCFEF6003AF6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */; };
-		3EE5A64C24D7150C004110C6 /* ProfileMyTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* ProfileMyTrainingViewController.swift */; };
+		3EE5A64C24D7150C004110C6 /* MyTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */; };
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
@@ -70,11 +70,11 @@
 		3E10DA3824C39C0F00163F26 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
-		3E444AA924D1E5830004B978 /* ProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewController.swift; sourceTree = "<group>"; };
-		3E444AAB24D1E5A40004B978 /* ProfileComingTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComingTrainingViewController.swift; sourceTree = "<group>"; };
+		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingViewController.swift; sourceTree = "<group>"; };
 		3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTitleLabel.swift; sourceTree = "<group>"; };
 		3E444AB124D201350004B978 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
-		3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemsViewController.swift; sourceTree = "<group>"; };
+		3E444AB324D2065E0004B978 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
 		3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithColor.swift; sourceTree = "<group>"; };
 		3E444ABA24D220760004B978 /* HorisontalLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorisontalLineView.swift; sourceTree = "<group>"; };
 		3E444ABE24D340560004B978 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -97,7 +97,7 @@
 		3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
-		3EC9CD5D24D87C1800B1F8C6 /* ProfileExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExercisesViewController.swift; sourceTree = "<group>"; };
+		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCollectionCell.swift; sourceTree = "<group>"; };
 		3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleEnum.swift; sourceTree = "<group>"; };
 		3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerAddExerciseViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +115,7 @@
 		3EE3900C24BCE78D003AF6D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EE3900E24BCE78D003AF6D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3EE5A64B24D7150C004110C6 /* ProfileMyTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMyTrainingViewController.swift; sourceTree = "<group>"; };
+		3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingViewController.swift; sourceTree = "<group>"; };
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
@@ -216,11 +216,11 @@
 		3E444AA824D1E5370004B978 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E444AA924D1E5830004B978 /* ProfileHeaderViewController.swift */,
-				3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */,
-				3E444AAB24D1E5A40004B978 /* ProfileComingTrainingViewController.swift */,
-				3EE5A64B24D7150C004110C6 /* ProfileMyTrainingViewController.swift */,
-				3EC9CD5D24D87C1800B1F8C6 /* ProfileExercisesViewController.swift */,
+				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
+				3E444AB324D2065E0004B978 /* ItemsViewController.swift */,
+				3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */,
+				3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */,
+				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -572,7 +572,7 @@
 				3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
-				3E444AAA24D1E5830004B978 /* ProfileHeaderViewController.swift in Sources */,
+				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
 				3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */,
 				3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */,
 				3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */,
@@ -600,10 +600,10 @@
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
 				3ED7036D24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift in Sources */,
-				3EC9CD5E24D87C1800B1F8C6 /* ProfileExercisesViewController.swift in Sources */,
+				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */,
-				3EE5A64C24D7150C004110C6 /* ProfileMyTrainingViewController.swift in Sources */,
-				3E444AAC24D1E5A40004B978 /* ProfileComingTrainingViewController.swift in Sources */,
+				3EE5A64C24D7150C004110C6 /* MyTrainingViewController.swift in Sources */,
+				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3ED7037824DB490C00E4DB9F /* TrainingModelNew.swift in Sources */,
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
@@ -613,7 +613,7 @@
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
-				3E444AB424D2065E0004B978 /* ProfileItemsViewController.swift in Sources */,
+				3E444AB424D2065E0004B978 /* ItemsViewController.swift in Sources */,
 				3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */,

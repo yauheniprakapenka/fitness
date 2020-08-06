@@ -17,7 +17,7 @@ struct ComingTrainingModel {
     var time: String
 }
 
-class ProfileComingTrainingViewController: UIViewController {
+class ComingTrainingViewController: UIViewController {
     
     let comingTrainingsLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
     let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
@@ -84,7 +84,7 @@ class ProfileComingTrainingViewController: UIViewController {
     }
 }
 
-extension ProfileComingTrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension ComingTrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width/2.5, height: 300)// collectionView.frame.width/2)
