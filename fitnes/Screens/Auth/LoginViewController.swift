@@ -33,7 +33,9 @@ class LoginViewController: UIViewController {
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true)
                     case .Athlete:
-                        break
+                        let vc = AthleteViewController()
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true)
                     case .none:
                         break
                     }

@@ -24,8 +24,7 @@ class TrainerViewController: UIViewController {
         super.viewDidLoad()
         
         configureScrollViewLayout()
-        configureMoreButtonLayout()
-        configureMoreButtonAction()
+        configureMoreButton()
         configureHeaderLayout()
         configureItemsLayout()
         configureComingTraininLayout()
@@ -45,12 +44,14 @@ class TrainerViewController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    private func configureMoreButtonLayout() {
+    private func configureMoreButton() {
         scrollView.addSubview(moreButton)
         moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         moreButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
     }
     
     private func configureHeaderLayout() {
@@ -113,11 +114,7 @@ class TrainerViewController: UIViewController {
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
-    
-    private func configureMoreButtonAction() {
-        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
-    }
-    
+
     @objc func moreButtonTapped() {
         print("button tapped")
     }
