@@ -102,7 +102,7 @@ class TrainerViewController: UIViewController {
     private func AddChildVC() {
         view.backgroundColor = .white
         self.add(childVC: HeaderViewController(), to: self.headerView)
-        self.add(childVC: ItemsViewController(), to: self.itemsView)
+        self.add(childVC: ItemsTrainerViewController(), to: self.itemsView)
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
         self.add(childVC: ExercisesViewController(), to: self.myExerciseView)

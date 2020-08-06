@@ -15,6 +15,7 @@ class AthleteViewController: UIViewController {
     let moreButton = FMoreButton()
     
     let headerView = UIView()
+    let itemsView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +23,7 @@ class AthleteViewController: UIViewController {
         configureScrollViewLayout()
         configureMoreButton()
         configureHeaderLayout()
+        configureItemsLayout()
         
         AddChildVC()
     }
@@ -56,9 +58,19 @@ class AthleteViewController: UIViewController {
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
+    private func configureItemsLayout() {
+        scrollView.addSubview(itemsView)
+        itemsView.translatesAutoresizingMaskIntoConstraints = false
+        itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
+        itemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        itemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         self.add(childVC: HeaderViewController(), to: self.headerView)
+        self.add(childVC: ItemsAthleteViewController(), to: self.itemsView)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
