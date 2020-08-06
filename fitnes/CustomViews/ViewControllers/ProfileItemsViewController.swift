@@ -66,5 +66,8 @@ class ProfileItemsViewController: UIViewController {
     
      @objc func createButtonTapped() {
         print("button tapped")
+        let vc = NewAddExerciseViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

@@ -11,8 +11,8 @@ import UIKit
 class ProfileHeaderViewController: UIViewController {
     
     let avatarImageView = FAvatarImageView(frame: .zero)
-    let nameLabel = FTitleLabel(textAligment: .left, fontSize: 20, weight: .regular, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1))
-    let descriptionLabel = FTitleLabel(textAligment: .left, fontSize: 13, weight: .light, color: #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1))
+    let nameLabel = FTitleLabel(textAligment: .left, fontSize: 20, weight: .regular, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
+    let descriptionLabel = FTitleLabel(textAligment: .left, fontSize: 13, weight: .light, color: #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1), message: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ class ProfileHeaderViewController: UIViewController {
     
     private func configureUIElements() {
         avatarImageView.image = #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")
-        nameLabel.text = "Александр Пьяник"
+        nameLabel.text = "\(profileInfoModel.firstName) \(profileInfoModel.lastName)"
         descriptionLabel.text = "А ну-ка быстро бросай булку хлеба"
     }
 }

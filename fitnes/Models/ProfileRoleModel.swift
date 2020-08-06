@@ -6,11 +6,7 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-enum ProfileRoleEnum {
-    case Athlete, Trainer
-}
-
-var currentProfleRole: ProfileRoleEnum = .Athlete
+var currentProfleRole: RoleEnum = .Athlete
 
 class ProfileRoleModel {
     

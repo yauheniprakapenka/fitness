@@ -19,11 +19,12 @@ class FTitleLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAligment: NSTextAlignment, fontSize: CGFloat, weight: UIFont.Weight, color: UIColor) {
+    init(textAligment: NSTextAlignment, fontSize: CGFloat, weight: UIFont.Weight, color: UIColor, message: String) {
         super.init(frame: .zero)
-        self.textAlignment = textAlignment
-        self.font = UIFont.systemFont(ofSize: fontSize, weight: weight)
-        self.textColor = color
+        textAlignment = textAlignment
+        font = UIFont.systemFont(ofSize: fontSize, weight: weight)
+        textColor = color
+        text = message
         configure()
     }
     

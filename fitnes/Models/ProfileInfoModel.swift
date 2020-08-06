@@ -6,21 +6,13 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-var profileInfo = ProfileInfoModel(email: "", name: "", uid: "", phone: "")
+var profileInfoModel = ProfileInfoModel(email: "", uid: "", lastName: "", firstName: "", role: "")
 
 struct ProfileInfoModel: Decodable {
     var email: String
-    var name: String
     var uid: String
-    var phone: String
-    
-    var profileInfo: String {
-        """
-        \(email)
-        \(name)
-        \(uid)
-        \(phone)
-        """
-    }
+    var lastName: String
+    var firstName: String
+    var role: String
 }
 

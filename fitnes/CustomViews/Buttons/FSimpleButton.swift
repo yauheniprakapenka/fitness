@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SimpleButton: UIButton {
+class FSimpleButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

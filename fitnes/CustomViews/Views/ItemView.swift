@@ -10,8 +10,8 @@ import UIKit
 
 class ItemView: UIView {
     
-    let countLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black)
-    let messageLabel = FTitleLabel(textAligment: .left, fontSize: 13, weight: .regular, color: .black)
+    let countLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "")
+    let messageLabel = FTitleLabel(textAligment: .left, fontSize: 13, weight: .regular, color: .black, message: "")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

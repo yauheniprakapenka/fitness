@@ -9,7 +9,7 @@
 extension FirestoreService {
     
     func isTrainerExist(completion: @escaping () -> ()) {
-        let docRef = db.collection("trainers").document(profileInfo.uid)
+        let docRef = db.collection("trainers").document(profileInfoModel.uid)
         
         docRef.getDocument { (document, error) in
             let result = Result {
@@ -31,7 +31,7 @@ extension FirestoreService {
     }
     
     func createTrainer(uid: String) {
-        db.collection("trainers").document(profileInfo.uid).setData([
+        db.collection("trainers").document(profileInfoModel.uid).setData([
             "uid": uid,
             "name": ""
         ]) { err in
@@ -44,7 +44,7 @@ extension FirestoreService {
     }
     
     func fetchTrainer() {
-        let docRef = db.collection("trainers").document(profileInfo.uid)
+        let docRef = db.collection("trainers").document(profileInfoModel.uid)
         
         docRef.getDocument { (document, error) in
             let result = Result {
