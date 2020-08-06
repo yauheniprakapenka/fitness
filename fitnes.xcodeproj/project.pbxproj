@@ -30,7 +30,7 @@
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
 		3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */; };
 		3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */; };
-		3E82E21C24DCA8B100145E9D /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* MoreButton.swift */; };
+		3E82E21C24DCA8B100145E9D /* FMoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FMoreButton.swift */; };
 		3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21D24DCA96500145E9D /* AthleteViewController.swift */; };
 		3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
@@ -88,7 +88,7 @@
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
 		3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCellNew.swift; sourceTree = "<group>"; };
 		3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCheckmarkButton.swift; sourceTree = "<group>"; };
-		3E82E21B24DCA8B100145E9D /* MoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
+		3E82E21B24DCA8B100145E9D /* FMoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMoreButton.swift; sourceTree = "<group>"; };
 		3E82E21D24DCA96500145E9D /* AthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteViewController.swift; sourceTree = "<group>"; };
 		3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsAthleteViewController.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -252,7 +252,7 @@
 				3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */,
 				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
 				3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */,
-				3E82E21B24DCA8B100145E9D /* MoreButton.swift */,
+				3E82E21B24DCA8B100145E9D /* FMoreButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -597,7 +597,7 @@
 				3E444AB224D201350004B978 /* ItemView.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
-				3E82E21C24DCA8B100145E9D /* MoreButton.swift in Sources */,
+				3E82E21C24DCA8B100145E9D /* FMoreButton.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
