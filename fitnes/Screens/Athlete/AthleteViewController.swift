@@ -21,6 +21,7 @@ class AthleteViewController: UIViewController {
         
         configureScrollViewLayout()
         configureMoreButton()
+        configureHeaderLayout()
         
         AddChildVC()
     }
@@ -44,6 +45,15 @@ class AthleteViewController: UIViewController {
         moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+    }
+    
+    private func configureHeaderLayout() {
+        scrollView.addSubview(headerView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 0).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
     private func AddChildVC() {
