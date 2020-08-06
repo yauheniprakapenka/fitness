@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NewAddExerciseViewController: UIViewController {
+class TrainerAddExerciseViewController: UIViewController {
     
     let tableView = UITableView()
     
@@ -178,7 +178,7 @@ class NewAddExerciseViewController: UIViewController {
 }
 
 // MARK: - Setup Table View
-extension NewAddExerciseViewController: UITableViewDelegate {
+extension TrainerAddExerciseViewController: UITableViewDelegate {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -196,7 +196,7 @@ extension NewAddExerciseViewController: UITableViewDelegate {
     }
 }
 
-extension NewAddExerciseViewController: UITableViewDataSource {
+extension TrainerAddExerciseViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myTraining.count
     }

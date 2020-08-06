@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
                 FirestoreService.shared.fetchProfile() {
                     switch ConverterRoleToEnum.shared.roleToEnum(role: profileInfoModel.role) {
                     case .Trainer:
-                        let vc = NewTrainerViewController()
+                        let vc = TrainerViewController()
                         vc.modalPresentationStyle = .fullScreen
                         self.present(vc, animated: true)
                     case .Athlete:

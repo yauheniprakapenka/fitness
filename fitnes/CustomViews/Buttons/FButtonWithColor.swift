@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ButtonWithColor: UIButton {
+class FButtonWithColor: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
