@@ -12,7 +12,7 @@ extension FirestoreService {
     
     // MARK: - Получить лист упражнений
     func fetchExercisesList(completion: @escaping () -> Void) {
-        let docRef = db.collection("exercises").document(profileInfo.uid)
+        let docRef = db.collection("exercises").document(profileInfoModel.uid)
         docRef.getDocument { (document, error) in
             let result = Result {
                 try document?.data(as: ExercisesListModel.self)
@@ -52,7 +52,7 @@ extension FirestoreService {
     func addExersiseToList(name: String) {
         exersisesList.currentExercises.append(name)
         
-        db.collection("exercises").document(profileInfo.uid).setData([
+        db.collection("exercises").document(profileInfoModel.uid).setData([
             "currentExercises": exersisesList.currentExercises
         ]) { err in
             if let err = err {
@@ -66,7 +66,7 @@ extension FirestoreService {
     // MARK: - Сохранить само упражнение
     func saveExercise(name: String, type: String, description: String, equipment: String, videoUrl: String) {
         print(#function)
-        db.collection("exercises").document(profileInfo.uid).collection(name).document(name).setData([
+        db.collection("exercises").document(profileInfoModel.uid).collection(name).document(name).setData([
             "name": name,
             "type": type,
             "description": description,
@@ -86,7 +86,7 @@ extension FirestoreService {
         exercises = [ExerciseModel]()
 
         for exercise in list {
-            let docRef = db.collection("exercises").document(profileInfo.uid).collection(exercise).document(exercise)
+            let docRef = db.collection("exercises").document(profileInfoModel.uid).collection(exercise).document(exercise)
             docRef.getDocument { (document, error) in
                 let result = Result {
                     try document?.data(as: ExerciseModel.self)

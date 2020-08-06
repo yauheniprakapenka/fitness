@@ -12,7 +12,7 @@ class MainViewController: UIViewController {
     
     @IBAction func profileButtonTapped(_ sender: Any) {
         
-        let vc = ProfileViewController()
+        let vc = NewTrainerViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

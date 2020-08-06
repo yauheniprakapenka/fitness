@@ -22,12 +22,12 @@ class ComingTrainingCell: UICollectionViewCell {
         }
     }
     
-    let trainingNameLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+    let trainingNameLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "")
     let circleView = CircleView(x: 105, y: 10, size: 32 , color: #colorLiteral(red: 0.0002395628253, green: 0.5160111189, blue: 0.9560294747, alpha: 1))
-    let countLabel = FTitleLabel(textAligment: .center, fontSize: 18, weight: .regular, color: .white)
-    let streetlabel = FTitleLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black)
-    let dateLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray)
-    let timeLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray)
+    let countLabel = FTitleLabel(textAligment: .center, fontSize: 18, weight: .regular, color: .white, message: "")
+    let streetlabel = FTitleLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "")
+    let dateLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray, message: "")
+    let timeLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray, message: "")
     
     fileprivate let logoImage: UIImageView = {
         let imageView = UIImageView()

@@ -26,7 +26,7 @@ class AddTrainingViewController: UIViewController {
         }
     }
     
-    private func configTrainig(typeSection: TypeSection) {
+    private func configTrainig(typeSection: TypeSectionEnum) {
         switch typeSection {
         case .amrap:
             configTrainingLabel.text = "Поминутный выбор упражениня"

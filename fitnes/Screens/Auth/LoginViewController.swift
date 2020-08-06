@@ -12,21 +12,32 @@ class LoginViewController: UIViewController {
     
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
+    @IBOutlet var loginButton: UIButton!
     
-    @IBOutlet var roleSegmentedControl: UISegmentedControl!
-    
-    @IBAction func roleSegmentedControlTapped(_ sender: Any) {
-        ProfileRoleModel.shared.setProfileRole(index: roleSegmentedControl.selectedSegmentIndex)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginButton.layer.cornerRadius = 5
     }
     
-    @IBAction func continueButtonTapped(_ sender: Any) {
-        AuthService.shared.login(email: emailTextField.text!, password: passwordTextField.text!) { (result) in
+    @IBAction func toBeginButtonTapped(_ sender: Any) {
+        AuthService.shared.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result) in
             switch result {
             case .success(let user):
-                profileInfo.email = user.email ?? ""
-                profileInfo.uid = user.uid
+                profileInfoModel.email = user.email ?? ""
+                profileInfoModel.uid = user.uid
                 
-                self.presentRoleProfile()
+                FirestoreService.shared.fetchProfile() {
+                    switch ConverterRoleToEnum.shared.roleToEnum(role: profileInfoModel.role) {
+                    case .Trainer:
+                        let vc = NewTrainerViewController()
+                        vc.modalPresentationStyle = .fullScreen
+                        self.present(vc, animated: true)
+                    case .Athlete:
+                        break
+                    case .none:
+                        break
+                    }
+                }
 
             case .failure(let error):
                 self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)

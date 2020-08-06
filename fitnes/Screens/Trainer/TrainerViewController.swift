@@ -20,7 +20,7 @@ class TrainerViewController: UIViewController {
         super.viewDidLoad()
         
         FirestoreService.shared.isTrainerExist() {
-            FirestoreService.shared.createTrainer(uid: profileInfo.uid)
+            FirestoreService.shared.createTrainer(uid: profileInfoModel.uid)
         }
     }
     

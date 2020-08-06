@@ -6,6 +6,6 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-enum TypeSection {
+enum TypeSectionEnum {
     case amrap, emom, forTime, rest
 }

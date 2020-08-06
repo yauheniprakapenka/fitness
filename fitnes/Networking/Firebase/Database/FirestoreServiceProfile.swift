@@ -8,12 +8,13 @@
 
 extension FirestoreService {
     
-    func saveProfile(email: String, uid: String, name: String, phone: String) {
-        db.collection("users").document(profileInfo.uid).setData([
+    func saveProfile(email: String, uid: String, lastName: String, firstName: String, role: RoleEnum?) {
+        db.collection("users").document(profileInfoModel.uid).setData([
             "email": email,
             "uid": uid,
-            "name": name,
-            "phone": phone
+            "lastName": lastName,
+            "firstName": firstName,
+            "role": ConverterRoleToString.shared.roleToString(role: role)
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -24,7 +25,7 @@ extension FirestoreService {
     }
     
     func fetchProfile(completion: @escaping () -> Void) {
-        let docRef = db.collection("users").document(profileInfo.uid)
+        let docRef = db.collection("users").document(profileInfoModel.uid)
         
         docRef.getDocument { (document, error) in
             let result = Result {
@@ -32,13 +33,14 @@ extension FirestoreService {
             }
             
             switch result {
-            case .success(let firestoreUser):
-                if let firestoreUser = firestoreUser {
+            case .success(let userFromFirestore):
+                if let userFromFirestore = userFromFirestore {
                     print("Document exist")
-                    profileInfo.email = firestoreUser.email
-                    profileInfo.name = firestoreUser.name
-                    profileInfo.uid = firestoreUser.uid
-                    profileInfo.phone = firestoreUser.phone
+                    profileInfoModel.email = userFromFirestore.email
+                    profileInfoModel.uid = userFromFirestore.uid
+                    profileInfoModel.lastName = userFromFirestore.lastName
+                    profileInfoModel.firstName = userFromFirestore.firstName
+                    profileInfoModel.role = userFromFirestore.role
                     completion()
                 } else {
                     print("Document does not exist")

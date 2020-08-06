@@ -18,9 +18,9 @@ class EditProfileViewController: UIViewController {
         super.viewDidLoad()
         
         FirestoreService.shared.fetchProfile {
-            self.nameTextField.text = profileInfo.name
-            self.emailTextField.text = profileInfo.email
-            self.phoneTextField.text = profileInfo.phone
+            self.nameTextField.text = profileInfoModel.firstName
+            self.emailTextField.text = profileInfoModel.email
+            self.phoneTextField.text = profileInfoModel.lastName
         }
 //        print(profileInfo.profileInfo)
 //

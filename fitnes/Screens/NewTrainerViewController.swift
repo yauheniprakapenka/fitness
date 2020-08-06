@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileViewController: UIViewController {
+class NewTrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
     

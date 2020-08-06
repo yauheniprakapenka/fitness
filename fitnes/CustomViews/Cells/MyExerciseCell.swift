@@ -19,8 +19,8 @@ class MyExerciseCell: UICollectionViewCell {
         }
     }
     
-    let exerciseNameLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-    let kindInventoryLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .regular, color: .black)
+    let exerciseNameLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "")
+    let kindInventoryLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .regular, color: .black, message: "")
  
     
     fileprivate let logoImage: UIImageView = {
