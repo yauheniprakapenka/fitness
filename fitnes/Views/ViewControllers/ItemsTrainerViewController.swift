@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemsViewController: UIViewController {
+class ItemsTrainerViewController: UIViewController {
     
     let topHorisontalLineView = HorisontalLineView()
     let bottomHorisontalLineView = HorisontalLineView()

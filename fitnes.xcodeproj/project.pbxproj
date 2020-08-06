@@ -17,7 +17,7 @@
 		3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */; };
 		3E444AAF24D1E5DD0004B978 /* FTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */; };
 		3E444AB224D201350004B978 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB124D201350004B978 /* ItemView.swift */; };
-		3E444AB424D2065E0004B978 /* ItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ItemsViewController.swift */; };
+		3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */; };
 		3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */; };
 		3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* HorisontalLineView.swift */; };
 		3E444ABF24D340560004B978 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* CircleView.swift */; };
@@ -32,6 +32,7 @@
 		3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */; };
 		3E82E21C24DCA8B100145E9D /* MoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* MoreButton.swift */; };
 		3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21D24DCA96500145E9D /* AthleteViewController.swift */; };
+		3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
 		3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232124BF9FC4005FC365 /* AuthService.swift */; };
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
@@ -74,7 +75,7 @@
 		3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingViewController.swift; sourceTree = "<group>"; };
 		3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTitleLabel.swift; sourceTree = "<group>"; };
 		3E444AB124D201350004B978 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
-		3E444AB324D2065E0004B978 /* ItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsViewController.swift; sourceTree = "<group>"; };
+		3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTrainerViewController.swift; sourceTree = "<group>"; };
 		3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithColor.swift; sourceTree = "<group>"; };
 		3E444ABA24D220760004B978 /* HorisontalLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorisontalLineView.swift; sourceTree = "<group>"; };
 		3E444ABE24D340560004B978 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
@@ -89,6 +90,7 @@
 		3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCheckmarkButton.swift; sourceTree = "<group>"; };
 		3E82E21B24DCA8B100145E9D /* MoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreButton.swift; sourceTree = "<group>"; };
 		3E82E21D24DCA96500145E9D /* AthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteViewController.swift; sourceTree = "<group>"; };
+		3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsAthleteViewController.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E87232124BF9FC4005FC365 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -216,11 +218,12 @@
 		3E444AA824D1E5370004B978 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
-				3E444AB324D2065E0004B978 /* ItemsViewController.swift */,
 				3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */,
-				3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */,
 				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
+				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
+				3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */,
+				3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */,
+				3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -583,6 +586,7 @@
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
 				3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */,
 				3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */,
+				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
 				3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */,
@@ -613,7 +617,7 @@
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
-				3E444AB424D2065E0004B978 /* ItemsViewController.swift in Sources */,
+				3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */,
 				3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */,
