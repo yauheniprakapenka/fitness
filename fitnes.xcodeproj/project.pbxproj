@@ -37,7 +37,8 @@
 		3E64BCFD24C473E60014E91B /* ExerсisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFC24C473E60014E91B /* ExerсisesViewController.swift */; };
 		3E707E2C24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2B24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift */; };
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
-		3E82C78F24DC72EB00145E9D /* TestCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TestCellTableViewCell.swift */; };
+		3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */; };
+		3E82C79124DC8CA000145E9D /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* CheckmarkButton.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
 		3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232124BF9FC4005FC365 /* AuthService.swift */; };
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
@@ -60,7 +61,6 @@
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
 		3ED7037824DB490C00E4DB9F /* TrainingModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037724DB490C00E4DB9F /* TrainingModelNew.swift */; };
 		3ED7037A24DB550300E4DB9F /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037924DB550300E4DB9F /* Anchor.swift */; };
-		3ED7037C24DB558900E4DB9F /* CustomTrainingCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037B24DB558900E4DB9F /* CustomTrainingCellNew.swift */; };
 		3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */; };
 		3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */; };
 		3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */; };
@@ -109,7 +109,8 @@
 		3E64BCFC24C473E60014E91B /* ExerсisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerсisesViewController.swift"; sourceTree = "<group>"; };
 		3E707E2B24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
-		3E82C78E24DC72EB00145E9D /* TestCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCellTableViewCell.swift; sourceTree = "<group>"; };
+		3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCellNew.swift; sourceTree = "<group>"; };
+		3E82C79024DC8CA000145E9D /* CheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkButton.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E87232124BF9FC4005FC365 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -132,7 +133,6 @@
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
 		3ED7037724DB490C00E4DB9F /* TrainingModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelNew.swift; sourceTree = "<group>"; };
 		3ED7037924DB550300E4DB9F /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
-		3ED7037B24DB558900E4DB9F /* CustomTrainingCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTrainingCellNew.swift; sourceTree = "<group>"; };
 		3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
@@ -236,8 +236,7 @@
 				3E444AA324D1E4B70004B978 /* ComingTrainingCell.swift */,
 				3EE5A64D24D71631004110C6 /* MyTrainingCell.swift */,
 				3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCell.swift */,
-				3ED7037B24DB558900E4DB9F /* CustomTrainingCellNew.swift */,
-				3E82C78E24DC72EB00145E9D /* TestCellTableViewCell.swift */,
+				3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -285,6 +284,7 @@
 			children = (
 				3E444AB524D21ACC0004B978 /* ButtonWithColor.swift */,
 				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
+				3E82C79024DC8CA000145E9D /* CheckmarkButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -634,7 +634,7 @@
 				3EE5A64E24D71631004110C6 /* MyTrainingCell.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* ProfileHeaderViewController.swift in Sources */,
-				3E82C78F24DC72EB00145E9D /* TestCellTableViewCell.swift in Sources */,
+				3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */,
 				3EE3900524BCE78A003AF6D8 /* AthleteViewController.swift in Sources */,
 				3E235B3324BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift in Sources */,
 				3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */,
@@ -689,10 +689,10 @@
 				3E10DA3624C3915D00163F26 /* TrainerViewController.swift in Sources */,
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
 				3E444AB424D2065E0004B978 /* ProfileItemsViewController.swift in Sources */,
+				3E82C79124DC8CA000145E9D /* CheckmarkButton.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 				3E64BCFD24C473E60014E91B /* ExerсisesViewController.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */,
-				3ED7037C24DB558900E4DB9F /* CustomTrainingCellNew.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -8,31 +8,13 @@
 
 import UIKit
 
-class TestCellTableViewCell: UITableViewCell {
+class TrainingCellNew: UITableViewCell {
     
     private var isCheckmarked = false
     
-    let checkmarkButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .white
-        button.layer.cornerRadius = 5
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.borderWidth = 1
-        button.layer.borderColor = #colorLiteral(red: 0.8940489888, green: 0.8941563964, blue: 0.8940123916, alpha: 1)
-        
-        let symbol = UIImage(systemName: "checkmark", withConfiguration: UIImage.SymbolConfiguration(weight: .light))?.withTintColor(.white, renderingMode: .alwaysOriginal)
-        
-        button.setImage(symbol, for: .normal)
-        
-        return button
-    }()
+    let checkmarkButton = FCheckmarkButton()
     
     let nameLabel = FTitleLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "")
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -57,14 +39,8 @@ class TestCellTableViewCell: UITableViewCell {
     }
     
     @objc private func checkmarkButtonTapped() {
-        
         isCheckmarked = !isCheckmarked
-        
-        if isCheckmarked {
-            checkmarkButton.backgroundColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
-        } else {
-            checkmarkButton.backgroundColor = .white
-        }
+        checkmarkButton.backgroundColor = isCheckmarked ? #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1) : .white
     }
     
 }
