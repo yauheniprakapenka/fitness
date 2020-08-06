@@ -8,71 +8,54 @@
 
 /* Begin PBXBuildFile section */
 		1CECEBE5A56A6F87B8A1A823 /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */; };
-		3E0C1CC724C61B7F001F249A /* DefineRole.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0C1CC624C61B7F001F249A /* DefineRole.swift */; };
-		3E10DA2F24C330F600163F26 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA2E24C330F600163F26 /* EditProfileViewController.swift */; };
 		3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */; };
 		3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */; };
-		3E10DA3624C3915D00163F26 /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3524C3915D00163F26 /* TrainerViewController.swift */; };
 		3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3824C39C0F00163F26 /* TrainerModel.swift */; };
-		3E235B3324BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3224BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift */; };
-		3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3524BE288D004DDBD6 /* InventoryModel.swift */; };
-		3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */; };
-		3E444AA424D1E4B70004B978 /* ComingTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCell.swift */; };
+		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* ProfileHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* ProfileHeaderViewController.swift */; };
 		3E444AAC24D1E5A40004B978 /* ProfileComingTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAB24D1E5A40004B978 /* ProfileComingTrainingViewController.swift */; };
 		3E444AAF24D1E5DD0004B978 /* FTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */; };
 		3E444AB224D201350004B978 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB124D201350004B978 /* ItemView.swift */; };
 		3E444AB424D2065E0004B978 /* ProfileItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */; };
-		3E444AB624D21ACC0004B978 /* ButtonWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* ButtonWithColor.swift */; };
+		3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */; };
 		3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* HorisontalLineView.swift */; };
 		3E444ABF24D340560004B978 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* CircleView.swift */; };
 		3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FSimpleButton.swift */; };
 		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
-		3E63718A24CF5E5D00483A56 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718924CF5E5D00483A56 /* MainViewController.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
 		3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */; };
 		3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */; };
-		3E64BCFD24C473E60014E91B /* ExerсisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFC24C473E60014E91B /* ExerсisesViewController.swift */; };
-		3E707E2C24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2B24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift */; };
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
 		3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */; };
-		3E82C79124DC8CA000145E9D /* CheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* CheckmarkButton.swift */; };
+		3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
 		3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232124BF9FC4005FC365 /* AuthService.swift */; };
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
 		3E87232724BFAD35005FC365 /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* Alerts.swift */; };
-		3E8DE57824CC0A6300DFB220 /* ExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE57724CC0A6300DFB220 /* ExerciseViewController.swift */; };
-		3E8DE57A24CC3DE800DFB220 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE57924CC3DE800DFB220 /* TrainingViewController.swift */; };
-		3E8DE57E24CD8A0E00DFB220 /* AddTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE57D24CD8A0E00DFB220 /* AddTrainingViewController.swift */; };
 		3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */; };
-		3E8DE58624CDA26100DFB220 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58524CDA26100DFB220 /* ContainerViewController.swift */; };
-		3E8DE58824CDA2AD00DFB220 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58724CDA2AD00DFB220 /* SideMenuViewController.swift */; };
 		3E8DE58A24CDAB5C00DFB220 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */; };
-		3EB0F98024D0B91D00AC97EB /* NewTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* NewTrainerViewController.swift */; };
-		3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */; };
+		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
 		3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */; };
 		3EC9CD5E24D87C1800B1F8C6 /* ProfileExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ProfileExercisesViewController.swift */; };
-		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCell.swift */; };
+		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */; };
 		3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */; };
-		3ED7036D24DB202D00E4DB9F /* NewAddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7036C24DB202D00E4DB9F /* NewAddExerciseViewController.swift */; };
+		3ED7036D24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
 		3ED7037824DB490C00E4DB9F /* TrainingModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037724DB490C00E4DB9F /* TrainingModelNew.swift */; };
-		3ED7037A24DB550300E4DB9F /* Anchor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037924DB550300E4DB9F /* Anchor.swift */; };
 		3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */; };
 		3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */; };
 		3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */; };
 		3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */; };
 		3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3900024BCE78A003AF6D8 /* AppDelegate.swift */; };
 		3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3900224BCE78A003AF6D8 /* SceneDelegate.swift */; };
-		3EE3900524BCE78A003AF6D8 /* AthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3900424BCE78A003AF6D8 /* AthleteViewController.swift */; };
 		3EE3900824BCE78A003AF6D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3900624BCE78A003AF6D8 /* Main.storyboard */; };
 		3EE3900D24BCE78D003AF6D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3900B24BCE78D003AF6D8 /* LaunchScreen.storyboard */; };
 		3EE3901824BCFEF6003AF6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */; };
 		3EE5A64C24D7150C004110C6 /* ProfileMyTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* ProfileMyTrainingViewController.swift */; };
-		3EE5A64E24D71631004110C6 /* MyTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCell.swift */; };
+		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
 /* End PBXBuildFile section */
@@ -80,59 +63,43 @@
 /* Begin PBXFileReference section */
 		0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
-		3E0C1CC624C61B7F001F249A /* DefineRole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefineRole.swift; sourceTree = "<group>"; };
-		3E10DA2E24C330F600163F26 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
 		3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleModel.swift; sourceTree = "<group>"; };
-		3E10DA3524C3915D00163F26 /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3E10DA3824C39C0F00163F26 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
-		3E235B3224BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomInventoryTableViewCell.swift; sourceTree = "<group>"; };
-		3E235B3524BE288D004DDBD6 /* InventoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryModel.swift; sourceTree = "<group>"; };
-		3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddInventoryViewController.swift; sourceTree = "<group>"; };
-		3E444AA324D1E4B70004B978 /* ComingTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCell.swift; sourceTree = "<group>"; };
+		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* ProfileHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderViewController.swift; sourceTree = "<group>"; };
 		3E444AAB24D1E5A40004B978 /* ProfileComingTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComingTrainingViewController.swift; sourceTree = "<group>"; };
 		3E444AAE24D1E5DD0004B978 /* FTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTitleLabel.swift; sourceTree = "<group>"; };
 		3E444AB124D201350004B978 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		3E444AB324D2065E0004B978 /* ProfileItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileItemsViewController.swift; sourceTree = "<group>"; };
-		3E444AB524D21ACC0004B978 /* ButtonWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithColor.swift; sourceTree = "<group>"; };
+		3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithColor.swift; sourceTree = "<group>"; };
 		3E444ABA24D220760004B978 /* HorisontalLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorisontalLineView.swift; sourceTree = "<group>"; };
 		3E444ABE24D340560004B978 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		3E444AC024D35E2D0004B978 /* FSimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSimpleButton.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
-		3E63718924CF5E5D00483A56 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
 		3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceProfile.swift; sourceTree = "<group>"; };
 		3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceExercise.swift; sourceTree = "<group>"; };
-		3E64BCFC24C473E60014E91B /* ExerсisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExerсisesViewController.swift"; sourceTree = "<group>"; };
-		3E707E2B24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomExerciseTableViewCell.swift; sourceTree = "<group>"; };
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
 		3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCellNew.swift; sourceTree = "<group>"; };
-		3E82C79024DC8CA000145E9D /* CheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckmarkButton.swift; sourceTree = "<group>"; };
+		3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCheckmarkButton.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E87232124BF9FC4005FC365 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E87232624BFAD35005FC365 /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
-		3E8DE57724CC0A6300DFB220 /* ExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewController.swift; sourceTree = "<group>"; };
-		3E8DE57924CC3DE800DFB220 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
-		3E8DE57D24CD8A0E00DFB220 /* AddTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrainingViewController.swift; sourceTree = "<group>"; };
 		3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSectionEnum.swift; sourceTree = "<group>"; };
-		3E8DE58524CDA26100DFB220 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		3E8DE58724CDA2AD00DFB220 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
-		3EB0F97F24D0B91D00AC97EB /* NewTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTrainerViewController.swift; sourceTree = "<group>"; };
-		3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExerciseViewController.swift; sourceTree = "<group>"; };
+		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		3EC9CD5D24D87C1800B1F8C6 /* ProfileExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileExercisesViewController.swift; sourceTree = "<group>"; };
-		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCell.swift; sourceTree = "<group>"; };
+		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCollectionCell.swift; sourceTree = "<group>"; };
 		3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleEnum.swift; sourceTree = "<group>"; };
-		3ED7036C24DB202D00E4DB9F /* NewAddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAddExerciseViewController.swift; sourceTree = "<group>"; };
+		3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerAddExerciseViewController.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
 		3ED7037724DB490C00E4DB9F /* TrainingModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModelNew.swift; sourceTree = "<group>"; };
-		3ED7037924DB550300E4DB9F /* Anchor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anchor.swift; sourceTree = "<group>"; };
 		3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
@@ -140,13 +107,12 @@
 		3EE38FFD24BCE78A003AF6D8 /* fitnes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE3900024BCE78A003AF6D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EE3900224BCE78A003AF6D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3EE3900424BCE78A003AF6D8 /* AthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteViewController.swift; sourceTree = "<group>"; };
 		3EE3900724BCE78A003AF6D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3EE3900C24BCE78D003AF6D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3EE3900E24BCE78D003AF6D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EE5A64B24D7150C004110C6 /* ProfileMyTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileMyTrainingViewController.swift; sourceTree = "<group>"; };
-		3EE5A64D24D71631004110C6 /* MyTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCell.swift; sourceTree = "<group>"; };
+		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -176,9 +142,8 @@
 		3E10DA3424C3914600163F26 /* Trainer */ = {
 			isa = PBXGroup;
 			children = (
-				3E8DE57C24CD895A00DFB220 /* Training */,
-				3E8DE57B24CD894600DFB220 /* Exercise */,
-				3E10DA3524C3915D00163F26 /* TrainerViewController.swift */,
+				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
+				3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -186,7 +151,6 @@
 		3E10DA3724C3988C00163F26 /* Athlete */ = {
 			isa = PBXGroup;
 			children = (
-				3EE3900424BCE78A003AF6D8 /* AthleteViewController.swift */,
 			);
 			path = Athlete;
 			sourceTree = "<group>";
@@ -203,7 +167,6 @@
 		3E235B3824BE2A0E004DDBD6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3E235B3524BE288D004DDBD6 /* InventoryModel.swift */,
 				3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */,
 				3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */,
 				3E10DA3824C39C0F00163F26 /* TrainerModel.swift */,
@@ -217,6 +180,7 @@
 		3E444A6F24D1C7880004B978 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				3E82E21A24DCA6B600145E9D /* CollectionCell */,
 				3ED7036F24DB38A900E4DB9F /* TextFields */,
 				3E444AB724D21AD10004B978 /* Buttons */,
 				3E444AA224D1E4AC0004B978 /* Cells */,
@@ -231,11 +195,6 @@
 		3E444AA224D1E4AC0004B978 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3E235B3224BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift */,
-				3E707E2B24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift */,
-				3E444AA324D1E4B70004B978 /* ComingTrainingCell.swift */,
-				3EE5A64D24D71631004110C6 /* MyTrainingCell.swift */,
-				3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCell.swift */,
 				3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */,
 			);
 			path = Cells;
@@ -282,9 +241,9 @@
 		3E444AB724D21AD10004B978 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				3E444AB524D21ACC0004B978 /* ButtonWithColor.swift */,
+				3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */,
 				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
-				3E82C79024DC8CA000145E9D /* CheckmarkButton.swift */,
+				3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -309,6 +268,16 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
+		3E82E21A24DCA6B600145E9D /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */,
+				3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */,
+				3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */,
+			);
+			path = CollectionCell;
+			sourceTree = "<group>";
+		};
 		3E87232024BF9FB2005FC365 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,28 +291,8 @@
 			isa = PBXGroup;
 			children = (
 				3E87232624BFAD35005FC365 /* Alerts.swift */,
-				3ED7037924DB550300E4DB9F /* Anchor.swift */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		3E8DE57B24CD894600DFB220 /* Exercise */ = {
-			isa = PBXGroup;
-			children = (
-				3E64BCFC24C473E60014E91B /* ExerсisesViewController.swift */,
-				3E8DE57724CC0A6300DFB220 /* ExerciseViewController.swift */,
-				3EC3D3BA24C434EF006B2EE1 /* AddExerciseViewController.swift */,
-			);
-			path = Exercise;
-			sourceTree = "<group>";
-		};
-		3E8DE57C24CD895A00DFB220 /* Training */ = {
-			isa = PBXGroup;
-			children = (
-				3E8DE57924CC3DE800DFB220 /* TrainingViewController.swift */,
-				3E8DE57D24CD8A0E00DFB220 /* AddTrainingViewController.swift */,
-			);
-			path = Training;
 			sourceTree = "<group>";
 		};
 		3E8DE58124CD9DE500DFB220 /* Enums */ = {
@@ -353,15 +302,6 @@
 				3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */,
 			);
 			path = Enums;
-			sourceTree = "<group>";
-		};
-		3E8DE58424CDA24600DFB220 /* SideMenu */ = {
-			isa = PBXGroup;
-			children = (
-				3E8DE58524CDA26100DFB220 /* ContainerViewController.swift */,
-				3E8DE58724CDA2AD00DFB220 /* SideMenuViewController.swift */,
-			);
-			path = SideMenu;
 			sourceTree = "<group>";
 		};
 		3EB0F97924D0B09600AC97EB /* Assets */ = {
@@ -484,14 +424,8 @@
 			children = (
 				3EE2DDE224C0DAA800D85CAE /* Auth */,
 				3E63718624CF4C5D00483A56 /* QR */,
-				3E8DE58424CDA24600DFB220 /* SideMenu */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E10DA3424C3914600163F26 /* Trainer */,
-				3E235B3924BE4729004DDBD6 /* AddInventoryViewController.swift */,
-				3E10DA2E24C330F600163F26 /* EditProfileViewController.swift */,
-				3E63718924CF5E5D00483A56 /* MainViewController.swift */,
-				3EB0F97F24D0B91D00AC97EB /* NewTrainerViewController.swift */,
-				3ED7036C24DB202D00E4DB9F /* NewAddExerciseViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -501,7 +435,6 @@
 			children = (
 				3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */,
 				3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */,
-				3E0C1CC624C61B7F001F249A /* DefineRole.swift */,
 			);
 			path = RoleConverter;
 			sourceTree = "<group>";
@@ -631,32 +564,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */,
-				3EE5A64E24D71631004110C6 /* MyTrainingCell.swift in Sources */,
-				3E444AA424D1E4B70004B978 /* ComingTrainingCell.swift in Sources */,
+				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
+				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* ProfileHeaderViewController.swift in Sources */,
 				3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */,
-				3EE3900524BCE78A003AF6D8 /* AthleteViewController.swift in Sources */,
-				3E235B3324BE1B0B004DDBD6 /* CustomInventoryTableViewCell.swift in Sources */,
 				3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */,
-				3E8DE58824CDA2AD00DFB220 /* SideMenuViewController.swift in Sources */,
 				3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */,
 				3E444ABF24D340560004B978 /* CircleView.swift in Sources */,
-				3E707E2C24C477FE0049BAB6 /* CustomExerciseTableViewCell.swift in Sources */,
-				3E8DE57A24CC3DE800DFB220 /* TrainingViewController.swift in Sources */,
-				3E235B3A24BE4729004DDBD6 /* AddInventoryViewController.swift in Sources */,
-				3EB0F98024D0B91D00AC97EB /* NewTrainerViewController.swift in Sources */,
-				3EC3D3BB24C434EF006B2EE1 /* AddExerciseViewController.swift in Sources */,
+				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
 				3E8DE58A24CDAB5C00DFB220 /* TrainingModel.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FTitleLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
 				3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
-				3E235B3624BE288D004DDBD6 /* InventoryModel.swift in Sources */,
-				3E8DE57E24CD8A0E00DFB220 /* AddTrainingViewController.swift in Sources */,
-				3ED7037A24DB550300E4DB9F /* Anchor.swift in Sources */,
-				3E63718A24CF5E5D00483A56 /* MainViewController.swift in Sources */,
-				3E10DA2F24C330F600163F26 /* EditProfileViewController.swift in Sources */,
 				3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
@@ -664,16 +585,15 @@
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,
 				3E444AB224D201350004B978 /* ItemView.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
-				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCell.swift in Sources */,
+				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
-				3ED7036D24DB202D00E4DB9F /* NewAddExerciseViewController.swift in Sources */,
+				3ED7036D24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ProfileExercisesViewController.swift in Sources */,
-				3E444AB624D21ACC0004B978 /* ButtonWithColor.swift in Sources */,
-				3E0C1CC724C61B7F001F249A /* DefineRole.swift in Sources */,
+				3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* ProfileMyTrainingViewController.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ProfileComingTrainingViewController.swift in Sources */,
 				3ED7037824DB490C00E4DB9F /* TrainingModelNew.swift in Sources */,
@@ -683,15 +603,11 @@
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
 				3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */,
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
-				3E8DE57824CC0A6300DFB220 /* ExerciseViewController.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
-				3E8DE58624CDA26100DFB220 /* ContainerViewController.swift in Sources */,
-				3E10DA3624C3915D00163F26 /* TrainerViewController.swift in Sources */,
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
 				3E444AB424D2065E0004B978 /* ProfileItemsViewController.swift in Sources */,
-				3E82C79124DC8CA000145E9D /* CheckmarkButton.swift in Sources */,
+				3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
-				3E64BCFD24C473E60014E91B /* ExerсisesViewController.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

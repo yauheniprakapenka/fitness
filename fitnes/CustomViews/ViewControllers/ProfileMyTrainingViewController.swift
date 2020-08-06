@@ -32,7 +32,7 @@ class ProfileMyTrainingViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(MyTrainingCell.self, forCellWithReuseIdentifier: "MyTrainingCell")
+        cv.register(MyTrainingCollectionCell.self, forCellWithReuseIdentifier: "MyTrainingCell")
         return cv
     }()
     
@@ -92,7 +92,7 @@ extension ProfileMyTrainingViewController: UICollectionViewDelegateFlowLayout, U
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyTrainingCell", for: indexPath) as! MyTrainingCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyTrainingCell", for: indexPath) as! MyTrainingCollectionCell
         cell.data = self.myTrainingModel[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         

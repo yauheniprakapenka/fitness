@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyExerciseCell: UICollectionViewCell {
+class MyExerciseCollectionCell: UICollectionViewCell {
     
     var data: ExercisesModel? {
         didSet {
