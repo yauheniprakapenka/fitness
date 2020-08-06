@@ -1,30 +1,29 @@
 //
-//  ProfileMyTrainingViewController.swift
+//  ProfileExercisesViewController.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 02.08.2020.
+//  Created by yauheni prakapenka on 03.08.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
 import UIKit
 
-struct MyTrainingModel {
-    var title: String
+struct ExercisesModel {
     var image: UIImage
-    var kind: String
-    var count: String
+    var exerciseName: String
+    var kindInventory: String
 }
 
-class ProfileMyTrainingViewController: UIViewController {
+class ExercisesViewController: UIViewController {
     
-    let myTrainingsLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
+    let exerciseLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "")
     let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
-    let myTrainingModel = [
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "15 упражнений"),
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "For time", count: "11 упражнений"),
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "1 упражнений"),
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "5 упражнений")
+    let exercisesModel = [
+        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Будь Арни", kindInventory: "Гантели"),
+        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталлоне", kindInventory: "Скакалка"),
+        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Бабочка", kindInventory: "Штанга"),
+        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталь", kindInventory: "Брусья")
     ]
     
     private let collectionView: UICollectionView = {
@@ -32,7 +31,7 @@ class ProfileMyTrainingViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(MyTrainingCollectionCell.self, forCellWithReuseIdentifier: "MyTrainingCell")
+        cv.register(MyExerciseCollectionCell.self, forCellWithReuseIdentifier: "MyExerciseCell")
         return cv
     }()
     
@@ -48,19 +47,19 @@ class ProfileMyTrainingViewController: UIViewController {
     }
     
     private func configureLayout() {
-        view.addSubview(myTrainingsLabel)
+        view.addSubview(exerciseLabel)
         view.addSubview(moreButton)
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
-            myTrainingsLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            myTrainingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            myTrainingsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            exerciseLabel.topAnchor.constraint(equalTo: view.topAnchor),
+            exerciseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            exerciseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            moreButton.bottomAnchor.constraint(equalTo: myTrainingsLabel.bottomAnchor),
+            moreButton.bottomAnchor.constraint(equalTo: exerciseLabel.bottomAnchor),
             moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             
-            collectionView.topAnchor.constraint(equalTo: myTrainingsLabel.bottomAnchor),
+            collectionView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 1)
@@ -68,7 +67,7 @@ class ProfileMyTrainingViewController: UIViewController {
     }
     
     private func configureUIElements() {
-        myTrainingsLabel.text = "Мои тренировки"
+        exerciseLabel.text = "Упражнения"
         collectionView.backgroundColor = .white
     }
     
@@ -81,19 +80,19 @@ class ProfileMyTrainingViewController: UIViewController {
     }
 }
 
-extension ProfileMyTrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension ExercisesViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width/2.5, height: 300)// collectionView.frame.width/2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        myTrainingModel.count
+        exercisesModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyTrainingCell", for: indexPath) as! MyTrainingCollectionCell
-        cell.data = self.myTrainingModel[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyExerciseCell", for: indexPath) as! MyExerciseCollectionCell
+        cell.data = self.exercisesModel[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         
         cell.layer.shadowColor = UIColor.black.cgColor
@@ -105,4 +104,5 @@ extension ProfileMyTrainingViewController: UICollectionViewDelegateFlowLayout, U
         
         return cell
     }
+    
 }

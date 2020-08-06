@@ -1,5 +1,5 @@
 //
-//  UserInfoViewController.swift
+//  HeaderViewController.swift
 //  fitnes
 //
 //  Created by yauheni prakapenka on 29.07.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileHeaderViewController: UIViewController {
+class HeaderViewController: UIViewController {
     
     let avatarImageView = FAvatarImageView(frame: .zero)
     let nameLabel = FTitleLabel(textAligment: .left, fontSize: 20, weight: .regular, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
