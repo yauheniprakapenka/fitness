@@ -192,7 +192,7 @@ extension NewAddExerciseViewController: UITableViewDelegate {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
-        tableView.register(TestCellTableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TrainingCellNew.self, forCellReuseIdentifier: "cell")
     }
 }
 
@@ -202,7 +202,7 @@ extension NewAddExerciseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TestCellTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TrainingCellNew
         cell.selectionStyle = .none
         cell.nameLabel.text = myTraining[indexPath.row].name
         return cell
