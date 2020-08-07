@@ -20,9 +20,9 @@ class MyTrainingCollectionCell: UICollectionViewCell {
         }
     }
     
-    let trainingNameLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "")
-    let kindLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .regular, color: .black, message: "")
-    let countLabel = FTitleLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray, message: "")
+    let trainingNameLabel = FLabel(textAligment: .left, fontSize: 14, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "")
+    let kindLabel = FLabel(textAligment: .left, fontSize: 16, weight: .regular, color: .black, message: "")
+    let countLabel = FLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray, message: "")
     
     fileprivate let logoImage: UIImageView = {
         let imageView = UIImageView()
