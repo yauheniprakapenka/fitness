@@ -8,13 +8,18 @@
 
 import UIKit
 
+struct TitleForCategory {
+    var title: String
+}
+
 class AthleteParameterViewController: UIViewController {
+    
+    var scrollView: UIScrollView!
+    let tableView = UITableView()
     
     let titleLabel = FLabel(textAligment: .center, fontSize: 18, weight: .semibold, color: .black, message: "Мои параметры")
     let cancelButton = FSimpleButton(title: "Отмена", titleColor: .gray, size: 14)
     let saveButton = FSimpleButton(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
-    
-    var scrollView: UIScrollView!
     
     let fioLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "ФИО")
     let fioTextField = FTextField(placeholderText: "ФИО")
@@ -24,6 +29,17 @@ class AthleteParameterViewController: UIViewController {
     
     let indicatorLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Показатели")
     let indicatorTextField = FTextField(placeholderText: "Показатели")
+    
+    let titleForCategoryLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Заголовок для категории")
+    
+    let titleForCategory: [TitleForCategory] = [
+        TitleForCategory(title: "Одноповторные максимумы"),
+        TitleForCategory(title: "Толчок тяжелоатлетический"),
+        TitleForCategory(title: "Рывок тяжелоатлетический"),
+        TitleForCategory(title: "Становая тяга"),
+        TitleForCategory(title: "Бег 400 метров"),
+        TitleForCategory(title: "Бег 5000 метров"),
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +56,9 @@ class AthleteParameterViewController: UIViewController {
         configurePhoneTextField()
         configureIndicatorLabel()
         configureIndicatorTextField()
+        configureTitleForCategoryLabel()
+        
+        setupTableView()
     }
     
     private func configureScrollView() {
@@ -127,12 +146,55 @@ class AthleteParameterViewController: UIViewController {
     }
     
     private func configureIndicatorTextField() {
-           scrollView.addSubview(indicatorTextField)
-           
-           indicatorTextField.topAnchor.constraint(equalTo: indicatorLabel.bottomAnchor, constant: 20).isActive = true
-           indicatorTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-           indicatorTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-           indicatorTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       }
+        scrollView.addSubview(indicatorTextField)
+        
+        indicatorTextField.topAnchor.constraint(equalTo: indicatorLabel.bottomAnchor, constant: 20).isActive = true
+        indicatorTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        indicatorTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        indicatorTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
     
+    private func configureTitleForCategoryLabel() {
+        scrollView.addSubview(titleForCategoryLabel)
+        
+        titleForCategoryLabel.topAnchor.constraint(equalTo: indicatorTextField.bottomAnchor, constant: 40).isActive = true
+        titleForCategoryLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+    }
+    
+}
+
+// MARK: - Setup Table View
+extension AthleteParameterViewController: UITableViewDelegate {
+    private func setupTableView() {
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.separatorStyle = .singleLine
+        tableView.separatorColor = #colorLiteral(red: 0.9803171754, green: 0.9804343581, blue: 0.9802773595, alpha: 1)
+        
+        view.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.topAnchor.constraint(equalTo: titleForCategoryLabel.bottomAnchor, constant: 20).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        
+        tableView.register(TitleWithCheckboxCell.self, forCellReuseIdentifier: "cell")
+    }
+}
+
+extension AthleteParameterViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleForCategory.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TitleWithCheckboxCell
+        cell.selectionStyle = .none
+        cell.nameLabel.text = titleForCategory[indexPath.row].title
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        50
+    }
 }
