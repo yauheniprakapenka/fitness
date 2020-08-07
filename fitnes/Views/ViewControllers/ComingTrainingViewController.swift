@@ -19,7 +19,7 @@ struct ComingTrainingModel {
 
 class ComingTrainingViewController: UIViewController {
     
-    let comingTrainingsLabel = FTitleLabel(textAligment: .left, fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
+    let comingTrainingsLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "Ближайшие тренировки")
     let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
     let comingTraining = [
@@ -71,7 +71,6 @@ class ComingTrainingViewController: UIViewController {
     }
     
     private func configureUIElements() {
-        comingTrainingsLabel.text = "Ближайшие тренировки"
         collectionView.backgroundColor = .white
     }
     

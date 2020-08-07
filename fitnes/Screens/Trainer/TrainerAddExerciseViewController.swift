@@ -12,23 +12,23 @@ class TrainerAddExerciseViewController: UIViewController {
     
     let tableView = UITableView()
     
-    let titleLabel = FTitleLabel(textAligment: .center, fontSize: 18, weight: .semibold, color: .black, message: "Новое упражнение")
+    let titleLabel = FLabel(textAligment: .center, fontSize: 18, weight: .semibold, color: .black, message: "Новое упражнение")
     let cancelButton = FSimpleButton(title: "Отмена", titleColor: .gray, size: 14)
     let saveButton = FSimpleButton(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
     
-    let nameLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Название")
+    let nameLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Название")
     let nameTextField = FTextField(placeholderText: "Введите название")
     
-    let inventoryLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Тип инвентаря")
+    let inventoryLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Тип инвентаря")
     let inventoryTextField = FTextField(placeholderText: "Выберите инвентарь")
     
-    let descriptionLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Описание")
+    let descriptionLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Описание")
     let descriptionTextField = FTextField(placeholderText: "Введите краткое описание")
     
-    let videoLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Видео")
+    let videoLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Видео")
     let videoTextField = FTextField(placeholderText: "Вставьте ссылку")
     
-    let addTrainingLabel = FTitleLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Добавить тренировку")
+    let addTrainingLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Добавить тренировку")
     
     var scrollView: UIScrollView!
     

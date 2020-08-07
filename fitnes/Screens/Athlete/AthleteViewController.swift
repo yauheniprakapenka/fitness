@@ -18,6 +18,7 @@ class AthleteViewController: UIViewController {
     let itemsView = UIView()
     let comingTrainingView = UIView()
     let myTrainingView = UIView()
+    let myAbonementsView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +29,7 @@ class AthleteViewController: UIViewController {
         configureItemsLayout()
         configureComingTraininLayout()
         configureMyTrainingLayout()
+        configureMyAbonements()
         
         AddChildVC()
     }
@@ -89,12 +91,22 @@ class AthleteViewController: UIViewController {
         myTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
+    private func configureMyAbonements() {
+        scrollView.addSubview(myAbonementsView)
+        myAbonementsView.translatesAutoresizingMaskIntoConstraints = false
+        myAbonementsView.topAnchor.constraint(equalTo: myTrainingView.bottomAnchor, constant: 100).isActive = true
+        myAbonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        myAbonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        myAbonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         self.add(childVC: HeaderViewController(), to: self.headerView)
         self.add(childVC: ItemsAthleteViewController(), to: self.itemsView)
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
+        self.add(childVC: AbonementsViewController(), to: self.myAbonementsView)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

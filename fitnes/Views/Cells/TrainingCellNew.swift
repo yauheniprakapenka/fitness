@@ -14,7 +14,7 @@ class TrainingCellNew: UITableViewCell {
     
     let checkmarkButton = FCheckmarkButton()
     
-    let nameLabel = FTitleLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "")
+    let nameLabel = FLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "")
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
