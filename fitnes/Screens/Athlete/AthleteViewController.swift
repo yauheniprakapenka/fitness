@@ -117,7 +117,9 @@ class AthleteViewController: UIViewController {
     }
 
     @objc func moreButtonTapped() {
-        print("button tapped")
+        let vc = AthleteParameterViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
 }
