@@ -83,6 +83,10 @@ class AthleteParameterViewController: UIViewController {
         
         configureFran10Button()
         configureFran20Button()
+        configureFran30Button()
+        configureFran40Button()
+        configureFran50Button()
+        configureFran60Button()
     }
     
     private func configureScrollView() {
@@ -228,7 +232,7 @@ extension AthleteParameterViewController: UITableViewDataSource {
 }
 
 
-
+//MARK: - Sorry for this horror. Im refactor it later
 extension AthleteParameterViewController {
     
     private func configureFran10Button() {
@@ -274,6 +278,98 @@ extension AthleteParameterViewController {
         } else {
             fran20Button.setTitleColor(#colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), for: .normal)
             fran20Button.backgroundColor = .white
+        }
+    }
+    
+    private func configureFran30Button() {
+        let squareSize: CGFloat = 35
+        scrollView.addSubview(fran30Button)
+        fran30Button.topAnchor.constraint(equalTo: franLabel.bottomAnchor, constant: 20).isActive = true
+        fran30Button.leadingAnchor.constraint(equalTo: fran20Button.trailingAnchor, constant: 20).isActive = true
+        fran30Button.widthAnchor.constraint(equalToConstant: squareSize).isActive = true
+        fran30Button.heightAnchor.constraint(equalToConstant: squareSize).isActive = true
+        
+        fran30Button.addTarget(self, action: #selector(fran30ButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func fran30ButtonTapped() {
+        isfran30ButtonSelected = !isfran30ButtonSelected
+        
+        if isfran30ButtonSelected {
+            fran30Button.setTitleColor(.white, for: .normal)
+            fran30Button.backgroundColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
+        } else {
+            fran30Button.setTitleColor(#colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), for: .normal)
+            fran30Button.backgroundColor = .white
+        }
+    }
+    
+    private func configureFran40Button() {
+        let squareSize: CGFloat = 35
+        scrollView.addSubview(fran40Button)
+        fran40Button.topAnchor.constraint(equalTo: franLabel.bottomAnchor, constant: 20).isActive = true
+        fran40Button.leadingAnchor.constraint(equalTo: fran30Button.trailingAnchor, constant: 20).isActive = true
+        fran40Button.widthAnchor.constraint(equalToConstant: squareSize).isActive = true
+        fran40Button.heightAnchor.constraint(equalToConstant: squareSize).isActive = true
+        
+        fran40Button.addTarget(self, action: #selector(fran40ButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func fran40ButtonTapped() {
+        isfran40ButtonSelected = !isfran40ButtonSelected
+        
+        if isfran40ButtonSelected {
+            fran40Button.setTitleColor(.white, for: .normal)
+            fran40Button.backgroundColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
+        } else {
+            fran40Button.setTitleColor(#colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), for: .normal)
+            fran40Button.backgroundColor = .white
+        }
+    }
+    
+    private func configureFran50Button() {
+        let squareSize: CGFloat = 35
+        scrollView.addSubview(fran50Button)
+        fran50Button.topAnchor.constraint(equalTo: franLabel.bottomAnchor, constant: 20).isActive = true
+        fran50Button.leadingAnchor.constraint(equalTo: fran40Button.trailingAnchor, constant: 20).isActive = true
+        fran50Button.widthAnchor.constraint(equalToConstant: squareSize).isActive = true
+        fran50Button.heightAnchor.constraint(equalToConstant: squareSize).isActive = true
+        
+        fran50Button.addTarget(self, action: #selector(fran50ButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func fran50ButtonTapped() {
+        isfran50ButtonSelected = !isfran50ButtonSelected
+        
+        if isfran50ButtonSelected {
+            fran50Button.setTitleColor(.white, for: .normal)
+            fran50Button.backgroundColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
+        } else {
+            fran50Button.setTitleColor(#colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), for: .normal)
+            fran50Button.backgroundColor = .white
+        }
+    }
+    
+    private func configureFran60Button() {
+        let squareSize: CGFloat = 35
+        scrollView.addSubview(fran60Button)
+        fran60Button.topAnchor.constraint(equalTo: franLabel.bottomAnchor, constant: 20).isActive = true
+        fran60Button.leadingAnchor.constraint(equalTo: fran50Button.trailingAnchor, constant: 20).isActive = true
+        fran60Button.widthAnchor.constraint(equalToConstant: squareSize).isActive = true
+        fran60Button.heightAnchor.constraint(equalToConstant: squareSize).isActive = true
+        
+        fran60Button.addTarget(self, action: #selector(fran60ButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func fran60ButtonTapped() {
+        isfran60ButtonSelected = !isfran60ButtonSelected
+        
+        if isfran60ButtonSelected {
+            fran60Button.setTitleColor(.white, for: .normal)
+            fran60Button.backgroundColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
+        } else {
+            fran60Button.setTitleColor(#colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), for: .normal)
+            fran60Button.backgroundColor = .white
         }
     }
 }
