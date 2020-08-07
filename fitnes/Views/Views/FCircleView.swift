@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CircleView: UIView {
+class FCircleView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

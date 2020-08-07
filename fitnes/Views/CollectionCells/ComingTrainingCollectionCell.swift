@@ -23,7 +23,7 @@ class ComingTrainingCollectionCell: UICollectionViewCell {
     }
     
     let trainingNameLabel = FLabel(textAligment: .left, fontSize: 14, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "")
-    let circleView = CircleView(x: 105, y: 10, size: 32 , color: #colorLiteral(red: 0.0002395628253, green: 0.5160111189, blue: 0.9560294747, alpha: 1))
+    let circleView = FCircleView(x: 105, y: 10, size: 32 , color: #colorLiteral(red: 0.0002395628253, green: 0.5160111189, blue: 0.9560294747, alpha: 1))
     let countLabel = FLabel(textAligment: .center, fontSize: 18, weight: .regular, color: .white, message: "")
     let streetlabel = FLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "")
     let dateLabel = FLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray, message: "")
