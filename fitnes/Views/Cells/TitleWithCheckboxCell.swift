@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainingCellNew: UITableViewCell {
+class TitleWithCheckboxCell: UITableViewCell {
     
     private var isCheckmarked = false
     

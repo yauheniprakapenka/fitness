@@ -10,6 +10,7 @@ import UIKit
 
 class TrainerAddExerciseViewController: UIViewController {
     
+    var scrollView: UIScrollView!
     let tableView = UITableView()
     
     let titleLabel = FLabel(textAligment: .center, fontSize: 18, weight: .semibold, color: .black, message: "Новое упражнение")
@@ -29,8 +30,6 @@ class TrainerAddExerciseViewController: UIViewController {
     let videoTextField = FTextField(placeholderText: "Вставьте ссылку")
     
     let addTrainingLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Добавить тренировку")
-    
-    var scrollView: UIScrollView!
     
     let myTraining: [TrainingModelNew] = [
         TrainingModelNew(name: "Тренировка 1", exercise: ExerciseModelNew(name: "имя 1", inventory: "инвентарь 1", description: "описание 1", video: "это видео 1")),
@@ -190,7 +189,7 @@ extension TrainerAddExerciseViewController: UITableViewDelegate {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
-        tableView.register(TrainingCellNew.self, forCellReuseIdentifier: "cell")
+        tableView.register(TitleWithCheckboxCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
@@ -200,7 +199,7 @@ extension TrainerAddExerciseViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TrainingCellNew
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TitleWithCheckboxCell
         cell.selectionStyle = .none
         cell.nameLabel.text = myTraining[indexPath.row].name
         return cell

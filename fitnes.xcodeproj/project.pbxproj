@@ -28,7 +28,7 @@
 		3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */; };
 		3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */; };
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
-		3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */; };
+		3E82C78F24DC72EB00145E9D /* TitleWithCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TitleWithCheckboxCell.swift */; };
 		3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */; };
 		3E82E21C24DCA8B100145E9D /* FMoreButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FMoreButton.swift */; };
 		3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21D24DCA96500145E9D /* AthleteViewController.swift */; };
@@ -89,7 +89,7 @@
 		3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceProfile.swift; sourceTree = "<group>"; };
 		3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceExercise.swift; sourceTree = "<group>"; };
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
-		3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCellNew.swift; sourceTree = "<group>"; };
+		3E82C78E24DC72EB00145E9D /* TitleWithCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithCheckboxCell.swift; sourceTree = "<group>"; };
 		3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCheckmarkButton.swift; sourceTree = "<group>"; };
 		3E82E21B24DCA8B100145E9D /* FMoreButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FMoreButton.swift; sourceTree = "<group>"; };
 		3E82E21D24DCA96500145E9D /* AthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteViewController.swift; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		3E444AA224D1E4AC0004B978 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3E82C78E24DC72EB00145E9D /* TrainingCellNew.swift */,
+				3E82C78E24DC72EB00145E9D /* TitleWithCheckboxCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -586,7 +586,7 @@
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
-				3E82C78F24DC72EB00145E9D /* TrainingCellNew.swift in Sources */,
+				3E82C78F24DC72EB00145E9D /* TitleWithCheckboxCell.swift in Sources */,
 				3E10DA3924C39C0F00163F26 /* TrainerModel.swift in Sources */,
 				3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */,
 				3E444ABF24D340560004B978 /* CircleView.swift in Sources */,
