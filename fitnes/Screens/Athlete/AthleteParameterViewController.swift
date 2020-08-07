@@ -50,6 +50,13 @@ class AthleteParameterViewController: UIViewController {
     var isfran50ButtonSelected = false
     var isfran60ButtonSelected = false
     
+    var countGrace = 15
+    
+    let graceLabel = FLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "Grace")
+    let plusButton = FFranButton(title: "+")
+    let countLabel = FLabel(textAligment: .center, fontSize: 16, weight: .semibold, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "nil")
+    let minusButton = FFranButton(title: "-")
+    
     let titleForCategory: [TitleForCategory] = [
         TitleForCategory(title: "Одноповторные максимумы"),
         TitleForCategory(title: "Толчок тяжелоатлетический"),
@@ -87,6 +94,13 @@ class AthleteParameterViewController: UIViewController {
         configureFran40Button()
         configureFran50Button()
         configureFran60Button()
+        
+        configureGraceLabel()
+        configurePlusButton()
+        configureCountLabel()
+        configureMinusButton()
+        
+        countLabel.text = String(countGrace)
     }
     
     private func configureScrollView() {
@@ -372,4 +386,57 @@ extension AthleteParameterViewController {
             fran60Button.backgroundColor = .white
         }
     }
+}
+
+//MARK: - Sorry for this horror. Im refactor it later
+extension AthleteParameterViewController {
+    
+    private func configureGraceLabel() {
+        scrollView.addSubview(graceLabel)
+        graceLabel.topAnchor.constraint(equalTo: fran10Button.bottomAnchor, constant: 40).isActive = true
+        graceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+    }
+    
+    
+    private func configurePlusButton() {
+        scrollView.addSubview(plusButton)
+        plusButton.topAnchor.constraint(equalTo: fran10Button.bottomAnchor, constant: 40).isActive = true
+        plusButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        plusButton.setTitleColor(.gray, for: .normal)
+        plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func plusButtonTapped() {
+        countGrace += 1
+        countLabel.text = String(countGrace)
+    }
+    
+    private func configureCountLabel() {
+        scrollView.addSubview(countLabel)
+        countLabel.topAnchor.constraint(equalTo: fran10Button.bottomAnchor, constant: 37).isActive = true
+        countLabel.trailingAnchor.constraint(equalTo: plusButton.leadingAnchor, constant: -20).isActive = true
+        countLabel.widthAnchor.constraint(equalToConstant: 44).isActive = true
+        countLabel.heightAnchor.constraint(equalToConstant: 44).isActive = true
+        
+        countLabel.layer.cornerRadius = 5
+        countLabel.layer.borderWidth = 1
+        countLabel.layer.borderColor = #colorLiteral(red: 0.8940489888, green: 0.8941563964, blue: 0.8940123916, alpha: 1)
+        countLabel.textAlignment = .center
+    }
+    
+    private func configureMinusButton() {
+        scrollView.addSubview(minusButton)
+        minusButton.topAnchor.constraint(equalTo: fran10Button.bottomAnchor, constant: 40).isActive = true
+        minusButton.trailingAnchor.constraint(equalTo: countLabel.leadingAnchor, constant: -20).isActive = true
+        
+        minusButton.setTitleColor(.gray, for: .normal)
+        minusButton.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func minusButtonTapped() {
+        countGrace -= 1
+        countLabel.text = String(countGrace)
+    }
+    
 }
