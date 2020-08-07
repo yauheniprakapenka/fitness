@@ -39,8 +39,6 @@ class TrainerAddExerciseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        print(myTraining[0].name)
-//        print(myTraining[1].exercise.video)
         
         configureScrollView()
         configureTitleLabel()
@@ -144,13 +142,13 @@ class TrainerAddExerciseViewController: UIViewController {
     }
     
     private func configureDescriptionTextField() {
-           scrollView.addSubview(descriptionTextField)
-           
-           descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
-           descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-           descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-           descriptionTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-       }
+        scrollView.addSubview(descriptionTextField)
+        
+        descriptionTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
+        descriptionTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        descriptionTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        descriptionTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
     
     private func configureVideoLabel() {
         scrollView.addSubview(videoLabel)
