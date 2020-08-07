@@ -191,12 +191,12 @@
 		3E444A6F24D1C7880004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E82E21A24DCA6B600145E9D /* CollectionCells */,
-				3ED7036F24DB38A900E4DB9F /* TextFields */,
 				3E444AB724D21AD10004B978 /* Buttons */,
 				3E444AA224D1E4AC0004B978 /* Cells */,
+				3E82E21A24DCA6B600145E9D /* CollectionCells */,
 				3E444AA524D1E5110004B978 /* ImageViews */,
 				3E444AAD24D1E5CB0004B978 /* Labels */,
+				3ED7036F24DB38A900E4DB9F /* TextFields */,
 				3E444AA824D1E5370004B978 /* ViewControllers */,
 				3E444AB024D201090004B978 /* Views */,
 			);
@@ -244,9 +244,9 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E444AB124D201350004B978 /* ItemView.swift */,
-				3E444ABA24D220760004B978 /* HorisontalLineView.swift */,
 				3E444ABE24D340560004B978 /* CircleView.swift */,
+				3E444ABA24D220760004B978 /* HorisontalLineView.swift */,
+				3E444AB124D201350004B978 /* ItemView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -255,9 +255,9 @@
 			isa = PBXGroup;
 			children = (
 				3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */,
-				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
 				3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */,
 				3E82E21B24DCA8B100145E9D /* FMoreButton.swift */,
+				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";

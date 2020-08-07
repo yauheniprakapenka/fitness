@@ -19,21 +19,6 @@ class MyAbonementsCollectionCell: UICollectionViewCell {
         }
     }
     
-    private func makeAbonementColor(color: String) -> UIColor {
-        var currentColor: UIColor!
-        
-        switch color {
-        case "blue":
-            currentColor = #colorLiteral(red: 0.3045426607, green: 0.6667945385, blue: 0.9780504107, alpha: 1)
-        case "pink":
-            currentColor = #colorLiteral(red: 1, green: 0.5700934529, blue: 0.6348041892, alpha: 1)
-        default:
-            currentColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
-        }
-        
-        return currentColor
-    }
-    
     let abonementLabel = FLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .white, message: "")
     let costLabel = FLabel(textAligment: .left, fontSize: 22, weight: .semibold, color: .black, message: "")
     var status = ""
@@ -64,15 +49,21 @@ class MyAbonementsCollectionCell: UICollectionViewCell {
         abonementLabel.numberOfLines = 3
         abonementLabel.textColor = .white
         costLabel.textColor = .white
-        contentView.backgroundColor = .systemPink
+        contentView.layer.cornerRadius = 10
+    }
+    
+    private func makeAbonementColor(color: String) -> UIColor {
+        var currentColor: UIColor!
         
-        if status == "pink" {
-            print("pink")
-        } else {
-            print("123")
+        switch color {
+        case "blue":
+            currentColor = #colorLiteral(red: 0.3045426607, green: 0.6667945385, blue: 0.9780504107, alpha: 1)
+        case "pink":
+            currentColor = #colorLiteral(red: 1, green: 0.5700934529, blue: 0.6348041892, alpha: 1)
+        default:
+            currentColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
         
-        
-        contentView.layer.cornerRadius = 10
+        return currentColor
     }
 }
