@@ -103,7 +103,12 @@ class AthleteViewController: UIViewController {
     private func AddChildVC() {
         view.backgroundColor = .white
         self.add(childVC: HeaderViewController(), to: self.headerView)
-        self.add(childVC: ItemsAthleteViewController(), to: self.itemsView)
+        
+        let itemsAthleteViewController = ItemsAthleteViewController()
+        self.add(childVC: itemsAthleteViewController, to: self.itemsView)
+        itemsAthleteViewController.actionButton.setTitle("Найти тренера", for: .normal)
+        itemsAthleteViewController.actionButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
+        
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
         self.add(childVC: AbonementsViewController(), to: self.myAbonementsView)
@@ -120,6 +125,12 @@ class AthleteViewController: UIViewController {
         let vc = AthleteParameterViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
+    }
+    
+    @objc func findTrainerButtonTapped() {
+        let nav = UINavigationController(rootViewController: FindTrainerViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     
 }

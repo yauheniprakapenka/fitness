@@ -14,13 +14,12 @@ class ItemsAthleteViewController: UIViewController {
     let bottomHorisontalLineView = HorisontalLineView()
     let stackView = UIStackView()
     let programView = ItemView(message: "Программ", count: "15")
-    let findButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Найти тренера")
+    let actionButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Найти тренера")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
         configureStackView()
-        configureActionButton()
     }
     
     private func configureLayout() {
@@ -55,16 +54,7 @@ class ItemsAthleteViewController: UIViewController {
         stackView.distribution = .fillProportionally
         
         stackView.addArrangedSubview(programView)
-        stackView.addArrangedSubview(findButton)
+        stackView.addArrangedSubview(actionButton)
     }
     
-    private func configureActionButton() {
-        findButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
-    }
-    
-     @objc func createButtonTapped() {
-        let nav = UINavigationController(rootViewController: FindTrainerViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
-    }
 }

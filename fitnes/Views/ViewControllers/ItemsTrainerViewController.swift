@@ -12,16 +12,18 @@ class ItemsTrainerViewController: UIViewController {
     
     let topHorisontalLineView = HorisontalLineView()
     let bottomHorisontalLineView = HorisontalLineView()
+    
     let stackView = UIStackView()
+    
     let programView = ItemView(message: "Программ", count: "15")
     let athleteView = ItemView(message: "Атлета", count: "123")
-    let createButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать")
+    
+    let createButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Нет названия")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureLayout()
         configureStackView()
-        configureActionButton()
     }
     
     private func configureLayout() {
@@ -60,14 +62,4 @@ class ItemsTrainerViewController: UIViewController {
         stackView.addArrangedSubview(createButton)
     }
     
-    private func configureActionButton() {
-        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
-    }
-    
-     @objc func createButtonTapped() {
-        print("button tapped")
-        let vc = TrainerAddExerciseViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
 }
