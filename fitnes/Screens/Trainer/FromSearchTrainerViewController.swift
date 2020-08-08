@@ -77,6 +77,7 @@ class FromSearchTrainerViewController: UIViewController {
         trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
+        trainingPlaceView.trainingPlaceLabel.text = selectedTrainer?.trainingPlace
     }
     
     private func AddChildVC() {

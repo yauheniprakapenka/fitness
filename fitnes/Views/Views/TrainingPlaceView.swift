@@ -12,7 +12,7 @@ class TrainingPlaceView: UIView {
     
     let trainingPlaceImageView = UIImageView()
     let titleLabel = FLabel(textAligment: .left, fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "МЕСТО ТРЕНИРОВОК")
-    let trainingPlaceLabel = FLabel(textAligment: .left, fontSize: 15, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Стадион ГУО СОШ №324, ул. Ленина 21")
+    let trainingPlaceLabel = FLabel(textAligment: .left, fontSize: 15, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
