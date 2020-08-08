@@ -12,7 +12,7 @@ class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
-    let moreButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
+    let moreButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -48,7 +48,7 @@ class TrainerViewController: UIViewController {
         scrollView.addSubview(moreButton)
         moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        moreButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+//        moreButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
@@ -121,7 +121,9 @@ class TrainerViewController: UIViewController {
     }
 
     @objc func moreButtonTapped() {
-        print("button tapped")
+        let nav = UINavigationController(rootViewController: CalendarViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     
      @objc func findTrainerButtonTapped() {

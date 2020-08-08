@@ -10,5 +10,6 @@ target 'fitnes' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
+  pod 'FSCalendar'
 
 end
