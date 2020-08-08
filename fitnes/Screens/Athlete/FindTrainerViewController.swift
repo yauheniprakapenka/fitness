@@ -61,8 +61,10 @@ class FindTrainerViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = .black
         
+        let cancelButton = UIBarButtonItem(title: "<", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        navigationItem.leftBarButtonItem = cancelButton
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
     }
     
     @objc private func searchButtonTapped() {
@@ -122,6 +124,14 @@ extension FindTrainerViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("cancel button tapped")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if isFilterMode {
+            print(filteredFindTrainerModel[indexPath.row])
+        } else {
+            print(findTrainerModel[indexPath.row])
+        }
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
