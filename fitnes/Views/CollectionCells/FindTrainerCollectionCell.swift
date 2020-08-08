@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct FindTrainerModel {
-    var image: UIImage
-    var name: String
-    var cost: String
-}
-
 class FindTrainerCollectionCell: UICollectionViewCell {
 
     var data: FindTrainerModel? {
@@ -55,22 +49,22 @@ class FindTrainerCollectionCell: UICollectionViewCell {
     private func configureLayout() {
         contentView.addSubview(avatarImage)
         contentView.addSubview(trainerNameLabel)
+        contentView.addSubview(costLabel)
 
         trainerNameLabel.translatesAutoresizingMaskIntoConstraints = false
         costLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        avatarImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        avatarImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        avatarImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        avatarImage.heightAnchor.constraint(equalToConstant: contentView.frame.height/2).isActive = true
 
-        NSLayoutConstraint.activate([
-            avatarImage.topAnchor.constraint(equalTo: contentView.topAnchor),
-            avatarImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            avatarImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            avatarImage.heightAnchor.constraint(equalToConstant: contentView.frame.height/2),
-
-            trainerNameLabel.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 16),
-            trainerNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
-            trainerNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
-
-            costLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
-            costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
-        ])
+        trainerNameLabel.topAnchor.constraint(equalTo: avatarImage.bottomAnchor, constant: 16).isActive = true
+        trainerNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        trainerNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        
+        costLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
     }
 }
