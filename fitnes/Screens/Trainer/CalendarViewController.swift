@@ -21,6 +21,8 @@ class CalendarViewController: UIViewController{
     var formatter = DateFormatter()
     let tableView = UITableView()
     
+    let horisontalLineView = HorisontalLineView()
+    
     let calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(dayOfWeek: "Среда", numberAndMonth: "6 августа", description: "Тренировка Пешком 3 км"),
         CalendarTrainingModel(dayOfWeek: "Четверг", numberAndMonth: "9 сентября", description: "Тренировка со скакалкой")
@@ -32,6 +34,7 @@ class CalendarViewController: UIViewController{
         configureView()
         configureNavigation()
         configureCalendar()
+        configureHorisontalLineView()
         setupTableView()
     }
     
@@ -61,6 +64,14 @@ class CalendarViewController: UIViewController{
     @objc private func cancelButtonTapped() {
         dismiss(animated: true)
     }
+    
+    private func configureHorisontalLineView() {
+        view.addSubview(horisontalLineView)
+        horisontalLineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 440).isActive = true
+        horisontalLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        horisontalLineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        horisontalLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    }
 }
 
 extension CalendarViewController: FSCalendarDelegate {
@@ -88,7 +99,7 @@ extension CalendarViewController: UITableViewDelegate {
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500).isActive = true // TODO: - Не привыязывается к нижней границе календаря, переделать
+        tableView.topAnchor.constraint(equalTo: horisontalLineView.bottomAnchor, constant: 20).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
