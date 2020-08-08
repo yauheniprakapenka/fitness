@@ -27,7 +27,7 @@ class TrainerViewController: UIViewController {
         configureMoreButton()
         configureHeaderLayout()
         configureItemsView()
-        configureComingTraininLayout()
+        configureComingTrainingView()
         configureMyTrainingLayout()
         configureMyExercise()
         AddChildVC()
@@ -72,7 +72,7 @@ class TrainerViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func configureComingTraininLayout() {
+    private func configureComingTrainingView() {
         scrollView.addSubview(comingTrainingView)
         comingTrainingView.translatesAutoresizingMaskIntoConstraints = false
         comingTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20).isActive = true

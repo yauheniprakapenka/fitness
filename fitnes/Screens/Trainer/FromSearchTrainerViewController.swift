@@ -15,6 +15,7 @@ class FromSearchTrainerViewController: UIViewController {
     
     let headerView = UIView()
     let itemsView = UIView()
+    let comingTrainingView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +25,7 @@ class FromSearchTrainerViewController: UIViewController {
         configureHeaderLayout()
         AddChildVC()
         configureItemsView()
+        configureComingTrainingView()
     }
     
     private func configureScrollView() {
@@ -55,6 +57,15 @@ class FromSearchTrainerViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
+    private func configureComingTrainingView() {
+        scrollView.addSubview(comingTrainingView)
+        comingTrainingView.translatesAutoresizingMaskIntoConstraints = false
+        comingTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20).isActive = true
+        comingTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        comingTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         let headerViewController = HeaderViewController()
@@ -67,6 +78,8 @@ class FromSearchTrainerViewController: UIViewController {
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
         itemsTrainerViewController.createButton.setTitle("Написать", for: .normal)
         itemsTrainerViewController.createButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
+        
+        self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
