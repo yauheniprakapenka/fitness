@@ -26,7 +26,7 @@ class FindTrainerViewController: UIViewController {
         FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "$90"),
         FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "$115"),
         FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "$80"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Андрей Аршавин", cost: "$120"),
+        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "$120"),
         FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), name: "Вячеслав Малафеев", cost: "$130"),
         FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), name: "Инна Малинова", cost: "$130")
     ]
@@ -127,11 +127,19 @@ extension FindTrainerViewController: UISearchBarDelegate {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedTrainer: FindTrainerModel?
+        
         if isFilterMode {
             print(filteredFindTrainerModel[indexPath.row])
+            selectedTrainer = filteredFindTrainerModel[indexPath.row]
         } else {
             print(findTrainerModel[indexPath.row])
+             selectedTrainer = findTrainerModel[indexPath.row]
         }
+        
+        let vc = FromSearchTrainerViewController()
+        vc.selectedTrainer = selectedTrainer
+        present(vc, animated: true)
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

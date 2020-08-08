@@ -23,7 +23,7 @@ class TrainerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureScrollViewLayout()
+        configureScrollView()
         configureMoreButton()
         configureHeaderLayout()
         configureItemsLayout()
@@ -33,7 +33,7 @@ class TrainerViewController: UIViewController {
         AddChildVC()
     }
     
-    private func configureScrollViewLayout() {
+    private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height + 1000)
         scrollView.backgroundColor = .white
