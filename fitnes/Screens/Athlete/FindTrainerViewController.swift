@@ -42,14 +42,14 @@ class FindTrainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
+        configureNavigation()
         configureCollectionView()
         
         collectionView.delegate = self
         collectionView.dataSource = self
     }
     
-    private func configureUI() {
+    private func configureNavigation() {
         view.backgroundColor = .white
         collectionView.backgroundColor = .white
         
@@ -62,6 +62,7 @@ class FindTrainerViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
     }
     
     @objc private func searchButtonTapped() {
@@ -69,6 +70,10 @@ class FindTrainerViewController: UIViewController {
         searchBar.showsCancelButton = true
         navigationItem.rightBarButtonItem = nil
         searchBar.becomeFirstResponder()
+    }
+    
+    @objc private func cancelButtonTapped() {
+        dismiss(animated: true)
     }
     
     private func configureCollectionView() {
