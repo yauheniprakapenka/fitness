@@ -93,7 +93,7 @@ class FindTrainerViewController: UIViewController {
 extension FindTrainerViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: 160, height: 260)// collectionView.frame.width/2)
+        CGSize(width: 160, height: 300)// collectionView.frame.width/2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
