@@ -24,13 +24,13 @@ class FindTrainerViewController: UIViewController {
     var isFilterMode = false
     
     let findTrainerModel: [FindTrainerModel] = [
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), name: "Александр Овечкин", cost: "$130", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "$90", schoolImage: #imageLiteral(resourceName: "school50"), trainingPlace: "Стадион СОШ №55, ул. Кирова 55"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "$115", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "$80", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "$120", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), name: "Вячеслав Малафеев", cost: "$130", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №34, ул. Хатаевича 25"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), name: "Инна Малинова", cost: "$130", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №44, ул. Ланге 17")
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), name: "Александр Овечкин", cost: "1 занятие - 6 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school50"), trainingPlace: "Стадион СОШ №55, ул. Кирова 55"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "1 занятие - 5 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "1 занятие - 11 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "1 занятие - 9 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), name: "Вячеслав Малафеев", cost: "1 занятие - 7 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №34, ул. Хатаевича 25"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), name: "Инна Малинова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №44, ул. Ланге 17")
     ]
 
     private let collectionView: UICollectionView = {
@@ -108,9 +108,9 @@ extension FindTrainerViewController: UICollectionViewDelegateFlowLayout, UIColle
         
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        cell.layer.shadowOffset = CGSize.zero
         cell.layer.shadowRadius = 8.0
-        cell.layer.shadowOpacity = 0.1
+        cell.layer.shadowOpacity = 0.3
         cell.layer.masksToBounds = false
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
 
