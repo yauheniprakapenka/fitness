@@ -65,6 +65,7 @@
 		3EE586EE24DE89D400CA0530 /* SFSymbolEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586ED24DE89D400CA0530 /* SFSymbolEnum.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
 		3EE586F224DED1A000CA0530 /* FromSearchTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F124DED1A000CA0530 /* FromSearchTrainerViewController.swift */; };
+		3EE586F424DEEA1B00CA0530 /* TrainingPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */; };
 		3EE5A64C24D7150C004110C6 /* MyTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */; };
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
@@ -133,6 +134,7 @@
 		3EE586ED24DE89D400CA0530 /* SFSymbolEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolEnum.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
 		3EE586F124DED1A000CA0530 /* FromSearchTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromSearchTrainerViewController.swift; sourceTree = "<group>"; };
+		3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingPlaceView.swift; sourceTree = "<group>"; };
 		3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingViewController.swift; sourceTree = "<group>"; };
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 				3E444ABE24D340560004B978 /* FCircleView.swift */,
 				3E444ABA24D220760004B978 /* HorisontalLineView.swift */,
 				3E444AB124D201350004B978 /* ItemView.swift */,
+				3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -616,6 +619,7 @@
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
+				3EE586F424DEEA1B00CA0530 /* TrainingPlaceView.swift in Sources */,
 				3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
