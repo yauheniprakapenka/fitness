@@ -8,22 +8,21 @@
 
 import UIKit
 
+
 class FindTrainerViewController: UIViewController {
     
     let titleLabel = FLabel(textAligment: .center, fontSize: 18, weight: .semibold, color: .black, message: "Поиск тренера")
-    let findButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.magnifyingglass.rawValue)
-    let backButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.chevronBackward.rawValue)
     
     let searchBar = UISearchBar()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureUI()
-    }
-    
-    private func configureUI() {
         view.backgroundColor = .white
         
+        configureNavigation()
+    }
+    
+    private func configureNavigation() {
         searchBar.sizeToFit()
         searchBar.delegate = self
         
@@ -33,6 +32,7 @@ class FindTrainerViewController: UIViewController {
         navigationController?.navigationBar.tintColor = .black
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
+        
     }
     
     @objc private func searchButtonTapped() {
@@ -41,7 +41,7 @@ class FindTrainerViewController: UIViewController {
         navigationItem.rightBarButtonItem = nil
         searchBar.becomeFirstResponder()
     }
-    
+
 }
 
 extension FindTrainerViewController: UISearchBarDelegate {
