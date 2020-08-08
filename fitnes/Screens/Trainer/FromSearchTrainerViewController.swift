@@ -14,6 +14,7 @@ class FromSearchTrainerViewController: UIViewController {
     var selectedTrainer: FindTrainerModel?
     
     let headerView = UIView()
+    let itemsView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,7 +23,7 @@ class FromSearchTrainerViewController: UIViewController {
         configureScrollView()
         configureHeaderLayout()
         AddChildVC()
-        
+        configureItemsView()
     }
     
     private func configureScrollView() {
@@ -45,6 +46,15 @@ class FromSearchTrainerViewController: UIViewController {
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
+    private func configureItemsView() {
+        scrollView.addSubview(itemsView)
+        itemsView.translatesAutoresizingMaskIntoConstraints = false
+        itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
+        itemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        itemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         let headerViewController = HeaderViewController()
@@ -52,6 +62,11 @@ class FromSearchTrainerViewController: UIViewController {
         self.add(childVC: headerViewController, to: self.headerView)
         headerViewController.nameLabel.text = selectedTrainer?.name
         headerViewController.avatarImageView.image = selectedTrainer?.image
+        
+        let itemsTrainerViewController = ItemsTrainerViewController()
+        self.add(childVC: itemsTrainerViewController, to: self.itemsView)
+        itemsTrainerViewController.createButton.setTitle("Написать", for: .normal)
+        itemsTrainerViewController.createButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
@@ -59,5 +74,12 @@ class FromSearchTrainerViewController: UIViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
+    }
+    
+    @objc private func writeButtonTapped() {
+        print("Привет")
+//        let vc = TrainerAddExerciseViewController()
+//        vc.modalPresentationStyle = .fullScreen
+//        present(vc, animated: true)
     }
 }

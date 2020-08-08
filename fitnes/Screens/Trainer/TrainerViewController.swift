@@ -26,7 +26,7 @@ class TrainerViewController: UIViewController {
         configureScrollView()
         configureMoreButton()
         configureHeaderLayout()
-        configureItemsLayout()
+        configureItemsView()
         configureComingTraininLayout()
         configureMyTrainingLayout()
         configureMyExercise()
@@ -63,7 +63,7 @@ class TrainerViewController: UIViewController {
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
-    private func configureItemsLayout() {
+    private func configureItemsView() {
         scrollView.addSubview(itemsView)
         itemsView.translatesAutoresizingMaskIntoConstraints = false
         itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
@@ -102,7 +102,12 @@ class TrainerViewController: UIViewController {
     private func AddChildVC() {
         view.backgroundColor = .white
         self.add(childVC: HeaderViewController(), to: self.headerView)
-        self.add(childVC: ItemsTrainerViewController(), to: self.itemsView)
+        
+        let itemsTrainerViewController = ItemsTrainerViewController()
+        self.add(childVC: itemsTrainerViewController, to: self.itemsView)
+        itemsTrainerViewController.createButton.setTitle("Создать", for: .normal)
+        itemsTrainerViewController.createButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
+        
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
         self.add(childVC: ExercisesViewController(), to: self.myExerciseView)
@@ -117,5 +122,12 @@ class TrainerViewController: UIViewController {
 
     @objc func moreButtonTapped() {
         print("button tapped")
+    }
+    
+     @objc func findTrainerButtonTapped() {
+        print("button tapped")
+        let vc = TrainerAddExerciseViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
