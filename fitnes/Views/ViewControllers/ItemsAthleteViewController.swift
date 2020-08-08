@@ -63,7 +63,8 @@ class ItemsAthleteViewController: UIViewController {
     }
     
      @objc func createButtonTapped() {
-        print("button tapped")
-        
+        let vc = FindTrainerViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }

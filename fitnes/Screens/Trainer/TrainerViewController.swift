@@ -12,7 +12,7 @@ class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
-    let moreButton = FMoreButton()
+    let moreButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
     
     let headerView = UIView()
     let itemsView = UIView()
