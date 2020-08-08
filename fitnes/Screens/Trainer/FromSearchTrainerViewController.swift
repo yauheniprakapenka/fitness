@@ -17,6 +17,8 @@ class FromSearchTrainerViewController: UIViewController {
     let itemsView = UIView()
     let comingTrainingView = UIView()
     
+    let trainingPlaceView = TrainingPlaceView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -26,6 +28,8 @@ class FromSearchTrainerViewController: UIViewController {
         AddChildVC()
         configureItemsView()
         configureComingTrainingView()
+        
+        configureTrainingPlaceView()
     }
     
     private func configureScrollView() {
@@ -64,6 +68,15 @@ class FromSearchTrainerViewController: UIViewController {
         comingTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         comingTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
+    private func configureTrainingPlaceView() {
+        scrollView.addSubview(trainingPlaceView)
+        trainingPlaceView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 20).isActive = true
+        trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        trainingPlaceView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        trainingPlaceView.placeImageView.image = #imageLiteral(resourceName: "school")
     }
     
     private func AddChildVC() {
