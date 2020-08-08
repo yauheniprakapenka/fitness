@@ -72,11 +72,11 @@ class FromSearchTrainerViewController: UIViewController {
     
     private func configureTrainingPlaceView() {
         scrollView.addSubview(trainingPlaceView)
-        trainingPlaceView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 20).isActive = true
+        trainingPlaceView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 110).isActive = true
         trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        trainingPlaceView.heightAnchor.constraint(equalToConstant: 200).isActive = true
-        trainingPlaceView.placeImageView.image = #imageLiteral(resourceName: "school")
+        trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
     }
     
     private func AddChildVC() {
@@ -85,7 +85,7 @@ class FromSearchTrainerViewController: UIViewController {
         
         self.add(childVC: headerViewController, to: self.headerView)
         headerViewController.nameLabel.text = selectedTrainer?.name
-        headerViewController.avatarImageView.image = selectedTrainer?.image
+        headerViewController.avatarImageView.image = selectedTrainer?.avatarImage
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)

@@ -9,9 +9,10 @@
 import UIKit
 
 struct FindTrainerModel {
-    var image: UIImage
+    var avatarImage: UIImage
     var name: String
     var cost: String
+    var schoolImage: UIImage
 }
 
 class FindTrainerViewController: UIViewController {
@@ -22,13 +23,13 @@ class FindTrainerViewController: UIViewController {
     var isFilterMode = false
     
     let findTrainerModel: [FindTrainerModel] = [
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), name: "Александр Овечкин", cost: "$130"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "$90"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "$115"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "$80"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "$120"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), name: "Вячеслав Малафеев", cost: "$130"),
-        FindTrainerModel(image: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), name: "Инна Малинова", cost: "$130")
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), name: "Александр Овечкин", cost: "$130", schoolImage: #imageLiteral(resourceName: "school1")),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "$90", schoolImage: #imageLiteral(resourceName: "school50")),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "$115", schoolImage: #imageLiteral(resourceName: "school1")),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "$80", schoolImage: #imageLiteral(resourceName: "school72")),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "$120", schoolImage: #imageLiteral(resourceName: "school3")),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), name: "Вячеслав Малафеев", cost: "$130", schoolImage: #imageLiteral(resourceName: "school72")),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), name: "Инна Малинова", cost: "$130", schoolImage: #imageLiteral(resourceName: "school3"))
     ]
 
     private let collectionView: UICollectionView = {
