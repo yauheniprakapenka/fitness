@@ -27,5 +27,7 @@ class FCircleView: UIView {
     
     private func configure() {
         layer.cornerRadius = self.frame.size.width / 2
+        translatesAutoresizingMaskIntoConstraints = false
+        clipsToBounds = true
     }
 }
