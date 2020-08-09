@@ -130,12 +130,16 @@ class AthleteViewController: UIViewController {
     }
 
     @objc func moreButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        
         let vc = AthleteParameterViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
     
     @objc func findTrainerButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        
         let nav = UINavigationController(rootViewController: FindTrainerViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)

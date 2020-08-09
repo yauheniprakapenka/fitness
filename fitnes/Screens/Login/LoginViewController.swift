@@ -13,13 +13,19 @@ class LoginViewController: UIViewController {
     @IBOutlet var emailTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
-    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 5
     }
     
-    @IBAction func toBeginButtonTapped(_ sender: Any) {
+    @IBAction func forgetPasswordTapped(_ sender: Any) {
+
+    }
+    
+    @IBAction func loginButtonTapped(_ sender: Any) {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        
         AuthService.shared.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result) in
             switch result {
             case .success(let user):

@@ -73,6 +73,7 @@
 		3EE5870024DFBF4900CA0530 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FF24DFBF4900CA0530 /* String + Extension.swift */; };
 		3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */; };
 		3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870324DFCB7000CA0530 /* FImageView.swift */; };
+		3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870624E01C1000CA0530 /* HapticFeedback.swift */; };
 		3EE5A64C24D7150C004110C6 /* MyTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */; };
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
@@ -149,6 +150,7 @@
 		3EE586FF24DFBF4900CA0530 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthConverter.swift; sourceTree = "<group>"; };
 		3EE5870324DFCB7000CA0530 /* FImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FImageView.swift; sourceTree = "<group>"; };
+		3EE5870624E01C1000CA0530 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingViewController.swift; sourceTree = "<group>"; };
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3EE5870524E01BF700CA0530 /* HapticFeedback */,
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3EE586F924DFAFA000CA0530 /* Validation */,
 				3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */,
@@ -501,6 +504,14 @@
 				3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */,
 			);
 			path = CalendarConverter;
+			sourceTree = "<group>";
+		};
+		3EE5870524E01BF700CA0530 /* HapticFeedback */ = {
+			isa = PBXGroup;
+			children = (
+				3EE5870624E01C1000CA0530 /* HapticFeedback.swift */,
+			);
+			path = HapticFeedback;
 			sourceTree = "<group>";
 		};
 		3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */ = {
@@ -671,6 +682,7 @@
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
 				3E82E21C24DCA8B100145E9D /* FSFSymbolButton.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */,
+				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,

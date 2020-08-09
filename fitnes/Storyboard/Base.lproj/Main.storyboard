@@ -275,11 +275,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="97d-Vj-5B1"/>
                                 </constraints>
-                                <state key="normal" title="Начать">
+                                <state key="normal" title="Войти в профиль">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="toBeginButtonTapped:" destination="qQX-S9-dpb" eventType="touchUpInside" id="iXj-YV-zJA"/>
+                                    <action selector="loginButtonTapped:" destination="qQX-S9-dpb" eventType="touchUpInside" id="iXj-YV-zJA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начнём" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-zp-xpl">
@@ -289,12 +289,12 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Войдите для начала занятий" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSd-HB-EAa">
-                                <rect key="frame" x="25" y="128" width="166" height="45"/>
+                                <rect key="frame" x="25" y="128" width="178" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="166" id="DK6-42-P8C"/>
+                                    <constraint firstAttribute="width" constant="178" id="DK6-42-P8C"/>
                                     <constraint firstAttribute="height" constant="45" id="icq-in-EAA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                                 <color key="textColor" red="0.9960138201713562" green="0.99613279104232788" blue="0.99597328901290894" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -319,6 +319,9 @@
                                 <state key="normal" title="Забыли пароль?">
                                     <color key="titleColor" red="0.42343151569999998" green="0.4740242958" blue="0.94122225049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgetPasswordTapped:" destination="qQX-S9-dpb" eventType="touchUpInside" id="LAK-29-LZR"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nUw-SJ-IW7">
                                 <rect key="frame" x="105" y="818" width="204" height="34"/>

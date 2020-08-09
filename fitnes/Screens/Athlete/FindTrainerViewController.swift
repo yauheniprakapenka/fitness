@@ -70,6 +70,7 @@ class FindTrainerViewController: UIViewController {
     }
     
     @objc private func searchButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
         navigationItem.titleView = searchBar
         searchBar.showsCancelButton = true
         navigationItem.rightBarButtonItem = nil
