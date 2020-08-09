@@ -22,6 +22,7 @@ class CalendarViewController: UIViewController{
     var calendar: FSCalendar!
     var formatter = DateFormatter()
     let tableView = UITableView()
+    let emptyStateImageView = FImageView(frame: .zero)
     
     let horisontalLineView = HorisontalLineView()
     
@@ -46,6 +47,7 @@ class CalendarViewController: UIViewController{
         configureCalendar()
         configureHorisontalLineView()
         setupTableView()
+        configureEmptyStateImageView()
     }
     
     private func configureCalendar() {
@@ -83,6 +85,14 @@ class CalendarViewController: UIViewController{
         horisontalLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         horisontalLineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         horisontalLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
+    }
+    
+    private func configureEmptyStateImageView() {
+        view.addSubview(emptyStateImageView)
+        emptyStateImageView.topAnchor.constraint(equalTo: horisontalLineView.bottomAnchor, constant: 40).isActive = true
+        emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        emptyStateImageView.widthAnchor.constraint(equalToConstant: view.frame.size.width/1.8).isActive = true
+        emptyStateImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
 }
 
@@ -133,6 +143,13 @@ extension CalendarViewController: UITableViewDelegate {
 
 extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if filteredCalendarTrainingModel.count < 1 {
+            emptyStateImageView.alpha = 1
+            emptyStateImageView.image = #imageLiteral(resourceName: "no-training")
+        } else {
+            emptyStateImageView.alpha = 0
+        }
+        
         return filteredCalendarTrainingModel.count
     }
     
