@@ -332,7 +332,7 @@
 		3E87232024BF9FB2005FC365 /* Firebase */ = {
 			isa = PBXGroup;
 			children = (
-				3EC9CD6324D8AF8500B1F8C6 /* Authentification */,
+				3EC9CD6324D8AF8500B1F8C6 /* Login */,
 				3E64BCF424C45D9B0014E91B /* Database */,
 			);
 			path = Firebase;
@@ -374,12 +374,12 @@
 			path = AppDelegate;
 			sourceTree = "<group>";
 		};
-		3EB0F97D24D0B25C00AC97EB /* Networking */ = {
+		3EB0F97D24D0B25C00AC97EB /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				3E87232024BF9FB2005FC365 /* Firebase */,
 			);
-			path = Networking;
+			path = Network;
 			sourceTree = "<group>";
 		};
 		3EB0F97E24D0B4A200AC97EB /* Plist */ = {
@@ -391,12 +391,12 @@
 			path = Plist;
 			sourceTree = "<group>";
 		};
-		3EC9CD6324D8AF8500B1F8C6 /* Authentification */ = {
+		3EC9CD6324D8AF8500B1F8C6 /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				3E87232124BF9FC4005FC365 /* AuthService.swift */,
 			);
-			path = Authentification;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		3ED7036F24DB38A900E4DB9F /* TextFields */ = {
@@ -426,13 +426,13 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		3EE2DDE224C0DAA800D85CAE /* Auth */ = {
+		3EE2DDE224C0DAA800D85CAE /* Login */ = {
 			isa = PBXGroup;
 			children = (
 				3E87232324BFA375005FC365 /* RegisterViewController.swift */,
 				3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */,
 			);
-			path = Auth;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		3EE38FF424BCE78A003AF6D8 = {
@@ -462,7 +462,7 @@
 				3E87232524BFAD1E005FC365 /* Extension */,
 				3E235B3824BE2A0E004DDBD6 /* Models */,
 				3ED7037224DB45CC00E4DB9F /* ModelsNew */,
-				3EB0F97D24D0B25C00AC97EB /* Networking */,
+				3EB0F97D24D0B25C00AC97EB /* Network */,
 				3EB0F97E24D0B4A200AC97EB /* Plist */,
 				3EE3901624BCE863003AF6D8 /* Screens */,
 				3E235B3724BE29D8004DDBD6 /* Storyboard */,
@@ -475,7 +475,7 @@
 		3EE3901624BCE863003AF6D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3EE2DDE224C0DAA800D85CAE /* Auth */,
+				3EE2DDE224C0DAA800D85CAE /* Login */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E10DA3424C3914600163F26 /* Trainer */,

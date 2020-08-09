@@ -16,12 +16,12 @@ struct AbonementModel {
 
 class AbonementsViewController: UIViewController {
     
-    let myAbonementsLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "Мои абонементы")
+    let myAbonementsLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     
     let myAbonementsModel = [
-        AbonementModel(name: "Индивидуальный тренировочный план", cost: "$ 100", color: "blue"),
-        AbonementModel(name: "Пробный недельный абонемент", cost: "$ 200", color: "pink"),
-        AbonementModel(name: "Индивидуальный тренировочный план", cost: "$ 400", color: "blue"),
+        AbonementModel(name: "Индивидуальный тренировочный план", cost: "3 месяца - 70 руб.", color: "blue"),
+        AbonementModel(name: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink"),
+        AbonementModel(name: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange"),
     ]
     
     private let collectionView: UICollectionView = {
@@ -47,16 +47,14 @@ class AbonementsViewController: UIViewController {
         view.addSubview(myAbonementsLabel)
         view.addSubview(collectionView)
         
-        NSLayoutConstraint.activate([
-            myAbonementsLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            myAbonementsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            myAbonementsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            collectionView.topAnchor.constraint(equalTo: myAbonementsLabel.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalToConstant: 160) //collectionView.widthAnchor, multiplier: 1)
-        ])
+        myAbonementsLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        myAbonementsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        myAbonementsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
+        collectionView.topAnchor.constraint(equalTo: myAbonementsLabel.bottomAnchor, constant: 30).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true
     }
     
     private func configureUIElements() {
