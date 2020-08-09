@@ -32,10 +32,12 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func trainerRadioTapped(_ sender: Any) {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
         radioButtonTapped(role: .Trainer)
     }
     
     @IBAction func athleteRadioTapped(_ sender: Any) {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
         radioButtonTapped(role: .Athlete)
     }
     
@@ -54,6 +56,7 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func registerButtonTapped(_ sender: Any) {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
         
         guard let selectedRole = selectedRole else {
             showAlert(title: "", message: ValidationError.roleRadioButtonNotSelected.localizedDescription)

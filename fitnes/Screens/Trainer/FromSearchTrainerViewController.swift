@@ -13,7 +13,9 @@ class FromSearchTrainerViewController: UIViewController {
     var scrollView: UIScrollView!
     var selectedTrainer: FindTrainerModel?
     
+    let titleLabel = FLabel(textAligment: .left, fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     let moreButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -27,6 +29,7 @@ class FromSearchTrainerViewController: UIViewController {
         view.backgroundColor = .white
         
         configureScrollView()
+        configureTitleLabel()
         configureMoreButton()
         configureHeaderLayout()
         
@@ -40,7 +43,7 @@ class FromSearchTrainerViewController: UIViewController {
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height + 1.7)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.2)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -49,15 +52,22 @@ class FromSearchTrainerViewController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
+    private func configureTitleLabel() {
+        scrollView.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
     private func configureMoreButton() {
         scrollView.addSubview(moreButton)
         moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        moreButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
     }
     
-    @objc func moreButtonTapped() {
+    @objc func calendarButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
