@@ -39,6 +39,7 @@
 		3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */; };
 		3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */; };
 		3E8DE58A24CDAB5C00DFB220 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */; };
+		3EA3F39124E0299600DA5959 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3F39024E0299500DA5959 /* MapViewController.swift */; };
 		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
 		3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */; };
 		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
@@ -114,6 +115,7 @@
 		3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alerts.swift"; sourceTree = "<group>"; };
 		3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSectionEnum.swift; sourceTree = "<group>"; };
 		3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
+		3EA3F39024E0299500DA5959 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = /Users/yauheni.prakapenka/Documents/Github/Fitnes/fitnes/Screens/MapViewController.swift; sourceTree = "<absolute>"; };
 		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModel.swift; sourceTree = "<group>"; };
 		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
+				3EA3F39024E0299500DA5959 /* MapViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
 				3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
+				3EA3F39124E0299600DA5959 /* MapViewController.swift in Sources */,
 				3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
 				3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */,

@@ -20,9 +20,8 @@ class FromSearchTrainerViewController: UIViewController {
     let headerView = UIView()
     let itemsView = UIView()
     let comingTrainingView = UIView()
-    let myAbonementsView = UIView()
-    
     let trainingPlaceView = TrainingPlaceView()
+    let myAbonementsView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +42,7 @@ class FromSearchTrainerViewController: UIViewController {
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.2)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.3)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -107,13 +106,22 @@ class FromSearchTrainerViewController: UIViewController {
         trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
-        trainingPlaceView.trainingPlaceLabel.text = selectedTrainer?.trainingPlace
+        trainingPlaceView.descriptionPlaceLabel.text = selectedTrainer?.trainingPlace
+        
+        trainingPlaceView.mapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func mapButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 4)
+        let vc = MapViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     private func configureMyAbonements() {
         scrollView.addSubview(myAbonementsView)
         myAbonementsView.translatesAutoresizingMaskIntoConstraints = false
-        myAbonementsView.topAnchor.constraint(equalTo: trainingPlaceView.bottomAnchor, constant: 20).isActive = true
+        myAbonementsView.topAnchor.constraint(equalTo: trainingPlaceView.bottomAnchor, constant: 40).isActive = true
         myAbonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         myAbonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         myAbonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
@@ -147,9 +155,9 @@ class FromSearchTrainerViewController: UIViewController {
     }
     
     @objc private func writeButtonTapped() {
-        print("Привет")
-//        let vc = TrainerAddExerciseViewController()
-//        vc.modalPresentationStyle = .fullScreen
-//        present(vc, animated: true)
+        print("writeButtonTapped")
+        //        let vc = TrainerAddExerciseViewController()
+        //        vc.modalPresentationStyle = .fullScreen
+        //        present(vc, animated: true)
     }
 }
