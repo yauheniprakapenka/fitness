@@ -43,12 +43,16 @@ class MyAbonementsCollectionCell: UICollectionViewCell {
         
         costLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
     }
     
     private func configureUI() {
         abonementLabel.numberOfLines = 3
         abonementLabel.textColor = .white
         costLabel.textColor = .white
+        costLabel.numberOfLines = 1
+        costLabel.adjustsFontSizeToFitWidth = true
+        costLabel.minimumScaleFactor = 0.5
         contentView.layer.cornerRadius = 10
     }
     
@@ -60,6 +64,8 @@ class MyAbonementsCollectionCell: UICollectionViewCell {
             currentColor = #colorLiteral(red: 0.3045426607, green: 0.6667945385, blue: 0.9780504107, alpha: 1)
         case "pink":
             currentColor = #colorLiteral(red: 1, green: 0.5700934529, blue: 0.6348041892, alpha: 1)
+        case "orange":
+            currentColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
         default:
             currentColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         }
