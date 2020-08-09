@@ -16,15 +16,25 @@ class QRScannerViewController: UIViewController, UIImagePickerControllerDelegate
     
 //    @IBOutlet weak var previewView: UIView!
 //    @IBOutlet weak var lblOutput: UILabel!
-    @IBOutlet var previewView: UIView!
+    let previewView = UIView()
     
     var imageOrientation: AVCaptureVideoOrientation?
     var captureSession: AVCaptureSession?
     var videoPreviewLayer: AVCaptureVideoPreviewLayer?
     var capturePhotoOutput: AVCapturePhotoOutput?
     
+    private func configurePreviewView() {
+        view.addSubview(previewView)
+        previewView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        previewView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        previewView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        previewView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        configurePreviewView()
         
         // Get an instance of the AVCaptureDevice class to initialize a
         // device object and provide the video as the media type parameter

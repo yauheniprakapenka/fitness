@@ -13,6 +13,7 @@ class TrainerViewController: UIViewController {
     var scrollView: UIScrollView!
     
     let moreButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    let titleLabel = FLabel(textAligment: .left, fontSize: 18, weight: .regular, color: .gray, message: "ТРЕНЕР")
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -25,6 +26,7 @@ class TrainerViewController: UIViewController {
         
         configureScrollView()
         configureMoreButton()
+        configureTitleLabel()
         configureHeaderLayout()
         configureItemsView()
         configureComingTrainingView()
@@ -51,6 +53,12 @@ class TrainerViewController: UIViewController {
         moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+    }
+    
+    private func configureTitleLabel() {
+        scrollView.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func configureHeaderLayout() {
