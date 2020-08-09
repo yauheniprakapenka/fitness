@@ -183,7 +183,6 @@
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
 				3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */,
 				3EE586F124DED1A000CA0530 /* FromSearchTrainerViewController.swift */,
-				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -480,6 +479,7 @@
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E10DA3424C3914600163F26 /* Trainer */,
+				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
