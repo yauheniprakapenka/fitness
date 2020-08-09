@@ -10,6 +10,7 @@ import UIKit
 import FSCalendar // https://www.youtube.com/watch?v=FipNDF7g9tE
 
 struct CalendarTrainingModel {
+    var date: String
     var dayOfWeek: String
     var numberAndMonth: String
     var description: String
@@ -24,9 +25,11 @@ class CalendarViewController: UIViewController{
     let horisontalLineView = HorisontalLineView()
     
     let calendarTrainingModel: [CalendarTrainingModel] = [
-        CalendarTrainingModel(dayOfWeek: "Среда", numberAndMonth: "6 августа", description: "Тренировка Пешком 3 км"),
-        CalendarTrainingModel(dayOfWeek: "Четверг", numberAndMonth: "9 сентября", description: "Тренировка со скакалкой")
+        CalendarTrainingModel(date: "20-Aug-2020", dayOfWeek: "Среда", numberAndMonth: "6 августа", description: "Тренировка Пешком 3 км"),
+        CalendarTrainingModel(date: "23-Aug-2020", dayOfWeek: "Четверг", numberAndMonth: "9 сентября", description: "Тренировка со скакалкой")
     ]
+    
+    var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +42,7 @@ class CalendarViewController: UIViewController{
     }
     
     private func configureCalendar() {
-        calendar = FSCalendar(frame: CGRect(x: 0,y: 120, width: self.view.frame.size.width, height: 300))
+        calendar = FSCalendar(frame: CGRect(x: 0,y: 90, width: self.view.frame.size.width, height: 300))
         calendar.scrollDirection = .horizontal
         calendar.scope = .month
         calendar.locale = Locale(identifier: "ru")
@@ -78,9 +81,21 @@ extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         formatter.dateFormat = "dd-MMM-yyyy"
         
-        if formatter.string(from: date) == "20-Aug-2020" {
-            print("да")
+        filteredCalendarTrainingModel = calendarTrainingModel.filter({$0.date.contains(formatter.string(from: date))})
+        
+        if filteredCalendarTrainingModel.count > 0 {
+            if formatter.string(from: date) == filteredCalendarTrainingModel[0].date {
+                print("совпало")
+                print(filteredCalendarTrainingModel)
+                tableView.reloadData()
+            }
+        } else {
+            print("не совпало")
+            filteredCalendarTrainingModel = []
+            tableView.reloadData()
         }
+        
+        
     }
 }
 
@@ -110,16 +125,16 @@ extension CalendarViewController: UITableViewDelegate {
 
 extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return calendarTrainingModel.count
+        return filteredCalendarTrainingModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CalendarTrainingCell
         
         cell.selectionStyle = .none
-        cell.dayOfWeekLabel.text = calendarTrainingModel[indexPath.row].dayOfWeek
-        cell.numberAndMonthLabel.text = calendarTrainingModel[indexPath.row].numberAndMonth
-        cell.descriptionLabel.text = calendarTrainingModel[indexPath.row].description
+        cell.dayOfWeekLabel.text = filteredCalendarTrainingModel[indexPath.row].dayOfWeek
+        cell.numberAndMonthLabel.text = filteredCalendarTrainingModel[indexPath.row].numberAndMonth
+        cell.descriptionLabel.text = filteredCalendarTrainingModel[indexPath.row].description
         
         return cell
     }
