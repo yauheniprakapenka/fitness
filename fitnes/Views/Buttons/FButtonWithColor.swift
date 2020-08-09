@@ -15,9 +15,10 @@ class FButtonWithColor: UIButton {
         configure()
     }
     
-    init(backgroundColor: UIColor, title: String) {
+    init(backgroundColor: UIColor, title: String, size: CGFloat) {
         super.init(frame: .zero)
         
+        self.titleLabel?.font = UIFont(name: "Helvetica", size: size)
         self.backgroundColor = backgroundColor
         self.setTitle(title, for: .normal)
         configure()
@@ -30,7 +31,7 @@ class FButtonWithColor: UIButton {
     private func configure() {
         layer.cornerRadius = 10
         setTitleColor(.white, for: .normal)
-        titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
+//        titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

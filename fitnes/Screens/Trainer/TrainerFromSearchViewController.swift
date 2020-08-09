@@ -8,14 +8,13 @@
 
 import UIKit
 
-class FromSearchTrainerViewController: UIViewController {
+class TrainerFromSearchViewController: UIViewController {
     
     var scrollView: UIScrollView!
     var selectedTrainer: FindTrainerModel?
     
     let titleLabel = FLabel(textAligment: .left, fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     let moreButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
-    
     
     let headerView = UIView()
     let itemsView = UIView()

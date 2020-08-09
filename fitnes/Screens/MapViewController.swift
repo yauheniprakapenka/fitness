@@ -12,7 +12,7 @@ import CoreLocation
 class MapViewController: UIViewController {
     
     var mapView = MKMapView()
-    let backButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад")
+    let backButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад", size: 13)
     
     let locationManager = CLLocationManager()
     
