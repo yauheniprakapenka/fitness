@@ -140,7 +140,7 @@ extension FindTrainerViewController: UISearchBarDelegate {
              selectedTrainer = findTrainerModel[indexPath.row]
         }
         
-        let vc = FromSearchTrainerViewController()
+        let vc = TrainerFromSearchViewController()
         vc.selectedTrainer = selectedTrainer
         present(vc, animated: true)
     }

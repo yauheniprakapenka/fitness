@@ -66,7 +66,7 @@
 		3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */; };
 		3EE586EE24DE89D400CA0530 /* SFSymbolEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586ED24DE89D400CA0530 /* SFSymbolEnum.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
-		3EE586F224DED1A000CA0530 /* FromSearchTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F124DED1A000CA0530 /* FromSearchTrainerViewController.swift */; };
+		3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */; };
 		3EE586F424DEEA1B00CA0530 /* TrainingPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */; };
 		3EE586F624DF31D000CA0530 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F524DF31D000CA0530 /* CalendarViewController.swift */; };
 		3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */; };
@@ -145,7 +145,7 @@
 		3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerViewController.swift; sourceTree = "<group>"; };
 		3EE586ED24DE89D400CA0530 /* SFSymbolEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolEnum.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
-		3EE586F124DED1A000CA0530 /* FromSearchTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FromSearchTrainerViewController.swift; sourceTree = "<group>"; };
+		3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerFromSearchViewController.swift; sourceTree = "<group>"; };
 		3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingPlaceView.swift; sourceTree = "<group>"; };
 		3EE586F524DF31D000CA0530 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingCell.swift; sourceTree = "<group>"; };
@@ -188,7 +188,7 @@
 			children = (
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
 				3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */,
-				3EE586F124DED1A000CA0530 /* FromSearchTrainerViewController.swift */,
+				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -726,7 +726,7 @@
 				3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */,
 				3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
-				3EE586F224DED1A000CA0530 /* FromSearchTrainerViewController.swift in Sources */,
+				3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModel.swift in Sources */,
 				3EE586F624DF31D000CA0530 /* CalendarViewController.swift in Sources */,
 			);

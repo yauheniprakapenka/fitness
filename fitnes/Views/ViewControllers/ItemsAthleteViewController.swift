@@ -14,7 +14,7 @@ class ItemsAthleteViewController: UIViewController {
     let bottomHorisontalLineView = HorisontalLineView()
     let stackView = UIStackView()
     let programView = ItemView(message: "Программ", count: "15")
-    let actionButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Найти тренера")
+    let actionButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Найти тренера", size: 13)
     
     override func viewDidLoad() {
         super.viewDidLoad()

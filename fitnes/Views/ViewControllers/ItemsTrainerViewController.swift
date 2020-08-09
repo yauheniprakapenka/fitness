@@ -18,7 +18,7 @@ class ItemsTrainerViewController: UIViewController {
     let programView = ItemView(message: "Программ", count: "15")
     let athleteView = ItemView(message: "Атлета", count: "123")
     
-    let createButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Нет названия")
+    let createButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Нет названия", size: 13)
     
     override func viewDidLoad() {
         super.viewDidLoad()
