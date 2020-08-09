@@ -95,8 +95,8 @@ class CalendarViewController: UIViewController{
         view.addSubview(emptyStateImageView)
         emptyStateImageView.topAnchor.constraint(equalTo: horisontalLineView.bottomAnchor, constant: 40).isActive = true
         emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        emptyStateImageView.widthAnchor.constraint(equalToConstant: view.frame.size.width/1.8).isActive = true
-        emptyStateImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        emptyStateImageView.widthAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
+        emptyStateImageView.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
 }
 

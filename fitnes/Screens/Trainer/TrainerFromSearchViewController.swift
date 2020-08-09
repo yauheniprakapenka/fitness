@@ -155,8 +155,8 @@ class TrainerFromSearchViewController: UIViewController {
     
     @objc private func writeButtonTapped() {
         print("writeButtonTapped")
-        let vc = ChatViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        let nav = UINavigationController(rootViewController: ChatViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
 }
