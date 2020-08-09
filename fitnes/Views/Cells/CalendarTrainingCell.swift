@@ -12,7 +12,9 @@ class CalendarTrainingCell: UITableViewCell {
     
     let dayOfWeekLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .black, message: "Не указано")
     
-    let numberAndMonthLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .gray, message: "Не указано")
+    let numberOfDayLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .gray, message: "Не указано")
+    
+    let monthLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .gray, message: "Не указано")
     
     let descriptionLabel = FLabel(textAligment: .left, fontSize: 13, weight: .light, color: .gray, message: "Не указано")
     
@@ -21,7 +23,8 @@ class CalendarTrainingCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         configureCircleView()
         configureDayOfWeekLabel()
-        configureNumberAndMonthLabel()
+        configureNumberOfDayLabel()
+        configureMonthLabel()
         configureDescriptionLabel()
     }
     
@@ -35,16 +38,23 @@ class CalendarTrainingCell: UITableViewCell {
         dayOfWeekLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50).isActive = true
     }
     
-    private func configureNumberAndMonthLabel() {
-        addSubview(numberAndMonthLabel)
-        numberAndMonthLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        numberAndMonthLabel.leadingAnchor.constraint(equalTo: dayOfWeekLabel.trailingAnchor, constant: 10).isActive = true
+    private func configureNumberOfDayLabel() {
+        addSubview(numberOfDayLabel)
+        numberOfDayLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        numberOfDayLabel.leadingAnchor.constraint(equalTo: dayOfWeekLabel.trailingAnchor, constant: 10).isActive = true
+    }
+    
+    private func configureMonthLabel() {
+        addSubview(monthLabel)
+        monthLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        monthLabel.leadingAnchor.constraint(equalTo: numberOfDayLabel.trailingAnchor, constant: 4).isActive = true
     }
     
     private func configureDescriptionLabel() {
         addSubview(descriptionLabel)
-        descriptionLabel.topAnchor.constraint(equalTo: dayOfWeekLabel.bottomAnchor, constant: 20).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: dayOfWeekLabel.bottomAnchor, constant: 10).isActive = true
         descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 50).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         descriptionLabel.numberOfLines = 2
     }
 }

@@ -7,12 +7,13 @@
 //
 
 import UIKit
-import FSCalendar // https://www.youtube.com/watch?v=FipNDF7g9tE
+import FSCalendar
+
+// FSCalendar tutorial - https://www.youtube.com/watch?v=FipNDF7g9tE
+// NSDateFormatter - https://nsdateformatter.com/
 
 struct CalendarTrainingModel {
     var date: String
-    var dayOfWeek: String
-    var numberAndMonth: String
     var description: String
 }
 
@@ -25,8 +26,14 @@ class CalendarViewController: UIViewController{
     let horisontalLineView = HorisontalLineView()
     
     let calendarTrainingModel: [CalendarTrainingModel] = [
-        CalendarTrainingModel(date: "20-Aug-2020", dayOfWeek: "Среда", numberAndMonth: "6 августа", description: "Тренировка Пешком 3 км"),
-        CalendarTrainingModel(date: "23-Aug-2020", dayOfWeek: "Четверг", numberAndMonth: "9 сентября", description: "Тренировка со скакалкой")
+        CalendarTrainingModel(date: "Sunday-16-Aug-2020", description: "C 10 до 18 - Тренировка «Пешком в Мордор». Взять кольца и провизию"),
+        CalendarTrainingModel(date: "Monday-17-Aug-2020", description: "C 16 до 19 - Отрабатываем наклоны"),
+        CalendarTrainingModel(date: "Tuesday-18-Aug-2020", description: "C 15 до 22 - Езда на велосипеде"),
+        CalendarTrainingModel(date: "Wednesday-19-Aug-2020",  description: "C 13 до 23 - Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Friday-21-Aug-2020", description: "C 10 до 18 - Тренировка «Пешком в Мордор». Взять кольца и провизию"),
+        CalendarTrainingModel(date: "Monday-24-Aug-2020", description: "C 16 до 19 - Отрабатываем наклоны"),
+        CalendarTrainingModel(date: "Wednesday-26-Aug-2020", description: "C 15 до 22 - Езда на велосипеде"),
+        CalendarTrainingModel(date: "Friday-28-Aug-2020", description: "C 13 до 23 - Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
     ]
     
     var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
@@ -50,7 +57,6 @@ class CalendarViewController: UIViewController{
         view.addSubview(calendar)
         calendar.translatesAutoresizingMaskIntoConstraints = false
         
-        
         calendar.delegate = self
         calendar.dataSource = self
     }
@@ -60,6 +66,9 @@ class CalendarViewController: UIViewController{
     }
     
     private func configureNavigation() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.title = "Расписание тренера"
+        
         let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
     }
@@ -70,7 +79,7 @@ class CalendarViewController: UIViewController{
     
     private func configureHorisontalLineView() {
         view.addSubview(horisontalLineView)
-        horisontalLineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 440).isActive = true
+        horisontalLineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 410).isActive = true
         horisontalLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         horisontalLineView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         horisontalLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
@@ -79,7 +88,8 @@ class CalendarViewController: UIViewController{
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        formatter.dateFormat = "dd-MMM-yyyy"
+        formatter.dateFormat = "EEEE-dd-MMM-yyyy"
+        print(formatter.string(from: date))
         
         filteredCalendarTrainingModel = calendarTrainingModel.filter({$0.date.contains(formatter.string(from: date))})
         
@@ -94,8 +104,6 @@ extension CalendarViewController: FSCalendarDelegate {
             filteredCalendarTrainingModel = []
             tableView.reloadData()
         }
-        
-        
     }
 }
 
@@ -132,14 +140,16 @@ extension CalendarViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CalendarTrainingCell
         
         cell.selectionStyle = .none
-        cell.dayOfWeekLabel.text = filteredCalendarTrainingModel[indexPath.row].dayOfWeek
-        cell.numberAndMonthLabel.text = filteredCalendarTrainingModel[indexPath.row].numberAndMonth
+        cell.dayOfWeekLabel.text = DayOfWeekConverter.shared.convert(date: filteredCalendarTrainingModel[indexPath.row].date)
+        cell.numberOfDayLabel.text = NumberOfDayConverter.shared.convert(date: filteredCalendarTrainingModel[indexPath.row].date)
+        cell.monthLabel.text = MonthConverter.shared.convert(date: filteredCalendarTrainingModel[indexPath.row].date)
         cell.descriptionLabel.text = filteredCalendarTrainingModel[indexPath.row].description
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        100
+        60
     }
+    
 }
