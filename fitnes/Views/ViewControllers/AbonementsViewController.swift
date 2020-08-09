@@ -16,7 +16,7 @@ struct AbonementModel {
 
 class AbonementsViewController: UIViewController {
     
-    let myAbonementsLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
+    var titleLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     
     let myAbonementsModel = [
         AbonementModel(name: "Индивидуальный план", cost: "3 месяца - 70 руб.", color: "blue"),
@@ -44,14 +44,14 @@ class AbonementsViewController: UIViewController {
     }
     
     private func configureLayout() {
-        view.addSubview(myAbonementsLabel)
+        view.addSubview(titleLabel)
         view.addSubview(collectionView)
         
-        myAbonementsLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        myAbonementsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        myAbonementsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
-        collectionView.topAnchor.constraint(equalTo: myAbonementsLabel.bottomAnchor, constant: 30).isActive = true
+        collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: 160).isActive = true

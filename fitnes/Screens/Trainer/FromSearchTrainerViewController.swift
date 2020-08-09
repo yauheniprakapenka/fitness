@@ -18,6 +18,7 @@ class FromSearchTrainerViewController: UIViewController {
     let headerView = UIView()
     let itemsView = UIView()
     let comingTrainingView = UIView()
+    let myAbonementsView = UIView()
     
     let trainingPlaceView = TrainingPlaceView()
     
@@ -28,16 +29,18 @@ class FromSearchTrainerViewController: UIViewController {
         configureScrollView()
         configureMoreButton()
         configureHeaderLayout()
+        
         AddChildVC()
+        
         configureItemsView()
         configureComingTrainingView()
-        
         configureTrainingPlaceView()
+        configureMyAbonements()
     }
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height + 1000)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height + 1.7)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -90,11 +93,20 @@ class FromSearchTrainerViewController: UIViewController {
     private func configureTrainingPlaceView() {
         scrollView.addSubview(trainingPlaceView)
         trainingPlaceView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 110).isActive = true
-        trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
         trainingPlaceView.trainingPlaceLabel.text = selectedTrainer?.trainingPlace
+    }
+    
+    private func configureMyAbonements() {
+        scrollView.addSubview(myAbonementsView)
+        myAbonementsView.translatesAutoresizingMaskIntoConstraints = false
+        myAbonementsView.topAnchor.constraint(equalTo: trainingPlaceView.bottomAnchor, constant: 20).isActive = true
+        myAbonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        myAbonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        myAbonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
     }
     
     private func AddChildVC() {
@@ -111,6 +123,10 @@ class FromSearchTrainerViewController: UIViewController {
         itemsTrainerViewController.createButton.addTarget(self, action: #selector(writeButtonTapped), for: .touchUpInside)
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
+        
+        let abonementsViewController = AbonementsViewController()
+        self.add(childVC: abonementsViewController, to: self.myAbonementsView)
+        abonementsViewController.titleLabel.text = "Приобрести абонемент"
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
