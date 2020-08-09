@@ -11,8 +11,9 @@ import UIKit
 class TrainingPlaceView: UIView {
     
     let trainingPlaceImageView = UIImageView()
-    let titleLabel = FLabel(textAligment: .left, fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "МЕСТО ТРЕНИРОВОК")
-    let trainingPlaceLabel = FLabel(textAligment: .left, fontSize: 15, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    let titleLabel = FLabel(textAligment: .left, fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), message: "МЕСТО ТРЕНИРОВКИ")
+    let descriptionPlaceLabel = FLabel(textAligment: .left, fontSize: 15, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    let mapButton = FSimpleButton(title: "Посмотреть на карте", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 13)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -21,6 +22,7 @@ class TrainingPlaceView: UIView {
         configureTrainingPlaceImageView()
         configureTitleLabel()
         configureTrainingPlaceLabel()
+        configureMapButton()
     }
     
     required init?(coder: NSCoder) {
@@ -52,15 +54,22 @@ class TrainingPlaceView: UIView {
     
     private func configureTitleLabel() {
         addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 20).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: trainingPlaceImageView.trailingAnchor, constant: 20).isActive = true
     }
     
     private func configureTrainingPlaceLabel() {
-        addSubview(trainingPlaceLabel)
-        trainingPlaceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
-        trainingPlaceLabel.leadingAnchor.constraint(equalTo: trainingPlaceImageView.trailingAnchor, constant: 20).isActive = true
-        trainingPlaceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
-        trainingPlaceLabel.numberOfLines = 2
+        addSubview(descriptionPlaceLabel)
+        descriptionPlaceLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        descriptionPlaceLabel.leadingAnchor.constraint(equalTo: trainingPlaceImageView.trailingAnchor, constant: 20).isActive = true
+        descriptionPlaceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
+        descriptionPlaceLabel.numberOfLines = 3
+    }
+    
+    private func configureMapButton() {
+        addSubview(mapButton)
+        mapButton.topAnchor.constraint(equalTo: descriptionPlaceLabel.bottomAnchor, constant: 10).isActive = true
+        mapButton.leadingAnchor.constraint(equalTo: trainingPlaceImageView.trailingAnchor, constant: 20).isActive = true
+        mapButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }
 }

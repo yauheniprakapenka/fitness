@@ -25,7 +25,7 @@ class FindTrainerViewController: UIViewController {
     
     let findTrainerModel: [FindTrainerModel] = [
         FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), name: "Александр Овечкин", cost: "1 занятие - 6 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school50"), trainingPlace: "Стадион СОШ №55, ул. Кирова 55"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "kirova"), trainingPlace: "Ул. Кирова 32а, Интервэйл, старая кухня"),
         FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "1 занятие - 5 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
         FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "1 занятие - 11 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
         FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "1 занятие - 9 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
