@@ -48,7 +48,6 @@ class TrainerViewController: UIViewController {
         scrollView.addSubview(moreButton)
         moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-//        moreButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
         moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)

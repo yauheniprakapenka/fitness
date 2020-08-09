@@ -13,6 +13,8 @@ class FromSearchTrainerViewController: UIViewController {
     var scrollView: UIScrollView!
     var selectedTrainer: FindTrainerModel?
     
+    let moreButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    
     let headerView = UIView()
     let itemsView = UIView()
     let comingTrainingView = UIView()
@@ -24,6 +26,7 @@ class FromSearchTrainerViewController: UIViewController {
         view.backgroundColor = .white
         
         configureScrollView()
+        configureMoreButton()
         configureHeaderLayout()
         AddChildVC()
         configureItemsView()
@@ -43,10 +46,24 @@ class FromSearchTrainerViewController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
+    private func configureMoreButton() {
+        scrollView.addSubview(moreButton)
+        moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc func moreButtonTapped() {
+        let nav = UINavigationController(rootViewController: CalendarViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
     private func configureHeaderLayout() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 20).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true

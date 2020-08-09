@@ -35,6 +35,10 @@ class CalendarViewController: UIViewController{
         CalendarTrainingModel(date: "Monday-24-Aug-2020", description: "C 16 до 19 - Отрабатываем наклоны"),
         CalendarTrainingModel(date: "Wednesday-26-Aug-2020", description: "C 15 до 22 - Езда на велосипеде"),
         CalendarTrainingModel(date: "Friday-28-Aug-2020", description: "C 13 до 23 - Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+         CalendarTrainingModel(date: "Wednesday-02-Sep-2020", description: "C 13 до 23 - Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+          CalendarTrainingModel(date: "Thursday-03-Sep-2020", description: "C 13 до 23 - Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+           CalendarTrainingModel(date: "Saturday-05-Sep-2020", description: "C 13 до 23 - Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        
     ]
     
     var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
