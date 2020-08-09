@@ -13,6 +13,7 @@ class AthleteViewController: UIViewController {
     var scrollView: UIScrollView!
     
     let moreButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
+    let titleLabel = FLabel(textAligment: .left, fontSize: 18, weight: .regular, color: .gray, message: "АТЛЕТ")
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -25,6 +26,7 @@ class AthleteViewController: UIViewController {
         
         configureScrollViewLayout()
         configureMoreButton()
+        configureTitleLabel()
         configureHeaderLayout()
         configureItemsLayout()
         configureComingTraininLayout()
@@ -53,6 +55,12 @@ class AthleteViewController: UIViewController {
         moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+    }
+    
+    private func configureTitleLabel() {
+        scrollView.addSubview(titleLabel)
+        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
     private func configureHeaderLayout() {
