@@ -19,7 +19,7 @@ class AbonementsViewController: UIViewController {
     let myAbonementsLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     
     let myAbonementsModel = [
-        AbonementModel(name: "Индивидуальный тренировочный план", cost: "3 месяца - 70 руб.", color: "blue"),
+        AbonementModel(name: "Индивидуальный план", cost: "3 месяца - 70 руб.", color: "blue"),
         AbonementModel(name: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink"),
         AbonementModel(name: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange"),
     ]
