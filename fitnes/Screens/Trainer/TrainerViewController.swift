@@ -12,8 +12,9 @@ class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
-    let moreButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    let calendarButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     let titleLabel = FLabel(textAligment: .left, fontSize: 18, weight: .regular, color: .gray, message: "ТРЕНЕР")
+    let backButton = FSimpleButton(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -25,7 +26,8 @@ class TrainerViewController: UIViewController {
         super.viewDidLoad()
         
         configureScrollView()
-        configureMoreButton()
+        configureBackButton()
+        configureCalendarButton()
         configureTitleLabel()
         configureHeaderLayout()
         configureItemsView()
@@ -37,7 +39,7 @@ class TrainerViewController: UIViewController {
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height + 1000)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.8)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -46,13 +48,24 @@ class TrainerViewController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    private func configureMoreButton() {
-        scrollView.addSubview(moreButton)
-        moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+    private func configureCalendarButton() {
+        scrollView.addSubview(calendarButton)
+        calendarButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+        calendarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        calendarButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
+    }
+    
+    private func configureBackButton() {
+        scrollView.addSubview(backButton)
+        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func backButtonTapped() {
+        dismiss(animated: true)
     }
     
     private func configureTitleLabel() {
@@ -64,7 +77,7 @@ class TrainerViewController: UIViewController {
     private func configureHeaderLayout() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 0).isActive = true
+        headerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
@@ -127,7 +140,7 @@ class TrainerViewController: UIViewController {
         childVC.didMove(toParent: self)
     }
 
-    @objc func moreButtonTapped() {
+    @objc func calendarButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(kind: 5)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
@@ -141,4 +154,6 @@ class TrainerViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
+    
+    
 }

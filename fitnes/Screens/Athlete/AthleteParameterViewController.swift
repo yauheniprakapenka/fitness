@@ -397,7 +397,6 @@ extension AthleteParameterViewController {
         graceLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
     }
     
-    
     private func configurePlusButton() {
         scrollView.addSubview(plusButton)
         plusButton.topAnchor.constraint(equalTo: fran10Button.bottomAnchor, constant: 40).isActive = true

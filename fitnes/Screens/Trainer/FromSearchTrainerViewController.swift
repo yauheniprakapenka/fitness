@@ -156,8 +156,8 @@ class FromSearchTrainerViewController: UIViewController {
     
     @objc private func writeButtonTapped() {
         print("writeButtonTapped")
-        //        let vc = TrainerAddExerciseViewController()
-        //        vc.modalPresentationStyle = .fullScreen
-        //        present(vc, animated: true)
+        let vc = ChatViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
