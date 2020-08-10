@@ -13,13 +13,13 @@ class TrainerViewController: UIViewController {
     var scrollView: UIScrollView!
     
     let calendarButton = FSimpleButton(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
-    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "ТРЕНЕР")
+    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     let backButton = FSimpleButton(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
-    let comingTrainingView = UIView()
-    let myTrainingView = UIView()
+//    let comingTrainingView = UIView()
+    let TrainerTrainingView = UIView()
     let myExerciseView = UIView()
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class TrainerViewController: UIViewController {
         configureTitleLabel()
         configureHeaderLayout()
         configureItemsView()
-        configureComingTrainingView()
+//        configureComingTrainingView()
         configureMyTrainingLayout()
         configureMyExercise()
         AddChildVC()
@@ -92,28 +92,28 @@ class TrainerViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func configureComingTrainingView() {
-        scrollView.addSubview(comingTrainingView)
-        comingTrainingView.translatesAutoresizingMaskIntoConstraints = false
-        comingTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20).isActive = true
-        comingTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        comingTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-    }
+//    private func configureComingTrainingView() {
+//        scrollView.addSubview(comingTrainingView)
+//        comingTrainingView.translatesAutoresizingMaskIntoConstraints = false
+//        comingTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20).isActive = true
+//        comingTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+//        comingTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+//    }
     
     private func configureMyTrainingLayout() {
-        scrollView.addSubview(myTrainingView)
-        myTrainingView.translatesAutoresizingMaskIntoConstraints = false
-        myTrainingView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 100).isActive = true
-        myTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        myTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        myTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+        scrollView.addSubview(TrainerTrainingView)
+        TrainerTrainingView.translatesAutoresizingMaskIntoConstraints = false
+        TrainerTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 10).isActive = true
+        TrainerTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        TrainerTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        TrainerTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
     private func configureMyExercise() {
         scrollView.addSubview(myExerciseView)
         myExerciseView.translatesAutoresizingMaskIntoConstraints = false
-        myExerciseView.topAnchor.constraint(equalTo: myTrainingView.bottomAnchor, constant: 100).isActive = true
+        myExerciseView.topAnchor.constraint(equalTo: TrainerTrainingView.bottomAnchor, constant: 100).isActive = true
         myExerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         myExerciseView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         myExerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
@@ -125,11 +125,11 @@ class TrainerViewController: UIViewController {
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
-        itemsTrainerViewController.createButton.setTitle("Создать", for: .normal)
+        itemsTrainerViewController.createButton.setTitle("Новая тренировка", for: .normal)
         itemsTrainerViewController.createButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
         
-        self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
-        self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
+//        self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
+        self.add(childVC: TrainingViewController(), to: self.TrainerTrainingView)
         self.add(childVC: ExercisesViewController(), to: self.myExerciseView)
     }
     
@@ -150,7 +150,7 @@ class TrainerViewController: UIViewController {
      @objc func findTrainerButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(kind: 5)
         print("button tapped")
-        let vc = TrainerAddExerciseViewController()
+        let vc = AddTrainingViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

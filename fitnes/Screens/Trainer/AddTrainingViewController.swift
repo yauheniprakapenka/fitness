@@ -8,12 +8,12 @@
 
 import UIKit
 
-class TrainerAddExerciseViewController: UIViewController {
+class AddTrainingViewController: UIViewController {
     
     var scrollView: UIScrollView!
     let tableView = UITableView()
     
-    let titleLabel = FLabel(fontSize: 18, weight: .semibold, color: .black, message: "Новое упражнение")
+    let titleLabel = FLabel(fontSize: 18, weight: .semibold, color: .black, message: "Новая тренировка")
     let cancelButton = FSimpleButton(title: "Отмена", titleColor: .gray, size: 14)
     let saveButton = FSimpleButton(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
     
@@ -175,7 +175,7 @@ class TrainerAddExerciseViewController: UIViewController {
 }
 
 // MARK: - Setup Table View
-extension TrainerAddExerciseViewController: UITableViewDelegate {
+extension AddTrainingViewController: UITableViewDelegate {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -193,7 +193,7 @@ extension TrainerAddExerciseViewController: UITableViewDelegate {
     }
 }
 
-extension TrainerAddExerciseViewController: UITableViewDataSource {
+extension AddTrainingViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myTraining.count
     }

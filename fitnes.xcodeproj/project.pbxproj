@@ -13,6 +13,7 @@
 		3E10DA3924C39C0F00163F26 /* TrainerModelOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3824C39C0F00163F26 /* TrainerModelOld.swift */; };
 		3E1752C924E169E600F823A8 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752C824E169E600F823A8 /* ChatModel.swift */; };
 		3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CA24E16A1500F823A8 /* TrainerModel.swift */; };
+		3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CF24E1A01500F823A8 /* TrainingModel.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
@@ -40,7 +41,6 @@
 		3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232324BFA375005FC365 /* RegisterViewController.swift */; };
 		3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */; };
 		3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */; };
-		3E8DE58A24CDAB5C00DFB220 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */; };
 		3EA3F39124E0299600DA5959 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3F39024E0299500DA5959 /* MapViewController.swift */; };
 		3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3F39324E049A400DA5959 /* ChatViewController.swift */; };
 		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
@@ -48,7 +48,7 @@
 		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
 		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */; };
 		3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */; };
-		3ED7036D24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */; };
+		3ED7036D24DB202D00E4DB9F /* AddTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7036C24DB202D00E4DB9F /* AddTrainingViewController.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
 		3ED7037824DB490C00E4DB9F /* TrainingExerciseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037724DB490C00E4DB9F /* TrainingExerciseModel.swift */; };
@@ -78,7 +78,7 @@
 		3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */; };
 		3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870324DFCB7000CA0530 /* FImageView.swift */; };
 		3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870624E01C1000CA0530 /* HapticFeedback.swift */; };
-		3EE5A64C24D7150C004110C6 /* MyTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */; };
+		3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */; };
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
@@ -92,6 +92,7 @@
 		3E10DA3824C39C0F00163F26 /* TrainerModelOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModelOld.swift; sourceTree = "<group>"; };
 		3E1752C824E169E600F823A8 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		3E1752CA24E16A1500F823A8 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
+		3E1752CF24E1A01500F823A8 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +120,6 @@
 		3E87232324BFA375005FC365 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alerts.swift"; sourceTree = "<group>"; };
 		3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSectionEnum.swift; sourceTree = "<group>"; };
-		3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		3EA3F39024E0299500DA5959 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MapViewController.swift; path = /Users/yauheni.prakapenka/Documents/Github/Fitnes/fitnes/Screens/MapViewController.swift; sourceTree = "<absolute>"; };
 		3EA3F39324E049A400DA5959 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCollectionCell.swift; sourceTree = "<group>"; };
 		3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleEnum.swift; sourceTree = "<group>"; };
-		3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerAddExerciseViewController.swift; sourceTree = "<group>"; };
+		3ED7036C24DB202D00E4DB9F /* AddTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrainingViewController.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
 		3ED7037724DB490C00E4DB9F /* TrainingExerciseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingExerciseModel.swift; sourceTree = "<group>"; };
@@ -159,7 +159,7 @@
 		3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthConverter.swift; sourceTree = "<group>"; };
 		3EE5870324DFCB7000CA0530 /* FImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FImageView.swift; sourceTree = "<group>"; };
 		3EE5870624E01C1000CA0530 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
-		3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingViewController.swift; sourceTree = "<group>"; };
+		3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
@@ -191,7 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
-				3ED7036C24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift */,
+				3ED7036C24DB202D00E4DB9F /* AddTrainingViewController.swift */,
 				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
 			);
 			path = Trainer;
@@ -232,7 +232,6 @@
 				3E10DA3824C39C0F00163F26 /* TrainerModelOld.swift */,
 				3EC3D3BC24C43CE2006B2EE1 /* ExerciseModel.swift */,
 				3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */,
-				3E8DE58924CDAB5C00DFB220 /* TrainingModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -279,7 +278,7 @@
 				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
 				3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */,
 				3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */,
-				3EE5A64B24D7150C004110C6 /* MyTrainingViewController.swift */,
+				3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -432,6 +431,7 @@
 				3ED7037724DB490C00E4DB9F /* TrainingExerciseModel.swift */,
 				3E1752C824E169E600F823A8 /* ChatModel.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
+				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
 			);
 			path = ModelsNew;
 			sourceTree = "<group>";
@@ -682,7 +682,6 @@
 				3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */,
 				3E444ABF24D340560004B978 /* FCircleView.swift in Sources */,
 				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
-				3E8DE58A24CDAB5C00DFB220 /* TrainingModel.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
 				3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */,
@@ -708,11 +707,12 @@
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
-				3ED7036D24DB202D00E4DB9F /* TrainerAddExerciseViewController.swift in Sources */,
+				3ED7036D24DB202D00E4DB9F /* AddTrainingViewController.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* MyAbonementsCollectionCell.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
+				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */,
-				3EE5A64C24D7150C004110C6 /* MyTrainingViewController.swift in Sources */,
+				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3ED7037824DB490C00E4DB9F /* TrainingExerciseModel.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,

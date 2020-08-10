@@ -13,7 +13,8 @@ class AthleteViewController: UIViewController {
     var scrollView: UIScrollView!
     
     let moreButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
-    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "АТЛЕТ")
+    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
+    let backButton = FSimpleButton(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -25,6 +26,7 @@ class AthleteViewController: UIViewController {
         super.viewDidLoad()
         
         configureScrollViewLayout()
+        configureBackButton()
         configureMoreButton()
         configureTitleLabel()
         configureHeaderLayout()
@@ -34,6 +36,18 @@ class AthleteViewController: UIViewController {
         configureMyAbonements()
         
         AddChildVC()
+    }
+    
+    private func configureBackButton() {
+        scrollView.addSubview(backButton)
+        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func backButtonTapped() {
+        dismiss(animated: true)
     }
     
     private func configureScrollViewLayout() {
@@ -118,7 +132,7 @@ class AthleteViewController: UIViewController {
         itemsAthleteViewController.actionButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
-        self.add(childVC: MyTrainingViewController(), to: self.myTrainingView)
+        self.add(childVC: TrainingViewController(), to: self.myTrainingView)
         self.add(childVC: AbonementsViewController(), to: self.myAbonementsView)
     }
     
