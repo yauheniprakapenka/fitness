@@ -483,12 +483,12 @@
 			isa = PBXGroup;
 			children = (
 				3E10DA3724C3988C00163F26 /* Athlete */,
-				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
-				3EA3F39324E049A400DA5959 /* ChatViewController.swift */,
 				3EE2DDE224C0DAA800D85CAE /* Login */,
-				3EA3F39024E0299500DA5959 /* MapViewController.swift */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
+				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
+				3EA3F39324E049A400DA5959 /* ChatViewController.swift */,
+				3EA3F39024E0299500DA5959 /* MapViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
