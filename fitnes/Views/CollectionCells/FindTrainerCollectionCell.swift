@@ -14,7 +14,7 @@ class FindTrainerCollectionCell: UICollectionViewCell {
         didSet {
             guard let data = data else { return }
             avatarImage.image = data.avatarImage
-            trainerNameLabel.text = data.name
+            trainerNameLabel.text = data.trainerName
             costLabel.text = data.cost
             trainingPlace.text = data.trainingPlace
         }

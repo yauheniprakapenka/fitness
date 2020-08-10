@@ -21,8 +21,9 @@ class LoginViewController: UIViewController {
         loginButton.layer.cornerRadius = 5
     }
     
-    @IBAction func forgetPasswordTapped(_ sender: Any) {
-        
+    @IBAction func testTapped(_ sender: Any) {
+        let qr = AthleteViewController()
+        present(qr, animated: false)
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
