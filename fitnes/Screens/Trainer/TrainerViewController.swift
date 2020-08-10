@@ -117,8 +117,8 @@ class TrainerViewController: UIViewController {
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
-        itemsTrainerViewController.createButton.setTitle("Новая тренировка", for: .normal)
-        itemsTrainerViewController.createButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
+        itemsTrainerViewController.createButton.setTitle("Добавить тренировку", for: .normal)
+        itemsTrainerViewController.createButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
         
         self.add(childVC: trainingViewController, to: self.trainingView)
         trainingViewController.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
@@ -128,7 +128,6 @@ class TrainerViewController: UIViewController {
     
     @objc func moreButtonTrainingTapped() {
         let newTrainingModel = TrainingModel(title: "11", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "22", count: "333")
-//        trainingViewController.trainingModel.append()
         trainingViewController.trainingModel.insert(newTrainingModel, at: 0)
         trainingViewController.reloadData()
     }
@@ -147,10 +146,10 @@ class TrainerViewController: UIViewController {
         present(nav, animated: true)
     }
     
-     @objc func findTrainerButtonTapped() {
+     @objc func addTrainingButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(kind: 5)
         print("button tapped")
-        let vc = AddTrainingViewController()
+        let vc = TrainingProgrammViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

@@ -6,9 +6,9 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-var exercises = [ExerciseModel]()
+var exerciseModelOld = [ExerciseModelOld]()
 
-struct ExerciseModel: Decodable {
+struct ExerciseModelOld: Decodable {
     var name: String
     var type: String
     var description: String

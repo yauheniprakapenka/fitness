@@ -1,14 +1,14 @@
 //
-//  Add.swift
+//  TrainingProgrammViewController.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 10.08.2020.
+//  Created by yauheni prakapenka on 11.08.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
 import UIKit
 
-struct CreateExerciseModel {
+struct TrainingProgrammModel {
     var minute: Int
     var exerciseName: String        // Двойные прыжки на скаакалке
     var numberOfRepeats: String?     // 7 повторений
@@ -17,11 +17,11 @@ struct CreateExerciseModel {
     var video: String?               // www.youtube.com/video-7123311
 }
 
-class NewAnddTraining: UIViewController {
+class TrainingProgrammViewController: UIViewController {
     let tableView = UITableView()
     
-    var training: [CreateExerciseModel] = [
-        CreateExerciseModel(minute: 1, exerciseName: "Двойные прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, video: "www.youtube.com/video-7123311")
+    var training: [TrainingProgrammModel] = [
+        TrainingProgrammModel(minute: 1, exerciseName: "Двойные прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: "200 метров", video: "www.youtube.com/video-7123311")
     ]
     
     override func viewDidLoad() {
@@ -34,7 +34,7 @@ class NewAnddTraining: UIViewController {
 
 
 // MARK: - Setup Table View
-extension NewAnddTraining: UITableViewDelegate {
+extension TrainingProgrammViewController: UITableViewDelegate {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -52,7 +52,7 @@ extension NewAnddTraining: UITableViewDelegate {
     }
 }
 
-extension NewAnddTraining: UITableViewDataSource {
+extension TrainingProgrammViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         training.count
     }
@@ -73,12 +73,13 @@ class TrainingCell: UITableViewCell {
     let exerciseNameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "ExerciseNameLabel")
     let numberOfReapeatsLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
     let weightLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
+    let distanceLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
     
     let topAnchorConst: CGFloat = 20
     let leadingAnchorConst: CGFloat = 20
     let trailingAnchorConst: CGFloat = 20
     
-    var data: CreateExerciseModel? {
+    var data: TrainingProgrammModel? {
         didSet {
             guard let data = data else { return }
             minuteLabel.text = "Минута " + String(data.minute)
@@ -91,6 +92,10 @@ class TrainingCell: UITableViewCell {
             if let weight = data.weight {
                 weightLabel.text = "\(weight) кг"
             }
+            
+            if let distance = data.distance {
+                distanceLabel.text = "\(distance)"
+            }
         }
     }
     
@@ -101,6 +106,7 @@ class TrainingCell: UITableViewCell {
         configureExerciseNameLabel()
         configureNumberOfReapeatsLabel()
         configureWeightLabel()
+        configureDistanceLabel()
     }
     
     private func configureMinuteLabel() {
@@ -130,4 +136,12 @@ class TrainingCell: UITableViewCell {
         weightLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingAnchorConst).isActive = true
         weightLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: trailingAnchorConst).isActive = true
     }
+    
+    private func configureDistanceLabel() {
+        addSubview(distanceLabel)
+        distanceLabel.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: topAnchorConst).isActive = true
+        distanceLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: leadingAnchorConst).isActive = true
+        distanceLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: trailingAnchorConst).isActive = true
+    }
 }
+
