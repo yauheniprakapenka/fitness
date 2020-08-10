@@ -203,6 +203,14 @@
 			path = Athlete;
 			sourceTree = "<group>";
 		};
+		3E1752C524E15C9000F823A8 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				3EA3F39324E049A400DA5959 /* ChatViewController.swift */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
 		3E235B3724BE29D8004DDBD6 /* Storyboard */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,12 +490,12 @@
 		3EE3901624BCE863003AF6D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				3E1752C524E15C9000F823A8 /* Chat */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3EE2DDE224C0DAA800D85CAE /* Login */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
-				3EA3F39324E049A400DA5959 /* ChatViewController.swift */,
 				3EA3F39024E0299500DA5959 /* MapViewController.swift */,
 			);
 			path = Screens;

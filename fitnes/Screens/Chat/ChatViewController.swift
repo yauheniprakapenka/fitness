@@ -19,7 +19,12 @@ class ChatViewController: UIViewController {
     let tableView = UITableView()
     
     let chatTextField = FTextField()
+    
+    private var timer: Timer?
+    private var sendMessageCount = 0
+    
     let backButton = FSimpleButton(title: "Назад", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    let sendButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Отправить", size: 18)
     
     let headerView = HorisontalLineView()
     
@@ -30,9 +35,8 @@ class ChatViewController: UIViewController {
     let messageImageView = UIImageView()
     
     var chatModel: [ChatModel] = [
-        ChatModel(isOutgoing: true, messageText: "Добрый вечер!\n\nСбросьте, пожалуйста, qr код с программой тренировки"),
-        ChatModel(isOutgoing: false, messageText: "Привет, вот код.."),
-        ChatModel(isOutgoing: false, messageText: "", messageImage: #imageLiteral(resourceName: "testQR"))
+        ChatModel(isOutgoing: true, messageText: "Это была отличная тренировка, ваша музыка вообще задавала ритм"),
+        ChatModel(isOutgoing: false, messageText: "Музыка - это замечательный источник энергии и вдохновения")
     ]
     
     override func viewDidLoad() {
@@ -46,7 +50,9 @@ class ChatViewController: UIViewController {
         configureAvatarImageView()
         configureTrainerNameLabel()
         
+        configureSendButton()
         configureChatTextField()
+        
         configureTableView()
     }
     
@@ -91,14 +97,37 @@ class ChatViewController: UIViewController {
         dismiss(animated: true)
     }
     
+    private func configureSendButton() {
+        view.addSubview(sendButton)
+        sendButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        sendButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        sendButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        sendButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        
+        sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc private func sendButtonTapped() {
+        let senderMessage = chatTextField.text ?? ""
+        chatModel.append(ChatModel(isOutgoing: true, messageText: senderMessage, messageImage: nil))
+        tableView.reloadData()
+        chatTextField.text = ""
+        
+        sendMessageCount += 1
+        chatBotAnswer(scenario: sendMessageCount)
+    }
+    
+    
+    
     private func configureChatTextField() {
         view.addSubview(chatTextField)
-        chatTextField.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        chatTextField.bottomAnchor.constraint(equalTo: sendButton.topAnchor).isActive = true
         chatTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         chatTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        chatTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        chatTextField.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         chatTextField.placeholder = "Сообщение"
+        chatTextField.text = "Добрый вечер!\n\nСбросьте, пожалуйста, qr код с программой тренировки"
     }
     
     private func configureTableView() {
@@ -116,6 +145,7 @@ class ChatViewController: UIViewController {
         
         tableView.register(ChatCell.self, forCellReuseIdentifier: "cell")
     }
+    
 }
 
 extension ChatViewController: UITableViewDelegate {
@@ -204,5 +234,29 @@ class ChatCell: UITableViewCell {
         messageImageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
         messageImageView.image = image
         messageImageView.contentMode = .scaleAspectFit
+    }
+}
+
+extension ChatViewController {
+    private func chatBotAnswer(scenario: Int) {
+        switch scenario {
+        case 1:
+            timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { (timer) in
+                self.chatModel.append(ChatModel(isOutgoing: false, messageText: "Привет! Минутку.."))
+                self.tableView.reloadData()
+            })
+            
+            timer = Timer.scheduledTimer(withTimeInterval: 6.0, repeats: false, block: { (timer) in
+                self.chatModel.append(ChatModel(isOutgoing: false, messageText: "", messageImage: #imageLiteral(resourceName: "testQR")))
+                self.tableView.reloadData()
+            })
+        case 2:
+            timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: { (timer) in
+                self.chatModel.append(ChatModel(isOutgoing: false, messageText: "Пожалуйста))"))
+                self.tableView.reloadData()
+            })
+        default:
+            print("Не найден сценарий")
+        }
     }
 }
