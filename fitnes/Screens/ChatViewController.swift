@@ -29,8 +29,7 @@ class ChatViewController: UIViewController {
     
     var chatModel: [ChatModel] = [
         ChatModel(isOutgoing: true, message: "Добрый вечер Юля! Мы с вами уже сегодня общались. Могу я получить программу тренировки qr коду?"),
-        ChatModel(isOutgoing: false, message: "Юлия: Добрый вечер!"),
-        ChatModel(isOutgoing: false, message: "Юлия: Вот программа. Сканируйте код и отмечайте выполненные задания")
+        ChatModel(isOutgoing: false, message: "Добрый вечер! Вот программа. Сканируйте код и отмечайте выполненные задания")
     ]
     
     override func viewDidLoad() {
@@ -140,26 +139,49 @@ class ChatCell: UITableViewCell {
     
     var isOutgoing = true
     let messageLabel = FLabel(textAligment: .left, fontSize: 17, weight: .regular, color: .black, message: "")
+    let backgroundMessageView = UIView()
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+        configureBackgroundMessageView()
         configureMessageLabel()
     }
     
-    private func configureMessageLabel() {
-        addSubview(messageLabel)
+    private func configureBackgroundMessageView() {
+        addSubview(backgroundMessageView)
+        backgroundMessageView.translatesAutoresizingMaskIntoConstraints = false
         
-        messageLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
-        messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        backgroundMessageView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+//        backgroundMessageView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+//        backgroundMessageView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        backgroundMessageView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        backgroundMessageView.layer.cornerRadius = 10
+        
         if isOutgoing {
-            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 100).isActive = true
-            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
-            messageLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+            backgroundMessageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 160).isActive = true
+            backgroundMessageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
+            backgroundMessageView.backgroundColor = #colorLiteral(red: 0, green: 0.8082893491, blue: 0.2883248627, alpha: 1)
         } else {
-            messageLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
-            messageLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -100).isActive = true
-            messageLabel.textColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+            backgroundMessageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10).isActive = true
+            backgroundMessageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -160).isActive = true
+            backgroundMessageView.backgroundColor = #colorLiteral(red: 0.9090023637, green: 0.9137477279, blue: 0.9223148823, alpha: 1)
+        }
+    }
+    
+    private func configureMessageLabel() {
+        backgroundMessageView.addSubview(messageLabel)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+        messageLabel.topAnchor.constraint(equalTo: backgroundMessageView.topAnchor).isActive = true
+        messageLabel.bottomAnchor.constraint(equalTo: backgroundMessageView.bottomAnchor).isActive = true
+        if isOutgoing {
+            messageLabel.leadingAnchor.constraint(equalTo: backgroundMessageView.leadingAnchor, constant: 8).isActive = true
+            messageLabel.trailingAnchor.constraint(equalTo: backgroundMessageView.trailingAnchor, constant: -8).isActive = true
+            messageLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        } else {
+            messageLabel.leadingAnchor.constraint(equalTo: backgroundMessageView.leadingAnchor, constant: 8).isActive = true
+            messageLabel.trailingAnchor.constraint(equalTo: backgroundMessageView.trailingAnchor, constant: -8).isActive = true
+            messageLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         }
         
         messageLabel.numberOfLines = 0
