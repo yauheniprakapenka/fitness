@@ -8,23 +8,16 @@
 
 import UIKit
 
-struct MyTrainingModel {
-    var title: String
-    var image: UIImage
-    var kind: String
-    var count: String
-}
-
-class MyTrainingViewController: UIViewController {
+class TrainingViewController: UIViewController {
     
     let myTrainingsLabel = FLabel(fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
     let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
-    let myTrainingModel = [
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "15 упражнений"),
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "For time", count: "11 упражнений"),
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "1 упражнений"),
-        MyTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "5 упражнений")
+    let trainingModel = [
+        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "15 упражнений"),
+        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "For time", count: "11 упражнений"),
+        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "1 упражнений"),
+        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "5 упражнений")
     ]
     
     private let collectionView: UICollectionView = {
@@ -82,19 +75,19 @@ class MyTrainingViewController: UIViewController {
     }
 }
 
-extension MyTrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension TrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         CGSize(width: collectionView.frame.width/2.5, height: 300)// collectionView.frame.width/2)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        myTrainingModel.count
+        trainingModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyTrainingCell", for: indexPath) as! MyTrainingCollectionCell
-        cell.data = self.myTrainingModel[indexPath.row]
+        cell.data = self.trainingModel[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         
         cell.layer.shadowColor = UIColor.black.cgColor

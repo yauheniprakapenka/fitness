@@ -10,7 +10,7 @@ import UIKit
 
 class MyTrainingCollectionCell: UICollectionViewCell {
     
-    var data: MyTrainingModel? {
+    var data: TrainingModel? {
         didSet {
             guard let data = data else { return }
             logoImage.image = data.image

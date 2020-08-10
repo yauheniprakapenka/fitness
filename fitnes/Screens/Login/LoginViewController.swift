@@ -14,22 +14,22 @@ class LoginViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var loginButton: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 5
     }
     
-    @IBAction func testTapped(_ sender: Any) {
-        let qr = AthleteViewController()
-        present(qr, animated: false)
+    @IBAction func athleteButtonTapped(_ sender: Any) {
+        let vc = AthleteViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
+  
     @IBAction func loginButtonTapped(_ sender: Any) {
         HapticFeedback.shared.makeHapticFeedback(kind: 5)
         
-        let vc = AthleteViewController()
+        let vc = TrainerViewController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
         
