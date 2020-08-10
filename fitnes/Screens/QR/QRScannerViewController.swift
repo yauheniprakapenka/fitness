@@ -7,7 +7,7 @@
 //
 
 
-// реализация взята из https://github.com/domeniconicoli/QRCodeScanner
+// Туториал https://github.com/domeniconicoli/QRCodeScanner
 
 import UIKit
 import AVFoundation

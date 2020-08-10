@@ -37,6 +37,8 @@ class TrainerFromSearchViewController: UIViewController {
         configureComingTrainingView()
         configureTrainingPlaceView()
         configureMyAbonements()
+        
+        print(selectedTrainer)
     }
     
     private func configureScrollView() {
@@ -126,12 +128,19 @@ class TrainerFromSearchViewController: UIViewController {
         myAbonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
     }
     
+    @objc private func writeButtonTapped() {
+        let vc = ChatViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedTrainer = selectedTrainer
+        present(vc, animated: true)
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         let headerViewController = HeaderViewController()
         
         self.add(childVC: headerViewController, to: self.headerView)
-        headerViewController.nameLabel.text = selectedTrainer?.name
+        headerViewController.nameLabel.text = selectedTrainer?.trainerName
         headerViewController.avatarImageView.image = selectedTrainer?.avatarImage
         
         let itemsTrainerViewController = ItemsTrainerViewController()
@@ -153,10 +162,4 @@ class TrainerFromSearchViewController: UIViewController {
         childVC.didMove(toParent: self)
     }
     
-    @objc private func writeButtonTapped() {
-        print("writeButtonTapped")
-        let nav = UINavigationController(rootViewController: ChatViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
-    }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 struct FindTrainerModel {
     var avatarImage: UIImage
-    var name: String
+    var trainerName: String
     var cost: String
     var schoolImage: UIImage
     var trainingPlace: String
@@ -24,13 +24,13 @@ class FindTrainerViewController: UIViewController {
     var isFilterMode = false
     
     let findTrainerModel: [FindTrainerModel] = [
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), name: "Александр Овечкин", cost: "1 занятие - 6 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), name: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "kirova"), trainingPlace: "Ул. Кирова 32а, Интервэйл, старая кухня"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), name: "Алексей Загитов", cost: "1 занятие - 5 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), name: "Алексей Ягудин", cost: "1 занятие - 11 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), name: "Мария Колесникова", cost: "1 занятие - 9 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), name: "Вячеслав Малафеев", cost: "1 занятие - 7 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №34, ул. Хатаевича 25"),
-        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), name: "Инна Малинова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №44, ул. Ланге 17")
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), trainerName: "Александр Овечкин", cost: "1 занятие - 6 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), trainerName: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "kirova"), trainingPlace: "Ул. Кирова 32а, Интервэйл, старая кухня"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), trainerName: "Алексей Загитов", cost: "1 занятие - 5 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), trainerName: "Алексей Ягудин", cost: "1 занятие - 11 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), trainerName: "Мария Колесникова", cost: "1 занятие - 9 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), trainerName: "Вячеслав Малафеев", cost: "1 занятие - 7 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №34, ул. Хатаевича 25"),
+        FindTrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), trainerName: "Инна Малинова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №44, ул. Ланге 17")
     ]
 
     private let collectionView: UICollectionView = {
@@ -146,7 +146,7 @@ extension FindTrainerViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredFindTrainerModel = findTrainerModel.filter({$0.name.lowercased().contains(searchText.lowercased())})
+        filteredFindTrainerModel = findTrainerModel.filter({$0.trainerName.lowercased().contains(searchText.lowercased())})
         isFilterMode = true
         
         collectionView.reloadData()

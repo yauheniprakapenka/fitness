@@ -16,7 +16,16 @@ struct ChatModel {
 class ChatViewController: UIViewController {
     
     let tableView = UITableView()
+    
     let chatTextField = FTextField()
+    let backButton = FSimpleButton(title: "Назад", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    
+    let headerView = HorisontalLineView()
+    
+    var selectedTrainer: FindTrainerModel?
+    let trainerNameLabel = FLabel(textAligment: .center, fontSize: 12, weight: .regular, color: .gray, message: "")
+    
+    let avatarImageView = UIImageView()
     
     var chatModel: [ChatModel] = [
         ChatModel(isOutgoing: true, message: "Добрый вечер Юля! Мы с вами уже сегодня общались. Могу я получить программу тренировки qr коду?"),
@@ -29,20 +38,56 @@ class ChatViewController: UIViewController {
         
         view.backgroundColor = .white
         
-        configureNavigation()
+        configureHeaderView()
+        
+        configureBackButton()
+        configureAvatarImageView()
+        configureTrainerNameLabel()
+        
         configureChatTextField()
         configureTableView()
-    }
-    
-    private func configureNavigation() {
-        navigationController?.navigationBar.prefersLargeTitles = false
-        navigationItem.title = "Чат с тренером"
         
-        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
-        navigationItem.leftBarButtonItem = cancelButton
+        print(selectedTrainer)
     }
     
-    @objc private func cancelButtonTapped() {
+    private func configureHeaderView() {
+        view.addSubview(headerView)
+        headerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        headerView.backgroundColor = #colorLiteral(red: 0.959921658, green: 0.9648196101, blue: 0.9689807296, alpha: 1)
+    }
+    
+    private func configureTrainerNameLabel() {
+        headerView.addSubview(trainerNameLabel)
+        trainerNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 10).isActive = true
+        trainerNameLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        trainerNameLabel.text = selectedTrainer?.trainerName
+    }
+    
+    private func configureBackButton() {
+        headerView.addSubview(backButton)
+        backButton.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
+        backButton.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 45).isActive = true
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+    }
+    
+    private func configureAvatarImageView() {
+        headerView.addSubview(avatarImageView)
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        avatarImageView.centerXAnchor.constraint(equalTo: headerView.centerXAnchor).isActive = true
+        avatarImageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 40).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 70).isActive = true
+        avatarImageView.image = selectedTrainer?.avatarImage
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = 35
+        avatarImageView.contentMode = .scaleAspectFit
+    }
+    
+    @objc private func backButtonTapped() {
         dismiss(animated: true)
     }
     
@@ -64,7 +109,7 @@ class ChatViewController: UIViewController {
         tableView.separatorStyle = .none
         
         view.addSubview(tableView)
-        tableView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: chatTextField.topAnchor, constant: -60).isActive = true
