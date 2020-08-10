@@ -10,8 +10,8 @@ import UIKit
 
 class ItemView: UIView {
     
-    let countLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "")
-    let messageLabel = FLabel(textAligment: .left, fontSize: 13, weight: .regular, color: .black, message: "")
+    let countLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
+    let messageLabel = FLabel(fontSize: 13, weight: .regular, color: .black, message: "")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

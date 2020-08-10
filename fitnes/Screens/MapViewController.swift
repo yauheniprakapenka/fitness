@@ -13,8 +13,14 @@ class MapViewController: UIViewController {
     
     var mapView = MKMapView()
     let backButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад", size: 13)
-    
+    let trainingPlaceView = TrainingPlaceView()
     let locationManager = CLLocationManager()
+    var selectedTrainer: TrainerModel?
+    let trainerContainerView = UIView()
+    let avatarImageView = UIImageView()
+    let trainerNameLabel = FLabel(fontSize: 12, weight: .medium, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    let costLabel = FLabel(fontSize: 12, weight: .regular, color: .gray, message: "Не указано")
+    let trainingPlaceLabel = FLabel(fontSize: 12, weight: .regular, color: .lightGray, message: "Не указано")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +28,14 @@ class MapViewController: UIViewController {
         
         configureMapView()
         configureBackButton()
+        
+        configureTrainerView()
+        configureTrainingPlaceView()
+        
+        configureAvatarImageView()
+        configureTrainerName()
+        configureCostLabel()
+        configureTrainingLabel()
     }
     
     private func configureBackButton() {
@@ -47,12 +61,86 @@ class MapViewController: UIViewController {
         
         let pin = MKPointAnnotation()
         pin.coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-        pin.title = "Тренировка здесь"
+        pin.title = "Занятие проводится здесь"
         //        pin.subtitle = "The tallest buildiing in the world."
         mapView.addAnnotation(pin)
     }
     
     @objc private func backButtonTapped() {
         dismiss(animated: true)
+    }
+    
+    private func configureTrainingPlaceView() {
+        view.addSubview(trainingPlaceView)
+        trainingPlaceView.translatesAutoresizingMaskIntoConstraints = false
+        trainingPlaceView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        
+        trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
+        trainingPlaceView.descriptionPlaceLabel.text = selectedTrainer?.trainingPlace
+        trainingPlaceView.mapButton.isHidden = true
+    }
+    
+    private func configureTrainerView() {
+        view.addSubview(trainerContainerView)
+        trainerContainerView.translatesAutoresizingMaskIntoConstraints = false
+        trainerContainerView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        trainerContainerView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        trainerContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        trainerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
+        
+        trainerContainerView.backgroundColor = .white
+        trainerContainerView.layer.cornerRadius = 15
+        
+        trainerContainerView.layer.shadowColor = UIColor.black.cgColor
+        trainerContainerView.layer.shadowOpacity = 0.4
+        trainerContainerView.layer.shadowOffset = CGSize.zero
+        trainerContainerView.layer.shadowRadius = 9
+    }
+    
+    private func configureAvatarImageView() {
+        trainerContainerView.addSubview(avatarImageView)
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = 15
+        avatarImageView.contentMode = .scaleAspectFill
+        
+        avatarImageView.topAnchor.constraint(equalTo: trainerContainerView.topAnchor, constant: 8).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 8).isActive = true
+        avatarImageView.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -8).isActive = true
+        avatarImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
+        avatarImageView.image = selectedTrainer?.avatarImage
+    }
+
+    private func configureTrainerName() {
+        trainerContainerView.addSubview(trainerNameLabel)
+        trainerNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 6).isActive = true
+        trainerNameLabel.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 4).isActive = true
+        trainerNameLabel.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -4).isActive = true
+        trainerNameLabel.numberOfLines = 2
+        trainerNameLabel.text = selectedTrainer?.trainerName
+        trainerNameLabel.textAlignment = .center
+    }
+    
+    private func configureCostLabel() {
+        trainerContainerView.addSubview(costLabel)
+        costLabel.topAnchor.constraint(equalTo: trainerNameLabel.bottomAnchor, constant: 6).isActive = true
+        costLabel.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 8).isActive = true
+        costLabel.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -4).isActive = true
+        costLabel.numberOfLines = 1
+        costLabel.text = selectedTrainer?.cost
+        costLabel.textAlignment = .left
+    }
+    
+    private func configureTrainingLabel() {
+        trainerContainerView.addSubview(trainingPlaceLabel)
+        trainingPlaceLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 6).isActive = true
+        trainingPlaceLabel.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 8).isActive = true
+        trainingPlaceLabel.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -8).isActive = true
+        trainingPlaceLabel.numberOfLines = 3
+        trainingPlaceLabel.text = selectedTrainer?.trainingPlace
+        trainingPlaceLabel.textAlignment = .left
     }
 }

@@ -6,7 +6,7 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct TrainingModelNew {
+struct TrainingExerciseModel {
     var name: String
     var exercise: ExerciseModelNew
 }

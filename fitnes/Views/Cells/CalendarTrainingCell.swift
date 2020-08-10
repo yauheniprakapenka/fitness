@@ -10,13 +10,13 @@ import UIKit
 
 class CalendarTrainingCell: UITableViewCell {
     
-    let dayOfWeekLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .black, message: "Не указано")
+    let dayOfWeekLabel = FLabel(fontSize: 15, weight: .light, color: .black, message: "Не указано")
     
-    let numberOfDayLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .gray, message: "Не указано")
+    let numberOfDayLabel = FLabel(fontSize: 15, weight: .light, color: .gray, message: "Не указано")
     
-    let monthLabel = FLabel(textAligment: .left, fontSize: 15, weight: .light, color: .gray, message: "Не указано")
+    let monthLabel = FLabel(fontSize: 15, weight: .light, color: .gray, message: "Не указано")
     
-    let descriptionLabel = FLabel(textAligment: .left, fontSize: 13, weight: .light, color: .black, message: "Не указано")
+    let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Не указано")
     
     let circleView = FCircleView(x: 20, y: 13, size: 13, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1))
     

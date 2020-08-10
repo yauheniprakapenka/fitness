@@ -19,12 +19,12 @@ class MyAbonementsCollectionCell: UICollectionViewCell {
         }
     }
     
-    let abonementLabel = FLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .white, message: "")
-    let costLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .white, message: "")
+    let abonementLabel = FLabel(fontSize: 15, weight: .regular, color: .white, message: "")
+    let costLabel = FLabel(fontSize: 16, weight: .semibold, color: .white, message: "")
     var status = ""
     
     var abonementTimer = 59
-    let timerLabel = FLabel(textAligment: .left, fontSize: 12, weight: .light, color: .white, message: "")
+    let timerLabel = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
     
     override init(frame: CGRect) {
         super.init(frame: frame)

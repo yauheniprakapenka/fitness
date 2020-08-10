@@ -13,7 +13,7 @@ extension FirestoreService {
         
         docRef.getDocument { (document, error) in
             let result = Result {
-                try document?.data(as: TrainerModel.self)
+                try document?.data(as: TrainerModelOld.self)
             }
             
             switch result {
@@ -48,7 +48,7 @@ extension FirestoreService {
         
         docRef.getDocument { (document, error) in
             let result = Result {
-                try document?.data(as: TrainerModel.self)
+                try document?.data(as: TrainerModelOld.self)
             }
             
             switch result {

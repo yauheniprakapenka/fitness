@@ -17,24 +17,24 @@ class AthleteParameterViewController: UIViewController {
     var scrollView: UIScrollView!
     let tableView = UITableView()
     
-    let titleLabel = FLabel(textAligment: .center, fontSize: 18, weight: .semibold, color: .black, message: "Мои параметры")
+    let titleLabel = FLabel(fontSize: 18, weight: .semibold, color: .black, message: "Мои параметры")
     let cancelButton = FSimpleButton(title: "Отмена", titleColor: .gray, size: 14)
     let saveButton = FSimpleButton(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
     
-    let fioLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "ФИО")
+    let fioLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "ФИО")
     let fioTextField = FTextField(placeholderText: "ФИО")
     
-    let phoneLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Телефон")
+    let phoneLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "Телефон")
     let phoneTextField = FTextField(placeholderText: "Телефон")
     
-    let indicatorLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Показатели")
+    let indicatorLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "Показатели")
     let indicatorTextField = FTextField(placeholderText: "Показатели")
     
-    let titleForCategoryLabel = FLabel(textAligment: .left, fontSize: 16, weight: .semibold, color: .black, message: "Заголовок для категории")
+    let titleForCategoryLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "Заголовок для категории")
     
-    let leadTimeLabel = FLabel(textAligment: .left, fontSize: 18, weight: .semibold, color: .black, message: "Время выполнения комплексов (мин.)")
+    let leadTimeLabel = FLabel(fontSize: 18, weight: .semibold, color: .black, message: "Время выполнения комплексов (мин.)")
     
-    let franLabel = FLabel(textAligment: .left, fontSize: 16, weight: .regular, color: .black, message: "Fran")
+    let franLabel = FLabel(fontSize: 16, weight: .regular, color: .black, message: "Fran")
     
     let fran10Button = FFranButton(title: "10")
     let fran20Button = FFranButton(title: "20")
@@ -52,9 +52,9 @@ class AthleteParameterViewController: UIViewController {
     
     var countGrace = 15
     
-    let graceLabel = FLabel(textAligment: .left, fontSize: 15, weight: .regular, color: .black, message: "Grace")
+    let graceLabel = FLabel(fontSize: 15, weight: .regular, color: .black, message: "Grace")
     let plusButton = FFranButton(title: "+")
-    let countLabel = FLabel(textAligment: .center, fontSize: 16, weight: .semibold, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "nil")
+    let countLabel = FLabel(fontSize: 16, weight: .semibold, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "nil")
     let minusButton = FFranButton(title: "-")
     
     let titleForCategory: [TitleForCategory] = [

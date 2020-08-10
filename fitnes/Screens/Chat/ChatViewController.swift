@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct ChatModel {
-    var isOutgoing: Bool
-    var messageText: String
-    var messageImage: UIImage?
-}
-
 class ChatViewController: UIViewController {
     
     let tableView = UITableView()
@@ -28,8 +22,8 @@ class ChatViewController: UIViewController {
     
     let headerView = HorisontalLineView()
     
-    var selectedTrainer: FindTrainerModel?
-    let trainerNameLabel = FLabel(textAligment: .center, fontSize: 12, weight: .regular, color: .gray, message: "")
+    var selectedTrainer: TrainerModel?
+    let trainerNameLabel = FLabel(fontSize: 12, weight: .regular, color: .gray, message: "")
     
     let avatarImageView = UIImageView()
     let messageImageView = UIImageView()
@@ -173,7 +167,7 @@ extension ChatViewController: UITableViewDataSource {
 class ChatCell: UITableViewCell {
     
     var isOutgoing = true
-    let messageLabel = FLabel(textAligment: .left, fontSize: 17, weight: .regular, color: .black, message: "")
+    let messageLabel = FLabel(fontSize: 17, weight: .regular, color: .black, message: "")
     let containerView = UIView()
     let messageImageView = UIImageView()
     

@@ -19,9 +19,8 @@ class FLabel: UILabel {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(textAligment: NSTextAlignment, fontSize: CGFloat, weight: UIFont.Weight, color: UIColor, message: String) {
+    init(fontSize: CGFloat, weight: UIFont.Weight, color: UIColor, message: String) {
         super.init(frame: .zero)
-        textAlignment = textAlignment
         font = UIFont.systemFont(ofSize: fontSize, weight: weight)
         textColor = color
         text = message
