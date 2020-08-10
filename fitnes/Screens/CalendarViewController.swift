@@ -12,11 +12,6 @@ import FSCalendar
 // FSCalendar tutorial - https://www.youtube.com/watch?v=FipNDF7g9tE
 // NSDateFormatter - https://nsdateformatter.com/
 
-struct CalendarTrainingModel {
-    var date: String
-    var description: String
-}
-
 class CalendarViewController: UIViewController{
     
     var calendar: FSCalendar!
@@ -27,7 +22,7 @@ class CalendarViewController: UIViewController{
     let horisontalLineView = HorisontalLineView()
     
     let calendarTrainingModel: [CalendarTrainingModel] = [
-        CalendarTrainingModel(date: "Sunday-16-Aug-2020", description: "12:00 - 18:00 | Тренировка «Пешком в Мордор». Взять кольца и провизию"),
+        CalendarTrainingModel(date: "Sunday-16-Aug-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
         CalendarTrainingModel(date: "Monday-17-Aug-2020", description: "14:00 - 19:00 |  Отрабатываем наклоны"),
         CalendarTrainingModel(date: "Tuesday-18-Aug-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
         CalendarTrainingModel(date: "Wednesday-19-Aug-2020",  description: "14:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),

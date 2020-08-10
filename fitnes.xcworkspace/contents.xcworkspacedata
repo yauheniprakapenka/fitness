@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/yauheni.prakapenka/Documents/Github/Fitnes/fitnes/Screens/MapViewController.swift">
-   </FileRef>
-   <FileRef
       location = "group:fitnes.xcodeproj">
    </FileRef>
    <FileRef
