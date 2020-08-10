@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func athleteButtonTapped(_ sender: Any) {
-        let vc = AthleteViewController()
+        let vc = TrainingProgrammViewController()//AthleteViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }

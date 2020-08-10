@@ -38,7 +38,7 @@ class TrainerFromSearchViewController: UIViewController {
         configureTrainingPlaceView()
         configureMyAbonements()
         
-        print(selectedTrainer)
+        print(selectedTrainer as Any)
     }
     
     private func configureScrollView() {

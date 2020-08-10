@@ -83,26 +83,26 @@ extension FirestoreService {
     
     // MARK: - Получить все упражнения
     func fetchExercises(list: [String], completion: (() -> Void)? = nil) {
-        exercises = [ExerciseModel]()
+        exerciseModelOld = [ExerciseModelOld]()
 
         for exercise in list {
             let docRef = db.collection("exercises").document(profileInfoModel.uid).collection(exercise).document(exercise)
             docRef.getDocument { (document, error) in
                 let result = Result {
-                    try document?.data(as: ExerciseModel.self)
+                    try document?.data(as: ExerciseModelOld.self)
                 }
                 
                 switch result {
                 case .success(let firestoreExercise):
                     if let firestoreExercise = firestoreExercise {
-                        let profileExercise = ExerciseModel(
+                        let profileExercise = ExerciseModelOld(
                             name: firestoreExercise.name,
                             type: firestoreExercise.type,
                             description: firestoreExercise.description,
                             equipment: firestoreExercise.equipment,
                             videoUrl: firestoreExercise.videoUrl
                         )
-                        exercises.append(profileExercise)
+                        exerciseModelOld.append(profileExercise)
                     
                         print("Упражнения профиля: \(exersisesList.currentExercises)")
                       completion?()
