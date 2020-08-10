@@ -13,11 +13,11 @@ class TrainingViewController: UIViewController {
     let myTrainingsLabel = FLabel(fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
     let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
-    let trainingModel = [
-        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "15 упражнений"),
-        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "For time", count: "11 упражнений"),
-        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "1 упражнений"),
-        TrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "Amrap", count: "5 упражнений")
+    var trainingModel = [
+        TrainingModel(title: "Как Сталлоне", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.28.30"), kind: "Amrap", count: "15 упражнений"),
+        TrainingModel(title: "Аэробная", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.28.57"), kind: "For time", count: "11 упражнений"),
+        TrainingModel(title: "Быстрее ветра", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.31.23"), kind: "Amrap", count: "15 упражнений"),
+        TrainingModel(title: "Велосипед", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.31.41"), kind: "For time", count: "11 упражнений")
     ]
     
     private let collectionView: UICollectionView = {
@@ -34,10 +34,13 @@ class TrainingViewController: UIViewController {
         
         configureLayout()
         configureUIElements()
-        configureMoreButton()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    func reloadData() {
+        collectionView.reloadData()
     }
     
     private func configureLayout() {
@@ -66,13 +69,8 @@ class TrainingViewController: UIViewController {
         collectionView.backgroundColor = .white
     }
     
-    private func configureMoreButton() {
-        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
-    }
     
-    @objc func moreButtonTapped() {
-        print("button tapped")
-    }
+    
 }
 
 extension TrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
