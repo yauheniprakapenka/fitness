@@ -16,7 +16,7 @@ struct AbonementModel {
 
 class AbonementsViewController: UIViewController {
     
-    var titleLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
+    var titleLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     
     let myAbonementsModel = [
         AbonementModel(name: "Индивидуальный план", cost: "3 месяца - 70 руб.", color: "blue"),

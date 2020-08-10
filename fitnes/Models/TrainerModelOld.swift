@@ -6,9 +6,9 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct TrainerModel: Decodable {
+struct TrainerModelOld: Decodable {
     var uid: String
     var name: String
 }
 
-var trainerInfo = TrainerModel(uid: "", name: "")
+var trainerInfo = TrainerModelOld(uid: "", name: "")

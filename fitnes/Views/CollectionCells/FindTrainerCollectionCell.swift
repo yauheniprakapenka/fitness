@@ -10,20 +10,20 @@ import UIKit
 
 class FindTrainerCollectionCell: UICollectionViewCell {
 
-    var data: FindTrainerModel? {
+    var data: TrainerModel? {
         didSet {
             guard let data = data else { return }
             avatarImage.image = data.avatarImage
             trainerNameLabel.text = data.trainerName
             costLabel.text = data.cost
-            trainingPlace.text = data.trainingPlace
+            trainingPlaceLabel.text = data.trainingPlace
         }
     }
 
-    let trainerNameLabel = FLabel(textAligment: .left, fontSize: 16, weight: .medium, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
-    let costLabel = FLabel(textAligment: .left, fontSize: 14, weight: .regular, color: .gray, message: "Не указано")
+    let trainerNameLabel = FLabel(fontSize: 16, weight: .medium, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    let costLabel = FLabel(fontSize: 14, weight: .regular, color: .gray, message: "Не указано")
     
-    let trainingPlace = FLabel(textAligment: .left, fontSize: 12, weight: .regular, color: .lightGray, message: "Не указано")
+    let trainingPlaceLabel = FLabel(fontSize: 12, weight: .regular, color: .lightGray, message: "Не указано")
 
     fileprivate let avatarImage: UIImageView = {
         let imageView = UIImageView()
@@ -47,18 +47,18 @@ class FindTrainerCollectionCell: UICollectionViewCell {
 
     private func configureUI() {
         trainerNameLabel.numberOfLines = 2
-        trainingPlace.numberOfLines = 2
+        trainingPlaceLabel.numberOfLines = 2
     }
 
     private func configureLayout() {
         contentView.addSubview(avatarImage)
         contentView.addSubview(trainerNameLabel)
         contentView.addSubview(costLabel)
-        contentView.addSubview(trainingPlace)
+        contentView.addSubview(trainingPlaceLabel)
 
         trainerNameLabel.translatesAutoresizingMaskIntoConstraints = false
         costLabel.translatesAutoresizingMaskIntoConstraints = false
-        trainingPlace.translatesAutoresizingMaskIntoConstraints = false
+        trainingPlaceLabel.translatesAutoresizingMaskIntoConstraints = false
         
         avatarImage.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
         avatarImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
@@ -73,8 +73,8 @@ class FindTrainerCollectionCell: UICollectionViewCell {
         costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
         costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
         
-        trainingPlace.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 6).isActive = true
-        trainingPlace.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
-        trainingPlace.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
+        trainingPlaceLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 6).isActive = true
+        trainingPlaceLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8).isActive = true
+        trainingPlaceLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8).isActive = true
     }
 }

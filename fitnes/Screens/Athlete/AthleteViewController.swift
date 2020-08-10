@@ -13,7 +13,7 @@ class AthleteViewController: UIViewController {
     var scrollView: UIScrollView!
     
     let moreButton = FSFSymbolButton(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
-    let titleLabel = FLabel(textAligment: .left, fontSize: 18, weight: .regular, color: .gray, message: "АТЛЕТ")
+    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "АТЛЕТ")
     
     let headerView = UIView()
     let itemsView = UIView()

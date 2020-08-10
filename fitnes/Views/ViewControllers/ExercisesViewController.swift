@@ -16,7 +16,7 @@ struct ExercisesModel {
 
 class ExercisesViewController: UIViewController {
     
-    let exerciseLabel = FLabel(textAligment: .left, fontSize: 17, weight: .bold, color: .black, message: "")
+    let exerciseLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
     let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
     let exercisesModel = [
@@ -51,19 +51,18 @@ class ExercisesViewController: UIViewController {
         view.addSubview(moreButton)
         view.addSubview(collectionView)
         
-        NSLayoutConstraint.activate([
-            exerciseLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            exerciseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            exerciseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
-            moreButton.bottomAnchor.constraint(equalTo: exerciseLabel.bottomAnchor),
-            moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
-            
-            collectionView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 1)
-        ])
+        exerciseLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        exerciseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        exerciseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        exerciseLabel.textAlignment = .left
+        
+        moreButton.bottomAnchor.constraint(equalTo: exerciseLabel.bottomAnchor).isActive = true
+        moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        
+        collectionView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 1).isActive = true
     }
     
     private func configureUIElements() {
