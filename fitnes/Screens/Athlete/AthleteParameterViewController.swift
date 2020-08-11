@@ -18,8 +18,8 @@ class AthleteParameterViewController: UIViewController {
     let tableView = UITableView()
     
     let titleLabel = FLabel(fontSize: 18, weight: .semibold, color: .black, message: "Мои параметры")
-    let cancelButton = FSimpleButton(title: "Отмена", titleColor: .gray, size: 14)
-    let saveButton = FSimpleButton(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
+    let cancelButton = FButtonSimple(title: "Отмена", titleColor: .gray, size: 14)
+    let saveButton = FButtonSimple(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
     
     let fioLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "ФИО")
     let fioTextField = FTextField(placeholderText: "ФИО")
@@ -36,12 +36,12 @@ class AthleteParameterViewController: UIViewController {
     
     let franLabel = FLabel(fontSize: 16, weight: .regular, color: .black, message: "Fran")
     
-    let fran10Button = FFranButton(title: "10")
-    let fran20Button = FFranButton(title: "20")
-    let fran30Button = FFranButton(title: "30")
-    let fran40Button = FFranButton(title: "40")
-    let fran50Button = FFranButton(title: "50")
-    let fran60Button = FFranButton(title: "60")
+    let fran10Button = FButtonFran(title: "10")
+    let fran20Button = FButtonFran(title: "20")
+    let fran30Button = FButtonFran(title: "30")
+    let fran40Button = FButtonFran(title: "40")
+    let fran50Button = FButtonFran(title: "50")
+    let fran60Button = FButtonFran(title: "60")
     
     var isfran10ButtonSelected = false
     var isfran20ButtonSelected = false
@@ -53,9 +53,9 @@ class AthleteParameterViewController: UIViewController {
     var countGrace = 15
     
     let graceLabel = FLabel(fontSize: 15, weight: .regular, color: .black, message: "Grace")
-    let plusButton = FFranButton(title: "+")
+    let plusButton = FButtonFran(title: "+")
     let countLabel = FLabel(fontSize: 16, weight: .semibold, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "nil")
-    let minusButton = FFranButton(title: "-")
+    let minusButton = FButtonFran(title: "-")
     
     let titleForCategory: [TitleForCategory] = [
         TitleForCategory(title: "Одноповторные максимумы"),
@@ -224,7 +224,7 @@ extension AthleteParameterViewController: UITableViewDelegate {
         tableView.heightAnchor.constraint(equalToConstant: 300).isActive = true // tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
-        tableView.register(TitleWithCheckboxCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(TitleAndCheckboxCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
@@ -234,7 +234,7 @@ extension AthleteParameterViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TitleWithCheckboxCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TitleAndCheckboxCell
         cell.selectionStyle = .none
         cell.nameLabel.text = titleForCategory[indexPath.row].title
         return cell

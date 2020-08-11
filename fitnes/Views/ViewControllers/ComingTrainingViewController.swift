@@ -20,7 +20,7 @@ struct ComingTrainingModel {
 class ComingTrainingViewController: UIViewController {
     
     let comingTrainingsLabel = FLabel(fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "Ближайшие тренировки")
-    let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
+    let moreButton = FButtonSimple(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
     let comingTraining = [
         ComingTrainingModel(title: "Название тренировки", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), count: "15", street: "Ул. Немига", date: "23.08", time: "12:00"),

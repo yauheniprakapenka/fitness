@@ -18,7 +18,7 @@ class CalendarTrainingCell: UITableViewCell {
     
     let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Не указано")
     
-    let circleView = FCircleView(x: 20, y: 13, size: 13, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1))
+    let circleView = FViewShape(x: 20, y: 13, size: 13, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1))
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         configureCircleView()

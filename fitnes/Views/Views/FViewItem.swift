@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ItemView: UIView {
+class FViewItem: UIView {
     
     let countLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
     let messageLabel = FLabel(fontSize: 13, weight: .regular, color: .black, message: "")

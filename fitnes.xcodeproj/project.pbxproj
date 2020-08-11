@@ -17,26 +17,27 @@
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
 		3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* MapViewController.swift */; };
 		3E1752DE24E1EDC300F823A8 /* TrainingProgrammViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DD24E1EDC300F823A8 /* TrainingProgrammViewController.swift */; };
+		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
 		3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */; };
 		3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AAE24D1E5DD0004B978 /* FLabel.swift */; };
-		3E444AB224D201350004B978 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB124D201350004B978 /* ItemView.swift */; };
+		3E444AB224D201350004B978 /* FViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB124D201350004B978 /* FViewItem.swift */; };
 		3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */; };
-		3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */; };
-		3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* HorisontalLineView.swift */; };
-		3E444ABF24D340560004B978 /* FCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* FCircleView.swift */; };
-		3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FSimpleButton.swift */; };
+		3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AB524D21ACC0004B978 /* FButtonWithBackgroundColor.swift */; };
+		3E444ABB24D220760004B978 /* FViewHorisontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */; };
+		3E444ABF24D340560004B978 /* FViewShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* FViewShape.swift */; };
+		3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FButtonSimple.swift */; };
 		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
 		3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */; };
 		3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */; };
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
-		3E82C78F24DC72EB00145E9D /* TitleWithCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TitleWithCheckboxCell.swift */; };
-		3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */; };
-		3E82E21C24DCA8B100145E9D /* FSFSymbolButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FSFSymbolButton.swift */; };
+		3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */; };
+		3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */; };
+		3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */; };
 		3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21D24DCA96500145E9D /* AthleteViewController.swift */; };
 		3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */; };
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
@@ -65,12 +66,12 @@
 		3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */; };
 		3EE586E124DD3A0500CA0530 /* MyAbonementsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E024DD3A0500CA0530 /* MyAbonementsCollectionCell.swift */; };
 		3EE586E424DD5A8100CA0530 /* AthleteParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */; };
-		3EE586EA24DDBF9400CA0530 /* FFranButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E924DDBF9400CA0530 /* FFranButton.swift */; };
+		3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E924DDBF9400CA0530 /* FButtonFran.swift */; };
 		3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */; };
 		3EE586EE24DE89D400CA0530 /* SFSymbolEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586ED24DE89D400CA0530 /* SFSymbolEnum.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
 		3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */; };
-		3EE586F424DEEA1B00CA0530 /* TrainingPlaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */; };
+		3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */; };
 		3EE586F624DF31D000CA0530 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F524DF31D000CA0530 /* CalendarViewController.swift */; };
 		3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */; };
 		3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */; };
@@ -97,26 +98,27 @@
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D724E1E99000F823A8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		3E1752DD24E1EDC300F823A8 /* TrainingProgrammViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgrammViewController.swift; sourceTree = "<group>"; };
+		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
 		3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingViewController.swift; sourceTree = "<group>"; };
 		3E444AAE24D1E5DD0004B978 /* FLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FLabel.swift; sourceTree = "<group>"; };
-		3E444AB124D201350004B978 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
+		3E444AB124D201350004B978 /* FViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewItem.swift; sourceTree = "<group>"; };
 		3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsTrainerViewController.swift; sourceTree = "<group>"; };
-		3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithColor.swift; sourceTree = "<group>"; };
-		3E444ABA24D220760004B978 /* HorisontalLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorisontalLineView.swift; sourceTree = "<group>"; };
-		3E444ABE24D340560004B978 /* FCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCircleView.swift; sourceTree = "<group>"; };
-		3E444AC024D35E2D0004B978 /* FSimpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSimpleButton.swift; sourceTree = "<group>"; };
+		3E444AB524D21ACC0004B978 /* FButtonWithBackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithBackgroundColor.swift; sourceTree = "<group>"; };
+		3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewHorisontalLine.swift; sourceTree = "<group>"; };
+		3E444ABE24D340560004B978 /* FViewShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewShape.swift; sourceTree = "<group>"; };
+		3E444AC024D35E2D0004B978 /* FButtonSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonSimple.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
 		3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceProfile.swift; sourceTree = "<group>"; };
 		3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceExercise.swift; sourceTree = "<group>"; };
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
-		3E82C78E24DC72EB00145E9D /* TitleWithCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleWithCheckboxCell.swift; sourceTree = "<group>"; };
-		3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCheckmarkButton.swift; sourceTree = "<group>"; };
-		3E82E21B24DCA8B100145E9D /* FSFSymbolButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSFSymbolButton.swift; sourceTree = "<group>"; };
+		3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndCheckboxCell.swift; sourceTree = "<group>"; };
+		3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonCheckmark.swift; sourceTree = "<group>"; };
+		3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithSFSymbol.swift; sourceTree = "<group>"; };
 		3E82E21D24DCA96500145E9D /* AthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteViewController.swift; sourceTree = "<group>"; };
 		3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsAthleteViewController.swift; sourceTree = "<group>"; };
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -147,12 +149,12 @@
 		3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementsViewController.swift; sourceTree = "<group>"; };
 		3EE586E024DD3A0500CA0530 /* MyAbonementsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAbonementsCollectionCell.swift; sourceTree = "<group>"; };
 		3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteParameterViewController.swift; sourceTree = "<group>"; };
-		3EE586E924DDBF9400CA0530 /* FFranButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFranButton.swift; sourceTree = "<group>"; };
+		3EE586E924DDBF9400CA0530 /* FButtonFran.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonFran.swift; sourceTree = "<group>"; };
 		3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerViewController.swift; sourceTree = "<group>"; };
 		3EE586ED24DE89D400CA0530 /* SFSymbolEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolEnum.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
 		3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerFromSearchViewController.swift; sourceTree = "<group>"; };
-		3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingPlaceView.swift; sourceTree = "<group>"; };
+		3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlace.swift; sourceTree = "<group>"; };
 		3EE586F524DF31D000CA0530 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingCell.swift; sourceTree = "<group>"; };
 		3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekConverter.swift; sourceTree = "<group>"; };
@@ -257,8 +259,9 @@
 		3E444AA224D1E4AC0004B978 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				3E82C78E24DC72EB00145E9D /* TitleWithCheckboxCell.swift */,
+				3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */,
 				3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */,
+				3E1752DF24E2954F00F823A8 /* TrainingCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -297,10 +300,10 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E444ABE24D340560004B978 /* FCircleView.swift */,
-				3E444ABA24D220760004B978 /* HorisontalLineView.swift */,
-				3E444AB124D201350004B978 /* ItemView.swift */,
-				3EE586F324DEEA1B00CA0530 /* TrainingPlaceView.swift */,
+				3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */,
+				3E444AB124D201350004B978 /* FViewItem.swift */,
+				3E444ABE24D340560004B978 /* FViewShape.swift */,
+				3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -308,11 +311,11 @@
 		3E444AB724D21AD10004B978 /* Buttons */ = {
 			isa = PBXGroup;
 			children = (
-				3E444AB524D21ACC0004B978 /* FButtonWithColor.swift */,
-				3E82C79024DC8CA000145E9D /* FCheckmarkButton.swift */,
-				3E82E21B24DCA8B100145E9D /* FSFSymbolButton.swift */,
-				3E444AC024D35E2D0004B978 /* FSimpleButton.swift */,
-				3EE586E924DDBF9400CA0530 /* FFranButton.swift */,
+				3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */,
+				3EE586E924DDBF9400CA0530 /* FButtonFran.swift */,
+				3E444AC024D35E2D0004B978 /* FButtonSimple.swift */,
+				3E444AB524D21ACC0004B978 /* FButtonWithBackgroundColor.swift */,
+				3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */,
 			);
 			path = Buttons;
 			sourceTree = "<group>";
@@ -670,20 +673,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3EE586EA24DDBF9400CA0530 /* FFranButton.swift in Sources */,
+				3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */,
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
 				3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
-				3E82C78F24DC72EB00145E9D /* TitleWithCheckboxCell.swift in Sources */,
+				3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */,
 				3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */,
 				3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */,
 				3E10DA3924C39C0F00163F26 /* TrainerModelOld.swift in Sources */,
 				3E1752C924E169E600F823A8 /* ChatModel.swift in Sources */,
-				3E444ABB24D220760004B978 /* HorisontalLineView.swift in Sources */,
-				3E444ABF24D340560004B978 /* FCircleView.swift in Sources */,
+				3E444ABB24D220760004B978 /* FViewHorisontalLine.swift in Sources */,
+				3E444ABF24D340560004B978 /* FViewShape.swift in Sources */,
 				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
@@ -692,7 +695,7 @@
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
-				3EE586F424DEEA1B00CA0530 /* TrainingPlaceView.swift in Sources */,
+				3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */,
 				3E87232424BFA375005FC365 /* RegisterViewController.swift in Sources */,
 				3EE5870024DFBF4900CA0530 /* String + Extension.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
@@ -702,11 +705,11 @@
 				3EE586EE24DE89D400CA0530 /* SFSymbolEnum.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,
 				3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */,
-				3E444AB224D201350004B978 /* ItemView.swift in Sources */,
+				3E444AB224D201350004B978 /* FViewItem.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
-				3E82E21C24DCA8B100145E9D /* FSFSymbolButton.swift in Sources */,
-				3E444AC124D35E2D0004B978 /* FSimpleButton.swift in Sources */,
+				3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */,
+				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
 				3E1752DE24E1EDC300F823A8 /* TrainingProgrammViewController.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
@@ -717,7 +720,7 @@
 				3EE586E124DD3A0500CA0530 /* MyAbonementsCollectionCell.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
-				3E444AB624D21ACC0004B978 /* FButtonWithColor.swift in Sources */,
+				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,
@@ -727,6 +730,7 @@
 				3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */,
 				3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
+				3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */,
 				3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */,
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
@@ -734,7 +738,7 @@
 				3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */,
 				3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */,
 				3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */,
-				3E82C79124DC8CA000145E9D /* FCheckmarkButton.swift in Sources */,
+				3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */,
 				3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */,
 				3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,

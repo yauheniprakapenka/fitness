@@ -11,7 +11,7 @@ import UIKit
 class TrainingViewController: UIViewController {
     
     let myTrainingsLabel = FLabel(fontSize: 17, weight: .bold, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
-    let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
+    let moreButton = FButtonSimple(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
     var trainingModel = [
         TrainingModel(title: "Как Сталлоне", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.28.30"), kind: "Amrap", count: "15 упражнений"),

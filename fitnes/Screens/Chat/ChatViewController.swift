@@ -17,10 +17,10 @@ class ChatViewController: UIViewController {
     private var timer: Timer?
     private var sendMessageCount = 0
     
-    let backButton = FSimpleButton(title: "Назад", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
-    let sendButton = FButtonWithColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Отправить", size: 18)
+    let backButton = FButtonSimple(title: "Назад", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    let sendButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Отправить", size: 18)
     
-    let headerView = HorisontalLineView()
+    let headerView = FViewHorisontalLine()
     
     var selectedTrainer: TrainerModel?
     let trainerNameLabel = FLabel(fontSize: 12, weight: .regular, color: .gray, message: "")
