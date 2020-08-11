@@ -17,7 +17,7 @@ struct ExercisesModel {
 class ExercisesViewController: UIViewController {
     
     let exerciseLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
-    let moreButton = FSimpleButton(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
+    let moreButton = FButtonSimple(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
     let exercisesModel = [
         ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Будь Арни", kindInventory: "Гантели"),

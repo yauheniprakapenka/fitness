@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HorisontalLineView: UIView {
+class FViewHorisontalLine: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

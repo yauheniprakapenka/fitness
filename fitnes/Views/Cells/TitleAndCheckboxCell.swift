@@ -8,11 +8,11 @@
 
 import UIKit
 
-class TitleWithCheckboxCell: UITableViewCell {
+class TitleAndCheckboxCell: UITableViewCell {
     
     private var isCheckmarked = false
     
-    let checkmarkButton = FCheckmarkButton()
+    let checkmarkButton = FButtonCheckmark()
     
     let nameLabel = FLabel(fontSize: 15, weight: .regular, color: .black, message: "")
     

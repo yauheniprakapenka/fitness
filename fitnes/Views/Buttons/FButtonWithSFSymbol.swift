@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FSFSymbolButton: UIButton {
+class FButtonWithSFSymbol: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

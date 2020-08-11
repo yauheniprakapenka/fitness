@@ -7,10 +7,12 @@
 //
 //
 struct ExerciseModelNew {
-    var name: String
-    var inventory: String
-    var description: String
-    var video: String
+    var minute: Int
+    var exerciseName: String        // Двойные прыжки на скаакалке
+    var numberOfRepeats: String?     // 7 повторений
+    var weight: String?              // 20 кг
+    var distance: String?            // 400 метров
+    var videoURL: String?               // www.youtube.com/video-7123311
 }
 
 

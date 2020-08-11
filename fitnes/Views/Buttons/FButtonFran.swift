@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FFranButton: UIButton {
+class FButtonFran: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)

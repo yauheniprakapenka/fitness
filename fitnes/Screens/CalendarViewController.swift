@@ -19,7 +19,7 @@ class CalendarViewController: UIViewController{
     let tableView = UITableView()
     let emptyStateImageView = FImageView(frame: .zero)
     
-    let horisontalLineView = HorisontalLineView()
+    let horisontalLineView = FViewHorisontalLine()
     
     let calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(date: "Sunday-16-Aug-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),

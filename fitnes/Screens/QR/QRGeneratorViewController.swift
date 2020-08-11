@@ -11,7 +11,7 @@ import UIKit
 class QRGeneratorViewController: UIViewController {
     
     let qrImageView = UIImageView()
-    let qrButton = FSimpleButton(title: "Создать QR код", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 22)
+    let qrButton = FButtonSimple(title: "Создать QR код", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 22)
     
     override func viewDidLoad() {
         super.viewDidLoad()
