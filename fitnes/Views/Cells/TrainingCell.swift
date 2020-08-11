@@ -11,6 +11,8 @@ import UIKit
 class TrainingCell: UITableViewCell {
     
     let shapeView = UIView()
+    let verticalView = UIView()
+    
     let minuteLabel = FLabel(fontSize: 14, weight: .semibold, color: .black, message: nil)
     let exerciseNameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
     let numberOfReapeatsLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
@@ -30,7 +32,6 @@ class TrainingCell: UITableViewCell {
             
             if let weight = data.weight {
                 weightLabel.text = "Вес \(weight)"
-                
             }
             
             if let distance = data.distance {
@@ -50,13 +51,32 @@ class TrainingCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
         
+        configuerVerticalView()
         configureShapeView()
+        
         configureMinuteLabel()
         configureExerciseNameLabel()
         configureNumberOfReapeatsLabel()
         configureWeightLabel()
         configureDistanceLabel()
+        
         configureButton()
+    }
+    
+    private func configuerVerticalView() {
+        addSubview(verticalView)
+        verticalView.translatesAutoresizingMaskIntoConstraints = false
+        verticalView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        verticalView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        verticalView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        verticalView.widthAnchor.constraint(equalToConstant: 10).isActive = true
+        
+        guard data?.minute != 1 else {
+            verticalView.backgroundColor = #colorLiteral(red: 1, green: 0.691393835, blue: 0.07264602714, alpha: 1)
+            return
+        }
+        
+        verticalView.backgroundColor = #colorLiteral(red: 0.8445453752, green: 0.8461866309, blue: 0.817517982, alpha: 1)
     }
     
     private func configureShapeView() {
@@ -64,7 +84,7 @@ class TrainingCell: UITableViewCell {
         shapeView.translatesAutoresizingMaskIntoConstraints = false
         shapeView.backgroundColor = .black
         shapeView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
-        shapeView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
+        shapeView.leadingAnchor.constraint(equalTo: verticalView.trailingAnchor, constant: 20).isActive = true
         shapeView.widthAnchor.constraint(equalToConstant: 6).isActive = true
         shapeView.heightAnchor.constraint(equalToConstant: 6).isActive = true
         shapeView.clipsToBounds = true
