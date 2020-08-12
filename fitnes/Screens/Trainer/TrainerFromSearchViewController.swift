@@ -22,6 +22,12 @@ class TrainerFromSearchViewController: UIViewController {
     let trainingPlaceView = FViewTrainingPlace()
     let myAbonementsView = UIView()
     
+    var trainerAbonement = [
+        AbonementModel(name: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", trainingLeft: 7),
+        AbonementModel(name: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", trainingLeft: 9),
+        AbonementModel(name: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange", trainingLeft: 3),
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -151,9 +157,12 @@ class TrainerFromSearchViewController: UIViewController {
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         
+        
+        
         let abonementsViewController = AbonementsViewController()
         self.add(childVC: abonementsViewController, to: self.myAbonementsView)
         abonementsViewController.titleLabel.text = "Приобрести абонемент"
+        abonementsViewController.abonements = trainerAbonement
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

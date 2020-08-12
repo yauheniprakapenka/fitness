@@ -12,24 +12,23 @@ struct AbonementModel {
     var name: String
     var cost: String
     var color: String
+    var trainingLeft: Int
 }
 
 class AbonementsViewController: UIViewController {
     
     var titleLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     
-    let myAbonementsModel = [
-        AbonementModel(name: "Индивидуальный план", cost: "3 месяца - 70 руб.", color: "blue"),
-        AbonementModel(name: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink"),
-        AbonementModel(name: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange"),
-    ]
+    var abonements: [AbonementModel] = []
+    
+    let emptyAbonementImageView = UIImageView()
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(MyAbonementsCollectionCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(AbonementsCollectionCell.self, forCellWithReuseIdentifier: "cell")
         return cv
     }()
     
@@ -38,9 +37,22 @@ class AbonementsViewController: UIViewController {
         
         configureLayout()
         configureUIElements()
+        configureEmptyAbonementImageView()
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+    private func configureEmptyAbonementImageView() {
+        view.addSubview(emptyAbonementImageView)
+        emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement")
+        emptyAbonementImageView.contentMode = .scaleAspectFit
+        
+        emptyAbonementImageView.translatesAutoresizingMaskIntoConstraints = false
+        emptyAbonementImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        emptyAbonementImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        emptyAbonementImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        emptyAbonementImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func configureLayout() {
@@ -69,12 +81,18 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        myAbonementsModel.count
+        if abonements.count < 1 {
+            emptyAbonementImageView.alpha = 1
+        } else {
+            emptyAbonementImageView.alpha = 0
+        }
+        
+        return abonements.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! MyAbonementsCollectionCell
-        cell.data = self.myAbonementsModel[indexPath.row]
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! AbonementsCollectionCell
+        cell.data = self.abonements[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         
         cell.layer.shadowColor = UIColor.black.cgColor
@@ -85,5 +103,11 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: cell.contentView.layer.cornerRadius).cgPath
         
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = BuyAbonement()
+        vc.abonement = abonements[indexPath.row]
+        present(vc, animated: true)
     }
 }
