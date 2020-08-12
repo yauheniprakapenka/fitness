@@ -157,8 +157,6 @@ class TrainerFromSearchViewController: UIViewController {
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         
-        
-        
         let abonementsViewController = AbonementsViewController()
         self.add(childVC: abonementsViewController, to: self.myAbonementsView)
         abonementsViewController.titleLabel.text = "Приобрести абонемент"

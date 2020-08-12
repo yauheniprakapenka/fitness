@@ -12,6 +12,8 @@ class AthleteViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
+    let abonementsViewController = AbonementsViewController()
+    
     let moreButton = FButtonWithSFSymbol(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
     let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
@@ -22,9 +24,7 @@ class AthleteViewController: UIViewController {
     let myTrainingView = UIView()
     let myAbonementsView = UIView()
     
-    var athleteAbonement: [AbonementModel] = [
-        AbonementModel(name: "123", cost: "123", color: "pink", trainingLeft: 8)
-    ]
+    var athleteAbonement: [AbonementModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -138,7 +138,7 @@ class AthleteViewController: UIViewController {
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: TrainingViewController(), to: self.myTrainingView)
         
-        let abonementsViewController = AbonementsViewController()
+        
         self.add(childVC: abonementsViewController, to: self.myAbonementsView)
         abonementsViewController.abonements = athleteAbonement
     }
@@ -164,6 +164,10 @@ class AthleteViewController: UIViewController {
         let nav = UINavigationController(rootViewController: FindTrainerViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
+    }
+    
+    func reloadData() {
+        abonementsViewController.collectionView.reloadData()
     }
     
 }
