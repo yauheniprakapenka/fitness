@@ -23,7 +23,7 @@ class AbonementsViewController: UIViewController {
     
     let emptyAbonementImageView = UIImageView()
     
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)

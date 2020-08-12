@@ -14,10 +14,10 @@ class TrainingViewController: UIViewController {
     let moreButton = FButtonSimple(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
     var trainingModel = [
-        TrainingModel(title: "Как Сталлоне", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.28.30"), kind: "Amrap", count: "15 упражнений"),
-        TrainingModel(title: "Аэробная", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.28.57"), kind: "For time", count: "11 упражнений"),
-        TrainingModel(title: "Быстрее ветра", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.31.23"), kind: "Amrap", count: "15 упражнений"),
-        TrainingModel(title: "Велосипед", image: #imageLiteral(resourceName: "Screenshot 08-10-2020 19.31.41"), kind: "For time", count: "11 упражнений")
+        TrainingModel(title: "Как Сталлоне", image: #imageLiteral(resourceName: "Screenshot 08-11-2020 17.34.28"), kind: "Amrap", count: "15 упражнений"),
+        TrainingModel(title: "Аэробная", image: #imageLiteral(resourceName: "Screenshot 08-11-2020 17.35.56"), kind: "For time", count: "11 упражнений"),
+        TrainingModel(title: "Быстрее ветра", image: #imageLiteral(resourceName: "Screenshot 08-11-2020 17.40.25"), kind: "Amrap", count: "15 упражнений"),
+        TrainingModel(title: "Велосипед", image: #imageLiteral(resourceName: "Screenshot 08-11-2020 17.36.57"), kind: "For time", count: "11 упражнений")
     ]
     
     private let collectionView: UICollectionView = {

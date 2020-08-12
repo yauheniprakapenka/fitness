@@ -100,7 +100,11 @@ class BuyAbonement: UIViewController {
     
     @objc
     func buyButtonTapped() {
-        
+        let vc = AthleteViewController()
+        vc.athleteAbonement.insert(abonement, at: 0)
+        vc.reloadData()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     private func configureNameLabel() {
