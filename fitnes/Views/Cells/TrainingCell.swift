@@ -8,10 +8,15 @@
 
 import UIKit
 
+protocol VideoUrlDelegate {
+    func sendVideoUrl()
+}
+
 class TrainingCell: UITableViewCell {
+
+    var delegate: VideoUrlDelegate?
     
     let shapeView = UIView()
-    let verticalView = UIView()
     
     let minuteLabel = FLabel(fontSize: 14, weight: .semibold, color: .black, message: nil)
     let exerciseNameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
@@ -19,6 +24,8 @@ class TrainingCell: UITableViewCell {
     let weightLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
     let distanceLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: nil)
     let videoButton = FButtonSimple(title: "Посмотреть упражнение", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
+    
+    var isFirstUnfinished = true
     
     var data: ExerciseModelNew? {
         didSet {
@@ -50,8 +57,6 @@ class TrainingCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
-        configuerVerticalView()
         configureShapeView()
         
         configureMinuteLabel()
@@ -61,30 +66,15 @@ class TrainingCell: UITableViewCell {
         configureDistanceLabel()
         
         configureButton()
-    }
-    
-    private func configuerVerticalView() {
-        addSubview(verticalView)
-        verticalView.translatesAutoresizingMaskIntoConstraints = false
-        verticalView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        verticalView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        verticalView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        verticalView.widthAnchor.constraint(equalToConstant: 10).isActive = true
         
-        guard data?.minute != 1 else {
-            verticalView.backgroundColor = #colorLiteral(red: 1, green: 0.691393835, blue: 0.07264602714, alpha: 1)
-            return
-        }
-        
-        verticalView.backgroundColor = #colorLiteral(red: 0.8445453752, green: 0.8461866309, blue: 0.817517982, alpha: 1)
     }
-    
+
     private func configureShapeView() {
         addSubview(shapeView)
         shapeView.translatesAutoresizingMaskIntoConstraints = false
         shapeView.backgroundColor = .black
         shapeView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16).isActive = true
-        shapeView.leadingAnchor.constraint(equalTo: verticalView.trailingAnchor, constant: 20).isActive = true
+        shapeView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20).isActive = true
         shapeView.widthAnchor.constraint(equalToConstant: 6).isActive = true
         shapeView.heightAnchor.constraint(equalToConstant: 6).isActive = true
         shapeView.clipsToBounds = true
@@ -93,9 +83,10 @@ class TrainingCell: UITableViewCell {
     
     private func configureMinuteLabel() {
         addSubview(minuteLabel)
-        minuteLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
+        minuteLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 12).isActive = true
         minuteLabel.leadingAnchor.constraint(equalTo: shapeView.trailingAnchor, constant: 8).isActive = true
         minuteLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        minuteLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
     }
     
     private func configureExerciseNameLabel() {
@@ -103,6 +94,7 @@ class TrainingCell: UITableViewCell {
         exerciseNameLabel.topAnchor.constraint(equalTo: minuteLabel.bottomAnchor, constant: 10).isActive = true
         exerciseNameLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 60).isActive = true
         exerciseNameLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 20).isActive = true
+        exerciseNameLabel.heightAnchor.constraint(equalToConstant: 14).isActive = true
     }
     
     private func configureNumberOfReapeatsLabel() {
@@ -151,11 +143,28 @@ class TrainingCell: UITableViewCell {
         videoButton.topAnchor.constraint(equalTo: distanceLabel.bottomAnchor, constant: 10).isActive = true
         videoButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 60).isActive = true
         videoButton.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        videoButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+//        videoButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
     }
-    
-    @objc private func buttonTapped() {
-        print(data?.videoURL ?? "video url not found")
+
+    func buttonTapped() {
+        let vc = WKWebViewController()
+        
+        print("1")
+        print(data?.videoURL)
+        
+        guard let url = data?.videoURL else {
+            return
+        }
+        
+        print("2 \(url)")
+        vc.urlString = url
+        
+        delegate?.sendVideoUrl()
+        
+//        present(vc, animated: true)
+        
+//        addSubview(WKWebViewController())
+//        self.window?.rootViewController!.present(WKWebViewController(), animated: true, completion: nil)
     }
  
 }

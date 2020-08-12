@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MyAbonementsCollectionCell: UICollectionViewCell {
+class AbonementsCollectionCell: UICollectionViewCell {
     
     var data: AbonementModel? {
         didSet {

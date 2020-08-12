@@ -9,26 +9,33 @@
 import UIKit
 
 class TrainingProgrammViewController: UIViewController {
+    
+    let trainingCell = TrainingCell()
+    
     let tableView = UITableView()
     
     var training: [ExerciseModelNew] = [
-        ExerciseModelNew(minute: 1, exerciseName: "Двойные прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "www.youtube.com/video-jump"),
+        ExerciseModelNew(minute: 1, exerciseName: "Прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "https://www.youtube.com/watch?v=qct-gB6bukE&pbjreload=101"),
         ExerciseModelNew(minute: 2, exerciseName: "Жим лежа", numberOfRepeats: "4", weight: "60 kg", distance: nil, videoURL: nil),
         ExerciseModelNew(minute: 3, exerciseName: "Отдых", numberOfRepeats: nil, weight: nil, distance: nil, videoURL: nil),
-        ExerciseModelNew(minute: 4, exerciseName: "Бег", numberOfRepeats: nil, weight: nil, distance:"300 метров", videoURL: "www.youtube.com/video-run"),
-        ExerciseModelNew(minute: 5, exerciseName: "Двойные прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "www.youtube.com/video-jump"),
-        ExerciseModelNew(minute: 6, exerciseName: "Двойные прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "www.youtube.com/video-jump"),
+        ExerciseModelNew(minute: 4, exerciseName: "Бег", numberOfRepeats: nil, weight: nil, distance:"300 метров", videoURL: "https://www.youtube.com/watch?v=ZMBp84joHQY"),
+        ExerciseModelNew(minute: 5, exerciseName: "Приседания", numberOfRepeats: "22", weight: nil, distance: nil, videoURL: "https://www.youtube.com/watch?v=qct-gB6bukE&pbjreload=101"),
+        ExerciseModelNew(minute: 6, exerciseName: "Прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "https://www.youtube.com/watch?v=qct-gB6bukE&pbjreload=101"),
         ExerciseModelNew(minute: 7, exerciseName: "Жим лежа", numberOfRepeats: "4", weight: "60 kg", distance: nil, videoURL: nil),
-        ExerciseModelNew(minute: 8, exerciseName: "Отдых", numberOfRepeats: nil, weight: nil, distance: nil, videoURL: nil),
-        ExerciseModelNew(minute: 9, exerciseName: "Бег", numberOfRepeats: nil, weight: nil, distance:"300 метров", videoURL: "www.youtube.com/video-run"),
-        ExerciseModelNew(minute: 10, exerciseName: "Двойные прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "www.youtube.com/video-jump")
+        ExerciseModelNew(minute: 8, exerciseName: "Отдых", numberOfRepeats: nil, weight: nil, distance: nil, videoURL: "mail.ru"),
+        ExerciseModelNew(minute: 9, exerciseName: "Бег", numberOfRepeats: nil, weight: nil, distance:"300 метров", videoURL: "https://www.youtube.com/watch?v=ZMBp84joHQY"),
+        ExerciseModelNew(minute: 10, exerciseName: "Прыжки на скакалке", numberOfRepeats: "7", weight: nil, distance: nil, videoURL: "https://www.youtube.com/watch?v=qct-gB6bukE&pbjreload=101")
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
+        
+        
         setupTableView()
+        
+        trainingCell.delegate = self
     }
 }
 
@@ -60,11 +67,22 @@ extension TrainingProgrammViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TrainingCell
         
         cell.data = training[indexPath.row]
-  
+        cell.videoButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+
         return cell
+    }
+    
+    @objc func buttonTapped() {
+        trainingCell.buttonTapped()
     }
     
 }
 
-
-
+extension TrainingProgrammViewController: VideoUrlDelegate {
+    func sendVideoUrl() {
+        print("3")
+        let vc = WKWebViewController()
+        present(vc, animated: true)
+    }
+    
+}

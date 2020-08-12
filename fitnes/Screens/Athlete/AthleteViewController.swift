@@ -22,6 +22,10 @@ class AthleteViewController: UIViewController {
     let myTrainingView = UIView()
     let myAbonementsView = UIView()
     
+    var athleteAbonement: [AbonementModel] = [
+        AbonementModel(name: "123", cost: "123", color: "pink", trainingLeft: 8)
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,7 +123,7 @@ class AthleteViewController: UIViewController {
         myAbonementsView.topAnchor.constraint(equalTo: myTrainingView.bottomAnchor, constant: 100).isActive = true
         myAbonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         myAbonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        myAbonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+        myAbonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     private func AddChildVC() {
@@ -133,7 +137,10 @@ class AthleteViewController: UIViewController {
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: TrainingViewController(), to: self.myTrainingView)
-        self.add(childVC: AbonementsViewController(), to: self.myAbonementsView)
+        
+        let abonementsViewController = AbonementsViewController()
+        self.add(childVC: abonementsViewController, to: self.myAbonementsView)
+        abonementsViewController.abonements = athleteAbonement
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
