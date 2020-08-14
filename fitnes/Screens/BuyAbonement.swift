@@ -138,4 +138,9 @@ class BuyAbonement: UIViewController {
         trainingLeftText.topAnchor.constraint(equalTo: trainingLeftNumber.bottomAnchor, constant: 20).isActive = true
         trainingLeftText.text = "ТРЕНИРОВОК"
     }
+    
+   
+    
+    
+
 }

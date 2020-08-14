@@ -347,9 +347,9 @@
 		3E82E21A24DCA6B600145E9D /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
+				3EE586E024DD3A0500CA0530 /* AbonementsCollectionCell.swift */,
 				3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */,
 				3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */,
-				3EE586E024DD3A0500CA0530 /* AbonementsCollectionCell.swift */,
 				3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */,
 				3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */,
 			);
