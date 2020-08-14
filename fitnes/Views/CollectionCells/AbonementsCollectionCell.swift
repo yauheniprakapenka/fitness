@@ -49,6 +49,7 @@ class AbonementsCollectionCell: UICollectionViewCell {
         timerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
         timerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         timerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        timerLabel.numberOfLines = 2
         
         costLabel.bottomAnchor.constraint(equalTo: timerLabel.topAnchor, constant: -5).isActive = true
         costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
@@ -90,7 +91,7 @@ class AbonementsCollectionCell: UICollectionViewCell {
                 self.abonementTimer = 59
             }
             self.abonementTimer -= 1
-            self.timerLabel.text = "4 д 16 мин \(self.abonementTimer) сек"
+            self.timerLabel.text = "Истекает через 28 д \(self.abonementTimer) мин"
         })
     }
 }
