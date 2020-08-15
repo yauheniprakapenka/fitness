@@ -28,9 +28,9 @@ class FTextField: UITextField {
         configure()
     }
     
-    init(placeholderText: String) {
+    init(placeholderText: String, placeholderColor: UIColor) {
         super.init(frame: .zero)
-        placeholder = placeholderText
+        attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
         configure()
     }
     

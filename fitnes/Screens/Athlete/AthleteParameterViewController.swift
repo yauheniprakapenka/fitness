@@ -22,13 +22,13 @@ class AthleteParameterViewController: UIViewController {
     let saveButton = FButtonSimple(title: "Сохранить", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 14)
     
     let fioLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "ФИО")
-    let fioTextField = FTextField(placeholderText: "ФИО")
+    let fioTextField = FTextField(placeholderText: "ФИО", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let phoneLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "Телефон")
-    let phoneTextField = FTextField(placeholderText: "Телефон")
+    let phoneTextField = FTextField(placeholderText: "Телефон", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let indicatorLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "Показатели")
-    let indicatorTextField = FTextField(placeholderText: "Показатели")
+    let indicatorTextField = FTextField(placeholderText: "Показатели", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let titleForCategoryLabel = FLabel(fontSize: 16, weight: .semibold, color: .black, message: "Заголовок для категории")
     
