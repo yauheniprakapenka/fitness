@@ -275,11 +275,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="97d-Vj-5B1"/>
                                 </constraints>
-                                <state key="normal" title="Войти в профиль - Тренер">
+                                <state key="normal" title="Я тренер">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="loginButtonTapped:" destination="qQX-S9-dpb" eventType="touchUpInside" id="iXj-YV-zJA"/>
+                                    <action selector="trainerButtonTapped:" destination="qQX-S9-dpb" eventType="touchUpInside" id="iXj-YV-zJA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начнём" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xwf-zp-xpl">
@@ -321,10 +321,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aNB-G8-xHe">
-                                <rect key="frame" x="20" y="502" width="369" height="67"/>
+                                <rect key="frame" x="25" y="502" width="364" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.91394752264022827" green="0.30595925450325012" blue="0.51594030857086182" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="Войти в профиль - Атлета">
+                                <state key="normal" title="Я атлет">
                                     <color key="titleColor" red="0.9960138201713562" green="0.99613279104232788" blue="0.99597328901290894" alpha="0.9990234375" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>

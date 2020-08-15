@@ -20,44 +20,45 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func athleteButtonTapped(_ sender: Any) {
-        let vc = AthleteViewController()//AthleteViewController()
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        
+        let vc = AthleteViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
     
-  
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    @IBAction func trainerButtonTapped(_ sender: Any) {
         HapticFeedback.shared.makeHapticFeedback(kind: 5)
         
         let vc = TrainerViewController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true)
         
-        AuthService.shared.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result) in
-            switch result {
-            case .success(let user):
-                profileInfoModel.email = user.email ?? ""
-                profileInfoModel.uid = user.uid
-                
-                FirestoreService.shared.fetchProfile() {
-                    switch ConverterRoleToEnum.shared.roleToEnum(role: profileInfoModel.role) {
-                    case .Trainer:
-                        print("Убрать")
-                        //                        let vc = TrainerViewController()
-                        //                        vc.modalPresentationStyle = .fullScreen
-                    //                        self.present(vc, animated: true)
-                    case .Athlete:
-                        let vc = AthleteViewController()
-                        vc.modalPresentationStyle = .fullScreen
-                        self.present(vc, animated: true)
-                    case .none:
-                        break
-                    }
-                }
-                
-            case .failure(let error):
-                self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
-            }
-        }
+//        AuthService.shared.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result) in
+//            switch result {
+//            case .success(let user):
+//                profileInfoModel.email = user.email ?? ""
+//                profileInfoModel.uid = user.uid
+//
+//                FirestoreService.shared.fetchProfile() {
+//                    switch ConverterRoleToEnum.shared.roleToEnum(role: profileInfoModel.role) {
+//                    case .Trainer:
+//
+//                        let vc = TrainerViewController()
+//                        vc.modalPresentationStyle = .fullScreen
+//                        self.present(vc, animated: true)
+//                    case .Athlete:
+//                        let vc = AthleteViewController()
+//                        vc.modalPresentationStyle = .fullScreen
+//                        self.present(vc, animated: true)
+//                    case .none:
+//                        break
+//                    }
+//                }
+//
+//            case .failure(let error):
+//                self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
+//            }
+//        }
     }
 }
