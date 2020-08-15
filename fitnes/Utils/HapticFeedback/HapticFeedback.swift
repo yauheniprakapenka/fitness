@@ -11,38 +11,28 @@ import UIKit
 class HapticFeedback {
     
     static let shared = HapticFeedback()
-    
     let generator = UINotificationFeedbackGenerator()
     
-    func makeHapticFeedback(kind: Int) {
-        switch kind {
-        case 1:
+    func makeHapticFeedback(type: HapticFeedbackEnum) {
+        switch type {
+        case .error:
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.error)
-
-        case 2:
+        case .success:
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.success)
-
-        case 3:
+        case .warning:
             let generator = UINotificationFeedbackGenerator()
             generator.notificationOccurred(.warning)
-
-        case 4:
+        case .light:
             let generator = UIImpactFeedbackGenerator(style: .light)
             generator.impactOccurred()
-
-        case 5:
+        case .medium:
             let generator = UIImpactFeedbackGenerator(style: .medium)
             generator.impactOccurred()
-
-        case 6:
+        case .heavy:
             let generator = UIImpactFeedbackGenerator(style: .heavy)
             generator.impactOccurred()
-
-        default:
-            let generator = UISelectionFeedbackGenerator()
-            generator.selectionChanged()
         }
     }
 }

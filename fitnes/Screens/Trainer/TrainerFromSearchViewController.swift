@@ -73,7 +73,7 @@ class TrainerFromSearchViewController: UIViewController {
     }
     
     @objc func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -119,7 +119,7 @@ class TrainerFromSearchViewController: UIViewController {
     }
     
     @objc private func mapButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 4)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         let vc = MapViewController()
         vc.selectedTrainer = selectedTrainer
         vc.modalPresentationStyle = .fullScreen

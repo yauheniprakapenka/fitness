@@ -26,7 +26,7 @@ class WKWebViewController: UIViewController, WKUIDelegate {
         
         configureWerView()
         
-        let myURL = URL(string: urlString ?? "")
+        let myURL = URL(string: urlString)
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }

@@ -132,7 +132,7 @@ class TrainerViewController: UIViewController {
     
     @objc
     func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -140,7 +140,7 @@ class TrainerViewController: UIViewController {
     
     @objc
     func addTrainingButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         print("button tapped")
         let vc = TrainingProgrammViewController()
         present(vc, animated: true)
@@ -148,7 +148,7 @@ class TrainerViewController: UIViewController {
     
     @objc
     func createAbonementButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         
         let nav = UINavigationController(rootViewController: CreateAbonementViewController())
         nav.modalPresentationStyle = .fullScreen

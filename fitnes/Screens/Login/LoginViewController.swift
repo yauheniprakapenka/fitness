@@ -20,7 +20,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func athleteButtonTapped(_ sender: Any) {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         
         let vc = AthleteViewController()
         vc.modalPresentationStyle = .fullScreen
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func trainerButtonTapped(_ sender: Any) {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         
         let vc = TrainerViewController()
         vc.modalPresentationStyle = .fullScreen
