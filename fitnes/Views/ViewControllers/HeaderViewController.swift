@@ -11,7 +11,7 @@ import UIKit
 class HeaderViewController: UIViewController {
     
     let avatarImageView = FAvatarImageView(frame: .zero)
-    let nameLabel = FLabel(fontSize: 20, weight: .regular, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "")
+    let nameLabel = FLabel(fontSize: 20, weight: .regular, color: #colorLiteral(red: 0.08235294118, green: 0.08235294118, blue: 0.1333333333, alpha: 1), message: "Не указано")
     let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1), message: "")
     
     override func viewDidLoad() {

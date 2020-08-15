@@ -11,6 +11,7 @@ import UIKit
 class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
+    let abonementsViewController = AbonementsViewController()
     
     let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
@@ -18,8 +19,8 @@ class TrainerViewController: UIViewController {
     
     let headerView = UIView()
     let itemsView = UIView()
-    
     let myExerciseView = UIView()
+    let abonementsView = UIView()
     
     let trainingViewController = TrainingViewController()
     let trainingView = UIView()
@@ -33,14 +34,16 @@ class TrainerViewController: UIViewController {
         configureTitleLabel()
         configureHeaderLayout()
         configureItemsView()
-        configureMyTrainingLayout()
-        configureMyExercise()
+        configureTraining()
+        configureExercise()
+        configureAbonements()
+        
         AddChildVC()
     }
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.8)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.45)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -93,7 +96,7 @@ class TrainerViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func configureMyTrainingLayout() {
+    private func configureTraining() {
         scrollView.addSubview(trainingView)
         trainingView.translatesAutoresizingMaskIntoConstraints = false
         trainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 10).isActive = true
@@ -102,7 +105,7 @@ class TrainerViewController: UIViewController {
         trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureMyExercise() {
+    private func configureExercise() {
         scrollView.addSubview(myExerciseView)
         myExerciseView.translatesAutoresizingMaskIntoConstraints = false
         myExerciseView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 100).isActive = true
@@ -111,9 +114,21 @@ class TrainerViewController: UIViewController {
         myExerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
+    private func configureAbonements() {
+        scrollView.addSubview(abonementsView)
+        abonementsView.translatesAutoresizingMaskIntoConstraints = false
+        abonementsView.topAnchor.constraint(equalTo: myExerciseView.bottomAnchor, constant: 100).isActive = true
+        abonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        abonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        abonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
+    
     private func AddChildVC() {
         view.backgroundColor = .white
-        self.add(childVC: HeaderViewController(), to: self.headerView)
+        
+        let headerViewController = HeaderViewController()
+        self.add(childVC: headerViewController, to: self.headerView)
+        headerViewController.nameLabel.text = "Кристина Птицами"
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
@@ -124,6 +139,10 @@ class TrainerViewController: UIViewController {
         trainingViewController.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
         
         self.add(childVC: ExercisesViewController(), to: self.myExerciseView)
+        
+        self.add(childVC: abonementsViewController, to: self.abonementsView)
+        abonementsViewController.titleLabel.text = "Созданные мной абонементы"
+        abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-trainer")
     }
     
     @objc func moreButtonTrainingTapped() {
@@ -153,5 +172,6 @@ class TrainerViewController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
+    
     
 }
