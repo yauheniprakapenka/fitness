@@ -123,6 +123,40 @@ class TrainerViewController: UIViewController {
         abonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
+    @objc
+    func moreButtonTrainingTapped() {
+        let newTrainingModel = TrainingModel(title: "11", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "22", count: "333")
+        trainingViewController.trainingModel.insert(newTrainingModel, at: 0)
+        trainingViewController.reloadData()
+    }
+    
+    @objc
+    func calendarButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        let nav = UINavigationController(rootViewController: CalendarViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    @objc
+    func addTrainingButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        print("button tapped")
+        let vc = TrainingProgrammViewController()
+        present(vc, animated: true)
+    }
+    
+    @objc
+    func createAbonementButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        
+        let nav = UINavigationController(rootViewController: CreateAbonementViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    // MARK: - Add Child VC
+    
     private func AddChildVC() {
         view.backgroundColor = .white
         
@@ -143,12 +177,8 @@ class TrainerViewController: UIViewController {
         self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.titleLabel.text = "Созданные мной абонементы"
         abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-trainer")
-    }
-    
-    @objc func moreButtonTrainingTapped() {
-        let newTrainingModel = TrainingModel(title: "11", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "22", count: "333")
-        trainingViewController.trainingModel.insert(newTrainingModel, at: 0)
-        trainingViewController.reloadData()
+        abonementsViewController.createButton.setTitle("Создать", for: .normal)
+        abonementsViewController.createButton.addTarget(self, action: #selector(createAbonementButtonTapped), for: .touchUpInside)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
@@ -157,21 +187,4 @@ class TrainerViewController: UIViewController {
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
-
-    @objc func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
-        let nav = UINavigationController(rootViewController: CalendarViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
-    }
-    
-     @objc func addTrainingButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
-        print("button tapped")
-        let vc = TrainingProgrammViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
-    
 }

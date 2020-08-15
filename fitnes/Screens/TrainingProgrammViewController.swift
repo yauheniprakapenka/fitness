@@ -31,10 +31,7 @@ class TrainingProgrammViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-        
-        
         setupTableView()
-        
         trainingCell.delegate = self
     }
 }
@@ -80,7 +77,6 @@ extension TrainingProgrammViewController: UITableViewDataSource {
 
 extension TrainingProgrammViewController: VideoUrlDelegate {
     func sendVideoUrl() {
-        print("3")
         let vc = WKWebViewController()
         present(vc, animated: true)
     }
