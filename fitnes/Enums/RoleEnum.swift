@@ -1,5 +1,5 @@
 //
-//  ProfileRole.swift
+//  RoleEnum.swift
 //  fitnes
 //
 //  Created by yauheni prakapenka on 03.08.2020.

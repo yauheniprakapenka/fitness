@@ -11,16 +11,16 @@ import UIKit
 class CreateAbonementViewController: UIViewController {
     
     let nameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Название абонемента")
-    let nameTextField = FTextField(placeholderText: "Введите название абонемента")
+    let nameTextField = FTextField(placeholderText: "Введите название абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let costLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Стоимость")
-    let costTextField = FTextField(placeholderText: "Введите стоимость абонемента")
+    let costTextField = FTextField(placeholderText: "Введите стоимость абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let durationLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Длительность")
-    let durationTextField = FTextField(placeholderText: "Введите длительность абонемента")
+    let durationTextField = FTextField(placeholderText: "Введите длительность абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let visitLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Посещения")
-    let visitTextField = FTextField(placeholderText: "Введите количество посещений")
+    let visitTextField = FTextField(placeholderText: "Введите количество посещений", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -42,7 +42,9 @@ class CalendarViewController: UIViewController{
         super.viewDidLoad()
         
         configureView()
+        
         configureNavigation()
+        
         configureCalendar()
         configureHorisontalLineView()
         setupTableView()
