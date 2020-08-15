@@ -45,7 +45,6 @@ class AbonementsViewController: UIViewController {
     
     private func configureEmptyAbonementImageView() {
         view.addSubview(emptyAbonementImageView)
-        emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement")
         emptyAbonementImageView.contentMode = .scaleAspectFit
         
         emptyAbonementImageView.translatesAutoresizingMaskIntoConstraints = false

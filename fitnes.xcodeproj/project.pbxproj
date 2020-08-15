@@ -54,7 +54,6 @@
 		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
 		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */; };
 		3EC9CD6224D8A8BD00B1F8C6 /* ProfileRoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */; };
-		3ED7036D24DB202D00E4DB9F /* AddTrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7036C24DB202D00E4DB9F /* AddTrainingViewController.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
 		3EE2DDDC24C0CB1000D85CAE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */; };
@@ -138,7 +137,6 @@
 		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCollectionCell.swift; sourceTree = "<group>"; };
 		3EC9CD6124D8A8BD00B1F8C6 /* ProfileRoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleEnum.swift; sourceTree = "<group>"; };
-		3ED7036C24DB202D00E4DB9F /* AddTrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrainingViewController.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
 		3EE2DDDB24C0CB1000D85CAE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -201,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
-				3ED7036C24DB202D00E4DB9F /* AddTrainingViewController.swift */,
 				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
 				3E1752D724E1E99000F823A8 /* MapViewController.swift */,
 			);
@@ -245,13 +242,6 @@
 				3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		3E3D927924E7CC2E00EEE0C6 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
 			sourceTree = "<group>";
 		};
 		3E444A6F24D1C7880004B978 /* Views */ = {
@@ -313,7 +303,6 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E3D927924E7CC2E00EEE0C6 /* New Group */,
 				3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */,
 				3E444AB124D201350004B978 /* FViewItem.swift */,
 				3E444ABE24D340560004B978 /* FViewShape.swift */,
@@ -736,7 +725,6 @@
 				3EAD44E924E45D9A0044264C /* BuyAbonement.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
-				3ED7036D24DB202D00E4DB9F /* AddTrainingViewController.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,

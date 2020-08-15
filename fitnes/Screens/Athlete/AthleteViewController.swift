@@ -21,8 +21,8 @@ class AthleteViewController: UIViewController {
     let headerView = UIView()
     let itemsView = UIView()
     let comingTrainingView = UIView()
-    let myTrainingView = UIView()
-    let myAbonementsView = UIView()
+    let trainingView = UIView()
+    let abonementsView = UIView()
     
     var athleteAbonement: [AbonementModel] = []
     
@@ -36,8 +36,8 @@ class AthleteViewController: UIViewController {
         configureHeaderLayout()
         configureItemsLayout()
         configureComingTraininLayout()
-        configureMyTrainingLayout()
-        configureMyAbonements()
+        configureTrainingLayout()
+        configureAbonements()
         
         AddChildVC()
     }
@@ -108,27 +108,30 @@ class AthleteViewController: UIViewController {
         comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureMyTrainingLayout() {
-        scrollView.addSubview(myTrainingView)
-        myTrainingView.translatesAutoresizingMaskIntoConstraints = false
-        myTrainingView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 100).isActive = true
-        myTrainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        myTrainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        myTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    private func configureTrainingLayout() {
+        scrollView.addSubview(trainingView)
+        trainingView.translatesAutoresizingMaskIntoConstraints = false
+        trainingView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 100).isActive = true
+        trainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        trainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureMyAbonements() {
-        scrollView.addSubview(myAbonementsView)
-        myAbonementsView.translatesAutoresizingMaskIntoConstraints = false
-        myAbonementsView.topAnchor.constraint(equalTo: myTrainingView.bottomAnchor, constant: 100).isActive = true
-        myAbonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        myAbonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        myAbonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    private func configureAbonements() {
+        scrollView.addSubview(abonementsView)
+        abonementsView.translatesAutoresizingMaskIntoConstraints = false
+        abonementsView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 100).isActive = true
+        abonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        abonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        abonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     private func AddChildVC() {
         view.backgroundColor = .white
-        self.add(childVC: HeaderViewController(), to: self.headerView)
+        
+        let headerViewController = HeaderViewController()
+        self.add(childVC: headerViewController, to: self.headerView)
+        headerViewController.nameLabel.text = "Алина Волк"
         
         let itemsAthleteViewController = ItemsAthleteViewController()
         self.add(childVC: itemsAthleteViewController, to: self.itemsView)
@@ -136,11 +139,11 @@ class AthleteViewController: UIViewController {
         itemsAthleteViewController.actionButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
-        self.add(childVC: TrainingViewController(), to: self.myTrainingView)
+        self.add(childVC: TrainingViewController(), to: self.trainingView)
         
-        
-        self.add(childVC: abonementsViewController, to: self.myAbonementsView)
+        self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.abonements = athleteAbonement
+        abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-athlete")
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
