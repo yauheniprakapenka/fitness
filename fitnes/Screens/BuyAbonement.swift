@@ -18,12 +18,13 @@ class BuyAbonement: UIViewController {
     let backgroundImageView = UIImageView()
     
     let buyButton = UIButton()
-    let nameLabel = FLabel(fontSize: 34, weight: .semibold, color: #colorLiteral(red: 0.9694514871, green: 0.9644967914, blue: 0.9688283801, alpha: 1), message: "Не указано")
-    let costLabel = FLabel(fontSize: 22, weight: .regular, color: #colorLiteral(red: 0.9694514871, green: 0.9644967914, blue: 0.9688283801, alpha: 1), message: "Не указано")
+    let nameLabel = FLabel(fontSize: 34, weight: .semibold, color: #colorLiteral(red: 0.1215686277, green: 0.01176470611, blue: 0.4235294163, alpha: 1), message: "Не указано")
+    let costLabel = FLabel(fontSize: 22, weight: .regular, color: #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1), message: "Не указано")
     
-    let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), message: "Не указано")
-    let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.1764705926, green: 0.01176470611, blue: 0.5607843399, alpha: 1), message: "Не указано")
+    let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
     
+    let fAlertView = FAlertView(backgroundImage: #imageLiteral(resourceName: "fat-girl"), confirmButtonText: "Купить")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +64,7 @@ class BuyAbonement: UIViewController {
         headerContainerView.layer.cornerRadius = 25
         headerContainerView.clipsToBounds = true
         headerContainerView.layer.borderWidth = 1
-        headerContainerView.layer.borderColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        headerContainerView.layer.borderColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         
         headerContainerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         headerContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -74,7 +75,7 @@ class BuyAbonement: UIViewController {
     private func configureTextureImageView() {
         headerContainerView.addSubview(textureImageView)
         textureImageView.translatesAutoresizingMaskIntoConstraints = false
-        textureImageView.image = #imageLiteral(resourceName: "textureBlue")
+        textureImageView.image = #imageLiteral(resourceName: "texture2")
         
         textureImageView.topAnchor.constraint(equalTo: headerContainerView.topAnchor).isActive = true
         textureImageView.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor).isActive = true
@@ -94,17 +95,19 @@ class BuyAbonement: UIViewController {
         buyButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         buyButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         buyButton.widthAnchor.constraint(equalToConstant: 200).isActive = true
-        
         buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
     }
     
     @objc
     func buyButtonTapped() {
-        let vc = AthleteViewController()
-        vc.athleteAbonement.insert(abonement, at: 0)
-        vc.reloadData()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        view.addSubview(fAlertView)
+        fAlertView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        fAlertView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        fAlertView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        fAlertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
+        fAlertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
+        fAlertView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
+        fAlertView.confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
     }
     
     private func configureNameLabel() {
@@ -139,8 +142,18 @@ class BuyAbonement: UIViewController {
         trainingLeftText.text = "ТРЕНИРОВОК"
     }
     
-   
+    @objc
+    private func cancelButtonTapped() {
+        fAlertView.removeFromSuperview()
+    }
     
+    @objc
+    private func confirmButtonTapped() {
+        let vc = AthleteViewController()
+        vc.athleteAbonement.insert(abonement, at: 0)
+        vc.reloadData()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
     
-
 }
