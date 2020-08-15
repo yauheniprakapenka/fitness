@@ -50,7 +50,7 @@ class CalendarViewController: UIViewController{
     }
     
     private func configureCalendar() {
-        calendar = FSCalendar(frame: CGRect(x: 0,y: 90, width: self.view.frame.size.width, height: 300))
+        calendar = FSCalendar(frame: CGRect(x: 0, y: 90, width: self.view.frame.size.width, height: 300))
         calendar.scrollDirection = .horizontal
         calendar.scope = .month
         calendar.locale = Locale(identifier: "ru")
@@ -74,7 +74,8 @@ class CalendarViewController: UIViewController{
         navigationItem.leftBarButtonItem = cancelButton
     }
     
-    @objc private func cancelButtonTapped() {
+    @objc
+    private func cancelButtonTapped() {
         dismiss(animated: true)
     }
     

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BuyAbonement: UIViewController {
+class BuyAbonementViewController: UIViewController {
     
     var abonement: AbonementModel!
     

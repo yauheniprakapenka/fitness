@@ -18,10 +18,9 @@ struct AbonementModel {
 class AbonementsViewController: UIViewController {
     
     var titleLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
-    
     var abonements: [AbonementModel] = []
-    
     let emptyAbonementImageView = UIImageView()
+    let createButton = UIButton()
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,10 +34,11 @@ class AbonementsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureLayout()
+       configureTitleLabel()
+        configureCollectionView()
         configureUIElements()
         configureEmptyAbonementImageView()
-        
+        configureMoreButton()
         collectionView.delegate = self
         collectionView.dataSource = self
     }
@@ -54,14 +54,17 @@ class AbonementsViewController: UIViewController {
         emptyAbonementImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    private func configureLayout() {
+    private func configureTitleLabel() {
         view.addSubview(titleLabel)
-        view.addSubview(collectionView)
         
         titleLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
+    }
+    
+    private func configureCollectionView() {
+        view.addSubview(collectionView)
+
         collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -70,6 +73,17 @@ class AbonementsViewController: UIViewController {
     
     private func configureUIElements() {
         collectionView.backgroundColor = .white
+    }
+    
+    private func configureMoreButton() {
+        guard createButton.titleLabel != nil else { return }
+        
+        view.addSubview(createButton)
+        createButton.translatesAutoresizingMaskIntoConstraints = false
+        createButton.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        createButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        createButton.setTitleColor(#colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), for: .normal)
+        createButton.titleLabel?.font = UIFont(name: "Helvetica", size: 14)
     }
 }
 
@@ -105,7 +119,7 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = BuyAbonement()
+        let vc = BuyAbonementViewController()
         vc.abonement = abonements[indexPath.row]
         present(vc, animated: true)
     }
