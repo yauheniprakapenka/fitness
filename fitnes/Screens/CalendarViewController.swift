@@ -98,7 +98,7 @@ class CalendarViewController: UIViewController{
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        HapticFeedback.shared.makeHapticFeedback(kind: 4)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         formatter.dateFormat = "EEEE-dd-MMM-yyyy"
         print(formatter.string(from: date))
         

@@ -14,7 +14,7 @@ class AthleteViewController: UIViewController {
     
     let abonementsViewController = AbonementsViewController()
     
-    let moreButton = FButtonWithSFSymbol(sfSymbol: SFSymbolEnum.ellipsis.rawValue)
+    let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "magnifyingglass")
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
     let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
@@ -66,13 +66,13 @@ class AthleteViewController: UIViewController {
     }
     
     private func configureMoreButton() {
-        scrollView.addSubview(moreButton)
-        moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        moreButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        moreButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        scrollView.addSubview(findTrainerButton)
+        findTrainerButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        findTrainerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        findTrainerButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
+        findTrainerButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
-        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        findTrainerButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
     }
     
     private func configureTitleLabel() {
@@ -84,7 +84,7 @@ class AthleteViewController: UIViewController {
     private func configureHeaderLayout() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 0).isActive = true
+        headerView.topAnchor.constraint(equalTo: findTrainerButton.bottomAnchor, constant: 0).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
@@ -154,7 +154,7 @@ class AthleteViewController: UIViewController {
     }
 
     @objc func moreButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         
         let vc = AthleteParameterViewController()
         vc.modalPresentationStyle = .fullScreen
@@ -162,7 +162,7 @@ class AthleteViewController: UIViewController {
     }
     
     @objc func findTrainerButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(kind: 5)
+        HapticFeedback.shared.makeHapticFeedback(type: .medium)
         
         let nav = UINavigationController(rootViewController: FindTrainerViewController())
         nav.modalPresentationStyle = .fullScreen
