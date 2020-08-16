@@ -8,13 +8,6 @@
 
 import UIKit
 
-struct AbonementModel {
-    var name: String
-    var cost: String
-    var color: String
-    var trainingLeft: Int
-}
-
 class AbonementsViewController: UIViewController {
     
     var titleLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
@@ -122,5 +115,9 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
         let vc = BuyAbonementViewController()
         vc.abonement = abonements[indexPath.row]
         present(vc, animated: true)
+    }
+    
+    func reloadData() {
+        collectionView.reloadData()
     }
 }

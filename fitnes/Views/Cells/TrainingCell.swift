@@ -150,7 +150,7 @@ class TrainingCell: UITableViewCell {
         let vc = WKWebViewController()
         
         print("1")
-        print(data?.videoURL)
+        print(data?.videoURL as Any)
         
         guard let url = data?.videoURL else {
             return

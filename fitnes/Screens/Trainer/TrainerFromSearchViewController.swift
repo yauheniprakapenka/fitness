@@ -23,9 +23,9 @@ class TrainerFromSearchViewController: UIViewController {
     let myAbonementsView = UIView()
     
     var trainerAbonement = [
-        AbonementModel(name: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", trainingLeft: 7),
-        AbonementModel(name: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", trainingLeft: 9),
-        AbonementModel(name: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange", trainingLeft: 3),
+        AbonementModel(name: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", visit: 7, duration: "4 месяца"),
+        AbonementModel(name: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", visit: 9, duration: "2 месяца"),
+        AbonementModel(name: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange", visit: 3, duration: "6 месяца")
     ]
     
     override func viewDidLoad() {
@@ -73,7 +73,7 @@ class TrainerFromSearchViewController: UIViewController {
     }
     
     @objc func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -119,7 +119,7 @@ class TrainerFromSearchViewController: UIViewController {
     }
     
     @objc private func mapButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         let vc = MapViewController()
         vc.selectedTrainer = selectedTrainer
         vc.modalPresentationStyle = .fullScreen

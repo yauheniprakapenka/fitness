@@ -23,6 +23,7 @@
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
 		3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */; };
 		3E3D928124E8555800EEE0C6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */; };
+		3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928224E864F800EEE0C6 /* AbonementModel.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
@@ -107,6 +108,7 @@
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
 		3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3E3D928224E864F800EEE0C6 /* AbonementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementModel.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				3E82E21D24DCA96500145E9D /* AthleteViewController.swift */,
 				3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */,
 				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
+				3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */,
 			);
 			path = Athlete;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 				3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
+				3E3D928224E864F800EEE0C6 /* AbonementModel.swift */,
 			);
 			path = ModelsNew;
 			sourceTree = "<group>";
@@ -517,7 +521,6 @@
 				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
 				3E1752DD24E1EDC300F823A8 /* TrainingProgrammViewController.swift */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
-				3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
+				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,

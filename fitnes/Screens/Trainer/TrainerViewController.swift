@@ -25,6 +25,8 @@ class TrainerViewController: UIViewController {
     let trainingViewController = TrainingViewController()
     let trainingView = UIView()
     
+    var trainerAbonements: [AbonementModel] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,6 +42,12 @@ class TrainerViewController: UIViewController {
         
         AddChildVC()
     }
+    
+    //    override func viewDidAppear(_ animated: Bool) {
+    //        super.viewDidAppear(true)
+    //        abonementsViewController.collectionView.reloadData()
+    //        print("Cейчас TrainerViewController \(trainerAbonements.count)")
+    //    }
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -132,7 +140,7 @@ class TrainerViewController: UIViewController {
     
     @objc
     func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -140,7 +148,7 @@ class TrainerViewController: UIViewController {
     
     @objc
     func addTrainingButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         print("button tapped")
         let vc = TrainingProgrammViewController()
         present(vc, animated: true)
@@ -148,11 +156,13 @@ class TrainerViewController: UIViewController {
     
     @objc
     func createAbonementButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         
-        let nav = UINavigationController(rootViewController: CreateAbonementViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+        let vc = CreateAbonementViewController()
+        vc.delegate = self
+        vc.modalPresentationStyle = .fullScreen
+        present(UINavigationController(rootViewController: vc), animated: true)
+     
     }
     
     // MARK: - Add Child VC
@@ -176,6 +186,7 @@ class TrainerViewController: UIViewController {
         
         self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.titleLabel.text = "Созданные мной абонементы"
+        abonementsViewController.abonements = trainerAbonements
         abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-trainer")
         abonementsViewController.createButton.setTitle("Создать", for: .normal)
         abonementsViewController.createButton.addTarget(self, action: #selector(createAbonementButtonTapped), for: .touchUpInside)
@@ -186,5 +197,17 @@ class TrainerViewController: UIViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
+    }
+}
+
+extension TrainerViewController: AddContactDelegate {
+    
+    func addContact(contact: AbonementModel) {
+        self.dismiss(animated: true) {
+            self.trainerAbonements.append(contact)
+            self.abonementsViewController.abonements = self.trainerAbonements
+            self.abonementsViewController.reloadData()
+            print(self.trainerAbonements.count)
+        }
     }
 }
