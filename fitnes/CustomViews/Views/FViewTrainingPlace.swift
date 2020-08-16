@@ -13,7 +13,7 @@ class FViewTrainingPlace: UIView {
     let trainingPlaceImageView = UIImageView()
     let titleLabel = FLabel(fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1), message: "МЕСТО ТРЕНИРОВКИ")
     let descriptionPlaceLabel = FLabel(fontSize: 15, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
-    let mapButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Посмотреть на карте", size: 12)//FSimpleButton(title: "Посмотреть на карте", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 13)
+    let mapButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Посмотреть на карте", size: 12)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
