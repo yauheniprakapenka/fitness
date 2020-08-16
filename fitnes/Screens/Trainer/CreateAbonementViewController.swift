@@ -17,7 +17,9 @@ class CreateAbonementViewController: UIViewController {
     let saveButton = UIButton()
     
     var delegate: AddContactDelegate?
-
+    
+    let logoImageView = UIImageView()
+    
     let nameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Название абонемента")
     let nameTextField = FTextField(placeholderText: "Например, вечерние занятия", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
@@ -38,6 +40,8 @@ class CreateAbonementViewController: UIViewController {
         view.backgroundColor = .white
         configureNavigation()
         
+        configureLogoImageView()
+        
         configureNameLabel()
         configureNameTextField()
         
@@ -49,11 +53,25 @@ class CreateAbonementViewController: UIViewController {
         
         configureVisitLabel()
         configureVisitTextField()
+        
+        configureDismissKeyboard()
     }
-
+    
+    private func configureLogoImageView() {
+        view.addSubview(logoImageView)
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.contentMode = .scaleAspectFit
+        logoImageView.image = #imageLiteral(resourceName: "fitnes-woman-2")
+        
+        logoImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
+        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoImageView.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        logoImageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
+    }
+    
     private func configureNameLabel() {
         view.addSubview(nameLabel)
-        nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 30).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
@@ -108,7 +126,7 @@ class CreateAbonementViewController: UIViewController {
         
         daysLeftButton.addTarget(self, action: #selector(daysLeftButtonTapped), for: .touchUpInside)
     }
-
+    
     @objc
     private func daysLeftButtonTapped() {
         showActionSheet()
@@ -159,25 +177,30 @@ class CreateAbonementViewController: UIViewController {
         let dayInMonth: UInt8 = 30
         
         let alert = UIAlertController(title: "Длительность занятий", message: "Выберите длительность занятий для этого абонемента", preferredStyle: .actionSheet)
-
+        
         alert.addAction(UIAlertAction(title: "1 месяц", style: .default , handler: { _ in
             self.daysLeftButton.setTitle("    1 месяц", for: .normal)
             self.selectedDayDuration = 1 * dayInMonth
         }))
-
+        
         alert.addAction(UIAlertAction(title: "3 месяца", style: .default , handler: { _ in
             self.daysLeftButton.setTitle("    3 месяца", for: .normal)
             self.selectedDayDuration = 3 * dayInMonth
         }))
-
+        
         alert.addAction(UIAlertAction(title: "6 месяцев", style: .default , handler: { _ in
             self.daysLeftButton.setTitle("    6 месяцев", for: .normal)
             self.selectedDayDuration = 6 * dayInMonth
         }))
-
+        
         alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
-
+        
         present(alert, animated: true)
     }
-
+    
+    private func configureDismissKeyboard() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap)
+    }
+    
 }

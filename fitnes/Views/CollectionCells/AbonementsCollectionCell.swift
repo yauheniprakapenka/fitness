@@ -15,15 +15,16 @@ class AbonementsCollectionCell: UICollectionViewCell {
             guard let data = data else { return }
             abonementNameLabel.text = data.abonementName
             costLabel.text = "Стоимость \(data.cost) бел руб"
-            daysLeftLabel.text = "Истекает через \(data.daysLeft) дней"
+            daysLeftLabel.text = "\(data.daysLeft) дней"
+            countVisitLabel.text = "\(data.countVisit) занятий"
             contentView.backgroundColor = makeAbonementColor(color: data.color)
         }
     }
     
     let abonementNameLabel = FLabel(fontSize: 15, weight: .bold, color: .white, message: "")
-    let costLabel = FLabel(fontSize: 15, weight: .semibold, color: .white, message: "")
     let daysLeftLabel = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
-    let Label = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
+    let costLabel = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
+    let countVisitLabel = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -33,6 +34,7 @@ class AbonementsCollectionCell: UICollectionViewCell {
         configureAbonementNameLabel()
         configureDaysLeftLabel()
         configureCostLabel()
+        configureCountVisit()
     }
     
     required init?(coder: NSCoder) {
@@ -59,7 +61,7 @@ class AbonementsCollectionCell: UICollectionViewCell {
     
     private func configureCostLabel() {
         contentView.addSubview(costLabel)
-        costLabel.bottomAnchor.constraint(equalTo: daysLeftLabel.topAnchor, constant: -5).isActive = true
+        costLabel.bottomAnchor.constraint(equalTo: daysLeftLabel.topAnchor, constant: -10).isActive = true
         costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
         costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         
@@ -67,6 +69,13 @@ class AbonementsCollectionCell: UICollectionViewCell {
         costLabel.numberOfLines = 1
         costLabel.adjustsFontSizeToFitWidth = true
         costLabel.minimumScaleFactor = 0.5
+    }
+    
+    private func configureCountVisit() {
+        contentView.addSubview(countVisitLabel)
+        countVisitLabel.bottomAnchor.constraint(equalTo: costLabel.topAnchor, constant: -10).isActive = true
+        countVisitLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        countVisitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
     }
     
     private func makeAbonementColor(color: String) -> UIColor {
