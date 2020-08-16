@@ -177,7 +177,7 @@ class RegisterViewController: UIViewController {
     
     @objc
     func continueButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         switch currentRole {
         case .Trainer:

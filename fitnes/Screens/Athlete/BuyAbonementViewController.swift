@@ -132,7 +132,7 @@ class BuyAbonementViewController: UIViewController {
         view.addSubview(trainingLeftNumber)
         trainingLeftNumber.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         trainingLeftNumber.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        trainingLeftNumber.text = String(abonement.trainingLeft)
+        trainingLeftNumber.text = String(abonement.visit)
     }
     
     private func configureTrainingLeftText() {

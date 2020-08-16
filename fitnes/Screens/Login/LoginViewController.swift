@@ -144,7 +144,7 @@ class LoginViewController: UIViewController {
     
     @objc
     func continueButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         switch currentRole {
         case .Trainer:
@@ -187,7 +187,7 @@ class LoginViewController: UIViewController {
     
     @objc
     func createNewAccountButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .medium)
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         let nav = UINavigationController(rootViewController: RegisterViewController())
         nav.modalPresentationStyle = .fullScreen

@@ -78,7 +78,7 @@ class AbonementsCollectionCell: UICollectionViewCell {
         case "orange":
             currentColor = #colorLiteral(red: 0.9411764741, green: 0.4980392158, blue: 0.3529411852, alpha: 1)
         default:
-            currentColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+            currentColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         }
         
         return currentColor

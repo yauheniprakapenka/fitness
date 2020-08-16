@@ -8,7 +8,15 @@
 
 import UIKit
 
+protocol AddContactDelegate {
+    func addContact(contact: AbonementModel)
+}
+
 class CreateAbonementViewController: UIViewController {
+    
+    let saveButton = UIButton()
+    
+    var delegate: AddContactDelegate?
     
     let nameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Название абонемента")
     let nameTextField = FTextField(placeholderText: "Введите название абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
@@ -40,7 +48,7 @@ class CreateAbonementViewController: UIViewController {
         configureVisitLabel()
         configureVisitTextField()
     }
-    
+
     private func configureNameLabel() {
         view.addSubview(nameLabel)
         nameLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
@@ -121,6 +129,9 @@ class CreateAbonementViewController: UIViewController {
     
     @objc
     private func saveButtonTapped() {
-        dismiss(animated: true)
+        let newAbonement = AbonementModel(name: nameTextField.text ?? "", cost: costTextField.text ?? "", color: "blue", visit: Int(visitTextField.text!) ?? 0, duration: durationTextField.text ?? "")
+        
+        delegate?.addContact(contact: newAbonement)
     }
+
 }
