@@ -42,13 +42,7 @@ class TrainerViewController: UIViewController {
         
         AddChildVC()
     }
-    
-    //    override func viewDidAppear(_ animated: Bool) {
-    //        super.viewDidAppear(true)
-    //        abonementsViewController.collectionView.reloadData()
-    //        print("Cейчас TrainerViewController \(trainerAbonements.count)")
-    //    }
-    
+ 
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.45)
@@ -160,9 +154,10 @@ class TrainerViewController: UIViewController {
         
         let vc = CreateAbonementViewController()
         vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
-        present(UINavigationController(rootViewController: vc), animated: true)
-     
+        
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     
     // MARK: - Add Child VC
