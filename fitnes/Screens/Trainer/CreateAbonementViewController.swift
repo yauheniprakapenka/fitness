@@ -17,18 +17,20 @@ class CreateAbonementViewController: UIViewController {
     let saveButton = UIButton()
     
     var delegate: AddContactDelegate?
-    
+
     let nameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Название абонемента")
-    let nameTextField = FTextField(placeholderText: "Введите название абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let nameTextField = FTextField(placeholderText: "Например, вечерние занятия", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
-    let costLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Стоимость")
-    let costTextField = FTextField(placeholderText: "Введите стоимость абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let costLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Стоимость, бел руб")
+    let costTextField = FTextField(placeholderText: "Например, 60 бел руб", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     let durationLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Длительность")
-    let durationTextField = FTextField(placeholderText: "Введите длительность абонемента", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let daysLeftButton = UIButton()
     
-    let visitLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Посещения")
-    let visitTextField = FTextField(placeholderText: "Введите количество посещений", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let visitLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Количество посещений")
+    let visitTextField = FTextField(placeholderText: "12 посещений", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    
+    private var selectedDayDuration: UInt8 = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,7 +45,7 @@ class CreateAbonementViewController: UIViewController {
         configureCostTextField()
         
         configureDurationLabel()
-        configureDurationTextField()
+        configureDurationButton()
         
         configureVisitLabel()
         configureVisitTextField()
@@ -77,6 +79,7 @@ class CreateAbonementViewController: UIViewController {
         costTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         costTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         costTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        costTextField.keyboardType = .numberPad
     }
     
     private func configureDurationLabel() {
@@ -86,17 +89,34 @@ class CreateAbonementViewController: UIViewController {
         durationLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
     
-    private func configureDurationTextField() {
-        view.addSubview(durationTextField)
-        durationTextField.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 10).isActive = true
-        durationTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        durationTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        durationTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    private func configureDurationButton() {
+        view.addSubview(daysLeftButton)
+        daysLeftButton.translatesAutoresizingMaskIntoConstraints = false
+        daysLeftButton.topAnchor.constraint(equalTo: durationLabel.bottomAnchor, constant: 10).isActive = true
+        daysLeftButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        daysLeftButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        daysLeftButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        daysLeftButton.setTitle("    Например, 1 месяц", for: .normal)
+        daysLeftButton.setTitleColor(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), for: .normal)
+        daysLeftButton.backgroundColor = .clear
+        daysLeftButton.contentHorizontalAlignment = .left
+        
+        daysLeftButton.layer.cornerRadius = 5
+        daysLeftButton.layer.borderWidth = 1
+        daysLeftButton.layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
+        daysLeftButton.addTarget(self, action: #selector(daysLeftButtonTapped), for: .touchUpInside)
+    }
+
+    @objc
+    private func daysLeftButtonTapped() {
+        showActionSheet()
     }
     
     private func configureVisitLabel() {
         view.addSubview(visitLabel)
-        visitLabel.topAnchor.constraint(equalTo: durationTextField.bottomAnchor, constant: 20).isActive = true
+        visitLabel.topAnchor.constraint(equalTo: daysLeftButton.bottomAnchor, constant: 20).isActive = true
         visitLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         visitLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
     }
@@ -107,6 +127,7 @@ class CreateAbonementViewController: UIViewController {
         visitTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         visitTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         visitTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        visitTextField.keyboardType = .numberPad
     }
     
     // MARK: - Configure navigation
@@ -118,7 +139,7 @@ class CreateAbonementViewController: UIViewController {
         let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
         
-        let saveutton = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(saveButtonTapped))
+        let saveutton = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(showDaysLeftActionSheet))
         navigationItem.rightBarButtonItem = saveutton
     }
     
@@ -128,10 +149,35 @@ class CreateAbonementViewController: UIViewController {
     }
     
     @objc
-    private func saveButtonTapped() {
-        let newAbonement = AbonementModel(name: nameTextField.text ?? "", cost: costTextField.text ?? "", color: "blue", visit: Int(visitTextField.text!) ?? 0, duration: durationTextField.text ?? "")
+    private func showDaysLeftActionSheet() {
+        let newAbonement = AbonementModel(abonementName: nameTextField.text ?? "", cost: costTextField.text ?? "", color: "blue", countVisit: UInt8(visitTextField.text!) ?? 0, daysLeft: selectedDayDuration)
         
         delegate?.addContact(contact: newAbonement)
+    }
+    
+    private func showActionSheet() {
+        let dayInMonth: UInt8 = 30
+        
+        let alert = UIAlertController(title: "Длительность занятий", message: "Выберите длительность занятий для этого абонемента", preferredStyle: .actionSheet)
+
+        alert.addAction(UIAlertAction(title: "1 месяц", style: .default , handler: { _ in
+            self.daysLeftButton.setTitle("    1 месяц", for: .normal)
+            self.selectedDayDuration = 1 * dayInMonth
+        }))
+
+        alert.addAction(UIAlertAction(title: "3 месяца", style: .default , handler: { _ in
+            self.daysLeftButton.setTitle("    3 месяца", for: .normal)
+            self.selectedDayDuration = 3 * dayInMonth
+        }))
+
+        alert.addAction(UIAlertAction(title: "6 месяцев", style: .default , handler: { _ in
+            self.daysLeftButton.setTitle("    6 месяцев", for: .normal)
+            self.selectedDayDuration = 6 * dayInMonth
+        }))
+
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
+
+        present(alert, animated: true)
     }
 
 }

@@ -40,7 +40,7 @@ class FTextField: UITextField {
     
     private func configure() {
         layer.cornerRadius = 5
-        layer.borderWidth = 1.0
+        layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         translatesAutoresizingMaskIntoConstraints = false
     }

@@ -13,58 +13,60 @@ class AbonementsCollectionCell: UICollectionViewCell {
     var data: AbonementModel? {
         didSet {
             guard let data = data else { return }
-            abonementLabel.text = data.name
-            costLabel.text = data.cost
+            abonementNameLabel.text = data.abonementName
+            costLabel.text = "Стоимость \(data.cost) бел руб"
+            daysLeftLabel.text = "Истекает через \(data.daysLeft) дней"
             contentView.backgroundColor = makeAbonementColor(color: data.color)
         }
     }
     
-    let abonementLabel = FLabel(fontSize: 15, weight: .regular, color: .white, message: "")
-    let costLabel = FLabel(fontSize: 16, weight: .semibold, color: .white, message: "")
-    var status = ""
-    
-    var abonementTimer = 59
-    let timerLabel = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
+    let abonementNameLabel = FLabel(fontSize: 15, weight: .bold, color: .white, message: "")
+    let costLabel = FLabel(fontSize: 15, weight: .semibold, color: .white, message: "")
+    let daysLeftLabel = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
+    let Label = FLabel(fontSize: 12, weight: .light, color: .white, message: "")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureLayout()
-        configureUI()
-        addAbonementTimer()
+        
+        contentView.layer.cornerRadius = 10
+        
+        configureAbonementNameLabel()
+        configureDaysLeftLabel()
+        configureCostLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configureLayout() {
-        contentView.addSubview(abonementLabel)
-        contentView.addSubview(costLabel)
-        contentView.addSubview(timerLabel)
+    private func configureAbonementNameLabel() {
+        contentView.addSubview(abonementNameLabel)
+        abonementNameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
+        abonementNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        abonementNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         
-        abonementLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10).isActive = true
-        abonementLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        abonementLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        
-        timerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
-        timerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        timerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
-        timerLabel.numberOfLines = 2
-        
-        costLabel.bottomAnchor.constraint(equalTo: timerLabel.topAnchor, constant: -5).isActive = true
-        costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
-        costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        abonementNameLabel.numberOfLines = 3
+        abonementNameLabel.textColor = .white
     }
     
-    private func configureUI() {
-        abonementLabel.numberOfLines = 3
-        abonementLabel.textColor = .white
+    private func configureDaysLeftLabel() {
+        contentView.addSubview(daysLeftLabel)
+        daysLeftLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10).isActive = true
+        daysLeftLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        daysLeftLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        daysLeftLabel.numberOfLines = 2
+    }
+    
+    private func configureCostLabel() {
+        contentView.addSubview(costLabel)
+        costLabel.bottomAnchor.constraint(equalTo: daysLeftLabel.topAnchor, constant: -5).isActive = true
+        costLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10).isActive = true
+        costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
+        
         costLabel.textColor = .white
         costLabel.numberOfLines = 1
         costLabel.adjustsFontSizeToFitWidth = true
         costLabel.minimumScaleFactor = 0.5
-        
-        contentView.layer.cornerRadius = 10
     }
     
     private func makeAbonementColor(color: String) -> UIColor {
@@ -82,16 +84,5 @@ class AbonementsCollectionCell: UICollectionViewCell {
         }
         
         return currentColor
-    }
-    
-    private func addAbonementTimer() {
-        
-        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { timer in
-            if self.abonementTimer == 1 {
-                self.abonementTimer = 59
-            }
-            self.abonementTimer -= 1
-            self.timerLabel.text = "Истекает через 28 д \(self.abonementTimer) мин"
-        })
     }
 }
