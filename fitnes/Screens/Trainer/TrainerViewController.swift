@@ -205,7 +205,7 @@ extension TrainerViewController: AddContactDelegate {
     
     func addContact(contact: AbonementModel) {
         self.dismiss(animated: true) {
-            self.trainerAbonements.append(contact)
+            self.trainerAbonements.insert(contact, at: 0)
             self.abonementsViewController.abonements = self.trainerAbonements
             self.abonementsViewController.reloadData()
             print(self.trainerAbonements.count)

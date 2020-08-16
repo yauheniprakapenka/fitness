@@ -36,6 +36,8 @@
 		3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FButtonSimple.swift */; };
 		3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118924E9845A00CAE51B /* ColorConverter.swift */; };
 		3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118B24E98C4300CAE51B /* FViewColors.swift */; };
+		3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */; };
+		3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60119224E9E06700CAE51B /* ViewColorEnum.swift */; };
 		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
@@ -122,6 +124,8 @@
 		3E444AC024D35E2D0004B978 /* FButtonSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonSimple.swift; sourceTree = "<group>"; };
 		3E60118924E9845A00CAE51B /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		3E60118B24E98C4300CAE51B /* FViewColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewColors.swift; sourceTree = "<group>"; };
+		3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		3E60119224E9E06700CAE51B /* ViewColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewColorEnum.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
@@ -341,6 +345,14 @@
 			path = ColorConverter;
 			sourceTree = "<group>";
 		};
+		3E60118F24E9BEBA00CAE51B /* KeyboardHandler */ = {
+			isa = PBXGroup;
+			children = (
+				3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */,
+			);
+			path = KeyboardHandler;
+			sourceTree = "<group>";
+		};
 		3E63718624CF4C5D00483A56 /* QR */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,9 +406,10 @@
 		3E8DE58124CD9DE500DFB220 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
-				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
 				3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */,
+				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
+				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
+				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -470,6 +483,7 @@
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3E60118824E9844800CAE51B /* ColorConverter */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
+				3E60118F24E9BEBA00CAE51B /* KeyboardHandler */,
 				3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */,
 				3EE586F924DFAFA000CA0530 /* Validation */,
 			);
@@ -723,6 +737,7 @@
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
+				3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,
@@ -753,6 +768,7 @@
 				3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */,
 				3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */,
 				3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */,
+				3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
 				3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */,
 				3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */,

@@ -16,6 +16,9 @@ class FViewColors: UIView {
     let pinkView = UIView()
     let orangeView = UIView()
     
+    let checkmarkImageView = UIImageView()
+    let checkmarkImage = UIImage(systemName: "checkmark")?.withTintColor(.white, renderingMode: .alwaysOriginal)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -56,4 +59,28 @@ class FViewColors: UIView {
         stackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
         stackView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
+    
+    func shaowChechmark(view: ViewColorEnum) {
+        switch view {
+        case .blueView:
+            configureCheckmark(view: blueView)
+        case .pinkView:
+            configureCheckmark(view: pinkView)
+        case .orangeView:
+            configureCheckmark(view: orangeView)
+        }
+    }
+    
+    private func configureCheckmark(view: UIView) {
+        view.addSubview(checkmarkImageView)
+        checkmarkImageView.translatesAutoresizingMaskIntoConstraints = false
+        checkmarkImageView.image = checkmarkImage
+        checkmarkImageView.alpha = 1
+        
+        checkmarkImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        checkmarkImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        checkmarkImageView.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        checkmarkImageView.widthAnchor.constraint(equalToConstant: 30).isActive = true
+    }
+    
 }

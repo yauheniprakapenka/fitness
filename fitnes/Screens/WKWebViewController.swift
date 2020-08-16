@@ -19,7 +19,7 @@ class WKWebViewController: UIViewController, WKUIDelegate {
         return webView
     }()
     
-    var urlString = "http://mail.ru" // String?
+    var urlString = "http://mail.ru"
     
     override func viewDidLoad() {
         super.viewDidLoad()
