@@ -443,12 +443,12 @@
 		3ED7037224DB45CC00E4DB9F /* ModelsNew */ = {
 			isa = PBXGroup;
 			children = (
+				3E3D928224E864F800EEE0C6 /* AbonementModel.swift */,
 				3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */,
 				3E1752C824E169E600F823A8 /* ChatModel.swift */,
 				3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
-				3E3D928224E864F800EEE0C6 /* AbonementModel.swift */,
 			);
 			path = ModelsNew;
 			sourceTree = "<group>";

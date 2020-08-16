@@ -7,9 +7,9 @@
 //
 
 struct AbonementModel {
-    var name: String
+    var abonementName: String
     var cost: String
     var color: String
-    var visit: Int
-    var duration: String
+    var countVisit: UInt8
+    var daysLeft: UInt8
 }

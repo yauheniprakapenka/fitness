@@ -112,7 +112,7 @@ class BuyAbonementViewController: UIViewController {
     
     private func configureNameLabel() {
         headerContainerView.addSubview(nameLabel)
-        nameLabel.text = abonement.name
+        nameLabel.text = abonement.abonementName
         
         nameLabel.bottomAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: -30).isActive = true
         nameLabel.leadingAnchor.constraint(equalTo: headerContainerView.leadingAnchor, constant: 20).isActive = true
@@ -132,7 +132,7 @@ class BuyAbonementViewController: UIViewController {
         view.addSubview(trainingLeftNumber)
         trainingLeftNumber.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         trainingLeftNumber.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        trainingLeftNumber.text = String(abonement.visit)
+        trainingLeftNumber.text = String(abonement.countVisit)
     }
     
     private func configureTrainingLeftText() {
