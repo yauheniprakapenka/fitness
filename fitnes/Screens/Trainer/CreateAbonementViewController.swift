@@ -33,7 +33,9 @@ class CreateAbonementViewController: UIViewController {
     let visitTextField = FTextField(placeholderText: "12 посещений", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     private var selectedDayDuration: UInt8 = 0
+    private var selectedColor: String = ""
     
+    let AbonementColorLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Цвет абонемента")
     private let fViewColors = FViewColors()
     
     override func viewDidLoad() {
@@ -56,9 +58,11 @@ class CreateAbonementViewController: UIViewController {
         configureVisitLabel()
         configureVisitTextField()
         
+        configureAbonementColorLabel()
         configureFViewColors()
+        configureTapGestureFViewColors()
         
-        configureDismissKeyboard()
+        KeyboardHandler.shared.dismissKeyboard(view: view)
     }
     
     private func configureLogoImageView() {
@@ -152,13 +156,52 @@ class CreateAbonementViewController: UIViewController {
         visitTextField.keyboardType = .numberPad
     }
     
+    private func configureAbonementColorLabel() {
+        view.addSubview(AbonementColorLabel)
+        AbonementColorLabel.topAnchor.constraint(equalTo: visitTextField.bottomAnchor, constant: 20).isActive = true
+        AbonementColorLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        AbonementColorLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+    }
+    
     private func configureFViewColors() {
         view.addSubview(fViewColors)
         fViewColors.translatesAutoresizingMaskIntoConstraints = false
-        fViewColors.topAnchor.constraint(equalTo: visitTextField.bottomAnchor, constant: 20).isActive = true
+        fViewColors.topAnchor.constraint(equalTo: AbonementColorLabel.bottomAnchor, constant: 20).isActive = true
         fViewColors.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         fViewColors.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         fViewColors.heightAnchor.constraint(equalToConstant: 80).isActive = true
+    }
+    
+    private func configureTapGestureFViewColors() {
+        let blueViewTap = UITapGestureRecognizer(target: self, action: #selector(blueViewTapped))
+        fViewColors.blueView.addGestureRecognizer(blueViewTap)
+        
+        let pinkViewTap = UITapGestureRecognizer(target: self, action: #selector(pinkViewTapped))
+        fViewColors.pinkView.addGestureRecognizer(pinkViewTap)
+        
+        let orangeViewTap = UITapGestureRecognizer(target: self, action: #selector(orangeViewTapped))
+        fViewColors.orangeView.addGestureRecognizer(orangeViewTap)
+    }
+    
+    @objc
+    private func blueViewTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        selectedColor = "blue"
+        fViewColors.shaowChechmark(view: .blueView)
+    }
+    
+    @objc
+    private func pinkViewTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        selectedColor = "pink"
+        fViewColors.shaowChechmark(view: .pinkView)
+    }
+    
+    @objc
+    private func orangeViewTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        selectedColor = "orange"
+        fViewColors.shaowChechmark(view: .orangeView)
     }
     
     // MARK: - Configure navigation
@@ -181,7 +224,7 @@ class CreateAbonementViewController: UIViewController {
     
     @objc
     private func showDaysLeftActionSheet() {
-        let newAbonement = AbonementModel(abonementName: nameTextField.text ?? "", cost: costTextField.text ?? "", color: "blue", countVisit: UInt8(visitTextField.text!) ?? 0, daysLeft: selectedDayDuration)
+        let newAbonement = AbonementModel(abonementName: nameTextField.text ?? "", cost: costTextField.text ?? "", color: selectedColor, countVisit: UInt8(visitTextField.text!) ?? 0, daysLeft: selectedDayDuration)
         
         delegate?.addContact(contact: newAbonement)
     }
@@ -209,11 +252,6 @@ class CreateAbonementViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Отменить", style: .cancel))
         
         present(alert, animated: true)
-    }
-    
-    private func configureDismissKeyboard() {
-        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap)
     }
     
 }

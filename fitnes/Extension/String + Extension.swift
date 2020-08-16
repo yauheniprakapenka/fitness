@@ -6,7 +6,7 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-// используется для NumberOfDayConverver
+// используется для NumberOfDayConverter
 extension String {
     
     var length: Int {
