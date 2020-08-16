@@ -29,5 +29,3 @@ class ColorConverter {
         return currentColor
     }
 }
-
-

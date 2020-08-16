@@ -35,6 +35,7 @@
 		3E444ABF24D340560004B978 /* FViewShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* FViewShape.swift */; };
 		3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FButtonSimple.swift */; };
 		3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118924E9845A00CAE51B /* ColorConverter.swift */; };
+		3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118B24E98C4300CAE51B /* FViewColors.swift */; };
 		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
@@ -120,6 +121,7 @@
 		3E444ABE24D340560004B978 /* FViewShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewShape.swift; sourceTree = "<group>"; };
 		3E444AC024D35E2D0004B978 /* FButtonSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonSimple.swift; sourceTree = "<group>"; };
 		3E60118924E9845A00CAE51B /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
+		3E60118B24E98C4300CAE51B /* FViewColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewColors.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
@@ -238,7 +240,7 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
-		3E235B3824BE2A0E004DDBD6 /* Models */ = {
+		3E235B3824BE2A0E004DDBD6 /* ModelsOldForFirebase */ = {
 			isa = PBXGroup;
 			children = (
 				3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */,
@@ -247,10 +249,10 @@
 				3EC3D3BC24C43CE2006B2EE1 /* ExerciseModelOld.swift */,
 				3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */,
 			);
-			path = Models;
+			path = ModelsOldForFirebase;
 			sourceTree = "<group>";
 		};
-		3E444A6F24D1C7880004B978 /* Views */ = {
+		3E444A6F24D1C7880004B978 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
 				3E444AB724D21AD10004B978 /* Buttons */,
@@ -262,7 +264,7 @@
 				3E444AB024D201090004B978 /* Views */,
 				3E444AA824D1E5370004B978 /* ViewControllers */,
 			);
-			path = Views;
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		3E444AA224D1E4AC0004B978 /* Cells */ = {
@@ -310,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				3E3D927724E6F92400EEE0C6 /* FAlertView.swift */,
+				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
 				3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */,
 				3E444AB124D201350004B978 /* FViewItem.swift */,
 				3E444ABE24D340560004B978 /* FViewShape.swift */,
@@ -464,11 +467,11 @@
 		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3E60118824E9844800CAE51B /* ColorConverter */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
-				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
-				3EE586F924DFAFA000CA0530 /* Validation */,
 				3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */,
+				3EE586F924DFAFA000CA0530 /* Validation */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -505,16 +508,16 @@
 			children = (
 				3EB0F97A24D0B0B100AC97EB /* AppDelegate */,
 				3EB0F97924D0B09600AC97EB /* Assets */,
+				3E444A6F24D1C7880004B978 /* CustomViews */,
 				3E8DE58124CD9DE500DFB220 /* Enums */,
 				3E87232524BFAD1E005FC365 /* Extension */,
-				3E235B3824BE2A0E004DDBD6 /* Models */,
 				3ED7037224DB45CC00E4DB9F /* ModelsNew */,
+				3E235B3824BE2A0E004DDBD6 /* ModelsOldForFirebase */,
 				3EB0F97D24D0B25C00AC97EB /* Network */,
 				3EB0F97E24D0B4A200AC97EB /* Plist */,
 				3EE3901624BCE863003AF6D8 /* Screens */,
 				3E235B3724BE29D8004DDBD6 /* Storyboard */,
 				3EE2DDE124C0D8A100D85CAE /* Utils */,
-				3E444A6F24D1C7880004B978 /* Views */,
 			);
 			path = fitnes;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */,
 				3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
+				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,

@@ -34,6 +34,8 @@ class CreateAbonementViewController: UIViewController {
     
     private var selectedDayDuration: UInt8 = 0
     
+    private let fViewColors = FViewColors()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,6 +55,8 @@ class CreateAbonementViewController: UIViewController {
         
         configureVisitLabel()
         configureVisitTextField()
+        
+        configureFViewColors()
         
         configureDismissKeyboard()
     }
@@ -146,6 +150,15 @@ class CreateAbonementViewController: UIViewController {
         visitTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         visitTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
         visitTextField.keyboardType = .numberPad
+    }
+    
+    private func configureFViewColors() {
+        view.addSubview(fViewColors)
+        fViewColors.translatesAutoresizingMaskIntoConstraints = false
+        fViewColors.topAnchor.constraint(equalTo: visitTextField.bottomAnchor, constant: 20).isActive = true
+        fViewColors.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        fViewColors.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        fViewColors.heightAnchor.constraint(equalToConstant: 80).isActive = true
     }
     
     // MARK: - Configure navigation
