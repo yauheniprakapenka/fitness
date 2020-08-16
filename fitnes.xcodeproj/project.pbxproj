@@ -16,7 +16,6 @@
 		3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CF24E1A01500F823A8 /* TrainingModel.swift */; };
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
 		3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* MapViewController.swift */; };
-		3E1752DE24E1EDC300F823A8 /* TrainingProgrammViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DD24E1EDC300F823A8 /* TrainingProgrammViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
 		3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927724E6F92400EEE0C6 /* FAlertView.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
@@ -35,6 +34,7 @@
 		3E444ABB24D220760004B978 /* FViewHorisontalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */; };
 		3E444ABF24D340560004B978 /* FViewShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444ABE24D340560004B978 /* FViewShape.swift */; };
 		3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FButtonSimple.swift */; };
+		3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118924E9845A00CAE51B /* ColorConverter.swift */; };
 		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
@@ -101,7 +101,6 @@
 		3E1752CF24E1A01500F823A8 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D724E1E99000F823A8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		3E1752DD24E1EDC300F823A8 /* TrainingProgrammViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgrammViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		3E3D927724E6F92400EEE0C6 /* FAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAlertView.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewHorisontalLine.swift; sourceTree = "<group>"; };
 		3E444ABE24D340560004B978 /* FViewShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewShape.swift; sourceTree = "<group>"; };
 		3E444AC024D35E2D0004B978 /* FButtonSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonSimple.swift; sourceTree = "<group>"; };
+		3E60118924E9845A00CAE51B /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
@@ -330,6 +330,14 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		3E60118824E9844800CAE51B /* ColorConverter */ = {
+			isa = PBXGroup;
+			children = (
+				3E60118924E9845A00CAE51B /* ColorConverter.swift */,
+			);
+			path = ColorConverter;
+			sourceTree = "<group>";
+		};
 		3E63718624CF4C5D00483A56 /* QR */ = {
 			isa = PBXGroup;
 			children = (
@@ -456,6 +464,7 @@
 		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3E60118824E9844800CAE51B /* ColorConverter */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3EE586F924DFAFA000CA0530 /* Validation */,
@@ -519,7 +528,6 @@
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
-				3E1752DD24E1EDC300F823A8 /* TrainingProgrammViewController.swift */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
 			);
 			path = Screens;
@@ -723,7 +731,6 @@
 				3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
-				3E1752DE24E1EDC300F823A8 /* TrainingProgrammViewController.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
@@ -740,6 +747,7 @@
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
 				3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */,
+				3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */,
 				3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
 				3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */,

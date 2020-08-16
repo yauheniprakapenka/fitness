@@ -127,9 +127,7 @@ class TrainerViewController: UIViewController {
     
     @objc
     func moreButtonTrainingTapped() {
-        let newTrainingModel = TrainingModel(title: "11", image: #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8"), kind: "22", count: "333")
-        trainingViewController.trainingModel.insert(newTrainingModel, at: 0)
-        trainingViewController.reloadData()
+        print(#function)
     }
     
     @objc
@@ -144,8 +142,6 @@ class TrainerViewController: UIViewController {
     func addTrainingButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         print("button tapped")
-        let vc = TrainingProgrammViewController()
-        present(vc, animated: true)
     }
     
     @objc
@@ -165,19 +161,29 @@ class TrainerViewController: UIViewController {
     private func AddChildVC() {
         view.backgroundColor = .white
         
+        // headerViewController
+        
         let headerViewController = HeaderViewController()
         self.add(childVC: headerViewController, to: self.headerView)
         headerViewController.nameLabel.text = "Кристина Птицами"
+        
+        // itemsTrainerViewController
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
         itemsTrainerViewController.createButton.setTitle("Добавить тренировку", for: .normal)
         itemsTrainerViewController.createButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
         
+        // trainingViewController
+        
         self.add(childVC: trainingViewController, to: self.trainingView)
         trainingViewController.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
         
+        // ExercisesViewController
+        
         self.add(childVC: ExercisesViewController(), to: self.myExerciseView)
+        
+        // abonementsViewController
         
         self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.titleLabel.text = "Созданные мной абонементы"
