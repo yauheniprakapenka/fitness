@@ -66,7 +66,7 @@ class AbonementsCollectionCell: UICollectionViewCell {
         costLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
         
         costLabel.textColor = .white
-        costLabel.numberOfLines = 1
+        costLabel.numberOfLines = 2
         costLabel.adjustsFontSizeToFitWidth = true
         costLabel.minimumScaleFactor = 0.5
     }

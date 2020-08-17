@@ -113,6 +113,7 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = BuyAbonementViewController()
+        vc.modalPresentationStyle = .fullScreen
         vc.abonement = abonements[indexPath.row]
         present(vc, animated: true)
     }
