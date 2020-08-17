@@ -23,9 +23,9 @@ class TrainerFromSearchViewController: UIViewController {
     let myAbonementsView = UIView()
     
     var trainerAbonement = [
-        AbonementModel(abonementName: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", countVisit: 7, daysLeft: 5),
-        AbonementModel(abonementName: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", countVisit: 9, daysLeft: 44),
-        AbonementModel(abonementName: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange", countVisit: 3, daysLeft: 90)
+        AbonementModel(abonementName: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", countVisit: 12, daysLeft: 5),
+        AbonementModel(abonementName: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", countVisit: 14, daysLeft: 44),
+        AbonementModel(abonementName: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange", countVisit:8, daysLeft: 90)
     ]
     
     override func viewDidLoad() {

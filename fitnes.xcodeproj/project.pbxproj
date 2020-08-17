@@ -205,13 +205,30 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		3E0CDEB124EAE652001546CD /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		3E0CDEB224EAE671001546CD /* Abonement */ = {
+			isa = PBXGroup;
+			children = (
+				3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */,
+				3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */,
+			);
+			path = Abonement;
+			sourceTree = "<group>";
+		};
 		3E10DA3424C3914600163F26 /* Trainer */ = {
 			isa = PBXGroup;
 			children = (
-				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
-				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
+				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
 				3E1752D724E1E99000F823A8 /* MapViewController.swift */,
-				3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */,
+				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
+				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
 			);
 			path = Trainer;
 			sourceTree = "<group>";
@@ -221,8 +238,6 @@
 			children = (
 				3E82E21D24DCA96500145E9D /* AthleteViewController.swift */,
 				3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */,
-				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
-				3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */,
 			);
 			path = Athlete;
 			sourceTree = "<group>";
@@ -539,12 +554,13 @@
 		3EE3901624BCE863003AF6D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				3E1752C524E15C9000F823A8 /* Chat */,
+				3E0CDEB224EAE671001546CD /* Abonement */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
+				3E0CDEB124EAE652001546CD /* Calendar */,
+				3E1752C524E15C9000F823A8 /* Chat */,
 				3EE2DDE224C0DAA800D85CAE /* Login */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
-				3EE586F524DF31D000CA0530 /* CalendarViewController.swift */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
 			);
 			path = Screens;
