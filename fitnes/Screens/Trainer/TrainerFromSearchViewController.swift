@@ -161,6 +161,7 @@ class TrainerFromSearchViewController: UIViewController {
         self.add(childVC: abonementsViewController, to: self.myAbonementsView)
         abonementsViewController.titleLabel.text = "Приобрести абонемент"
         abonementsViewController.abonements = trainerAbonement
+        abonementsViewController.currentVC = .TrainerFormSearch
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

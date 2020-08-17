@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CECEBE5A56A6F87B8A1A823 /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */; };
+		3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */; };
 		3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */; };
 		3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */; };
 		3E10DA3924C39C0F00163F26 /* TrainerModelOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3824C39C0F00163F26 /* TrainerModelOld.swift */; };
@@ -38,7 +39,7 @@
 		3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118B24E98C4300CAE51B /* FViewColors.swift */; };
 		3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */; };
 		3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60119224E9E06700CAE51B /* ViewColorEnum.swift */; };
-		3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */; };
+		3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGenerator.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */; };
 		3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */; };
@@ -96,6 +97,7 @@
 /* Begin PBXFileReference section */
 		0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
+		3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteQRAbonementViewController.swift; sourceTree = "<group>"; };
 		3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
 		3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleModel.swift; sourceTree = "<group>"; };
 		3E10DA3824C39C0F00163F26 /* TrainerModelOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModelOld.swift; sourceTree = "<group>"; };
@@ -126,7 +128,7 @@
 		3E60118B24E98C4300CAE51B /* FViewColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewColors.swift; sourceTree = "<group>"; };
 		3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
 		3E60119224E9E06700CAE51B /* ViewColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewColorEnum.swift; sourceTree = "<group>"; };
-		3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGeneratorViewController.swift; sourceTree = "<group>"; };
+		3E63718724CF4C7600483A56 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E64BCF524C45DB40014E91B /* FirestoreServiceTrainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceTrainer.swift; sourceTree = "<group>"; };
 		3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceProfile.swift; sourceTree = "<group>"; };
@@ -216,10 +218,19 @@
 		3E0CDEB224EAE671001546CD /* Abonement */ = {
 			isa = PBXGroup;
 			children = (
+				3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */,
 				3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */,
 				3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */,
 			);
 			path = Abonement;
+			sourceTree = "<group>";
+		};
+		3E0CDED724EB2EE3001546CD /* QRGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				3E63718724CF4C7600483A56 /* QRGenerator.swift */,
+			);
+			path = QRGenerator;
 			sourceTree = "<group>";
 		};
 		3E10DA3424C3914600163F26 /* Trainer */ = {
@@ -371,7 +382,6 @@
 		3E63718624CF4C5D00483A56 /* QR */ = {
 			isa = PBXGroup;
 			children = (
-				3E63718724CF4C7600483A56 /* QRGeneratorViewController.swift */,
 				3E63718B24CF621100483A56 /* QRScannerViewController.swift */,
 			);
 			path = QR;
@@ -499,6 +509,7 @@
 				3E60118824E9844800CAE51B /* ColorConverter */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
 				3E60118F24E9BEBA00CAE51B /* KeyboardHandler */,
+				3E0CDED724EB2EE3001546CD /* QRGenerator */,
 				3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */,
 				3EE586F924DFAFA000CA0530 /* Validation */,
 			);
@@ -744,7 +755,7 @@
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
 				3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */,
-				3E63718824CF4C7600483A56 /* QRGeneratorViewController.swift in Sources */,
+				3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */,
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
@@ -777,6 +788,7 @@
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
+				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,

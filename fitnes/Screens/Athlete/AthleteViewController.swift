@@ -14,7 +14,7 @@ class AthleteViewController: UIViewController {
     
     let abonementsViewController = AbonementsViewController()
     
-    let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "magnifyingglass")
+    let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
     let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
@@ -24,7 +24,9 @@ class AthleteViewController: UIViewController {
     let trainingView = UIView()
     let abonementsView = UIView()
     
-    var athleteAbonement: [AbonementModel] = []
+    var athleteAbonement: [AbonementModel] = [
+        AbonementModel(abonementName: "Вечерний", cost: "3 мес - 55 руб", color: "blue", countVisit: 8, daysLeft: 10)
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,13 @@ class AthleteViewController: UIViewController {
         
         AddChildVC()
     }
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        abonementsViewController.currentVC = .AthletVC
+    }
+
     private func configureBackButton() {
         scrollView.addSubview(backButton)
         backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
@@ -69,8 +77,6 @@ class AthleteViewController: UIViewController {
         scrollView.addSubview(findTrainerButton)
         findTrainerButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         findTrainerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        findTrainerButton.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        findTrainerButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
         
         findTrainerButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
     }
@@ -144,6 +150,7 @@ class AthleteViewController: UIViewController {
         self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.abonements = athleteAbonement
         abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-athlete")
+        abonementsViewController.currentVC = .AthletVC
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

@@ -8,7 +8,15 @@
 
 import UIKit
 
+enum CurrentVCEnum {
+    case AthletVC
+    case TrainerVC
+    case TrainerFormSearch
+}
+
 class AbonementsViewController: UIViewController {
+    
+    var currentVC: CurrentVCEnum = .AthletVC
     
     var titleLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     var abonements: [AbonementModel] = []
@@ -27,7 +35,7 @@ class AbonementsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       configureTitleLabel()
+        configureTitleLabel()
         configureCollectionView()
         configureUIElements()
         configureEmptyAbonementImageView()
@@ -57,7 +65,7 @@ class AbonementsViewController: UIViewController {
     
     private func configureCollectionView() {
         view.addSubview(collectionView)
-
+        
         collectionView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -110,12 +118,23 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
         
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = BuyAbonementViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.abonement = abonements[indexPath.row]
-        present(vc, animated: true)
+        
+        switch currentVC {
+        case .AthletVC:
+            let vc = AthleteQRAbonementViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.abonement = abonements[indexPath.row]
+            present(vc, animated: true)
+        case .TrainerVC:
+            break
+        case .TrainerFormSearch:
+            let vc = BuyAbonementViewController()
+            vc.modalPresentationStyle = .fullScreen
+            vc.abonement = abonements[indexPath.row]
+            present(vc, animated: true)
+        }
     }
     
     func reloadData() {
