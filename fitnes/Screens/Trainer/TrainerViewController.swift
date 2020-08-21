@@ -11,41 +11,48 @@ import UIKit
 class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
-    let abonementsViewController = AbonementsViewController()
     
-    let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    let abonementsVC = AbonementsViewController()
+    let trainingVC = TrainingViewController()
+    
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
+    let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    
     let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
-    let myExerciseView = UIView()
-    let abonementsView = UIView()
-    
-    let trainingViewController = TrainingViewController()
+    let exerciseView = UIView()
     let trainingView = UIView()
+    var placeView = UIView()
+    let abonementView = UIView()
     
     var trainerAbonements: [AbonementModel] = []
+    var place: PlaceModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureScrollView()
+        
         configureBackButton()
         configureCalendarButton()
+        
         configureTitleLabel()
-        configureHeaderLayout()
+        
+        configureHeaderView()
         configureItemsView()
-        configureTraining()
-        configureExercise()
-        configureAbonements()
+        configureTrainingView()
+        configureExerciseView()
+        configurePlaceView()
+        configureAbonementsView()
         
         AddChildVC()
     }
- 
+    
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.45)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.6)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -80,7 +87,7 @@ class TrainerViewController: UIViewController {
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    private func configureHeaderLayout() {
+    private func configureHeaderView() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
@@ -98,7 +105,7 @@ class TrainerViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func configureTraining() {
+    private func configureTrainingView() {
         scrollView.addSubview(trainingView)
         trainingView.translatesAutoresizingMaskIntoConstraints = false
         trainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 10).isActive = true
@@ -107,22 +114,67 @@ class TrainerViewController: UIViewController {
         trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureExercise() {
-        scrollView.addSubview(myExerciseView)
-        myExerciseView.translatesAutoresizingMaskIntoConstraints = false
-        myExerciseView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 100).isActive = true
-        myExerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        myExerciseView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        myExerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    private func configureExerciseView() {
+        scrollView.addSubview(exerciseView)
+        exerciseView.translatesAutoresizingMaskIntoConstraints = false
+        exerciseView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 110).isActive = true
+        exerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        exerciseView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        exerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureAbonements() {
-        scrollView.addSubview(abonementsView)
-        abonementsView.translatesAutoresizingMaskIntoConstraints = false
-        abonementsView.topAnchor.constraint(equalTo: myExerciseView.bottomAnchor, constant: 100).isActive = true
-        abonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        abonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        abonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    private func configurePlaceView() {
+        scrollView.addSubview(placeView)
+        placeView.translatesAutoresizingMaskIntoConstraints = false
+        
+        placeView.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 100).isActive = true
+        placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        placeView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+
+        displayState()
+    }
+    
+    private func displayState() {
+        if let place = place {
+            let contentView = FViewTrainingPlace()
+            addPlaceView(view: contentView)
+            contentView.placeImageView.image = place.placeImage
+            contentView.addressLabel.text = place.address
+            return
+        }
+        
+        let blankView = FViewTrainingPlaceAdd()
+        addPlaceView(view: blankView)
+        
+        let trainingPlaceTap = UITapGestureRecognizer(target: self, action: #selector(trainingPlaceTapped))
+        blankView.addGestureRecognizer(trainingPlaceTap)
+    }
+    
+    private func addPlaceView(view: UIView) {
+        placeView.addSubview(view)
+        view.topAnchor.constraint(equalTo: placeView.topAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: placeView.leadingAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: placeView.trailingAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: placeView.bottomAnchor).isActive = true
+    }
+    
+    @objc
+    private func trainingPlaceTapped() {
+        let vc = SetPlaceViewController()
+        vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    private func configureAbonementsView() {
+        scrollView.addSubview(abonementView)
+        abonementView.translatesAutoresizingMaskIntoConstraints = false
+        abonementView.topAnchor.constraint(equalTo: placeView.bottomAnchor, constant: 40).isActive = true
+        abonementView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        abonementView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        abonementView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     @objc
@@ -176,21 +228,21 @@ class TrainerViewController: UIViewController {
         
         // trainingViewController
         
-        self.add(childVC: trainingViewController, to: self.trainingView)
-        trainingViewController.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
+        self.add(childVC: trainingVC, to: self.trainingView)
+        trainingVC.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
         
         // ExercisesViewController
         
-        self.add(childVC: ExercisesViewController(), to: self.myExerciseView)
+        self.add(childVC: ExercisesViewController(), to: self.exerciseView)
         
         // abonementsViewController
         
-        self.add(childVC: abonementsViewController, to: self.abonementsView)
-        abonementsViewController.titleLabel.text = "Созданные мной абонементы"
-        abonementsViewController.abonements = trainerAbonements
-        abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-trainer")
-        abonementsViewController.createButton.setTitle("Создать", for: .normal)
-        abonementsViewController.createButton.addTarget(self, action: #selector(createAbonementButtonTapped), for: .touchUpInside)
+        self.add(childVC: abonementsVC, to: self.abonementView)
+        abonementsVC.titleLabel.text = "Созданные мной абонементы"
+        abonementsVC.abonements = trainerAbonements
+        abonementsVC.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-trainer")
+        abonementsVC.createButton.setTitle("Создать", for: .normal)
+        abonementsVC.createButton.addTarget(self, action: #selector(createAbonementButtonTapped), for: .touchUpInside)
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
@@ -206,9 +258,21 @@ extension TrainerViewController: AddContactDelegate {
     func addContact(contact: AbonementModel) {
         self.dismiss(animated: true) {
             self.trainerAbonements.insert(contact, at: 0)
-            self.abonementsViewController.abonements = self.trainerAbonements
-            self.abonementsViewController.reloadData()
+            self.abonementsVC.abonements = self.trainerAbonements
+            self.abonementsVC.reloadData()
             print(self.trainerAbonements.count)
         }
+    }
+}
+
+extension TrainerViewController: SetPlaceVСDelegate {
+    
+    func addPlace(place: PlaceModel) {
+        self.dismiss(animated: true) {
+            self.place = place
+            
+            self.displayState()
+        }
+        
     }
 }

@@ -112,15 +112,15 @@ class TrainerFromSearchViewController: UIViewController {
         trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
-        trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
-        trainingPlaceView.descriptionPlaceLabel.text = selectedTrainer?.trainingPlace
+        trainingPlaceView.placeImageView.image = selectedTrainer?.schoolImage
+        trainingPlaceView.addressLabel.text = selectedTrainer?.trainingPlace
         
-        trainingPlaceView.mapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
+        trainingPlaceView.openMapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
     }
     
     @objc private func mapButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        let vc = MapViewController()
+        let vc = FindPlaceViewController()
         vc.selectedTrainer = selectedTrainer
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)

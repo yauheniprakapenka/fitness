@@ -16,7 +16,7 @@
 		3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CA24E16A1500F823A8 /* TrainerModel.swift */; };
 		3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CF24E1A01500F823A8 /* TrainingModel.swift */; };
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
-		3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* MapViewController.swift */; };
+		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
 		3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927724E6F92400EEE0C6 /* FAlertView.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
@@ -64,6 +64,7 @@
 		3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
+		3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB022224ED977200A4808F /* PlaceModel.swift */; };
 		3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */; };
 		3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */; };
 		3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */; };
@@ -92,6 +93,9 @@
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
+		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
+		3EF15F8E24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */; };
+		3EF7A99524EEDA8D005A3BF9 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7A99424EEDA8D005A3BF9 /* ImagePickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,7 +109,7 @@
 		3E1752CA24E16A1500F823A8 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
 		3E1752CF24E1A01500F823A8 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
-		3E1752D724E1E99000F823A8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		3E3D927724E6F92400EEE0C6 /* FAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAlertView.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +157,7 @@
 		3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnum.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
+		3EDB022224ED977200A4808F /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -183,6 +188,9 @@
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
+		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
+		3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlaceAdd.swift; sourceTree = "<group>"; };
+		3EF7A99424EEDA8D005A3BF9 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -237,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
-				3E1752D724E1E99000F823A8 /* MapViewController.swift */,
 				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
 			);
@@ -347,6 +354,7 @@
 				3E444AB124D201350004B978 /* FViewItem.swift */,
 				3E444ABE24D340560004B978 /* FViewShape.swift */,
 				3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */,
+				3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -498,6 +506,7 @@
 				3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
+				3EDB022224ED977200A4808F /* PlaceModel.swift */,
 			);
 			path = ModelsNew;
 			sourceTree = "<group>";
@@ -570,9 +579,11 @@
 				3E0CDEB124EAE652001546CD /* Calendar */,
 				3E1752C524E15C9000F823A8 /* Chat */,
 				3EE2DDE224C0DAA800D85CAE /* Login */,
+				3EF15F8A24EC69DA00ED5A1C /* Map */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
+				3EF7A99424EEDA8D005A3BF9 /* ImagePickerViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -611,6 +622,15 @@
 				3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */,
 			);
 			path = RoleConverter;
+			sourceTree = "<group>";
+		};
+		3EF15F8A24EC69DA00ED5A1C /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */,
+				3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		AFF08E7C7FC1742220804DF5 /* Frameworks */ = {
@@ -743,6 +763,7 @@
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
+				3EF7A99524EEDA8D005A3BF9 /* ImagePickerViewController.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
 				3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */,
 				3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */,
@@ -768,7 +789,7 @@
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,
-				3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */,
+				3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */,
 				3E444AB224D201350004B978 /* FViewItem.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
@@ -784,12 +805,14 @@
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,
+				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
+				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
@@ -813,6 +836,7 @@
 				3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */,
 				3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */,
 				3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */,
+				3EF15F8E24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 				3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModelOld.swift in Sources */,

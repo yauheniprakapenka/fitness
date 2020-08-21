@@ -9,7 +9,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class MapViewController: UIViewController {
+class FindPlaceViewController: UIViewController {
     
     var mapView = MKMapView()
     let backButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад", size: 13)
@@ -78,9 +78,9 @@ class MapViewController: UIViewController {
         trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
-        trainingPlaceView.trainingPlaceImageView.image = selectedTrainer?.schoolImage
-        trainingPlaceView.descriptionPlaceLabel.text = selectedTrainer?.trainingPlace
-        trainingPlaceView.mapButton.isHidden = true
+        trainingPlaceView.placeImageView.image = selectedTrainer?.schoolImage
+        trainingPlaceView.addressLabel.text = selectedTrainer?.trainingPlace
+        trainingPlaceView.openMapButton.isHidden = true
     }
     
     private func configureTrainerView() {
