@@ -62,7 +62,7 @@ class CreateAbonementViewController: UIViewController {
         configureFViewColors()
         configureTapGestureFViewColors()
         
-        KeyboardHandler.shared.dismissKeyboard(view: view)
+        DismissKeyboardWhenTap.shared.dismissKeyboard(view: view)
     }
     
     private func configureLogoImageView() {

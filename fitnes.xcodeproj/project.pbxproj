@@ -37,7 +37,7 @@
 		3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FButtonSimple.swift */; };
 		3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118924E9845A00CAE51B /* ColorConverter.swift */; };
 		3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118B24E98C4300CAE51B /* FViewColors.swift */; };
-		3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */; };
+		3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118D24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift */; };
 		3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60119224E9E06700CAE51B /* ViewColorEnum.swift */; };
 		3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGenerator.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
@@ -64,6 +64,7 @@
 		3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
+		3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */; };
 		3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB022224ED977200A4808F /* PlaceModel.swift */; };
 		3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */; };
 		3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */; };
@@ -95,7 +96,7 @@
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
 		3EF15F8E24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */; };
-		3EF7A99524EEDA8D005A3BF9 /* ImagePickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7A99424EEDA8D005A3BF9 /* ImagePickerViewController.swift */; };
+		3EF7A99524EEDA8D005A3BF9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7A99424EEDA8D005A3BF9 /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,7 +131,7 @@
 		3E444AC024D35E2D0004B978 /* FButtonSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonSimple.swift; sourceTree = "<group>"; };
 		3E60118924E9845A00CAE51B /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		3E60118B24E98C4300CAE51B /* FViewColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewColors.swift; sourceTree = "<group>"; };
-		3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		3E60118D24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardWhenTap.swift; sourceTree = "<group>"; };
 		3E60119224E9E06700CAE51B /* ViewColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewColorEnum.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
@@ -157,6 +158,7 @@
 		3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnum.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
+		3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationConverter.swift; sourceTree = "<group>"; };
 		3EDB022224ED977200A4808F /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
@@ -190,7 +192,7 @@
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
 		3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlaceAdd.swift; sourceTree = "<group>"; };
-		3EF7A99424EEDA8D005A3BF9 /* ImagePickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerViewController.swift; sourceTree = "<group>"; };
+		3EF7A99424EEDA8D005A3BF9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -382,7 +384,7 @@
 		3E60118F24E9BEBA00CAE51B /* KeyboardHandler */ = {
 			isa = PBXGroup;
 			children = (
-				3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */,
+				3E60118D24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift */,
 			);
 			path = KeyboardHandler;
 			sourceTree = "<group>";
@@ -511,9 +513,18 @@
 			path = ModelsNew;
 			sourceTree = "<group>";
 		};
+		3ED8381624F10A3D00C12B42 /* GeolocationConverter */ = {
+			isa = PBXGroup;
+			children = (
+				3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */,
+			);
+			path = GeolocationConverter;
+			sourceTree = "<group>";
+		};
 		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3ED8381624F10A3D00C12B42 /* GeolocationConverter */,
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3E60118824E9844800CAE51B /* ColorConverter */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
@@ -583,7 +594,7 @@
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
-				3EF7A99424EEDA8D005A3BF9 /* ImagePickerViewController.swift */,
+				3EF7A99424EEDA8D005A3BF9 /* PhotoViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -763,7 +774,7 @@
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
-				3EF7A99524EEDA8D005A3BF9 /* ImagePickerViewController.swift in Sources */,
+				3EF7A99524EEDA8D005A3BF9 /* PhotoViewController.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
 				3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */,
 				3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */,
@@ -785,7 +796,8 @@
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
-				3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */,
+				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
+				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,

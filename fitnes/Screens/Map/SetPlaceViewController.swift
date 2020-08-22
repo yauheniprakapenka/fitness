@@ -14,9 +14,11 @@ protocol SetPlaceVСDelegate {
 }
 
 class SetPlaceViewController: UIViewController {
- 
+    
+    // MARK: - Properties
+    
     private let bottomView = UIView()
-    private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже появится предложенный адрес, который увидит атлет.")
+    private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже отредактируйте адрес, который увидит атлет.")
     private var placeTextField = FTextField(placeholderText: "Здесь можно отредактировать адрес", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     private let userPin = MKPointAnnotation()
@@ -26,9 +28,13 @@ class SetPlaceViewController: UIViewController {
     private var currentPhoto: UIImage?
     private var currentAddress: String?
     
+    private let addPhotoButton = FButtonSimple(title: "Прикрепить файл", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    
     private var placeModel: PlaceModel?
     
     var delegate: SetPlaceVСDelegate?
+    
+    let newMapView = MKMapView()
     
     private lazy var mkMapView: MKMapView = {
         let mapView = MKMapView(frame: view.frame)
@@ -45,11 +51,13 @@ class SetPlaceViewController: UIViewController {
         
         let myLongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
         myLongPress.addTarget(self, action: #selector(recognizeLongPress(_:)))
-        
         mapView.addGestureRecognizer(myLongPress)
         
         return mapView
     }()
+    
+    
+    // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +70,14 @@ class SetPlaceViewController: UIViewController {
         configureBottonView()
         configureDescriptionLabel()
         configurePlaceTextField()
+        configureAddPhotoButton()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
+    
+    
+    // MARK: - Private funcs
     
     private func configureNavigation() {
         navigationItem.title = "Место тренировки"
@@ -76,33 +91,6 @@ class SetPlaceViewController: UIViewController {
         navigationItem.rightBarButtonItem = saveButton
         navigationItem.rightBarButtonItem?.tintColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 15)!], for: .normal)
-    }
-    
-    @objc
-    private func cancelButtonTapped() {
-        dismiss(animated: true)
-    }
-    
-    @objc
-    private func saveButtonTapped() {
-        guard let currnetLatitude = currnetLatitude else { return }
-        guard let currentLongitude = currentLongitude else { return }
-        
-        if currentPhoto == nil {
-            currentPhoto = #imageLiteral(resourceName: "city-black-and-white")
-        }
-        
-        if currentAddress == nil {
-            currentAddress = "г. Санкт-Петербург, ул. Братьев Лизюковых, 77а"
-        }
-        
-        placeModel = PlaceModel(
-            address: currentAddress!,
-            placeImage: currentPhoto!,
-            lat: currnetLatitude,
-            long: currentLongitude)
-        
-        delegate?.addPlace(place: placeModel!)
     }
     
     private func configureBottonView() {
@@ -133,6 +121,59 @@ class SetPlaceViewController: UIViewController {
         descriptionLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -40).isActive = true
     }
     
+    private func configurePlaceTextField() {
+        bottomView.addSubview(placeTextField)
+        placeTextField.delegate = self
+        placeTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        placeTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
+        placeTextField.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 20).isActive = true
+        placeTextField.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -20).isActive = true
+        placeTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    private func configureAddPhotoButton() {
+        view.addSubview(addPhotoButton)
+        addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        addPhotoButton.contentHorizontalAlignment = .left
+        
+        addPhotoButton.topAnchor.constraint(equalTo: placeTextField.bottomAnchor, constant: 20).isActive = true
+        addPhotoButton.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 20).isActive = true
+        addPhotoButton.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -20).isActive = true
+        
+        addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
+    }
+    
+    
+    // MARK: - @objc funcs
+    
+    @objc
+    private func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc
+    private func saveButtonTapped() {
+        guard let currnetLatitude = currnetLatitude else { return }
+        guard let currentLongitude = currentLongitude else { return }
+        
+        if currentPhoto == nil {
+            currentPhoto = #imageLiteral(resourceName: "city-black-and-white")
+        }
+        
+        if currentAddress == nil {
+            currentAddress = "г. Санкт-Петербург, ул. Братьев Лизюковых, 77а"
+        }
+        
+        placeModel = PlaceModel(
+            address: currentAddress!,
+            placeImage: currentPhoto!,
+            lat: currnetLatitude,
+            long: currentLongitude)
+        
+        delegate?.addPlace(place: placeModel!)
+    }
+    
     @objc
     private func recognizeLongPress(_ sender: UILongPressGestureRecognizer) {
         
@@ -146,8 +187,8 @@ class SetPlaceViewController: UIViewController {
         let myCoordinate: CLLocationCoordinate2D = mkMapView.convert(location, toCoordinateFrom: mkMapView)
         
         userPin.coordinate = myCoordinate
-        userPin.title = "Тренировка"
-        userPin.subtitle = "будет здесь"
+        userPin.title = "Занятия"
+        userPin.subtitle = "здесь"
         
         mkMapView.addAnnotation(userPin)
         mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true) // для отображения title и subtitle
@@ -161,17 +202,17 @@ class SetPlaceViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    private func configurePlaceTextField() {
-        bottomView.addSubview(placeTextField)
-        placeTextField.delegate = self
-        placeTextField.translatesAutoresizingMaskIntoConstraints = false
-        
-        placeTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
-        placeTextField.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 20).isActive = true
-        placeTextField.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -20).isActive = true
-        placeTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    @objc
+    private func addPhotoButtonTapped() {
+        let vc = PhotoViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.delegate = self
+        present(vc, animated: true)
     }
 }
+
+
+// MARK: - MK Map View Delegate
 
 extension SetPlaceViewController: MKMapViewDelegate {
     
@@ -185,18 +226,26 @@ extension SetPlaceViewController: MKMapViewDelegate {
         
         print("latitude: \(annotation.coordinate.latitude), longitude: \(annotation.coordinate.longitude)")
         
-        currnetLatitude = annotation.coordinate.latitude
-        currentLongitude = annotation.coordinate.longitude
+        currnetLatitude = Double(annotation.coordinate.latitude)
+        currentLongitude = Double(annotation.coordinate.longitude)
+        
+        GeolocationConverter.shared.getAddress(latitude: currnetLatitude ?? 0, longitude: currentLongitude ?? 0) { (address) in
+            self.placeTextField.text = address
+        }
         
         return myPinView
     }
 }
 
+
+// MARK: - Photo View Controller Delegate
+
 extension SetPlaceViewController: PhotoViewControllerDelegate {
     
-    func addPhoto(image: UIImage) {
+    func addPhoto(photoimage: UIImage, photoTitle: String) {
         dismiss(animated: true) {
-            self.currentPhoto = image
+            self.currentPhoto = photoimage
+            self.addPhotoButton.setTitle(photoTitle, for: .normal)
         }
     }
 }
@@ -207,5 +256,25 @@ extension SetPlaceViewController: UITextFieldDelegate {
         placeTextField.resignFirstResponder()
         currentAddress = placeTextField.text
         return true
+    }
+}
+
+
+// MARK: - Keyboard Notification
+
+extension SetPlaceViewController {
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
 }

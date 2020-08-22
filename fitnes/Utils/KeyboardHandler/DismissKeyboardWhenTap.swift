@@ -8,9 +8,9 @@
 
 import UIKit
 
-class KeyboardHandler {
+class DismissKeyboardWhenTap {
     
-    static let shared = KeyboardHandler()
+    static let shared = DismissKeyboardWhenTap()
     
     func dismissKeyboard(view: UIView) {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))

@@ -18,8 +18,8 @@ class FButtonSimple: UIButton {
     init(title: String, titleColor: UIColor, size: CGFloat) {
         super.init(frame: .zero)
         
-        self.setTitle(title, for: .normal)
-        self.setTitleColor(titleColor, for: .normal)
+        setTitle(title, for: .normal)
+        setTitleColor(titleColor, for: .normal)
         titleLabel?.font = UIFont(name: "Helvetica", size: size)
         configure()
     }

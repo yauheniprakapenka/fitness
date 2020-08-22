@@ -1,5 +1,5 @@
 //
-//  ImagePickerViewController.swift
+//  PhotoViewController.swift
 //  fitnes
 //
 //  Created by yauheni prakapenka on 20.08.2020.
@@ -9,7 +9,7 @@
 import UIKit
 
 protocol PhotoViewControllerDelegate {
-    func addPhoto(image: UIImage)
+    func addPhoto(photoimage: UIImage, photoTitle: String)
 }
 
 class PhotoViewController: UIViewController {
@@ -63,15 +63,19 @@ class PhotoViewController: UIViewController {
     
 }
 
+
 extension PhotoViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
+//        print(fileUrl.lastPathComponent)
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             dismiss(animated: true)
             return
         }
         
-        delegate?.addPhoto(image: image)
+        delegate?.addPhoto(photoimage: image, photoTitle: fileUrl.lastPathComponent)
     }
 }
