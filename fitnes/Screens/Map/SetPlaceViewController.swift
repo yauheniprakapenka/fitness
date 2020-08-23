@@ -17,38 +17,31 @@ class SetPlaceViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let bottomView = UIView()
+    private let bottomContainerView = UIView()
     private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже отредактируйте адрес, который увидит атлет.")
-    private var placeTextField = FTextField(placeholderText: "Здесь можно отредактировать адрес", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    private var addressTextField = FTextField(placeholderText: "г. Гомель, ул. Кирова, 32а", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     private let userPin = MKPointAnnotation()
     
-    private var currnetLatitude: Double?
+    private var currentLatitude: Double?
     private var currentLongitude: Double?
     private var currentPhoto: UIImage?
     private var currentAddress: String?
+    private var currentFileName: String?
     
-    private let addPhotoButton = FButtonSimple(title: "Прикрепить файл", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    private let containerView = UIView()
+    private let deleteButton = UIButton()
+    private let addPhotoButton = UIButton()
+    private let paperclipImageView = UIImageView()
     
-    private var placeModel: PlaceModel?
+    var placeModel: PlaceModel?
     
     var delegate: SetPlaceVСDelegate?
-    
-    let newMapView = MKMapView()
     
     private lazy var mkMapView: MKMapView = {
         let mapView = MKMapView(frame: view.frame)
         mapView.delegate = self
-        
-        let latitude: CLLocationDegrees = 52.431296
-        let longitude: CLLocationDegrees = 31.005284
-        let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        mapView.setCenter(center, animated: true)
-        
-        let mySpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: center, span: mySpan)
-        mapView.region = myRegion
-        
+
         let myLongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
         myLongPress.addTarget(self, action: #selector(recognizeLongPress(_:)))
         mapView.addGestureRecognizer(myLongPress)
@@ -67,17 +60,53 @@ class SetPlaceViewController: UIViewController {
         
         configureNavigation()
         
-        configureBottonView()
+        configureBottonContainerView()
         configureDescriptionLabel()
         configurePlaceTextField()
+        
+        configureContainerView()
+        configureDeleteButton()
+        
+        configurePaperclipImage()
         configureAddPhotoButton()
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        displayPlaceOnMap(latitude: 52.52433369066986, longitude: 30.99177458767204)
+        
+        configurePlaceDaa()
     }
     
     
     // MARK: - Private funcs
+    
+    private func configurePlaceDaa() {
+        if placeModel != nil {
+            currentLatitude = placeModel!.latitude
+            currentLongitude = placeModel!.longitude
+            currentPhoto = placeModel?.photo
+            currentAddress = placeModel?.address
+            currentFileName = placeModel?.fileName
+            
+            addressTextField.text = currentAddress
+            addPhotoButton.setTitle(currentFileName, for: .normal)
+            displayPlaceOnMap(latitude: currentLatitude!, longitude: currentLongitude!)
+            
+            deleteButton.isHidden = false
+        }
+    }
+    
+    private func displayPlaceOnMap(latitude: Double, longitude: Double) {
+        let latitude: CLLocationDegrees = latitude
+        let longitude: CLLocationDegrees = longitude
+        let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        mkMapView.setCenter(center, animated: true)
+        
+        let mySpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: center, span: mySpan)
+        mkMapView.region = myRegion
+    }
     
     private func configureNavigation() {
         navigationItem.title = "Место тренировки"
@@ -93,53 +122,100 @@ class SetPlaceViewController: UIViewController {
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 15)!], for: .normal)
     }
     
-    private func configureBottonView() {
-        view.addSubview(bottomView)
-        bottomView.translatesAutoresizingMaskIntoConstraints = false
-        bottomView.backgroundColor = .white
-        bottomView.layer.cornerRadius = 10
-        bottomView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        bottomView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-        bottomView.layer.shadowOpacity = 0.1
-        bottomView.layer.shadowRadius = 2
-        bottomView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+    private func configureBottonContainerView() {
+        view.addSubview(bottomContainerView)
+        bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
+        bottomContainerView.backgroundColor = .white
+        bottomContainerView.layer.cornerRadius = 10
+        bottomContainerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        bottomContainerView.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        bottomContainerView.layer.shadowOpacity = 0.1
+        bottomContainerView.layer.shadowRadius = 2
+        bottomContainerView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
-        bottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        bottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-        bottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-        bottomView.heightAnchor.constraint(equalToConstant: view.frame.size.height / 4).isActive = true
+        bottomContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        bottomContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        bottomContainerView.heightAnchor.constraint(equalToConstant: view.frame.size.height / 4).isActive = true
     }
     
     private func configureDescriptionLabel() {
-        bottomView.addSubview(descriptionLabel)
+        bottomContainerView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.textAlignment = .center
         descriptionLabel.numberOfLines = 2
         
-        descriptionLabel.topAnchor.constraint(equalTo: bottomView.topAnchor, constant: 20).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 40).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -40).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 20).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 40).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -40).isActive = true
     }
     
     private func configurePlaceTextField() {
-        bottomView.addSubview(placeTextField)
-        placeTextField.delegate = self
-        placeTextField.translatesAutoresizingMaskIntoConstraints = false
+        bottomContainerView.addSubview(addressTextField)
+        addressTextField.delegate = self
+        addressTextField.translatesAutoresizingMaskIntoConstraints = false
+        addressTextField.returnKeyType = .done
         
-        placeTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
-        placeTextField.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 20).isActive = true
-        placeTextField.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -20).isActive = true
-        placeTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        addressTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
+        addressTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 20).isActive = true
+        addressTextField.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -20).isActive = true
+        addressTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    private func configureContainerView() {
+        view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        containerView.backgroundColor = .clear
+        
+        containerView.topAnchor.constraint(equalTo: addressTextField.bottomAnchor, constant: 16).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 20).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -20).isActive = true
+        containerView.heightAnchor.constraint(equalToConstant: 44).isActive = true
+    }
+    
+    private func configureDeleteButton() {
+        containerView.addSubview(deleteButton)
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.isHidden = true
+        
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .medium)
+        let iconImage = UIImage(systemName: "trash", withConfiguration: config)?.withTintColor(#colorLiteral(red: 0.5999526381, green: 0.6000268459, blue: 0.5999273658, alpha: 1), renderingMode: .alwaysOriginal)
+        
+        deleteButton.setImage(iconImage, for: .normal)
+        
+        deleteButton.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        deleteButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        deleteButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        deleteButton.widthAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+    }
+    
+    private func configurePaperclipImage() {
+        containerView.addSubview(paperclipImageView)
+        paperclipImageView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let config = UIImage.SymbolConfiguration(pointSize: 20, weight: .light, scale: .medium)
+        let iconImage = UIImage(systemName: "paperclip", withConfiguration: config)?.withTintColor(#colorLiteral(red: 0.3025592268, green: 0.6826873422, blue: 0.9980949759, alpha: 1), renderingMode: .alwaysOriginal)
+        
+        paperclipImageView.image = iconImage
+        
+        paperclipImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        paperclipImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        paperclipImageView.widthAnchor.constraint(equalToConstant: 24).isActive = true
+        paperclipImageView.heightAnchor.constraint(equalToConstant: 24).isActive = true
     }
     
     private func configureAddPhotoButton() {
-        view.addSubview(addPhotoButton)
+        containerView.addSubview(addPhotoButton)
         addPhotoButton.translatesAutoresizingMaskIntoConstraints = false
         addPhotoButton.contentHorizontalAlignment = .left
+        addPhotoButton.setTitle("Прикрепить файл", for: .normal)
+        addPhotoButton.setTitleColor(#colorLiteral(red: 0.3025592268, green: 0.6826873422, blue: 0.9980949759, alpha: 1), for: .normal)
+        addPhotoButton.titleLabel?.font = UIFont.systemFont(ofSize: 14, weight: .light)
         
-        addPhotoButton.topAnchor.constraint(equalTo: placeTextField.bottomAnchor, constant: 20).isActive = true
-        addPhotoButton.leadingAnchor.constraint(equalTo: bottomView.leadingAnchor, constant: 20).isActive = true
-        addPhotoButton.trailingAnchor.constraint(equalTo: bottomView.trailingAnchor, constant: -20).isActive = true
+        addPhotoButton.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        addPhotoButton.leadingAnchor.constraint(equalTo: paperclipImageView.trailingAnchor, constant: 6).isActive = true
+        addPhotoButton.trailingAnchor.constraint(equalTo: deleteButton.leadingAnchor, constant: -20).isActive = true
+        addPhotoButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         
         addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
     }
@@ -154,22 +230,27 @@ class SetPlaceViewController: UIViewController {
     
     @objc
     private func saveButtonTapped() {
-        guard let currnetLatitude = currnetLatitude else { return }
+        guard let currnetLatitude = currentLatitude else { return }
         guard let currentLongitude = currentLongitude else { return }
         
         if currentPhoto == nil {
-            currentPhoto = #imageLiteral(resourceName: "city-black-and-white")
+            currentPhoto = #imageLiteral(resourceName: "Photo")
         }
         
         if currentAddress == nil {
-            currentAddress = "г. Санкт-Петербург, ул. Братьев Лизюковых, 77а"
+            currentAddress = "Адрес не указан"
+        }
+        
+        if addPhotoButton.titleLabel?.text == nil {
+            currentAddress = "Прикрепить файл"
         }
         
         placeModel = PlaceModel(
             address: currentAddress!,
-            placeImage: currentPhoto!,
-            lat: currnetLatitude,
-            long: currentLongitude)
+            photo: currentPhoto!,
+            fileName: (addPhotoButton.titleLabel?.text)!,
+            latitude: currnetLatitude,
+            longitude: currentLongitude)
         
         delegate?.addPlace(place: placeModel!)
     }
@@ -188,26 +269,20 @@ class SetPlaceViewController: UIViewController {
         
         userPin.coordinate = myCoordinate
         userPin.title = "Занятия"
-        userPin.subtitle = "здесь"
+        userPin.subtitle = "будут здесь"
         
         mkMapView.addAnnotation(userPin)
         mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true) // для отображения title и subtitle
     }
-    
-    @objc
-    private func addPhotoImageViewTapped() {
-        let vc = PhotoViewController()
-        vc.delegate = self
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
+
     @objc
     private func addPhotoButtonTapped() {
-        let vc = PhotoViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.delegate = self
-        present(vc, animated: true)
+                let imagePicker = UIImagePickerController()
+                imagePicker.delegate = self
+                imagePicker.modalPresentationStyle = .fullScreen
+                imagePicker.sourceType = .photoLibrary
+                imagePicker.allowsEditing = false
+                present(imagePicker, animated: true)
     }
 }
 
@@ -226,11 +301,12 @@ extension SetPlaceViewController: MKMapViewDelegate {
         
         print("latitude: \(annotation.coordinate.latitude), longitude: \(annotation.coordinate.longitude)")
         
-        currnetLatitude = Double(annotation.coordinate.latitude)
+        currentLatitude = Double(annotation.coordinate.latitude)
         currentLongitude = Double(annotation.coordinate.longitude)
         
-        GeolocationConverter.shared.getAddress(latitude: currnetLatitude ?? 0, longitude: currentLongitude ?? 0) { (address) in
-            self.placeTextField.text = address
+        GeolocationConverter.shared.getAddress(latitude: currentLatitude ?? 0, longitude: currentLongitude ?? 0) { (address) in
+            self.addressTextField.text = address
+            self.currentAddress = address
         }
         
         return myPinView
@@ -238,23 +314,11 @@ extension SetPlaceViewController: MKMapViewDelegate {
 }
 
 
-// MARK: - Photo View Controller Delegate
-
-extension SetPlaceViewController: PhotoViewControllerDelegate {
-    
-    func addPhoto(photoimage: UIImage, photoTitle: String) {
-        dismiss(animated: true) {
-            self.currentPhoto = photoimage
-            self.addPhotoButton.setTitle(photoTitle, for: .normal)
-        }
-    }
-}
-
 extension SetPlaceViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        placeTextField.resignFirstResponder()
-        currentAddress = placeTextField.text
+        addressTextField.resignFirstResponder()
+        currentAddress = addressTextField.text
         return true
     }
 }
@@ -276,5 +340,28 @@ extension SetPlaceViewController {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
+    }
+}
+
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension SetPlaceViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
+//        print(fileUrl.lastPathComponent)
+        
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            dismiss(animated: true)
+            return
+        }
+        
+        currentFileName = fileUrl.lastPathComponent
+        addPhotoButton.setTitle(currentFileName, for: .normal)
+        currentPhoto = image
+        
+        dismiss(animated: true)
     }
 }

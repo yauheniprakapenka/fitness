@@ -96,7 +96,6 @@
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
 		3EF15F8E24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */; };
-		3EF7A99524EEDA8D005A3BF9 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF7A99424EEDA8D005A3BF9 /* PhotoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -192,7 +191,6 @@
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
 		3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlaceAdd.swift; sourceTree = "<group>"; };
-		3EF7A99424EEDA8D005A3BF9 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -594,7 +592,6 @@
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
-				3EF7A99424EEDA8D005A3BF9 /* PhotoViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -774,7 +771,6 @@
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
-				3EF7A99524EEDA8D005A3BF9 /* PhotoViewController.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
 				3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */,
 				3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */,

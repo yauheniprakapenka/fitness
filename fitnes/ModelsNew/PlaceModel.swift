@@ -10,7 +10,8 @@ import UIKit
 
 struct PlaceModel {
     var address: String
-    var placeImage: UIImage
-    var lat: Double
-    var long: Double
+    var photo: UIImage
+    var fileName: String
+    var latitude: Double
+    var longitude: Double
 }

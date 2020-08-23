@@ -139,16 +139,20 @@ class TrainerViewController: UIViewController {
         if let place = place {
             let contentView = FViewTrainingPlace()
             addPlaceView(view: contentView)
-            contentView.placeImageView.image = place.placeImage
+            contentView.placeImageView.image = place.photo
             contentView.addressLabel.text = place.address
+            
+            let contentViewTap = UITapGestureRecognizer(target: self, action: #selector(contentPlaceTapped))
+            contentView.addGestureRecognizer(contentViewTap)
+            
             return
         }
         
         let blankView = FViewTrainingPlaceAdd()
         addPlaceView(view: blankView)
         
-        let trainingPlaceTap = UITapGestureRecognizer(target: self, action: #selector(trainingPlaceTapped))
-        blankView.addGestureRecognizer(trainingPlaceTap)
+        let blackViewTap = UITapGestureRecognizer(target: self, action: #selector(blankPlaceTapped))
+        blankView.addGestureRecognizer(blackViewTap)
     }
     
     private func addPlaceView(view: UIView) {
@@ -160,9 +164,19 @@ class TrainerViewController: UIViewController {
     }
     
     @objc
-    private func trainingPlaceTapped() {
+    private func blankPlaceTapped() {
         let vc = SetPlaceViewController()
         vc.delegate = self
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    @objc
+    private func contentPlaceTapped() {
+        let vc = SetPlaceViewController()
+        vc.delegate = self
+        vc.placeModel = place
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
