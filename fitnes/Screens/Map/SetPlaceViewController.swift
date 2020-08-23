@@ -15,13 +15,16 @@ protocol SetPlaceVСDelegate {
 
 class SetPlaceViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Variable
     
     private let bottomContainerView = UIView()
     private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже отредактируйте адрес, который увидит атлет.")
     private var addressTextField = FTextField(placeholderText: "г. Гомель, ул. Кирова, 32а", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
     private let userPin = MKPointAnnotation()
+    
+    var locationManager = CLLocationManager()
+    var currentLocationStr = "Current location"
     
     private var currentLatitude: Double?
     private var currentLongitude: Double?
@@ -38,6 +41,8 @@ class SetPlaceViewController: UIViewController {
     
     var delegate: SetPlaceVСDelegate?
     
+    var isFirstOpenWithData = true
+    
     private lazy var mkMapView: MKMapView = {
         let mapView = MKMapView(frame: view.frame)
         mapView.delegate = self
@@ -50,7 +55,7 @@ class SetPlaceViewController: UIViewController {
     }()
     
     
-    // MARK: - View Controller Life Cycle
+    // MARK: - ViewController LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,33 +79,40 @@ class SetPlaceViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         configurePlaceOnMap()
+        
+        addressTextField.text = "currentAddress"
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        
+    }
     
-    // MARK: - Private funcs
+    // MARK: - Private Methods
     
     private func configurePlaceOnMap() {
-        if placeModel != nil {
-            currentLatitude = placeModel!.latitude
-            currentLongitude = placeModel!.longitude
-            currentPhoto = placeModel?.photo
-            currentAddress = placeModel?.address
-            currentFileName = placeModel?.fileName
-            
-            addressTextField.text = currentAddress
-            addPhotoButton.setTitle(currentFileName, for: .normal)
-            
-            moveMarkerToCoordinate(latitude: currentLatitude!, longitude: currentLongitude!)
-            
-            deleteButton.isHidden = false
-            
+        
+        guard let placeModel = placeModel else {
+            getCurrentLocation()
             return
         }
         
-        moveMarkerToCoordinate(latitude: 52.52433369066986, longitude: 30.99177458767204) // по умолчанию
+        currentLatitude = placeModel.latitude
+        currentLongitude = placeModel.longitude
+        currentFileName = placeModel.fileName
+         currentAddress = placeModel.address
+        
+        
+//        addressTextField.text = currentAddress
+        addPhotoButton.setTitle(currentFileName, for: .normal)
+        
+        moveScreenToCoordinate(latitude: currentLatitude!, longitude: currentLongitude!)
+        
+        deleteButton.isHidden = false
     }
     
-    private func moveMarkerToCoordinate(latitude: Double, longitude: Double) {
+    private func moveScreenToCoordinate(latitude: Double, longitude: Double) {
         let myCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
         mkMapView.setCenter(myCoordinate, animated: true)
         
@@ -228,8 +240,22 @@ class SetPlaceViewController: UIViewController {
         addPhotoButton.addTarget(self, action: #selector(addPhotoButtonTapped), for: .touchUpInside)
     }
     
+    private func getCurrentLocation() {
+        locationManager.requestAlwaysAuthorization()
+        locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            
+            locationManager.startUpdatingLocation()
+        }
+        
+
+    }
     
-    // MARK: - @objc funcs
+    
+    // MARK: - objc Methods
     
     @objc
     private func cancelButtonTapped() {
@@ -276,8 +302,8 @@ class SetPlaceViewController: UIViewController {
         let myCoordinate: CLLocationCoordinate2D = mkMapView.convert(location, toCoordinateFrom: mkMapView)
         
         userPin.coordinate = myCoordinate
-        userPin.title = "Занятия"
-        userPin.subtitle = "будут здесь"
+        userPin.title = "Место"
+        userPin.subtitle = "тренировок"
         
         mkMapView.addAnnotation(userPin)
         mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true) // для отображения title и subtitle
@@ -313,8 +339,15 @@ extension SetPlaceViewController: MKMapViewDelegate {
         currentLongitude = Double(annotation.coordinate.longitude)
         
         GeolocationConverter.shared.getAddress(latitude: currentLatitude ?? 0, longitude: currentLongitude ?? 0) { (address) in
-            self.addressTextField.text = address
+            
+            if self.placeModel != nil && self.isFirstOpenWithData {
+                self.addressTextField.text = self.currentAddress
+                self.isFirstOpenWithData = false
+                return
+            }
+            
             self.currentAddress = address
+            self.addressTextField.text = self.currentAddress
         }
         
         return myPinView
@@ -322,13 +355,41 @@ extension SetPlaceViewController: MKMapViewDelegate {
 }
 
 
+// MARK: - CL Location Manager Delegate
+
+extension SetPlaceViewController: CLLocationManagerDelegate {
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        
+        print("latitude \(locValue.latitude), longitude \(locValue.longitude)")
+        
+        moveScreenToCoordinate(latitude: locValue.latitude, longitude: locValue.longitude)
+        userPin.title = "Ваше"
+        userPin.subtitle = "местоположение"
+        
+        GeolocationConverter.shared.getAddress(latitude: locValue.latitude, longitude: locValue.longitude) { (address) in
+            self.addressTextField.text = address
+        }
+        
+        locationManager.stopUpdatingLocation()
+    }
+}
+
+
+// MARK: - UI Text Field Delegate
+
 extension SetPlaceViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         addressTextField.resignFirstResponder()
-        currentAddress = addressTextField.text
         return true
     }
+    
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        currentAddress = textField.text
+    }
+    
 }
 
 
@@ -352,14 +413,13 @@ extension SetPlaceViewController {
 }
 
 
-// MARK: - UIImagePickerControllerDelegate
+// MARK: - UI Image Picker Controller Delegate
 
 extension SetPlaceViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
-        //        print(fileUrl.lastPathComponent)
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             dismiss(animated: true)
