@@ -52,7 +52,7 @@ class TrainerViewController: UIViewController {
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.6)
+        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.8)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
@@ -127,17 +127,17 @@ class TrainerViewController: UIViewController {
         scrollView.addSubview(placeView)
         placeView.translatesAutoresizingMaskIntoConstraints = false
         
-        placeView.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 100).isActive = true
-        placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        placeView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        placeView.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 130).isActive = true
+        placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        placeView.heightAnchor.constraint(equalToConstant: 150).isActive = true
 
         displayState()
     }
     
     private func displayState() {
         if let place = place {
-            let contentView = FViewTrainingPlace()
+            let contentView = FViewContentPlace()
             addPlaceView(view: contentView)
             contentView.placeImageView.image = place.photo
             contentView.addressLabel.text = place.address
@@ -148,7 +148,7 @@ class TrainerViewController: UIViewController {
             return
         }
         
-        let blankView = FViewTrainingPlaceAdd()
+        let blankView = FViewBlankPlace()
         addPlaceView(view: blankView)
         
         let blackViewTap = UITapGestureRecognizer(target: self, action: #selector(blankPlaceTapped))

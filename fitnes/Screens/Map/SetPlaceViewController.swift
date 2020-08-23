@@ -41,7 +41,7 @@ class SetPlaceViewController: UIViewController {
     private lazy var mkMapView: MKMapView = {
         let mapView = MKMapView(frame: view.frame)
         mapView.delegate = self
-
+        
         let myLongPress: UILongPressGestureRecognizer = UILongPressGestureRecognizer()
         myLongPress.addTarget(self, action: #selector(recognizeLongPress(_:)))
         mapView.addGestureRecognizer(myLongPress)
@@ -73,15 +73,13 @@ class SetPlaceViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
         
-        displayPlaceOnMap(latitude: 52.52433369066986, longitude: 30.99177458767204)
-        
-        configurePlaceDaa()
+        configurePlaceOnMap()
     }
     
     
     // MARK: - Private funcs
     
-    private func configurePlaceDaa() {
+    private func configurePlaceOnMap() {
         if placeModel != nil {
             currentLatitude = placeModel!.latitude
             currentLongitude = placeModel!.longitude
@@ -91,21 +89,31 @@ class SetPlaceViewController: UIViewController {
             
             addressTextField.text = currentAddress
             addPhotoButton.setTitle(currentFileName, for: .normal)
-            displayPlaceOnMap(latitude: currentLatitude!, longitude: currentLongitude!)
+            
+            moveMarkerToCoordinate(latitude: currentLatitude!, longitude: currentLongitude!)
             
             deleteButton.isHidden = false
+            
+            return
         }
+        
+        moveMarkerToCoordinate(latitude: 52.52433369066986, longitude: 30.99177458767204) // по умолчанию
     }
     
-    private func displayPlaceOnMap(latitude: Double, longitude: Double) {
-        let latitude: CLLocationDegrees = latitude
-        let longitude: CLLocationDegrees = longitude
-        let center: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
-        mkMapView.setCenter(center, animated: true)
+    private func moveMarkerToCoordinate(latitude: Double, longitude: Double) {
+        let myCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
+        mkMapView.setCenter(myCoordinate, animated: true)
         
         let mySpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: center, span: mySpan)
+        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: myCoordinate, span: mySpan)
         mkMapView.region = myRegion
+        
+        userPin.coordinate = myCoordinate
+        userPin.title = "Занятия"
+        userPin.subtitle = "будут здесь"
+        
+        mkMapView.addAnnotation(userPin)
+        mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true) // для отображения title и subtitle
     }
     
     private func configureNavigation() {
@@ -234,7 +242,7 @@ class SetPlaceViewController: UIViewController {
         guard let currentLongitude = currentLongitude else { return }
         
         if currentPhoto == nil {
-            currentPhoto = #imageLiteral(resourceName: "Photo")
+            currentPhoto = #imageLiteral(resourceName: "city-black-and-white")
         }
         
         if currentAddress == nil {
@@ -274,15 +282,15 @@ class SetPlaceViewController: UIViewController {
         mkMapView.addAnnotation(userPin)
         mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true) // для отображения title и subtitle
     }
-
+    
     @objc
     private func addPhotoButtonTapped() {
-                let imagePicker = UIImagePickerController()
-                imagePicker.delegate = self
-                imagePicker.modalPresentationStyle = .fullScreen
-                imagePicker.sourceType = .photoLibrary
-                imagePicker.allowsEditing = false
-                present(imagePicker, animated: true)
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .fullScreen
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = false
+        present(imagePicker, animated: true)
     }
 }
 
@@ -351,7 +359,7 @@ extension SetPlaceViewController: UINavigationControllerDelegate, UIImagePickerC
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let fileUrl = info[UIImagePickerController.InfoKey.imageURL] as? URL else { return }
-//        print(fileUrl.lastPathComponent)
+        //        print(fileUrl.lastPathComponent)
         
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             dismiss(animated: true)

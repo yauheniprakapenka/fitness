@@ -19,7 +19,7 @@ class TrainerFromSearchViewController: UIViewController {
     let headerView = UIView()
     let itemsView = UIView()
     let comingTrainingView = UIView()
-    let trainingPlaceView = FViewTrainingPlace()
+    let trainingPlaceView = FViewContentPlace()
     let myAbonementsView = UIView()
     
     var trainerAbonement = [
@@ -114,16 +114,6 @@ class TrainerFromSearchViewController: UIViewController {
         trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         trainingPlaceView.placeImageView.image = selectedTrainer?.schoolImage
         trainingPlaceView.addressLabel.text = selectedTrainer?.trainingPlace
-        
-        trainingPlaceView.openMapButton.addTarget(self, action: #selector(mapButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc private func mapButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        let vc = FindPlaceViewController()
-        vc.selectedTrainer = selectedTrainer
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
     }
     
     private func configureMyAbonements() {

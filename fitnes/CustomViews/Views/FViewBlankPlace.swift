@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FViewTrainingPlaceAdd: UIView {
+class FViewBlankPlace: UIView {
     
     let addPlaceLabel = UILabel()
     let backgroundImageView = UIImageView()

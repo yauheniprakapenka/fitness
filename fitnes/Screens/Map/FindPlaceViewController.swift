@@ -13,7 +13,7 @@ class FindPlaceViewController: UIViewController {
     
     var mapView = MKMapView()
     let backButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад", size: 13)
-    let trainingPlaceView = FViewTrainingPlace()
+    let trainingPlaceView = FViewContentPlace()
     let locationManager = CLLocationManager()
     var selectedTrainer: TrainerModel?
     let trainerContainerView = UIView()
@@ -80,7 +80,6 @@ class FindPlaceViewController: UIViewController {
         
         trainingPlaceView.placeImageView.image = selectedTrainer?.schoolImage
         trainingPlaceView.addressLabel.text = selectedTrainer?.trainingPlace
-        trainingPlaceView.openMapButton.isHidden = true
     }
     
     private func configureTrainerView() {

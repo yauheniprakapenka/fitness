@@ -81,7 +81,7 @@
 		3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
 		3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */; };
-		3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */; };
+		3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */; };
 		3EE586F624DF31D000CA0530 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F524DF31D000CA0530 /* CalendarViewController.swift */; };
 		3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */; };
 		3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */; };
@@ -95,7 +95,7 @@
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
-		3EF15F8E24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */; };
+		3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,7 +176,7 @@
 		3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerViewController.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
 		3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerFromSearchViewController.swift; sourceTree = "<group>"; };
-		3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlace.swift; sourceTree = "<group>"; };
+		3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewContentPlace.swift; sourceTree = "<group>"; };
 		3EE586F524DF31D000CA0530 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingCell.swift; sourceTree = "<group>"; };
 		3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekConverter.swift; sourceTree = "<group>"; };
@@ -190,7 +190,7 @@
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
-		3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlaceAdd.swift; sourceTree = "<group>"; };
+		3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewBlankPlace.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -349,12 +349,12 @@
 			isa = PBXGroup;
 			children = (
 				3E3D927724E6F92400EEE0C6 /* FAlertView.swift */,
+				3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */,
 				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
+				3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */,
 				3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */,
 				3E444AB124D201350004B978 /* FViewItem.swift */,
 				3E444ABE24D340560004B978 /* FViewShape.swift */,
-				3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */,
-				3EF15F8D24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -787,7 +787,7 @@
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
-				3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */,
+				3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */,
 				3EE5870024DFBF4900CA0530 /* String + Extension.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
@@ -844,7 +844,7 @@
 				3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */,
 				3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */,
 				3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */,
-				3EF15F8E24EC6BEE00ED5A1C /* FViewTrainingPlaceAdd.swift in Sources */,
+				3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 				3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModelOld.swift in Sources */,
