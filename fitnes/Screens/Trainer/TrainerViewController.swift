@@ -176,7 +176,7 @@ class TrainerViewController: UIViewController {
     private func contentPlaceTapped() {
         let vc = SetPlaceViewController()
         vc.delegate = self
-        vc.placeModel = place
+        vc.place = place
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -281,7 +281,7 @@ extension TrainerViewController: AddContactDelegate {
 
 extension TrainerViewController: SetPlaceVСDelegate {
     
-    func addPlace(place: PlaceModel) {
+    func addPlace(place: PlaceModel?) {
         self.dismiss(animated: true) {
             self.place = place
             

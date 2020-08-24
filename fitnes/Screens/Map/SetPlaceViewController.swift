@@ -10,7 +10,7 @@ import UIKit
 import MapKit
 
 protocol SetPlaceVСDelegate {
-    func addPlace(place: PlaceModel)
+    func addPlace(place: PlaceModel?)
 }
 
 class SetPlaceViewController: UIViewController {
@@ -45,7 +45,7 @@ class SetPlaceViewController: UIViewController {
     
     private let paperclipImageView = UIImageView()
     
-    var placeModel: PlaceModel?
+    var place: PlaceModel?
     
     var delegate: SetPlaceVСDelegate?
     
@@ -102,7 +102,7 @@ class SetPlaceViewController: UIViewController {
     
     private func configurePlaceOnMap() {
         
-        guard let placeModel = placeModel else {
+        guard let placeModel = place else {
             getCurrentLocation()
             return
         }
@@ -110,10 +110,8 @@ class SetPlaceViewController: UIViewController {
         currentLatitude = placeModel.latitude
         currentLongitude = placeModel.longitude
         currentFileName = placeModel.fileName
-         currentAddress = placeModel.address
+        currentAddress = placeModel.address
         
-        
-//        addressTextField.text = currentAddress
         addPhotoButton.setTitle(currentFileName, for: .normal)
         
         moveScreenToCoordinate(latitude: currentLatitude!, longitude: currentLongitude!)
@@ -134,7 +132,7 @@ class SetPlaceViewController: UIViewController {
         userPin.subtitle = "будут здесь"
         
         mkMapView.addAnnotation(userPin)
-        mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true) // для отображения title и subtitle
+        mkMapView.selectAnnotation(mkMapView.annotations[0], animated: true)
     }
     
     private func configureNavigation() {
@@ -261,8 +259,6 @@ class SetPlaceViewController: UIViewController {
             
             locationManager.startUpdatingLocation()
         }
-        
-
     }
     
     
@@ -290,14 +286,14 @@ class SetPlaceViewController: UIViewController {
             currentAddress = "Прикрепить файл"
         }
         
-        placeModel = PlaceModel(
+        place = PlaceModel(
             address: currentAddress!,
             photo: currentPhoto!,
             fileName: (addPhotoButton.titleLabel?.text)!,
             latitude: currnetLatitude,
             longitude: currentLongitude)
         
-        delegate?.addPlace(place: placeModel!)
+        delegate?.addPlace(place: place!)
     }
     
     @objc
@@ -312,6 +308,7 @@ class SetPlaceViewController: UIViewController {
         alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         alertView.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
+        alertView.actionButton.addTarget(self, action: #selector(alertActionButtonTapped), for: .touchUpInside)
     }
     
     @objc
@@ -348,6 +345,14 @@ class SetPlaceViewController: UIViewController {
     private func alertCancelButtonTapped() {
         alertView.removeFromSuperview()
     }
+    
+    @objc
+    private func alertActionButtonTapped() {
+        alertView.removeFromSuperview()
+        
+        self.place = nil
+        self.delegate?.addPlace(place: self.place)
+    }
 }
 
 
@@ -371,7 +376,7 @@ extension SetPlaceViewController: MKMapViewDelegate {
         
         GeolocationConverter.shared.getAddress(latitude: currentLatitude ?? 0, longitude: currentLongitude ?? 0) { (address) in
             
-            if self.placeModel != nil && self.isFirstOpenWithData {
+            if self.place != nil && self.isFirstOpenWithData {
                 self.addressTextField.text = self.currentAddress
                 self.isFirstOpenWithData = false
                 return

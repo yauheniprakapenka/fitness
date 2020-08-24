@@ -34,10 +34,10 @@ class FViewContentPlace: UIView {
         backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
         
-        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSize(width: 0, height: 1)//CGSize.zero
-        layer.shadowRadius = 4
+        layer.shadowRadius = 2.0
     }
     
     private func configureTrainingPlaceImageView() {
