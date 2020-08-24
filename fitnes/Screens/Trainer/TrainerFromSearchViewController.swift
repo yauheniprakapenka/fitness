@@ -10,23 +10,32 @@ import UIKit
 
 class TrainerFromSearchViewController: UIViewController {
     
-    var scrollView: UIScrollView!
-    var selectedTrainer: TrainerModel?
+    // MARK: - Variables
     
-    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
-    let moreButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    private var scrollView: UIScrollView!
     
-    let headerView = UIView()
-    let itemsView = UIView()
-    let comingTrainingView = UIView()
-    let trainingPlaceView = FViewContentPlace()
-    let myAbonementsView = UIView()
+    private let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
+    private let moreButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    
+    private let headerView = UIView()
+    private let itemsView = UIView()
+    private let comingTrainingView = UIView()
+    private let abonementsView = UIView()
+    
+    private let placeView = FViewContentPlace()
+    
+    var trainer: TrainerModel?
     
     var trainerAbonement = [
         AbonementModel(abonementName: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", countVisit: 12, daysLeft: 5),
         AbonementModel(abonementName: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", countVisit: 14, daysLeft: 44),
         AbonementModel(abonementName: "Пенсионный", cost: "1 месяц - 18 руб.", color: "orange", countVisit:8, daysLeft: 90)
     ]
+    
+    let place = PlaceModel(address: "Ул. Тимофеенко, 23", photo: #imageLiteral(resourceName: "kirova"), fileName: "", latitude: 52.44153252930357, longitude: 31.00078923354539)
+    
+    
+    // MARK: - ViewController LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,17 +44,20 @@ class TrainerFromSearchViewController: UIViewController {
         configureScrollView()
         configureTitleLabel()
         configureMoreButton()
-        configureHeaderLayout()
+        configureHeaderView()
         
         AddChildVC()
         
         configureItemsView()
         configureComingTrainingView()
         configureTrainingPlaceView()
-        configureMyAbonements()
+        configureAbonementsView()
         
-        print(selectedTrainer as Any)
+        print(trainer as Any)
     }
+    
+    
+    // MARK: - Private Methods
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -79,7 +91,7 @@ class TrainerFromSearchViewController: UIViewController {
         present(nav, animated: true)
     }
     
-    private func configureHeaderLayout() {
+    private func configureHeaderView() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 20).isActive = true
@@ -107,29 +119,27 @@ class TrainerFromSearchViewController: UIViewController {
     }
     
     private func configureTrainingPlaceView() {
-        scrollView.addSubview(trainingPlaceView)
-        trainingPlaceView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 110).isActive = true
-        trainingPlaceView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        trainingPlaceView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        trainingPlaceView.heightAnchor.constraint(equalToConstant: 140).isActive = true
-        trainingPlaceView.placeImageView.image = selectedTrainer?.schoolImage
-        trainingPlaceView.addressLabel.text = selectedTrainer?.trainingPlace
+        scrollView.addSubview(placeView)
+        placeView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 110).isActive = true
+        placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        placeView.heightAnchor.constraint(equalToConstant: 140).isActive = true
+        
+        placeView.placeImageView.image = place.photo
+        placeView.addressLabel.text = place.address
+        
+        let placeViewTap = UITapGestureRecognizer(target: self, action: #selector(placeViewTapped))
+        placeView.addGestureRecognizer(placeViewTap)
+        placeView.isUserInteractionEnabled = true
     }
     
-    private func configureMyAbonements() {
-        scrollView.addSubview(myAbonementsView)
-        myAbonementsView.translatesAutoresizingMaskIntoConstraints = false
-        myAbonementsView.topAnchor.constraint(equalTo: trainingPlaceView.bottomAnchor, constant: 40).isActive = true
-        myAbonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        myAbonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        myAbonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
-    }
-    
-    @objc private func writeButtonTapped() {
-        let vc = ChatViewController()
-        vc.modalPresentationStyle = .fullScreen
-        vc.selectedTrainer = selectedTrainer
-        present(vc, animated: true)
+    private func configureAbonementsView() {
+        scrollView.addSubview(abonementsView)
+        abonementsView.translatesAutoresizingMaskIntoConstraints = false
+        abonementsView.topAnchor.constraint(equalTo: placeView.bottomAnchor, constant: 40).isActive = true
+        abonementsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        abonementsView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        abonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
     }
     
     private func AddChildVC() {
@@ -137,8 +147,8 @@ class TrainerFromSearchViewController: UIViewController {
         let headerViewController = HeaderViewController()
         
         self.add(childVC: headerViewController, to: self.headerView)
-        headerViewController.nameLabel.text = selectedTrainer?.trainerName
-        headerViewController.avatarImageView.image = selectedTrainer?.avatarImage
+        headerViewController.nameLabel.text = trainer?.trainerName
+        headerViewController.avatarImageView.image = trainer?.avatarImage
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
@@ -148,7 +158,7 @@ class TrainerFromSearchViewController: UIViewController {
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         
         let abonementsViewController = AbonementsViewController()
-        self.add(childVC: abonementsViewController, to: self.myAbonementsView)
+        self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.titleLabel.text = "Приобрести абонемент"
         abonementsViewController.abonements = trainerAbonement
         abonementsViewController.currentVC = .TrainerFormSearch
@@ -159,6 +169,27 @@ class TrainerFromSearchViewController: UIViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
+    }
+    
+    
+    // MARK: - objc Methods
+    
+    @objc
+    private func writeButtonTapped() {
+        let vc = ChatViewController()
+        vc.modalPresentationStyle = .fullScreen
+        vc.selectedTrainer = trainer
+        present(vc, animated: true)
+    }
+    
+    @objc
+    private func placeViewTapped() {
+        let vc = FindPlaceViewController()
+        vc.trainer = trainer
+        vc.place = place
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
     
 }

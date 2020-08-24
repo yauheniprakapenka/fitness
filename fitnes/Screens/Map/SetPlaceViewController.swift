@@ -15,7 +15,7 @@ protocol SetPlaceVСDelegate {
 
 class SetPlaceViewController: UIViewController {
     
-    // MARK: - Variable
+    // MARK: - Variables
     
     private let bottomContainerView = UIView()
     
@@ -92,12 +92,6 @@ class SetPlaceViewController: UIViewController {
         addressTextField.text = "currentAddress"
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        
-        
-    }
-    
     // MARK: - Private Methods
     
     private func configurePlaceOnMap() {
@@ -120,14 +114,14 @@ class SetPlaceViewController: UIViewController {
     }
     
     private func moveScreenToCoordinate(latitude: Double, longitude: Double) {
-        let myCoordinate = CLLocationCoordinate2DMake(latitude, longitude)
-        mkMapView.setCenter(myCoordinate, animated: true)
+        let coordinate = CLLocationCoordinate2DMake(latitude, longitude)
+        mkMapView.setCenter(coordinate, animated: true)
         
         let mySpan: MKCoordinateSpan = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: myCoordinate, span: mySpan)
+        let myRegion: MKCoordinateRegion = MKCoordinateRegion(center: coordinate, span: mySpan)
         mkMapView.region = myRegion
         
-        userPin.coordinate = myCoordinate
+        userPin.coordinate = coordinate
         userPin.title = "Занятия"
         userPin.subtitle = "будут здесь"
         

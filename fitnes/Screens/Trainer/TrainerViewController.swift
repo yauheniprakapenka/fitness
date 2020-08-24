@@ -227,29 +227,29 @@ class TrainerViewController: UIViewController {
     private func AddChildVC() {
         view.backgroundColor = .white
         
-        // headerViewController
+        // headerVC
         
         let headerViewController = HeaderViewController()
         self.add(childVC: headerViewController, to: self.headerView)
         headerViewController.nameLabel.text = "Кристина Птицами"
         
-        // itemsTrainerViewController
+        // itemsTrainerVC
         
         let itemsTrainerViewController = ItemsTrainerViewController()
         self.add(childVC: itemsTrainerViewController, to: self.itemsView)
         itemsTrainerViewController.createButton.setTitle("Добавить тренировку", for: .normal)
         itemsTrainerViewController.createButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
         
-        // trainingViewController
+        // trainingVC
         
         self.add(childVC: trainingVC, to: self.trainingView)
         trainingVC.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
         
-        // ExercisesViewController
+        // ExercisesVC
         
         self.add(childVC: ExercisesViewController(), to: self.exerciseView)
         
-        // abonementsViewController
+        // abonementsVC
         
         self.add(childVC: abonementsVC, to: self.abonementView)
         abonementsVC.titleLabel.text = "Созданные мной абонементы"
