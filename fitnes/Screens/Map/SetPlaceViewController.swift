@@ -18,6 +18,12 @@ class SetPlaceViewController: UIViewController {
     // MARK: - Variable
     
     private let bottomContainerView = UIView()
+    
+    let alertView = FAlertView(
+        question: "Вы хотите удалить\nместо тренировки?",
+        description: "Вы всегда сможете\nдобавить его снова",
+        actionButtonTitle: "Удалить")
+    
     private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже отредактируйте адрес, который увидит атлет.")
     private var addressTextField = FTextField(placeholderText: "г. Гомель, ул. Кирова, 32а", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
@@ -33,8 +39,10 @@ class SetPlaceViewController: UIViewController {
     private var currentFileName: String?
     
     private let containerView = UIView()
+    
     private let deleteButton = UIButton()
     private let addPhotoButton = UIButton()
+    
     private let paperclipImageView = UIImageView()
     
     var placeModel: PlaceModel?
@@ -42,6 +50,7 @@ class SetPlaceViewController: UIViewController {
     var delegate: SetPlaceVСDelegate?
     
     var isFirstOpenWithData = true
+    
     
     private lazy var mkMapView: MKMapView = {
         let mapView = MKMapView(frame: view.frame)
@@ -207,6 +216,8 @@ class SetPlaceViewController: UIViewController {
         deleteButton.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         deleteButton.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
         deleteButton.widthAnchor.constraint(equalTo: containerView.heightAnchor).isActive = true
+        
+        deleteButton.addTarget(self, action: #selector(deleteButtonTapped), for: .touchUpInside)
     }
     
     private func configurePaperclipImage() {
@@ -290,6 +301,20 @@ class SetPlaceViewController: UIViewController {
     }
     
     @objc
+    private func deleteButtonTapped() {
+        
+        view.addSubview(alertView)
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        
+        alertView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        alertView.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
     private func recognizeLongPress(_ sender: UILongPressGestureRecognizer) {
         
         if sender.state != UIGestureRecognizer.State.began {
@@ -318,6 +343,11 @@ class SetPlaceViewController: UIViewController {
         imagePicker.allowsEditing = false
         present(imagePicker, animated: true)
     }
+    
+    @objc
+    private func alertCancelButtonTapped() {
+        alertView.removeFromSuperview()
+    }
 }
 
 
@@ -332,6 +362,7 @@ extension SetPlaceViewController: MKMapViewDelegate {
         myPinView.animatesDrop = true
         myPinView.canShowCallout = true
         myPinView.annotation = annotation
+        
         
         print("latitude: \(annotation.coordinate.latitude), longitude: \(annotation.coordinate.longitude)")
         

@@ -36,8 +36,8 @@ class FViewContentPlace: UIView {
         
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.1
-        layer.shadowOffset = CGSize(width: 0, height: 3)//CGSize.zero
-        layer.shadowRadius = 1
+        layer.shadowOffset = CGSize(width: 0, height: 1)//CGSize.zero
+        layer.shadowRadius = 4
     }
     
     private func configureTrainingPlaceImageView() {
@@ -61,7 +61,7 @@ class FViewContentPlace: UIView {
     
     private func configureTrainingPlaceLabel() {
         addSubview(addressLabel)
-        addressLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10).isActive = true
+        addressLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: placeImageView.trailingAnchor, constant: 20).isActive = true
         addressLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20).isActive = true
         addressLabel.numberOfLines = 3
@@ -71,7 +71,7 @@ class FViewContentPlace: UIView {
         addSubview(seeOnMapLabel)
         seeOnMapLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        seeOnMapLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -10).isActive = true
+        seeOnMapLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20).isActive = true
         seeOnMapLabel.leadingAnchor.constraint(equalTo: placeImageView.trailingAnchor, constant: 20).isActive = true
         seeOnMapLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }

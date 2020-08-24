@@ -193,8 +193,6 @@ class LoginViewController: UIViewController {
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
-    
-    
 }
 
 
