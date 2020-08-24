@@ -13,9 +13,9 @@ class ConverterRoleToEnum {
     func roleToEnum(role: String) -> RoleEnum? {
         switch role {
         case "Athlete":
-            return .Athlete
+            return .athlete
         case "Trainer":
-            return .Trainer
+            return .trainer
         default:
             return nil
         }

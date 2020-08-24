@@ -8,7 +8,7 @@
 
 extension FirestoreService {
     
-    func isTrainerExist(completion: @escaping () -> ()) {
+    func isTrainerExist(completion: @escaping () -> Void) {
         let docRef = db.collection("trainers").document(profileInfoModel.uid)
         
         docRef.getDocument { (document, error) in

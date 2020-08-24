@@ -37,7 +37,7 @@ class TrainerFromSearchViewController: UIViewController {
         configureMoreButton()
         configureHeaderLayout()
         
-        AddChildVC()
+        addChildVC()
         
         configureItemsView()
         configureComingTrainingView()
@@ -142,7 +142,7 @@ class TrainerFromSearchViewController: UIViewController {
         present(vc, animated: true)
     }
     
-    private func AddChildVC() {
+    private func addChildVC() {
         view.backgroundColor = .white
         let headerViewController = HeaderViewController()
         
@@ -161,7 +161,7 @@ class TrainerFromSearchViewController: UIViewController {
         self.add(childVC: abonementsViewController, to: self.myAbonementsView)
         abonementsViewController.titleLabel.text = "Приобрести абонемент"
         abonementsViewController.abonements = trainerAbonement
-        abonementsViewController.currentVC = .TrainerFormSearch
+        abonementsViewController.currentVC = .trainerFormSearch
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

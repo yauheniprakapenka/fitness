@@ -22,7 +22,6 @@ class MyExerciseCollectionCell: UICollectionViewCell {
     let exerciseNameLabel = FLabel(fontSize: 14, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "")
     let kindInventoryLabel = FLabel(fontSize: 16, weight: .regular, color: .black, message: "")
  
-    
     fileprivate let logoImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")
@@ -61,7 +60,6 @@ class MyExerciseCollectionCell: UICollectionViewCell {
             exerciseNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             exerciseNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             
-
             kindInventoryLabel.topAnchor.constraint(equalTo: exerciseNameLabel.bottomAnchor, constant: 8),
             kindInventoryLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8)
         ])

@@ -64,8 +64,7 @@ class FAlertView: UIView {
         cancelButton.setTitle("Отменить", for: .normal)
         cancelButton.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+                
         confirmButton.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
         confirmButton.translatesAutoresizingMaskIntoConstraints = false
     }

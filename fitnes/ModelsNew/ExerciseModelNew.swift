@@ -16,5 +16,3 @@ struct ExerciseModelNew {
     var distance: String?
     var videoURL: String?
 }
-
-

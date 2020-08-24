@@ -12,9 +12,9 @@ class ConverterRoleToString {
     
     func roleToString(role: RoleEnum?) -> String {
         switch role {
-        case .Athlete:
+        case .athlete:
             return "Athlete"
-        case .Trainer:
+        case .trainer:
             return "Trainer"
         default:
             return "Роль не найдена"

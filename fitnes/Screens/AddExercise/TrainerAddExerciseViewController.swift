@@ -41,8 +41,6 @@ class TrainerAddExerciseViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
         configureScrollView()
         configureSegmnetedControl()
         
@@ -61,8 +59,6 @@ class TrainerAddExerciseViewController: UIViewController {
 //
 //        setupTableView()
     }
-    
-    
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))

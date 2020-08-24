@@ -41,13 +41,13 @@ class AthleteViewController: UIViewController {
         configureTrainingLayout()
         configureAbonements()
         
-        AddChildVC()
+        addChildVC()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
-        abonementsViewController.currentVC = .AthletVC
+        abonementsViewController.currentVC = .athletVC
     }
 
     private func configureBackButton() {
@@ -132,7 +132,7 @@ class AthleteViewController: UIViewController {
         abonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
-    private func AddChildVC() {
+    private func addChildVC() {
         view.backgroundColor = .white
         
         let headerViewController = HeaderViewController()
@@ -150,7 +150,7 @@ class AthleteViewController: UIViewController {
         self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.abonements = athleteAbonement
         abonementsViewController.emptyAbonementImageView.image = #imageLiteral(resourceName: "empty-abonement-athlete")
-        abonementsViewController.currentVC = .AthletVC
+        abonementsViewController.currentVC = .athletVC
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {

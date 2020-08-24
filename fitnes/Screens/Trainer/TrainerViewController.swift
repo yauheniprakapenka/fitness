@@ -40,7 +40,7 @@ class TrainerViewController: UIViewController {
         configureExercise()
         configureAbonements()
         
-        AddChildVC()
+        addChildVC()
     }
  
     private func configureScrollView() {
@@ -158,7 +158,7 @@ class TrainerViewController: UIViewController {
     
     // MARK: - Add Child VC
     
-    private func AddChildVC() {
+    private func addChildVC() {
         view.backgroundColor = .white
         
         // headerViewController

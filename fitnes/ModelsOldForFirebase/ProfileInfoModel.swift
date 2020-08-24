@@ -15,4 +15,3 @@ struct ProfileInfoModel: Decodable {
     var firstName: String
     var role: String
 }
-

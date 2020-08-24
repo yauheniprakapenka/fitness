@@ -111,8 +111,6 @@ class ChatViewController: UIViewController {
         chatBotAnswer(scenario: sendMessageCount)
     }
     
-    
-    
     private func configureChatTextField() {
         view.addSubview(chatTextField)
         chatTextField.bottomAnchor.constraint(equalTo: sendButton.topAnchor).isActive = true

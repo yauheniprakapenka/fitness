@@ -69,8 +69,6 @@ class TrainingViewController: UIViewController {
         collectionView.backgroundColor = .white
     }
     
-    
-    
 }
 
 extension TrainingViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {

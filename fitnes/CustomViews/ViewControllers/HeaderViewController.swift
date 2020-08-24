@@ -52,4 +52,3 @@ class HeaderViewController: UIViewController {
         descriptionLabel.text = "А ну-ка быстро бросай булку хлеба"
     }
 }
-
