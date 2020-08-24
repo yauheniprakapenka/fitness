@@ -92,6 +92,9 @@
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
+		F870DC2024F45CBF003C3A29 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC1F24F45CBF003C3A29 /* UIView+Constraints.swift */; };
+		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
+		F88FC52D24F474DB009E8E03 /* UIScrollView+ContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88FC52C24F474DB009E8E03 /* UIScrollView+ContentSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -184,6 +187,9 @@
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
+		F870DC1F24F45CBF003C3A29 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
+		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		F88FC52C24F474DB009E8E03 /* UIScrollView+ContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ContentSize.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -422,6 +428,8 @@
 		3E87232524BFAD1E005FC365 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				F88FC52B24F474C6009E8E03 /* UIScrollView */,
+				F870DC1E24F45CAE003C3A29 /* UIView */,
 				3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */,
 				3EE586FF24DFBF4900CA0530 /* String + Extension.swift */,
 			);
@@ -485,6 +493,7 @@
 			isa = PBXGroup;
 			children = (
 				3ED7037024DB38B600E4DB9F /* FTextField.swift */,
+				F870DC2124F464A2003C3A29 /* RoundedTextField.swift */,
 			);
 			path = TextFields;
 			sourceTree = "<group>";
@@ -619,6 +628,22 @@
 				0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F870DC1E24F45CAE003C3A29 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				F870DC1F24F45CBF003C3A29 /* UIView+Constraints.swift */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		F88FC52B24F474C6009E8E03 /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				F88FC52C24F474DB009E8E03 /* UIScrollView+ContentSize.swift */,
+			);
+			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -795,7 +820,9 @@
 				3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
+				F870DC2024F45CBF003C3A29 /* UIView+Constraints.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
+				F88FC52D24F474DB009E8E03 /* UIScrollView+ContentSize.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
@@ -824,6 +851,7 @@
 				3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */,
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
 				3E3D928124E8555800EEE0C6 /* RegisterViewController.swift in Sources */,
+				F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
 				3EE586E424DD5A8100CA0530 /* AthleteParameterViewController.swift in Sources */,
 				3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */,
