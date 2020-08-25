@@ -247,13 +247,8 @@ class SetPlaceViewController: UIViewController {
             locationManager.startUpdatingLocation()
         }
     }
-    
-<<<<<<< HEAD
-    
+        
     // MARK: - Actions
-=======
-    // MARK: - objc Methods
->>>>>>> feature/add_exercises_and_training_programms
     
     @objc
     private func cancelButtonTapped() {

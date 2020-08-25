@@ -23,7 +23,6 @@ class BuyAbonementViewController: UIViewController {
     let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
     let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
     
-    
     // MARK: - View Controller LifeCycle Methods
     
     override func viewDidLoad() {
@@ -40,7 +39,6 @@ class BuyAbonementViewController: UIViewController {
         configureTrainingLeftNumber()
         configureTrainingLeftText()
     }
-    
     
     // MARK: - Private Methods
     
@@ -104,7 +102,6 @@ class BuyAbonementViewController: UIViewController {
         trainingLeftText.topAnchor.constraint(equalTo: trainingLeftNumber.bottomAnchor, constant: 20).isActive = true
         trainingLeftText.text = "ТРЕНИРОВОК"
     }
-    
     
     // MARK: - Actions
     

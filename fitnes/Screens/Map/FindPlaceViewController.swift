@@ -152,7 +152,6 @@ class FindPlaceViewController: UIViewController {
         placeLabel.textAlignment = .left
     }
     
-    
     // MARK: - Actions 
     
     @objc

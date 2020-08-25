@@ -62,7 +62,6 @@ class AlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     // MARK: - View Controller LifeCycle Methods
     
     override func viewDidLoad() {
@@ -76,7 +75,6 @@ class AlertViewController: UIViewController {
         
         configureStackView()
     }
-    
     
     // MARK: - Private Methods
     
@@ -141,7 +139,6 @@ class AlertViewController: UIViewController {
         stackView.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -20).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
-    
     
     // MARK: - Actions
     
