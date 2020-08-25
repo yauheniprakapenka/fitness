@@ -7,27 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F84311A524F5CE87008CC50D /* CGSize+UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */; };
-		F8FACC3124F5199F00B52063 /* FitnessExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FACC2F24F5199F00B52063 /* FitnessExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8FACC4124F51A8E00B52063 /* UIScrollView+ContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FACC4024F51A8E00B52063 /* UIScrollView+ContentSize.swift */; };
-		F8FACC4424F51ABC00B52063 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FACC4324F51ABC00B52063 /* UIView+Constraints.swift */; };
-		F8FACC4824F51B8100B52063 /* UIView+Nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FACC4724F51B8100B52063 /* UIView+Nib.swift */; };
-		F8FACC4F24F51D2E00B52063 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FACC4E24F51D2E00B52063 /* String + Extension.swift */; };
+		F8D8311F24F55C8200610ABF /* CommonViews.h in Headers */ = {isa = PBXBuildFile; fileRef = F8D8311D24F55C8200610ABF /* CommonViews.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F8D8312824F55CE900610ABF /* UIViewExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8312724F55CE900610ABF /* UIViewExtended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+UIEdgeInsets.swift"; sourceTree = "<group>"; };
-		F8FACC2C24F5199F00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8FACC2F24F5199F00B52063 /* FitnessExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FitnessExtensions.h; sourceTree = "<group>"; };
-		F8FACC3024F5199F00B52063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8FACC4024F51A8E00B52063 /* UIScrollView+ContentSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ContentSize.swift"; sourceTree = "<group>"; };
-		F8FACC4324F51ABC00B52063 /* UIView+Constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
-		F8FACC4724F51B8100B52063 /* UIView+Nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Nib.swift"; sourceTree = "<group>"; };
-		F8FACC4E24F51D2E00B52063 /* String + Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		F8D8311A24F55C8200610ABF /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8D8311D24F55C8200610ABF /* CommonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonViews.h; sourceTree = "<group>"; };
+		F8D8311E24F55C8200610ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F8D8312724F55CE900610ABF /* UIViewExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtended.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F8FACC2924F5199F00B52063 /* Frameworks */ = {
+		F8D8311724F55C8200610ABF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -37,123 +29,88 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		F84311A324F5CE6F008CC50D /* CGSize */ = {
+		F8D8311024F55C8200610ABF = {
 			isa = PBXGroup;
 			children = (
-				F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */,
-			);
-			path = CGSize;
-			sourceTree = "<group>";
-		};
-		F8FACC2224F5199F00B52063 = {
-			isa = PBXGroup;
-			children = (
-				F8FACC2E24F5199F00B52063 /* FitnessExtensions */,
-				F8FACC2D24F5199F00B52063 /* Products */,
+				F8D8311C24F55C8200610ABF /* CommonViews */,
+				F8D8311B24F55C8200610ABF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		F8FACC2D24F5199F00B52063 /* Products */ = {
+		F8D8311B24F55C8200610ABF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F8FACC2C24F5199F00B52063 /* FitnessExtensions.framework */,
+				F8D8311A24F55C8200610ABF /* CommonViews.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		F8FACC2E24F5199F00B52063 /* FitnessExtensions */ = {
+		F8D8311C24F55C8200610ABF /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
-				F8FACC3724F51A5400B52063 /* Extensions */,
-				F8FACC2F24F5199F00B52063 /* FitnessExtensions.h */,
-				F8FACC3024F5199F00B52063 /* Info.plist */,
+				F8D8312624F55CBE00610ABF /* UIKitExtended */,
+				F8D8311D24F55C8200610ABF /* CommonViews.h */,
+				F8D8311E24F55C8200610ABF /* Info.plist */,
 			);
-			path = FitnessExtensions;
+			path = CommonViews;
 			sourceTree = "<group>";
 		};
-		F8FACC3724F51A5400B52063 /* Extensions */ = {
+		F8D8312624F55CBE00610ABF /* UIKitExtended */ = {
 			isa = PBXGroup;
 			children = (
-				F84311A324F5CE6F008CC50D /* CGSize */,
-				F8FACC4D24F51D2500B52063 /* String */,
-				F8FACC4224F51AB200B52063 /* UIView */,
-				F8FACC3F24F51A8200B52063 /* UIScrollView */,
+				F8D8312724F55CE900610ABF /* UIViewExtended.swift */,
 			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		F8FACC3F24F51A8200B52063 /* UIScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				F8FACC4024F51A8E00B52063 /* UIScrollView+ContentSize.swift */,
-			);
-			path = UIScrollView;
-			sourceTree = "<group>";
-		};
-		F8FACC4224F51AB200B52063 /* UIView */ = {
-			isa = PBXGroup;
-			children = (
-				F8FACC4324F51ABC00B52063 /* UIView+Constraints.swift */,
-				F8FACC4724F51B8100B52063 /* UIView+Nib.swift */,
-			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
-		F8FACC4D24F51D2500B52063 /* String */ = {
-			isa = PBXGroup;
-			children = (
-				F8FACC4E24F51D2E00B52063 /* String + Extension.swift */,
-			);
-			path = String;
+			path = UIKitExtended;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		F8FACC2724F5199F00B52063 /* Headers */ = {
+		F8D8311524F55C8200610ABF /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8FACC3124F5199F00B52063 /* FitnessExtensions.h in Headers */,
+				F8D8311F24F55C8200610ABF /* CommonViews.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		F8FACC2B24F5199F00B52063 /* FitnessExtensions */ = {
+		F8D8311924F55C8200610ABF /* CommonViews */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F8FACC3424F5199F00B52063 /* Build configuration list for PBXNativeTarget "FitnessExtensions" */;
+			buildConfigurationList = F8D8312224F55C8200610ABF /* Build configuration list for PBXNativeTarget "CommonViews" */;
 			buildPhases = (
-				F8FACC2724F5199F00B52063 /* Headers */,
-				F8FACC4924F51C1800B52063 /* swiftlint */,
-				F8FACC2824F5199F00B52063 /* Sources */,
-				F8FACC2924F5199F00B52063 /* Frameworks */,
-				F8FACC2A24F5199F00B52063 /* Resources */,
+				F8D8311524F55C8200610ABF /* Headers */,
+				F8D8311624F55C8200610ABF /* Sources */,
+				F8D8311724F55C8200610ABF /* Frameworks */,
+				F8D8311824F55C8200610ABF /* Resources */,
+				F8D8312524F55C9600610ABF /* swiftlint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = FitnessExtensions;
-			productName = FitnessExtensions;
-			productReference = F8FACC2C24F5199F00B52063 /* FitnessExtensions.framework */;
+			name = CommonViews;
+			productName = CommonViews;
+			productReference = F8D8311A24F55C8200610ABF /* CommonViews.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		F8FACC2324F5199F00B52063 /* Project object */ = {
+		F8D8311124F55C8200610ABF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1200;
 				TargetAttributes = {
-					F8FACC2B24F5199F00B52063 = {
+					F8D8311924F55C8200610ABF = {
 						CreatedOnToolsVersion = 12.0;
+						LastSwiftMigration = 1200;
 					};
 				};
 			};
-			buildConfigurationList = F8FACC2624F5199F00B52063 /* Build configuration list for PBXProject "FitnessExtensions" */;
+			buildConfigurationList = F8D8311424F55C8200610ABF /* Build configuration list for PBXProject "CommonViews" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -161,18 +118,18 @@
 				en,
 				Base,
 			);
-			mainGroup = F8FACC2224F5199F00B52063;
-			productRefGroup = F8FACC2D24F5199F00B52063 /* Products */;
+			mainGroup = F8D8311024F55C8200610ABF;
+			productRefGroup = F8D8311B24F55C8200610ABF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F8FACC2B24F5199F00B52063 /* FitnessExtensions */,
+				F8D8311924F55C8200610ABF /* CommonViews */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F8FACC2A24F5199F00B52063 /* Resources */ = {
+		F8D8311824F55C8200610ABF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -182,7 +139,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		F8FACC4924F51C1800B52063 /* swiftlint */ = {
+		F8D8312524F55C9600610ABF /* swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,22 +160,18 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F8FACC2824F5199F00B52063 /* Sources */ = {
+		F8D8311624F55C8200610ABF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8FACC4124F51A8E00B52063 /* UIScrollView+ContentSize.swift in Sources */,
-				F8FACC4424F51ABC00B52063 /* UIView+Constraints.swift in Sources */,
-				F84311A524F5CE87008CC50D /* CGSize+UIEdgeInsets.swift in Sources */,
-				F8FACC4F24F51D2E00B52063 /* String + Extension.swift in Sources */,
-				F8FACC4824F51B8100B52063 /* UIView+Nib.swift in Sources */,
+				F8D8312824F55CE900610ABF /* UIViewExtended.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		F8FACC3224F5199F00B52063 /* Debug */ = {
+		F8D8312024F55C8200610ABF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -282,7 +235,7 @@
 			};
 			name = Debug;
 		};
-		F8FACC3324F5199F00B52063 /* Release */ = {
+		F8D8312124F55C8200610ABF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -340,16 +293,17 @@
 			};
 			name = Release;
 		};
-		F8FACC3524F5199F00B52063 /* Debug */ = {
+		F8D8312324F55C8200610ABF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = BA72LHA8D9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FitnessExtensions/Info.plist;
+				INFOPLIST_FILE = CommonViews/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -357,25 +311,27 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.kek.FitnessExtensions;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.kek.CommonViews;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		F8FACC3624F5199F00B52063 /* Release */ = {
+		F8D8312424F55C8200610ABF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = BA72LHA8D9;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = FitnessExtensions/Info.plist;
+				INFOPLIST_FILE = CommonViews/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -383,7 +339,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.kek.FitnessExtensions;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.kek.CommonViews;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -395,25 +351,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		F8FACC2624F5199F00B52063 /* Build configuration list for PBXProject "FitnessExtensions" */ = {
+		F8D8311424F55C8200610ABF /* Build configuration list for PBXProject "CommonViews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8FACC3224F5199F00B52063 /* Debug */,
-				F8FACC3324F5199F00B52063 /* Release */,
+				F8D8312024F55C8200610ABF /* Debug */,
+				F8D8312124F55C8200610ABF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		F8FACC3424F5199F00B52063 /* Build configuration list for PBXNativeTarget "FitnessExtensions" */ = {
+		F8D8312224F55C8200610ABF /* Build configuration list for PBXNativeTarget "CommonViews" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				F8FACC3524F5199F00B52063 /* Debug */,
-				F8FACC3624F5199F00B52063 /* Release */,
+				F8D8312324F55C8200610ABF /* Debug */,
+				F8D8312424F55C8200610ABF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = F8FACC2324F5199F00B52063 /* Project object */;
+	rootObject = F8D8311124F55C8200610ABF /* Project object */;
 }

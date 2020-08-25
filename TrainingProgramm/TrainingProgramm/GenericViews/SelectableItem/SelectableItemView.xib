@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SelectableItemView" customModule="TrainingProgramm" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomConstraint" destination="08r-mo-9wf" id="qDr-a4-DIO"/>
+                <outlet property="leftConstraint" destination="kEq-EJ-zkt" id="1ps-Vf-PWD"/>
+                <outlet property="rightConstraint" destination="t2A-5A-VTq" id="QaS-ND-ZUB"/>
+                <outlet property="textLabel" destination="AOf-Ca-2y3" id="FmU-LH-VTc"/>
+                <outlet property="topConstraint" destination="4UD-za-uVi" id="23u-cg-seo"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Ce9-CA-ENC" customClass="UIViewExtended" customModule="CommonViews">
+            <rect key="frame" x="0.0" y="0.0" width="221" height="225"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOf-Ca-2y3">
+                    <rect key="frame" x="10" y="10" width="201" height="205"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="AOf-Ca-2y3" secondAttribute="bottom" constant="10" id="08r-mo-9wf"/>
+                <constraint firstItem="AOf-Ca-2y3" firstAttribute="top" secondItem="Ce9-CA-ENC" secondAttribute="top" constant="10" id="4UD-za-uVi"/>
+                <constraint firstItem="AOf-Ca-2y3" firstAttribute="leading" secondItem="Ce9-CA-ENC" secondAttribute="leading" constant="10" id="kEq-EJ-zkt"/>
+                <constraint firstAttribute="trailing" secondItem="AOf-Ca-2y3" secondAttribute="trailing" constant="10" id="t2A-5A-VTq"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="0.0"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="26.811594202898554" y="-120.87053571428571"/>
+        </view>
+    </objects>
+</document>
