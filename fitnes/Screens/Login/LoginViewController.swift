@@ -17,6 +17,8 @@ private extension LoginViewController {
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Variables
+    
     let backgroundImageView = UIImageView()
     
     let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнём")
@@ -40,6 +42,9 @@ class LoginViewController: UIViewController {
     
     let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     let contentScrollView = UIScrollView()
+    
+    
+    // MARK: - View Controller LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +77,9 @@ class LoginViewController: UIViewController {
         super.viewDidLayoutSubviews()
         contentScrollView.resizeContentSizeToFitChilds()
     }
+    
+    
+    // MARK: - Actions
     
     @objc
     func continueButtonTapped() {
@@ -119,11 +127,22 @@ class LoginViewController: UIViewController {
     @objc
     func createNewAccountButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        
-        let nav = UINavigationController(rootViewController: RegisterViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+
+        let alertVC = AlertViewController(question: "привет", description: "описание", actionButtonTitle: "кнопка")
+        alertVC.modalPresentationStyle = .overCurrentContext
+        present(alertVC, animated: true)
     }
+    
+    @objc
+    private func alertCancelButtonTapped() {
+        print(#function)
+    }
+    
+    @objc
+    private func confirmButtonTapped() {
+        print(#function)
+    }
+    
 }
 
 // MARK: - Radio button

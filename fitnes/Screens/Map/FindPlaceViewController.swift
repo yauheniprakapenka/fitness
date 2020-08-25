@@ -152,7 +152,8 @@ class FindPlaceViewController: UIViewController {
         placeLabel.textAlignment = .left
     }
     
-    // MARK: - objc Methods
+    
+    // MARK: - Actions 
     
     @objc
     private func cancelButtonTapped() {

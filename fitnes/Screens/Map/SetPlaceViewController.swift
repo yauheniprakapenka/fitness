@@ -19,11 +19,6 @@ class SetPlaceViewController: UIViewController {
     
     private let bottomContainerView = UIView()
     
-    let alertView = FAlertView(
-        question: "Вы хотите удалить\nместо тренировки?",
-        description: "Вы всегда сможете\nдобавить его снова",
-        actionButtonTitle: "Удалить")
-    
     private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже отредактируйте адрес, который увидит атлет.")
     private var addressTextField = FTextField(placeholderText: "г. Гомель, ул. Кирова, 32а", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     
@@ -253,7 +248,12 @@ class SetPlaceViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
+    
+    // MARK: - Actions
+=======
     // MARK: - objc Methods
+>>>>>>> feature/add_exercises_and_training_programms
     
     @objc
     private func cancelButtonTapped() {
@@ -289,17 +289,12 @@ class SetPlaceViewController: UIViewController {
     
     @objc
     private func deleteButtonTapped() {
+        let alertVC = AlertViewController(question: "Вы хотите удалить\nместо тренировки?", description: "Вы всегда сможете\nдобавить его снова", actionButtonTitle: "Удалить")
+        alertVC.modalPresentationStyle = .overCurrentContext
         
-        view.addSubview(alertView)
-        alertView.translatesAutoresizingMaskIntoConstraints = false
+        alertVC.actionButton.addTarget(self, action: #selector(alertActionButtonTapped), for: .touchUpInside)
         
-        alertView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        alertView.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
-        alertView.actionButton.addTarget(self, action: #selector(alertActionButtonTapped), for: .touchUpInside)
+        present(alertVC, animated: true)
     }
     
     @objc
@@ -333,14 +328,7 @@ class SetPlaceViewController: UIViewController {
     }
     
     @objc
-    private func alertCancelButtonTapped() {
-        alertView.removeFromSuperview()
-    }
-    
-    @objc
     private func alertActionButtonTapped() {
-        alertView.removeFromSuperview()
-        
         self.place = nil
         self.delegate?.addPlace(place: self.place)
     }
