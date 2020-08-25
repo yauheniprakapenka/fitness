@@ -15,7 +15,7 @@
 		3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CA24E16A1500F823A8 /* TrainerModel.swift */; };
 		3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CF24E1A01500F823A8 /* TrainingModel.swift */; };
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
-		3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* MapViewController.swift */; };
+		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
 		3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927724E6F92400EEE0C6 /* FAlertView.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
@@ -36,7 +36,7 @@
 		3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AC024D35E2D0004B978 /* FButtonSimple.swift */; };
 		3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118924E9845A00CAE51B /* ColorConverter.swift */; };
 		3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118B24E98C4300CAE51B /* FViewColors.swift */; };
-		3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */; };
+		3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60118D24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift */; };
 		3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60119224E9E06700CAE51B /* ViewColorEnum.swift */; };
 		3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGenerator.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
@@ -63,6 +63,8 @@
 		3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
+		3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */; };
+		3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB022224ED977200A4808F /* PlaceModel.swift */; };
 		3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */; };
 		3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */; };
 		3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */; };
@@ -78,7 +80,7 @@
 		3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
 		3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */; };
-		3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */; };
+		3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */; };
 		3EE586F624DF31D000CA0530 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F524DF31D000CA0530 /* CalendarViewController.swift */; };
 		3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */; };
 		3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */; };
@@ -90,6 +92,9 @@
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
+		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
+		3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */; };
+		D97B8932EFE3294B6EA84B7A /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */; };
 		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
 		F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; };
 		F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -119,7 +124,7 @@
 		3E1752CA24E16A1500F823A8 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
 		3E1752CF24E1A01500F823A8 /* TrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
-		3E1752D724E1E99000F823A8 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		3E3D927724E6F92400EEE0C6 /* FAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAlertView.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
@@ -140,7 +145,7 @@
 		3E444AC024D35E2D0004B978 /* FButtonSimple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonSimple.swift; sourceTree = "<group>"; };
 		3E60118924E9845A00CAE51B /* ColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorConverter.swift; sourceTree = "<group>"; };
 		3E60118B24E98C4300CAE51B /* FViewColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewColors.swift; sourceTree = "<group>"; };
-		3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHandler.swift; sourceTree = "<group>"; };
+		3E60118D24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissKeyboardWhenTap.swift; sourceTree = "<group>"; };
 		3E60119224E9E06700CAE51B /* ViewColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewColorEnum.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +172,8 @@
 		3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnum.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
+		3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationConverter.swift; sourceTree = "<group>"; };
+		3EDB022224ED977200A4808F /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
 		3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		3EE2DDE924C0F7D700D85CAE /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
@@ -184,7 +191,7 @@
 		3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerViewController.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
 		3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerFromSearchViewController.swift; sourceTree = "<group>"; };
-		3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewTrainingPlace.swift; sourceTree = "<group>"; };
+		3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewContentPlace.swift; sourceTree = "<group>"; };
 		3EE586F524DF31D000CA0530 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingCell.swift; sourceTree = "<group>"; };
 		3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekConverter.swift; sourceTree = "<group>"; };
@@ -196,7 +203,10 @@
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
+		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
+		3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewBlankPlace.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
+		E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5424F51E1400B52063 /* fitnes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fitnes-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -208,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */,
+				D97B8932EFE3294B6EA84B7A /* Pods_fitnes.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,7 +264,6 @@
 			isa = PBXGroup;
 			children = (
 				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
-				3E1752D724E1E99000F823A8 /* MapViewController.swift */,
 				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
 			);
@@ -358,11 +368,12 @@
 			isa = PBXGroup;
 			children = (
 				3E3D927724E6F92400EEE0C6 /* FAlertView.swift */,
+				3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */,
 				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
+				3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */,
 				3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */,
 				3E444AB124D201350004B978 /* FViewItem.swift */,
 				3E444ABE24D340560004B978 /* FViewShape.swift */,
-				3EE586F324DEEA1B00CA0530 /* FViewTrainingPlace.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -390,7 +401,7 @@
 		3E60118F24E9BEBA00CAE51B /* KeyboardHandler */ = {
 			isa = PBXGroup;
 			children = (
-				3E60118D24E9BE4D00CAE51B /* KeyboardHandler.swift */,
+				3E60118D24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift */,
 			);
 			path = KeyboardHandler;
 			sourceTree = "<group>";
@@ -514,13 +525,23 @@
 				3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
+				3EDB022224ED977200A4808F /* PlaceModel.swift */,
 			);
 			path = ModelsNew;
+			sourceTree = "<group>";
+		};
+		3ED8381624F10A3D00C12B42 /* GeolocationConverter */ = {
+			isa = PBXGroup;
+			children = (
+				3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */,
+			);
+			path = GeolocationConverter;
 			sourceTree = "<group>";
 		};
 		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3ED8381624F10A3D00C12B42 /* GeolocationConverter */,
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3E60118824E9844800CAE51B /* ColorConverter */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
@@ -582,12 +603,12 @@
 		3EE3901624BCE863003AF6D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				F88FC52E24F48627009E8E03 /* Excercises */,
 				3E0CDEB224EAE671001546CD /* Abonement */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E0CDEB124EAE652001546CD /* Calendar */,
 				3E1752C524E15C9000F823A8 /* Chat */,
 				3EE2DDE224C0DAA800D85CAE /* Login */,
+				3EF15F8A24EC69DA00ED5A1C /* Map */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */,
@@ -631,25 +652,20 @@
 			path = RoleConverter;
 			sourceTree = "<group>";
 		};
-		F88FC52E24F48627009E8E03 /* Excercises */ = {
+		3EF15F8A24EC69DA00ED5A1C /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				F88FC52F24F48910009E8E03 /* Views */,
+				3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */,
+				3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */,
 			);
-			path = Excercises;
-			sourceTree = "<group>";
-		};
-		F88FC52F24F48910009E8E03 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
+			path = Map;
 			sourceTree = "<group>";
 		};
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */,
+				E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -820,15 +836,16 @@
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
-				3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */,
+				3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
-				3E60118E24E9BE4D00CAE51B /* KeyboardHandler.swift in Sources */,
+				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
+				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,
-				3E1752D824E1E99000F823A8 /* MapViewController.swift in Sources */,
+				3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */,
 				3E444AB224D201350004B978 /* FViewItem.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
@@ -844,12 +861,14 @@
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE2DDEA24C0F7D700D85CAE /* FirestoreService.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,
+				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
+				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
@@ -874,6 +893,7 @@
 				3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */,
 				3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */,
 				3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */,
+				3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */,
 				3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */,
 				3EE586F224DED1A000CA0530 /* TrainerFromSearchViewController.swift in Sources */,
 				3EC3D3BD24C43CE2006B2EE1 /* ExerciseModelOld.swift in Sources */,

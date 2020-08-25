@@ -12,6 +12,11 @@ class BuyAbonementViewController: UIViewController {
     
     var abonement: AbonementModel!
     
+    let alertView = FAlertView(
+        question: "Вы хотите купить\nабонемент?",
+        description: "После покупки он отобразится\nв вашем профиле",
+        actionButtonTitle: "Купить")
+    
     let backButton = UIButton()
     let buyButton = UIButton()
     
@@ -20,8 +25,6 @@ class BuyAbonementViewController: UIViewController {
     
     let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
     let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
-    
-    let fAlertView = FAlertView(backgroundImage: #imageLiteral(resourceName: "fat-girl"), confirmButtonText: "Купить")
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,14 +95,17 @@ class BuyAbonementViewController: UIViewController {
     
     @objc
     func buyButtonTapped() {
-        view.addSubview(fAlertView)
-        fAlertView.heightAnchor.constraint(equalToConstant: 240).isActive = true
-        fAlertView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        fAlertView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        fAlertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
-        fAlertView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
-        fAlertView.cancelButton.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
-        fAlertView.confirmButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
+        view.addSubview(alertView)
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        
+        alertView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        
+        alertView.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
+        
+        alertView.actionButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
     }
     
     private func configureTrainingLeftNumber() {
@@ -117,8 +123,8 @@ class BuyAbonementViewController: UIViewController {
     }
     
     @objc
-    private func cancelButtonTapped() {
-        fAlertView.removeFromSuperview()
+    private func alertCancelButtonTapped() {
+        alertView.removeFromSuperview()
     }
     
     @objc

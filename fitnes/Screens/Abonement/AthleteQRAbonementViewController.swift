@@ -21,7 +21,7 @@ class AthleteQRAbonementViewController: UIViewController {
     let trainingRemaingCountLabel = FLabel(fontSize: 56, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
     let trainingRemaingMessageLabel = FLabel(fontSize: 22, weight: .light, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
     
-    let fAlertView = FAlertView(backgroundImage: #imageLiteral(resourceName: "fat-girl"), confirmButtonText: "Купить")
+//    let fAlertView = FAlertView(backgroundImage: #imageLiteral(resourceName: "fat-girl"), confirmButtonText: "Купить")
     
     let circleView = UIView()
     let messageInCirceViewLabel = UILabel()
@@ -97,7 +97,7 @@ class AthleteQRAbonementViewController: UIViewController {
     
     @objc
     private func cancelButtonTapped() {
-        fAlertView.removeFromSuperview()
+//        fAlertView.removeFromSuperview()
     }
     
     @objc
