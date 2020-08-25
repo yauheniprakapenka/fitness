@@ -29,7 +29,6 @@ class FindPlaceViewController: UIViewController {
     var trainer: TrainerModel?
     var place: PlaceModel?
     
-    
     // MARK: - ViewController LifeCycle Methods
     
     override func viewDidLoad() {
@@ -39,7 +38,6 @@ class FindPlaceViewController: UIViewController {
         configureNavigation()
         configureMapView()
   
-        
         configureTrainerView()
         configureTrainingPlaceView()
         
@@ -48,7 +46,6 @@ class FindPlaceViewController: UIViewController {
         configureCostLabel()
         configureTrainingLabel()
     }
-    
     
     // MARK: - Private Methods
     
@@ -156,7 +153,7 @@ class FindPlaceViewController: UIViewController {
     }
     
     
-    // MARK: - Actions
+    // MARK: - Actions 
     
     @objc
     private func cancelButtonTapped() {

@@ -78,5 +78,4 @@ class AbonementsCollectionCell: UICollectionViewCell {
         countVisitLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10).isActive = true
     }
     
-    
 }

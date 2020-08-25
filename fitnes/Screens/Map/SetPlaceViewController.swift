@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-protocol SetPlaceVСDelegate {
+protocol SetPlaceVСDelegate: class {
     func addPlace(place: PlaceModel?)
 }
 
@@ -42,10 +42,9 @@ class SetPlaceViewController: UIViewController {
     
     var place: PlaceModel?
     
-    var delegate: SetPlaceVСDelegate?
+    weak var delegate: SetPlaceVСDelegate?
     
     var isFirstOpenWithData = true
-    
     
     private lazy var mkMapView: MKMapView = {
         let mapView = MKMapView(frame: view.frame)
@@ -58,8 +57,7 @@ class SetPlaceViewController: UIViewController {
         return mapView
     }()
     
-    
-    // MARK: - View Controller LifeCycle Methods
+    // MARK: - ViewController LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -250,8 +248,12 @@ class SetPlaceViewController: UIViewController {
         }
     }
     
+<<<<<<< HEAD
     
     // MARK: - Actions
+=======
+    // MARK: - objc Methods
+>>>>>>> feature/add_exercises_and_training_programms
     
     @objc
     private func cancelButtonTapped() {
@@ -332,7 +334,6 @@ class SetPlaceViewController: UIViewController {
     }
 }
 
-
 // MARK: - MK Map View Delegate
 
 extension SetPlaceViewController: MKMapViewDelegate {
@@ -344,7 +345,6 @@ extension SetPlaceViewController: MKMapViewDelegate {
         myPinView.animatesDrop = true
         myPinView.canShowCallout = true
         myPinView.annotation = annotation
-        
         
         print("latitude: \(annotation.coordinate.latitude), longitude: \(annotation.coordinate.longitude)")
         
@@ -367,7 +367,6 @@ extension SetPlaceViewController: MKMapViewDelegate {
     }
 }
 
-
 // MARK: - CL Location Manager Delegate
 
 extension SetPlaceViewController: CLLocationManagerDelegate {
@@ -389,7 +388,6 @@ extension SetPlaceViewController: CLLocationManagerDelegate {
     }
 }
 
-
 // MARK: - UI Text Field Delegate
 
 extension SetPlaceViewController: UITextFieldDelegate {
@@ -404,7 +402,6 @@ extension SetPlaceViewController: UITextFieldDelegate {
     }
     
 }
-
 
 // MARK: - Keyboard Notification
 
@@ -424,7 +421,6 @@ extension SetPlaceViewController {
         }
     }
 }
-
 
 // MARK: - UI Image Picker Controller Delegate
 

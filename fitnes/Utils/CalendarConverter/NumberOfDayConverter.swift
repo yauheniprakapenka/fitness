@@ -36,6 +36,3 @@ class NumberOfDayConverter {
         return date[startIndex + 1..<endIndex]
     }
 }
-
-
-

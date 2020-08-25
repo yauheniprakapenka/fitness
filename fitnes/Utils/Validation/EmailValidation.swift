@@ -21,4 +21,3 @@ class EmailValidation {
         return predicate.evaluate(with: text)
     }
 }
-

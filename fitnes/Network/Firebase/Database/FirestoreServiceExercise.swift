@@ -35,7 +35,6 @@ extension FirestoreService {
         }
     }
     
-    
     // MARK: - Проверить, существует ли такое название упражнения в листе упражнений
     func isExerciseExist(name: String) -> Bool {
         if exersisesList.currentExercises.contains(where: {$0 == name}) {
@@ -46,7 +45,6 @@ extension FirestoreService {
         print("Упражнение не существует. Создаем его.")
         return false
     }
-    
     
     // MARK: - Добавить упражнение в лист упражнений
     func addExersiseToList(name: String) {

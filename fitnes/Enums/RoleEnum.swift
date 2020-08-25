@@ -7,5 +7,5 @@
 //
 
 enum RoleEnum {
-    case Athlete, Trainer
+    case athlete, trainer
 }

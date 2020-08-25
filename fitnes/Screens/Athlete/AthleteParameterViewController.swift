@@ -245,8 +245,7 @@ extension AthleteParameterViewController: UITableViewDataSource {
     }
 }
 
-
-//MARK: - Sorry for this horror. Im refactor it later
+// MARK: - Sorry for this horror. Im refactor it later
 extension AthleteParameterViewController {
     
     private func configureFran10Button() {
@@ -388,7 +387,7 @@ extension AthleteParameterViewController {
     }
 }
 
-//MARK: - Sorry for this horror. Im refactor it later
+// MARK: - Sorry for this horror. Im refactor it later
 extension AthleteParameterViewController {
     
     private func configureGraceLabel() {
@@ -437,5 +436,4 @@ extension AthleteParameterViewController {
         countGrace -= 1
         countLabel.text = String(countGrace)
     }
-    
 }

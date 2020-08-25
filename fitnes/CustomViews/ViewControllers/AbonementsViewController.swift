@@ -9,14 +9,14 @@
 import UIKit
 
 enum CurrentVCEnum {
-    case AthletVC
-    case TrainerVC
-    case TrainerFormSearch
+    case athletVC
+    case trainerVC
+    case trainerFormSearch
 }
 
 class AbonementsViewController: UIViewController {
     
-    var currentVC: CurrentVCEnum = .AthletVC
+    var currentVC: CurrentVCEnum = .athletVC
     
     var titleLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "Купленные мной абонементы")
     var abonements: [AbonementModel] = []
@@ -122,14 +122,14 @@ extension AbonementsViewController: UICollectionViewDelegateFlowLayout, UICollec
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         switch currentVC {
-        case .AthletVC:
+        case .athletVC:
             let vc = AthleteQRAbonementViewController()
             vc.modalPresentationStyle = .fullScreen
             vc.abonement = abonements[indexPath.row]
             present(vc, animated: true)
-        case .TrainerVC:
+        case .trainerVC:
             break
-        case .TrainerFormSearch:
+        case .trainerFormSearch:
             let vc = BuyAbonementViewController()
             vc.modalPresentationStyle = .fullScreen
             vc.abonement = abonements[indexPath.row]

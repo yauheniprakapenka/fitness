@@ -9,6 +9,11 @@
 import UIKit
 
 class FButtonWithBackgroundColor: UIButton {
+    var cornerRadius: CGFloat = 10 {
+        didSet {
+            configure()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,7 +34,7 @@ class FButtonWithBackgroundColor: UIButton {
     }
     
     private func configure() {
-        layer.cornerRadius = 10
+        layer.cornerRadius = cornerRadius
         setTitleColor(.white, for: .normal)
         translatesAutoresizingMaskIntoConstraints = false
     }

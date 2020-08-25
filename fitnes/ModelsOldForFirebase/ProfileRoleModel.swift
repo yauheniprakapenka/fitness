@@ -6,7 +6,7 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-var currentProfleRole: RoleEnum = .Athlete
+var currentProfleRole: RoleEnum = .athlete
 
 class ProfileRoleModel {
     
@@ -14,8 +14,8 @@ class ProfileRoleModel {
     
     func setProfileRole(index: Int) {
         switch index {
-        case 0: currentProfleRole = .Athlete
-        case 1: currentProfleRole = .Trainer
+        case 0: currentProfleRole = .athlete
+        case 1: currentProfleRole = .trainer
         default: print("ERROR: unknown profile role")
         }
     }

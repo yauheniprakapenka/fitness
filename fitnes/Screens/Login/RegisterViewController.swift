@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
     let trainerContainerView = UIView()
     let athleteContainerView = UIView()
     
-    var currentRole: RoleEnum = .Trainer
+    var currentRole: RoleEnum = .trainer
     
     let trainerVioletCircle = UIView()
     let athleteVioletCircle = UIView()
@@ -84,7 +84,7 @@ class RegisterViewController: UIViewController {
         navigationController?.view.backgroundColor = .clear
         
         navigationItem.title = "Новый аккаунт"
-        let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+        let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
         let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
@@ -180,11 +180,11 @@ class RegisterViewController: UIViewController {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         switch currentRole {
-        case .Trainer:
+        case .trainer:
             let vc = TrainerViewController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
-        case .Athlete:
+        case .athlete:
             let vc = AthleteViewController()
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
@@ -225,7 +225,6 @@ class RegisterViewController: UIViewController {
  
 }
 
-
 // MARK: - Radio button
 
 extension RegisterViewController {
@@ -255,7 +254,6 @@ extension RegisterViewController {
         trainerContainerView.addSubview(roleLabel)
         roleLabel.leadingAnchor.constraint(equalTo: whiteShape.trailingAnchor, constant: 10).isActive = true
         roleLabel.centerYAnchor.constraint(equalTo: trainerContainerView.centerYAnchor).isActive = true
-        
         
         whiteShape.addSubview(trainerVioletCircle)
         trainerVioletCircle.translatesAutoresizingMaskIntoConstraints = false
@@ -310,14 +308,14 @@ extension RegisterViewController {
     @objc
     private func trainerContainerViewTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        currentRole = .Trainer
+        currentRole = .trainer
         configureVioletCircle()
     }
     
     @objc
     private func athleteContainerViewTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        currentRole = .Athlete
+        currentRole = .athlete
         configureVioletCircle()
     }
     
@@ -334,9 +332,9 @@ extension RegisterViewController {
         trainerVioletCircle.alpha = 0
         
         switch currentRole {
-        case .Trainer:
+        case .trainer:
             trainerVioletCircle.alpha = 1
-        case .Athlete:
+        case .athlete:
             athleteVioletCircle.alpha = 1
         }
     }

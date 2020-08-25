@@ -6,7 +6,6 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-
 // Туториал https://github.com/domeniconicoli/QRCodeScanner
 
 import UIKit

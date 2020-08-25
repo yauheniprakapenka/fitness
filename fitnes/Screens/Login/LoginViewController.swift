@@ -8,25 +8,32 @@
 
 import UIKit
 
+private extension LoginViewController {
+    enum Const {
+        static let leftRightMargins: CGFloat = 25
+        static let inputBorderColor = UIColor(named: "loginScreenInputFieldBorder")!
+    }
+}
+
 class LoginViewController: UIViewController {
     
     // MARK: - Variables
     
     let backgroundImageView = UIImageView()
     
-    let startLabel = FLabel(fontSize: 34, weight: .light, color: .white, message: "Начнём")
+    let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнём")
     let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
     
     let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
-    let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    let emailTextField = RoundedTextField(placeholderText: "Введите email", placeholderColor: .gray)
     
     let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
-    let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    let passwordTextField = RoundedTextField(placeholderText: "Введите пароль", placeholderColor: .gray)
     
     let trainerContainerView = UIView()
     let athleteContainerView = UIView()
     
-    var currentRole: RoleEnum = .Trainer
+    var currentRole: RoleEnum = .trainer
     
     let trainerVioletCircle = UIView()
     let athleteVioletCircle = UIView()
@@ -34,6 +41,7 @@ class LoginViewController: UIViewController {
     let continueButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
     
     let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
+    let contentScrollView = UIScrollView()
     
     
     // MARK: - View Controller LifeCycle Methods
@@ -42,112 +50,32 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
+        
         configureBackgroundImageView()
+        configureRootScrollView()
+        configureStartLabel(addTo: contentScrollView)
+        configureSigninLabel(addTo: contentScrollView)
         
-        configureStartLabel()
-        configureSigninLabel()
+        configureEmailLabel(addTo: contentScrollView)
+        configureEmailTextField(addTo: contentScrollView)
         
-        configureEmailLabel()
-        configureEmailTextField()
+        configurePasswordLabel(addTo: contentScrollView)
+        configurePasswordTextField(addTo: contentScrollView)
         
-        configurePasswordLabel()
-        configurePasswordTextField()
-        
-        configureTrainerContainerView()
-        configureAthleteContainerView()
+        configureTrainerContainerView(addTo: contentScrollView)
+        configureAthleteContainerView(addTo: contentScrollView)
         
         configureGesture()
         
         configureVioletCircle()
         
-        configureContinueButton()
-        configureCreateNewAccountButton()
+        configureContinueButton(addTo: contentScrollView)
+        configureCreateNewAccountButton(addTo: contentScrollView)
     }
     
-    
-    // MARK: - Private Methods
-    
-    private func configureBackgroundImageView() {
-        view.addSubview(backgroundImageView)
-        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundImageView.image = #imageLiteral(resourceName: "login_back_2")
-        backgroundImageView.contentMode = .scaleAspectFill
-        backgroundImageView.alpha = 0.85
-        
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    private func configureStartLabel() {
-        view.addSubview(startLabel)
-        startLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100).isActive = true
-        startLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-    }
-    
-    private func configureSigninLabel() {
-        view.addSubview(signinLabel)
-        signinLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        signinLabel.topAnchor.constraint(equalTo: startLabel.bottomAnchor, constant: 20).isActive = true
-        signinLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-    }
-    
-    private func configureEmailLabel() {
-        view.addSubview(emailLabel)
-        emailLabel.translatesAutoresizingMaskIntoConstraints = false
-        emailLabel.topAnchor.constraint(equalTo: signinLabel.bottomAnchor, constant: 40).isActive = true
-        emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-    }
-    
-    private func configureEmailTextField() {
-        view.addSubview(emailTextField)
-        emailTextField.translatesAutoresizingMaskIntoConstraints = false
-        emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10).isActive = true
-        emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        emailTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
-    private func configurePasswordLabel() {
-        view.addSubview(passwordLabel)
-        passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40).isActive = true
-        passwordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        passwordLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-    }
-    
-    private func configurePasswordTextField() {
-        view.addSubview(passwordTextField)
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
-        passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        passwordTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
-    }
-    
-    private func configureContinueButton() {
-        view.addSubview(continueButton)
-        continueButton.translatesAutoresizingMaskIntoConstraints = false
-        continueButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
-        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
-    }
-    
-    private func configureCreateNewAccountButton() {
-        view.addSubview(createNewAccountButton)
-        createNewAccountButton.translatesAutoresizingMaskIntoConstraints = false
-        createNewAccountButton.bottomAnchor.constraint(equalTo: continueButton.topAnchor, constant: -60).isActive = true
-        createNewAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        createNewAccountButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        createNewAccountButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        createNewAccountButton.addTarget(self, action: #selector(createNewAccountButtonTapped), for: .touchUpInside)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        contentScrollView.resizeContentSizeToFitChilds()
     }
     
     
@@ -158,11 +86,11 @@ class LoginViewController: UIViewController {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         switch currentRole {
-        case .Trainer:
+        case .trainer:
             let vc = TrainerViewController()
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true)
-        case .Athlete:
+        case .athlete:
             let vc = AthleteViewController()
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
@@ -217,19 +145,113 @@ class LoginViewController: UIViewController {
     
 }
 
-
 // MARK: - Radio button
+private extension LoginViewController {
+    
+    func configureRootScrollView() {
+        view.addSubview(contentScrollView)
+        contentScrollView.isScrollEnabled = true
+        contentScrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentScrollView.showsVerticalScrollIndicator = false
+        contentScrollView.showsHorizontalScrollIndicator = false
+        contentScrollView.constraintAllSidesToSuperview()
+    }
+    
+    func configureBackgroundImageView() {
+        view.addSubview(backgroundImageView)
+        backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+        backgroundImageView.image = #imageLiteral(resourceName: "login_back_2")
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.alpha = 0.85
+        backgroundImageView.constraintAllSidesToSuperview()
+    }
+    
+    func configureStartLabel(addTo view: UIView) {
+        view.addSubview(startLabel)
+        startLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        startLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+    }
+    
+    func configureSigninLabel(addTo view: UIView) {
+        view.addSubview(signinLabel)
+        signinLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        signinLabel.topAnchor.constraint(equalTo: startLabel.bottomAnchor, constant: 20).isActive = true
+        signinLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        signinLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.45).isActive = true
+        signinLabel.lineBreakMode = .byWordWrapping
+        signinLabel.numberOfLines = 0
+    }
+    
+    func configureEmailLabel(addTo view: UIView) {
+        view.addSubview(emailLabel)
+        emailLabel.translatesAutoresizingMaskIntoConstraints = false
+        emailLabel.topAnchor.constraint(equalTo: signinLabel.bottomAnchor, constant: 40).isActive = true
+        emailLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        emailLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins).isActive = true
+    }
+    
+    func configureEmailTextField(addTo view: UIView) {
+        view.addSubview(emailTextField)
+        emailTextField.translatesAutoresizingMaskIntoConstraints = false
+        emailTextField.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 10).isActive = true
+        emailTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        emailTextField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        emailTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        emailTextField.backgroundColor = .white
+        emailTextField.borderColor = Const.inputBorderColor
+    }
+    
+    func configurePasswordLabel(addTo view: UIView) {
+        view.addSubview(passwordLabel)
+        passwordLabel.translatesAutoresizingMaskIntoConstraints = false
+        passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40).isActive = true
+        passwordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        passwordLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins).isActive = true
+    }
+    
+    func configurePasswordTextField(addTo view: UIView) {
+        view.addSubview(passwordTextField)
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.topAnchor.constraint(equalTo: passwordLabel.bottomAnchor, constant: 10).isActive = true
+        passwordTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        passwordTextField.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        passwordTextField.backgroundColor = .white
+        passwordTextField.borderColor = Const.inputBorderColor
+    }
+    
+    func configureContinueButton(addTo view: UIView) {
+        view.addSubview(continueButton)
+        continueButton.translatesAutoresizingMaskIntoConstraints = false
+        continueButton.topAnchor.constraint(equalTo: athleteContainerView.bottomAnchor, constant: 20).isActive = true
+        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        continueButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        continueButton.cornerRadius = 5
+    }
+    
+    func configureCreateNewAccountButton(addTo view: UIView) {
+        view.addSubview(createNewAccountButton)
+        createNewAccountButton.translatesAutoresizingMaskIntoConstraints = false
+        createNewAccountButton.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 20).isActive = true
+        createNewAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        createNewAccountButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        createNewAccountButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createNewAccountButton.addTarget(self, action: #selector(createNewAccountButtonTapped), for: .touchUpInside)
+    }
 
-extension LoginViewController {
-
-    private func configureTrainerContainerView() {
+    func configureTrainerContainerView(addTo view: UIView) {
         view.addSubview(trainerContainerView)
         trainerContainerView.isUserInteractionEnabled = true
         trainerContainerView.translatesAutoresizingMaskIntoConstraints = false
-        trainerContainerView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 40).isActive = true
-        trainerContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        trainerContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        trainerContainerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        trainerContainerView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 25).isActive = true
+        trainerContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        trainerContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins).isActive = true
+        trainerContainerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         let whiteShape = UIView()
         trainerContainerView.addSubview(whiteShape)
@@ -248,7 +270,6 @@ extension LoginViewController {
         roleLabel.leadingAnchor.constraint(equalTo: whiteShape.trailingAnchor, constant: 10).isActive = true
         roleLabel.centerYAnchor.constraint(equalTo: trainerContainerView.centerYAnchor).isActive = true
         
-        
         whiteShape.addSubview(trainerVioletCircle)
         trainerVioletCircle.translatesAutoresizingMaskIntoConstraints = false
         trainerVioletCircle.layer.cornerRadius = 8
@@ -261,14 +282,14 @@ extension LoginViewController {
         trainerVioletCircle.widthAnchor.constraint(equalToConstant: 16).isActive = true
     }
     
-    private func configureAthleteContainerView() {
+    func configureAthleteContainerView(addTo view: UIView) {
         view.addSubview(athleteContainerView)
         athleteContainerView.isUserInteractionEnabled = true
         athleteContainerView.translatesAutoresizingMaskIntoConstraints = false
         athleteContainerView.topAnchor.constraint(equalTo: trainerContainerView.bottomAnchor, constant: 4).isActive = true
-        athleteContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        athleteContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        athleteContainerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        athleteContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        athleteContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins).isActive = true
+        athleteContainerView.heightAnchor.constraint(equalToConstant: 30).isActive = true
         
         let whiteShape = UIView()
         athleteContainerView.addSubview(whiteShape)
@@ -300,20 +321,20 @@ extension LoginViewController {
     }
     
     @objc
-    private func trainerContainerViewTapped() {
+    func trainerContainerViewTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        currentRole = .Trainer
+        currentRole = .trainer
         configureVioletCircle()
     }
     
     @objc
-    private func athleteContainerViewTapped() {
+    func athleteContainerViewTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        currentRole = .Athlete
+        currentRole = .athlete
         configureVioletCircle()
     }
     
-    private func configureGesture() {
+    func configureGesture() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(athleteContainerViewTapped))
         athleteContainerView.addGestureRecognizer(tap)
         
@@ -321,14 +342,14 @@ extension LoginViewController {
         trainerContainerView.addGestureRecognizer(tap2)
     }
     
-    private func configureVioletCircle() {
+    func configureVioletCircle() {
         athleteVioletCircle.alpha = 0
         trainerVioletCircle.alpha = 0
         
         switch currentRole {
-        case .Trainer:
+        case .trainer:
             trainerVioletCircle.alpha = 1
-        case .Athlete:
+        case .athlete:
             athleteVioletCircle.alpha = 1
         }
     }

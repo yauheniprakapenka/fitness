@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol VideoUrlDelegate {
+protocol VideoUrlDelegate: class {
     func sendVideoUrl()
 }
 
 class TrainingCell: UITableViewCell {
 
-    var delegate: VideoUrlDelegate?
+    weak var delegate: VideoUrlDelegate?
     
     let shapeView = UIView()
     

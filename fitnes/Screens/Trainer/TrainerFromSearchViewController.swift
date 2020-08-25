@@ -34,7 +34,6 @@ class TrainerFromSearchViewController: UIViewController {
     
     let place = PlaceModel(address: "Ул. Тимофеенко, 23", photo: #imageLiteral(resourceName: "kirova"), fileName: "", latitude: 52.44153252930357, longitude: 31.00078923354539)
     
-    
     // MARK: - ViewController LifeCycle Methods
     
     override func viewDidLoad() {
@@ -46,7 +45,7 @@ class TrainerFromSearchViewController: UIViewController {
         configureMoreButton()
         configureHeaderView()
         
-        AddChildVC()
+        addChildVC()
         
         configureItemsView()
         configureComingTrainingView()
@@ -55,7 +54,6 @@ class TrainerFromSearchViewController: UIViewController {
         
         print(trainer as Any)
     }
-    
     
     // MARK: - Private Methods
     
@@ -142,7 +140,7 @@ class TrainerFromSearchViewController: UIViewController {
         abonementsView.heightAnchor.constraint(equalToConstant: 160).isActive = true
     }
     
-    private func AddChildVC() {
+    private func addChildVC() {
         view.backgroundColor = .white
         let headerViewController = HeaderViewController()
         
@@ -161,7 +159,7 @@ class TrainerFromSearchViewController: UIViewController {
         self.add(childVC: abonementsViewController, to: self.abonementsView)
         abonementsViewController.titleLabel.text = "Приобрести абонемент"
         abonementsViewController.abonements = trainerAbonement
-        abonementsViewController.currentVC = .TrainerFormSearch
+        abonementsViewController.currentVC = .trainerFormSearch
     }
     
     private func add(childVC: UIViewController, to containerView: UIView) {
@@ -170,7 +168,6 @@ class TrainerFromSearchViewController: UIViewController {
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
-    
     
     // MARK: - objc Methods
     
