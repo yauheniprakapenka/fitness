@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIView {
+public extension UIView {
     func constraintAllSidesToSuperview(insets: UIEdgeInsets = UIEdgeInsets.zero) {
         guard let superview = superview else {
             fatalError("View superview is nil")

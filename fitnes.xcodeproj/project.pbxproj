@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CECEBE5A56A6F87B8A1A823 /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */; };
 		3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */; };
 		3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */; };
 		3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */; };
@@ -84,7 +83,6 @@
 		3EE586F824DF484C00CA0530 /* CalendarTrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */; };
 		3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */; };
 		3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FD24DFBEFC00CA0530 /* NumberOfDayConverter.swift */; };
-		3EE5870024DFBF4900CA0530 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586FF24DFBF4900CA0530 /* String + Extension.swift */; };
 		3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */; };
 		3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870324DFCB7000CA0530 /* FImageView.swift */; };
 		3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870624E01C1000CA0530 /* HapticFeedback.swift */; };
@@ -92,13 +90,26 @@
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
-		F870DC2024F45CBF003C3A29 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC1F24F45CBF003C3A29 /* UIView+Constraints.swift */; };
 		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
-		F88FC52D24F474DB009E8E03 /* UIScrollView+ContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F88FC52C24F474DB009E8E03 /* UIScrollView+ContentSize.swift */; };
+		F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; };
+		F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		F8FACC2124F5167900B52063 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
 		3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteQRAbonementViewController.swift; sourceTree = "<group>"; };
 		3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
@@ -178,7 +189,6 @@
 		3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingCell.swift; sourceTree = "<group>"; };
 		3EE586FB24DFAFCE00CA0530 /* DayOfWeekConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOfWeekConverter.swift; sourceTree = "<group>"; };
 		3EE586FD24DFBEFC00CA0530 /* NumberOfDayConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberOfDayConverter.swift; sourceTree = "<group>"; };
-		3EE586FF24DFBF4900CA0530 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
 		3EE5870124DFC2DC00CA0530 /* MonthConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthConverter.swift; sourceTree = "<group>"; };
 		3EE5870324DFCB7000CA0530 /* FImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FImageView.swift; sourceTree = "<group>"; };
 		3EE5870624E01C1000CA0530 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
@@ -187,9 +197,9 @@
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
-		F870DC1F24F45CBF003C3A29 /* UIView+Constraints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Constraints.swift"; sourceTree = "<group>"; };
 		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
-		F88FC52C24F474DB009E8E03 /* UIScrollView+ContentSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ContentSize.swift"; sourceTree = "<group>"; };
+		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8FACC5424F51E1400B52063 /* fitnes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fitnes-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -197,7 +207,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1CECEBE5A56A6F87B8A1A823 /* Pods_fitnes.framework in Frameworks */,
+				F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,10 +438,7 @@
 		3E87232524BFAD1E005FC365 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				F88FC52B24F474C6009E8E03 /* UIScrollView */,
-				F870DC1E24F45CAE003C3A29 /* UIView */,
 				3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */,
-				3EE586FF24DFBF4900CA0530 /* String + Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -540,7 +547,7 @@
 				3EE38FFF24BCE78A003AF6D8 /* fitnes */,
 				3EE38FFE24BCE78A003AF6D8 /* Products */,
 				218FA636ABF33253604A7776 /* Pods */,
-				AFF08E7C7FC1742220804DF5 /* Frameworks */,
+				F8FACC5024F51D6C00B52063 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -567,6 +574,7 @@
 				3EE3901624BCE863003AF6D8 /* Screens */,
 				3E235B3724BE29D8004DDBD6 /* Storyboard */,
 				3EE2DDE124C0D8A100D85CAE /* Utils */,
+				F8FACC5524F51F8A00B52063 /* Other */,
 			);
 			path = fitnes;
 			sourceTree = "<group>";
@@ -574,6 +582,7 @@
 		3EE3901624BCE863003AF6D8 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				F88FC52E24F48627009E8E03 /* Excercises */,
 				3E0CDEB224EAE671001546CD /* Abonement */,
 				3E10DA3724C3988C00163F26 /* Athlete */,
 				3E0CDEB124EAE652001546CD /* Calendar */,
@@ -622,28 +631,35 @@
 			path = RoleConverter;
 			sourceTree = "<group>";
 		};
-		AFF08E7C7FC1742220804DF5 /* Frameworks */ = {
+		F88FC52E24F48627009E8E03 /* Excercises */ = {
 			isa = PBXGroup;
 			children = (
-				0B27A6510FA6DA87405D7B53 /* Pods_fitnes.framework */,
+				F88FC52F24F48910009E8E03 /* Views */,
+			);
+			path = Excercises;
+			sourceTree = "<group>";
+		};
+		F88FC52F24F48910009E8E03 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		F870DC1E24F45CAE003C3A29 /* UIView */ = {
+		F8FACC5524F51F8A00B52063 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				F870DC1F24F45CBF003C3A29 /* UIView+Constraints.swift */,
+				F8FACC5424F51E1400B52063 /* fitnes-Bridging-Header.h */,
 			);
-			path = UIView;
-			sourceTree = "<group>";
-		};
-		F88FC52B24F474C6009E8E03 /* UIScrollView */ = {
-			isa = PBXGroup;
-			children = (
-				F88FC52C24F474DB009E8E03 /* UIScrollView+ContentSize.swift */,
-			);
-			path = UIScrollView;
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -654,11 +670,12 @@
 			buildConfigurationList = 3EE3901124BCE78D003AF6D8 /* Build configuration list for PBXNativeTarget "fitnes" */;
 			buildPhases = (
 				CE586266E805B03A1DE74050 /* [CP] Check Pods Manifest.lock */,
+				F870DC1D24F42C6A003C3A29 /* swiftlint */,
 				3EE38FF924BCE78A003AF6D8 /* Sources */,
 				3EE38FFA24BCE78A003AF6D8 /* Frameworks */,
 				3EE38FFB24BCE78A003AF6D8 /* Resources */,
 				A47B03F7329A3A0FC39C1850 /* [CP] Embed Pods Frameworks */,
-				F870DC1D24F42C6A003C3A29 /* swiftlint */,
+				F8FACC2124F5167900B52063 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -804,7 +821,6 @@
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
 				3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */,
 				3EE586F424DEEA1B00CA0530 /* FViewTrainingPlace.swift in Sources */,
-				3EE5870024DFBF4900CA0530 /* String + Extension.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
@@ -820,9 +836,7 @@
 				3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
-				F870DC2024F45CBF003C3A29 /* UIView+Constraints.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
-				F88FC52D24F474DB009E8E03 /* UIScrollView+ContentSize.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */,
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
@@ -1019,6 +1033,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yauheniprakapenka.fitnes1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fitnes/other/fitnes-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1038,6 +1053,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yauheniprakapenka.fitnes1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "fitnes/other/fitnes-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
