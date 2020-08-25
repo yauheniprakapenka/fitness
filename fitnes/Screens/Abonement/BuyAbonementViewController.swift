@@ -10,12 +10,9 @@ import UIKit
 
 class BuyAbonementViewController: UIViewController {
     
-    var abonement: AbonementModel!
+    // MARK: - Variables
     
-    let alertView = FAlertView(
-        question: "Вы хотите купить\nабонемент?",
-        description: "После покупки он отобразится\nв вашем профиле",
-        actionButtonTitle: "Купить")
+    var abonement: AbonementModel!
     
     let backButton = UIButton()
     let buyButton = UIButton()
@@ -25,6 +22,9 @@ class BuyAbonementViewController: UIViewController {
     
     let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
     let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
+    
+    
+    // MARK: - View Controller LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +41,9 @@ class BuyAbonementViewController: UIViewController {
         configureTrainingLeftText()
     }
     
+    
+    // MARK: - Private Methods
+    
     private func configureBackButton() {
         view.addSubview(backButton)
         backButton.translatesAutoresizingMaskIntoConstraints = false
@@ -51,11 +54,6 @@ class BuyAbonementViewController: UIViewController {
         backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
         backButton.addTarget(self, action: #selector(backButtonTapepd), for: .touchUpInside)
-    }
-    
-    @objc
-    private func backButtonTapepd() {
-        dismiss(animated: true)
     }
     
     private func configureAbonementNameLabel() {
@@ -93,21 +91,6 @@ class BuyAbonementViewController: UIViewController {
         buyButton.addTarget(self, action: #selector(buyButtonTapped), for: .touchUpInside)
     }
     
-    @objc
-    func buyButtonTapped() {
-        view.addSubview(alertView)
-        alertView.translatesAutoresizingMaskIntoConstraints = false
-        
-        alertView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        alertView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        alertView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        
-        alertView.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
-        
-        alertView.actionButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
-    }
-    
     private func configureTrainingLeftNumber() {
         view.addSubview(trainingLeftNumber)
         trainingLeftNumber.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -122,18 +105,33 @@ class BuyAbonementViewController: UIViewController {
         trainingLeftText.text = "ТРЕНИРОВОК"
     }
     
+    
+    // MARK: - Actions
+    
     @objc
-    private func alertCancelButtonTapped() {
-        alertView.removeFromSuperview()
+    private func backButtonTapepd() {
+        dismiss(animated: true)
     }
     
     @objc
     private func confirmButtonTapped() {
-        let vc = AthleteViewController()
-        vc.athleteAbonement.insert(abonement, at: 0)
-        vc.reloadData()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        print(#function)
+        dismiss(animated: true) {
+            let vc = AthleteViewController()
+            vc.athleteAbonement.insert(self.abonement, at: 0)
+            vc.reloadData()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+        }
     }
     
+    @objc
+    func buyButtonTapped() {
+        let alertVC = AlertViewController(question: "Вы хотите купить\nабонемент?", description: "После покупки он отобразится\nв вашем профиле", actionButtonTitle: "Купить")
+        alertVC.modalPresentationStyle = .overCurrentContext
+        
+        alertVC.actionButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
+        
+        present(alertVC, animated: true)
+    }
 }

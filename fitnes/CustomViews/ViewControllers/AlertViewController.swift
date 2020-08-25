@@ -1,16 +1,18 @@
 //
-//  FAlertView.swift
+//  NewAlertVC.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 14.08.2020.
+//  Created by yauheni prakapenka on 25.08.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
 import UIKit
 
-class FAlertView: UIView {
+class AlertViewController: UIViewController {
     
-    private let containerView = UIView()
+    // MARK: - Variables
+    
+    private let alertView = UIView()
     
     private let questionLabel = UILabel()
     private let descriptionLabel = UILabel()
@@ -30,7 +32,7 @@ class FAlertView: UIView {
         return button
     }()
     
-    var cancelButton: UIButton = {
+    private var cancelButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
@@ -44,58 +46,59 @@ class FAlertView: UIView {
         button.layer.shadowColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         button.layer.shadowOpacity = 0.1
         button.layer.shadowRadius = 2.0
+        button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
         return button
     }()
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-
-        configureView()
-        configureAlertView()
-        configureQuestionLabel()
-        configureDescriptionLabel()
-        configureStackView()
+    init(question: String, description: String, actionButtonTitle: String) {
+        super.init(nibName: nil, bundle: nil)
+        
+        questionLabel.text = question
+        descriptionLabel.text = description
+        actionButton.setTitle(actionButtonTitle, for: .normal)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(question: String, description: String, actionButtonTitle: String) {
-        super.init(frame: .zero)
+    
+    // MARK: - View Controller LifeCycle Methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        configureView()
+        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3469492364)
+        
         configureAlertView()
         configureQuestionLabel()
         configureDescriptionLabel()
-        configureStackView()
         
-        actionButton.setTitle(actionButtonTitle, for: .normal)
-        questionLabel.text = question
-        descriptionLabel.text = description
+        configureStackView()
     }
     
-    private func configureView() {
-        backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3469492364)
-    }
+    
+    // MARK: - Private Methods
     
     private func configureAlertView() {
-        addSubview(containerView)
-        containerView.translatesAutoresizingMaskIntoConstraints = false
-        containerView.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
-        containerView.layer.cornerRadius = 10
+        view.addSubview(alertView)
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        
+        alertView.translatesAutoresizingMaskIntoConstraints = false
+        alertView.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
+        alertView.layer.cornerRadius = 10
         
         let padding: CGFloat = 40
         
-        containerView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
-        containerView.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: self.leadingAnchor, constant: -padding).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        alertView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        alertView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        alertView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding).isActive = true
+        alertView.trailingAnchor.constraint(equalTo: view.leadingAnchor, constant: -padding).isActive = true
+        alertView.heightAnchor.constraint(equalToConstant: 240).isActive = true
     }
-
+    
     private func configureQuestionLabel() {
-        addSubview(questionLabel)
+        alertView.addSubview(questionLabel)
         questionLabel.translatesAutoresizingMaskIntoConstraints = false
         questionLabel.numberOfLines = 2
         questionLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
@@ -104,13 +107,13 @@ class FAlertView: UIView {
         
         let padding: CGFloat = 20
         
-        questionLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 30).isActive = true
-        questionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding).isActive = true
-        questionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding).isActive = true
+        questionLabel.topAnchor.constraint(equalTo: alertView.topAnchor, constant: 30).isActive = true
+        questionLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: padding).isActive = true
+        questionLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -padding).isActive = true
     }
     
     private func configureDescriptionLabel() {
-        addSubview(descriptionLabel)
+        alertView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 2
         descriptionLabel.font = UIFont.systemFont(ofSize: 14, weight: .light)
@@ -120,12 +123,12 @@ class FAlertView: UIView {
         let padding: CGFloat = 20
         
         descriptionLabel.topAnchor.constraint(equalTo: questionLabel.bottomAnchor, constant: 10).isActive = true
-        descriptionLabel.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding).isActive = true
-        descriptionLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding).isActive = true
+        descriptionLabel.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: padding).isActive = true
+        descriptionLabel.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -padding).isActive = true
     }
     
     private func configureStackView() {
-        containerView.addSubview(stackView)
+        alertView.addSubview(stackView)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
         stackView.distribution = .fillEqually
@@ -134,8 +137,16 @@ class FAlertView: UIView {
         stackView.addArrangedSubview(cancelButton)
         
         stackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 35).isActive = true
-        stackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 20).isActive = true
-        stackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -20).isActive = true
+        stackView.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: 20).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -20).isActive = true
         stackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+    
+    
+    // MARK: - Actions
+    
+    @objc
+    private func cancelButtonTapped() {
+        dismiss(animated: true)
     }
 }

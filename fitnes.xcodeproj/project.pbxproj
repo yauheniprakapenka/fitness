@@ -18,12 +18,12 @@
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
 		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
-		3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927724E6F92400EEE0C6 /* FAlertView.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
 		3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */; };
 		3E3D928124E8555800EEE0C6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */; };
 		3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928224E864F800EEE0C6 /* AbonementModel.swift */; };
+		3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
@@ -111,12 +111,12 @@
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
-		3E3D927724E6F92400EEE0C6 /* FAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAlertView.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
 		3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		3E3D928224E864F800EEE0C6 /* AbonementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementModel.swift; sourceTree = "<group>"; };
+		3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +327,7 @@
 			isa = PBXGroup;
 			children = (
 				3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */,
+				3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */,
 				3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */,
 				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
 				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
@@ -348,7 +349,6 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3E3D927724E6F92400EEE0C6 /* FAlertView.swift */,
 				3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */,
 				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
 				3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */,
@@ -802,7 +802,6 @@
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
 				3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */,
-				3E3D927824E6F92400EEE0C6 /* FAlertView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
@@ -816,6 +815,7 @@
 				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
+				3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,

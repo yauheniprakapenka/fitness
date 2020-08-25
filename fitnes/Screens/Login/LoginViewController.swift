@@ -10,6 +10,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    // MARK: - Variables
+    
     let backgroundImageView = UIImageView()
     
     let startLabel = FLabel(fontSize: 34, weight: .light, color: .white, message: "Начнём")
@@ -32,6 +34,9 @@ class LoginViewController: UIViewController {
     let continueButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
     
     let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
+    
+    
+    // MARK: - View Controller LifeCycle Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +63,9 @@ class LoginViewController: UIViewController {
         configureContinueButton()
         configureCreateNewAccountButton()
     }
+    
+    
+    // MARK: - Private Methods
     
     private func configureBackgroundImageView() {
         view.addSubview(backgroundImageView)
@@ -142,6 +150,9 @@ class LoginViewController: UIViewController {
         createNewAccountButton.addTarget(self, action: #selector(createNewAccountButtonTapped), for: .touchUpInside)
     }
     
+    
+    // MARK: - Actions
+    
     @objc
     func continueButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
@@ -188,11 +199,22 @@ class LoginViewController: UIViewController {
     @objc
     func createNewAccountButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        
-        let nav = UINavigationController(rootViewController: RegisterViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+
+        let alertVC = AlertViewController(question: "привет", description: "описание", actionButtonTitle: "кнопка")
+        alertVC.modalPresentationStyle = .overCurrentContext
+        present(alertVC, animated: true)
     }
+    
+    @objc
+    private func alertCancelButtonTapped() {
+        print(#function)
+    }
+    
+    @objc
+    private func confirmButtonTapped() {
+        print(#function)
+    }
+    
 }
 
 

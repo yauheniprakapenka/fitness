@@ -156,7 +156,7 @@ class FindPlaceViewController: UIViewController {
     }
     
     
-    // MARK: - objc Methods
+    // MARK: - Actions
     
     @objc
     private func cancelButtonTapped() {
