@@ -24,7 +24,7 @@ public extension UIView {
         let colors: [UIColor] = [.blue, .green, .magenta, .red, .yellow]
         let label = UILabel(frame: frame)
         let text = type(of: self).description()
-        let color = colors[text.hash % colors.count]
+        let color = colors[abs(text.hashValue) % colors.count]
         label.text = text
         label.textColor = color
         label.textAlignment = .center

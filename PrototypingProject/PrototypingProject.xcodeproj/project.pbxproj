@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F86F787724FB171C00F9167F /* TrainingExcercisesStubData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787624FB171C00F9167F /* TrainingExcercisesStubData.swift */; };
 		F8CDD3E724FADCB700772D30 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3E624FADCB700772D30 /* AppDelegate.swift */; };
 		F8CDD3E924FADCB700772D30 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3E824FADCB700772D30 /* SceneDelegate.swift */; };
 		F8CDD3EB24FADCB700772D30 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3EA24FADCB700772D30 /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		F86F787624FB171C00F9167F /* TrainingExcercisesStubData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingExcercisesStubData.swift; sourceTree = "<group>"; };
 		F8CDD3E324FADCB700772D30 /* PrototypingProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PrototypingProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8CDD3E624FADCB700772D30 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8CDD3E824FADCB700772D30 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -66,6 +68,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F86F787824FB174200F9167F /* StubData */ = {
+			isa = PBXGroup;
+			children = (
+				F86F787624FB171C00F9167F /* TrainingExcercisesStubData.swift */,
+			);
+			path = StubData;
+			sourceTree = "<group>";
+		};
 		F8CDD3DA24FADCB700772D30 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +96,7 @@
 		F8CDD3E524FADCB700772D30 /* PrototypingProject */ = {
 			isa = PBXGroup;
 			children = (
+				F86F787824FB174200F9167F /* StubData */,
 				F8CDD3FC24FADD1000772D30 /* Other */,
 				F8CDD3EA24FADCB700772D30 /* ViewController.swift */,
 				F8CDD3EC24FADCB700772D30 /* Main.storyboard */,
@@ -189,6 +200,7 @@
 			files = (
 				F8CDD3EB24FADCB700772D30 /* ViewController.swift in Sources */,
 				F8CDD3E724FADCB700772D30 /* AppDelegate.swift in Sources */,
+				F86F787724FB171C00F9167F /* TrainingExcercisesStubData.swift in Sources */,
 				F8CDD3E924FADCB700772D30 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

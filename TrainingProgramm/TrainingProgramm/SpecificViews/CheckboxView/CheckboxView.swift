@@ -67,6 +67,13 @@ public class CheckboxView: UIViewExtended {
         isChecked = !isChecked
         viewDelegate?.checkboxView(self, statusChangedTo: isChecked)
     }
+    
+    // MARK: - Other
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        isChecked = true
+        updateAppearance()
+    }
 }
 
 // MARK: - Private Methods
