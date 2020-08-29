@@ -13,6 +13,7 @@
 		F84311A224F5BB00008CC50D /* TrainingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A124F5BB00008CC50D /* TrainingTypeView.swift */; };
 		F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */; };
 		F8CDD40C24FAE72E00772D30 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */; };
+		F8CDD41224FAF67C00772D30 /* VideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */; };
 		F8D830FB24F558E500610ABF /* TrainingProgramm.h in Headers */ = {isa = PBXBuildFile; fileRef = F8D830F924F558E500610ABF /* TrainingProgramm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8D8310424F5595700610ABF /* TrainingProgrammAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310324F5595700610ABF /* TrainingProgrammAssets.xcassets */; };
 		F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8310624F55ABF00610ABF /* SelectableItemView.swift */; };
@@ -30,6 +31,7 @@
 		F84311A124F5BB00008CC50D /* TrainingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTypeView.swift; sourceTree = "<group>"; };
 		F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewView.swift; sourceTree = "<group>"; };
 		F8D830F624F558E500610ABF /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D830F924F558E500610ABF /* TrainingProgramm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProgramm.h; sourceTree = "<group>"; };
 		F8D830FA24F558E500610ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		F843119824F56248008CC50D /* SpecificViews */ = {
 			isa = PBXGroup;
 			children = (
+				F8CDD41024FAF65B00772D30 /* VideoPreviewView */,
 				F8BF4F2724FA646F000251A2 /* CheckboxView */,
 				F8BF4F2624FA6415000251A2 /* TrainingTypeView */,
 			);
@@ -96,6 +99,14 @@
 				F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */,
 			);
 			path = Generated;
+			sourceTree = "<group>";
+		};
+		F8CDD41024FAF65B00772D30 /* VideoPreviewView */ = {
+			isa = PBXGroup;
+			children = (
+				F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */,
+			);
+			path = VideoPreviewView;
 			sourceTree = "<group>";
 		};
 		F8D830EC24F558E500610ABF = {
@@ -302,6 +313,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8CDD41224FAF67C00772D30 /* VideoPreviewView.swift in Sources */,
 				F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */,
 				F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */,
 				F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */,

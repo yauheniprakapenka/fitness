@@ -31,14 +31,29 @@
                                     <constraint firstAttribute="height" constant="40" id="rjn-N4-Gdk"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcY-Z7-Jqv" customClass="VideoPreviewView" customModule="TrainingProgramm">
+                                <rect key="frame" x="305" y="80" width="60" height="60"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="4fA-53-NdT"/>
+                                    <constraint firstAttribute="width" constant="60" id="by6-mh-SYb"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="EcY-Z7-Jqv" firstAttribute="top" secondItem="rgp-zO-nUQ" secondAttribute="bottom" constant="10" id="6iY-TB-X6o"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rgp-zO-nUQ" secondAttribute="trailing" constant="5" id="BOj-RY-bxl"/>
                             <constraint firstItem="rgp-zO-nUQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="MLE-f0-qxO"/>
                             <constraint firstItem="CFF-4F-2aK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="S3R-hk-JFV"/>
                             <constraint firstItem="CFF-4F-2aK" firstAttribute="top" secondItem="rgp-zO-nUQ" secondAttribute="bottom" constant="20" id="bRq-s0-3rf"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EcY-Z7-Jqv" secondAttribute="trailing" constant="10" id="hhf-Tb-7Hz"/>
                             <constraint firstItem="rgp-zO-nUQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="iMc-8K-rgj"/>
                         </constraints>
                     </view>
@@ -51,6 +66,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
