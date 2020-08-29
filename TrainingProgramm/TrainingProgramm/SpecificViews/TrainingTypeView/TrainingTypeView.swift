@@ -47,6 +47,14 @@ public class TrainingTypeView: UIStackView {
             addArrangedSubview(view)
         }
     }
+    
+    // MARK: - Other
+    public override func prepareForInterfaceBuilder() {
+        for view in arrangedSubviews {
+            removeArrangedSubview(view)
+        }
+        defaultPrepareForInterfaceBuilder()
+    }
 }
 
 extension TrainingTypeView: SelectableItemViewDelegate {

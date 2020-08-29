@@ -19,4 +19,20 @@ public extension UIView {
         let nib = viewNib(type: viewType)
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }
+    
+    func defaultPrepareForInterfaceBuilder() {
+        let colors: [UIColor] = [.blue, .green, .magenta, .red, .yellow]
+        let label = UILabel(frame: frame)
+        let text = type(of: self).description()
+        let color = colors[text.hash % colors.count]
+        label.text = text
+        label.textColor = color
+        label.textAlignment = .center
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.5
+        label.backgroundColor = color.withAlphaComponent(0.2)
+        label.layer.borderWidth = 1
+        label.layer.borderColor = color.cgColor
+        addSubview(label)
+    }
 }

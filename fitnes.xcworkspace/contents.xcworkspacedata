@@ -6,13 +6,6 @@
    </FileRef>
    <Group
       location = "container:"
-      name = "Playgrounds">
-      <FileRef
-         location = "group:/Users/vitali/Documents/IntvHackaton2020/Fitnes/ViewsPrototypingPlayground.playground">
-      </FileRef>
-   </Group>
-   <Group
-      location = "container:"
       name = "FeatureModules">
       <FileRef
          location = "group:TrainingProgramm/TrainingProgramm.xcodeproj">
@@ -28,6 +21,9 @@
          location = "group:CommonViews/CommonViews.xcodeproj">
       </FileRef>
    </Group>
+   <FileRef
+      location = "group:PrototypingProject/PrototypingProject.xcodeproj">
+   </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
