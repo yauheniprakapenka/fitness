@@ -22,3 +22,14 @@ class MyViewController : UIViewController {
 
 let controller = MyViewController()
 PlaygroundPage.current.liveView = controller
+
+func getView(parent view: UIView) -> UIView {
+    let label = TrainingTypeView()
+    view.addSubview(label)
+    label.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+    label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20).isActive = true
+    label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20).isActive = true
+    label.heightAnchor.constraint(equalToConstant: 40).isActive = true
+    view.addSubview(label)
+    return label
+}

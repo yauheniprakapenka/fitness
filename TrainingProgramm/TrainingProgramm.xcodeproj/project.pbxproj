@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0FD8A41D441033C3EF6F2CF0 /* libPods-TrainingProgramm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 031FD79AAEE7E5D28A7974BD /* libPods-TrainingProgramm.a */; };
 		F843119A24F562AF008CC50D /* TrainingProgramSelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */; };
 		F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119B24F56378008CC50D /* TrainingProgrammModule.swift */; };
 		F84311A224F5BB00008CC50D /* TrainingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A124F5BB00008CC50D /* TrainingTypeView.swift */; };
+		F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */; };
 		F8D830FB24F558E500610ABF /* TrainingProgramm.h in Headers */ = {isa = PBXBuildFile; fileRef = F8D830F924F558E500610ABF /* TrainingProgramm.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F8D8310424F5595700610ABF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310324F5595700610ABF /* Assets.xcassets */; };
+		F8D8310424F5595700610ABF /* TrainingProgrammAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310324F5595700610ABF /* TrainingProgrammAssets.xcassets */; };
 		F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8310624F55ABF00610ABF /* SelectableItemView.swift */; };
 		F8D8310A24F55B5500610ABF /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D8310924F55B5500610ABF /* FitnessExtensions.framework */; };
 		F8D8310F24F55C3F00610ABF /* SelectableItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310E24F55C3F00610ABF /* SelectableItemView.xib */; };
@@ -19,13 +21,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		031FD79AAEE7E5D28A7974BD /* libPods-TrainingProgramm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainingProgramm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A7E84A8CCE186755BF9F460 /* Pods-TrainingProgramm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingProgramm.debug.xcconfig"; path = "Target Support Files/Pods-TrainingProgramm/Pods-TrainingProgramm.debug.xcconfig"; sourceTree = "<group>"; };
+		F1AD985F0EA9385A73FE3FAD /* Pods-TrainingProgramm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingProgramm.release.xcconfig"; path = "Target Support Files/Pods-TrainingProgramm/Pods-TrainingProgramm.release.xcconfig"; sourceTree = "<group>"; };
 		F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgramSelectableItemView.swift; sourceTree = "<group>"; };
 		F843119B24F56378008CC50D /* TrainingProgrammModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgrammModule.swift; sourceTree = "<group>"; };
 		F84311A124F5BB00008CC50D /* TrainingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTypeView.swift; sourceTree = "<group>"; };
+		F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		F8D830F624F558E500610ABF /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D830F924F558E500610ABF /* TrainingProgramm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProgramm.h; sourceTree = "<group>"; };
 		F8D830FA24F558E500610ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F8D8310324F5595700610ABF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F8D8310324F5595700610ABF /* TrainingProgrammAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TrainingProgrammAssets.xcassets; sourceTree = "<group>"; };
 		F8D8310624F55ABF00610ABF /* SelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableItemView.swift; sourceTree = "<group>"; };
 		F8D8310924F55B5500610ABF /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D8310E24F55C3F00610ABF /* SelectableItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableItemView.xib; sourceTree = "<group>"; };
@@ -39,19 +45,54 @@
 			files = (
 				F8D8312A24F55D8400610ABF /* CommonViews.framework in Frameworks */,
 				F8D8310A24F55B5500610ABF /* FitnessExtensions.framework in Frameworks */,
+				0FD8A41D441033C3EF6F2CF0 /* libPods-TrainingProgramm.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B88976CC8010C7473DF2D7B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5A7E84A8CCE186755BF9F460 /* Pods-TrainingProgramm.debug.xcconfig */,
+				F1AD985F0EA9385A73FE3FAD /* Pods-TrainingProgramm.release.xcconfig */,
+			);
+			name = Pods;
+			path = ../Pods;
+			sourceTree = "<group>";
+		};
 		F843119824F56248008CC50D /* SpecificViews */ = {
 			isa = PBXGroup;
 			children = (
-				F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */,
-				F84311A124F5BB00008CC50D /* TrainingTypeView.swift */,
+				F8BF4F2724FA646F000251A2 /* CheckboxView */,
+				F8BF4F2624FA6415000251A2 /* TrainingTypeView */,
 			);
 			path = SpecificViews;
+			sourceTree = "<group>";
+		};
+		F8BF4F2624FA6415000251A2 /* TrainingTypeView */ = {
+			isa = PBXGroup;
+			children = (
+				F84311A124F5BB00008CC50D /* TrainingTypeView.swift */,
+				F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */,
+			);
+			path = TrainingTypeView;
+			sourceTree = "<group>";
+		};
+		F8BF4F2724FA646F000251A2 /* CheckboxView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CheckboxView;
+			sourceTree = "<group>";
+		};
+		F8BF4F2824FA679E000251A2 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		F8D830EC24F558E500610ABF = {
@@ -61,6 +102,7 @@
 				F8D830F824F558E500610ABF /* TrainingProgramm */,
 				F8D830F724F558E500610ABF /* Products */,
 				F8D8310824F55B5500610ABF /* Frameworks */,
+				B88976CC8010C7473DF2D7B6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,11 +117,12 @@
 		F8D830F824F558E500610ABF /* TrainingProgramm */ = {
 			isa = PBXGroup;
 			children = (
+				F8BF4F2824FA679E000251A2 /* Generated */,
 				F843119824F56248008CC50D /* SpecificViews */,
 				F8D8310224F5593B00610ABF /* GenericViews */,
 				F8D830F924F558E500610ABF /* TrainingProgramm.h */,
 				F8D830FA24F558E500610ABF /* Info.plist */,
-				F8D8310324F5595700610ABF /* Assets.xcassets */,
+				F8D8310324F5595700610ABF /* TrainingProgrammAssets.xcassets */,
 			);
 			path = TrainingProgramm;
 			sourceTree = "<group>";
@@ -106,6 +149,7 @@
 			children = (
 				F8D8312924F55D8400610ABF /* CommonViews.framework */,
 				F8D8310924F55B5500610ABF /* FitnessExtensions.framework */,
+				031FD79AAEE7E5D28A7974BD /* libPods-TrainingProgramm.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,8 +172,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F8D830FE24F558E500610ABF /* Build configuration list for PBXNativeTarget "TrainingProgramm" */;
 			buildPhases = (
-				F8D830F124F558E500610ABF /* Headers */,
+				0DC569FB96C17B06EDF65CC7 /* [CP] Check Pods Manifest.lock */,
 				F8D8310124F5591400610ABF /* swiftlint */,
+				F8BF4F2924FA68AA000251A2 /* swiftgen */,
+				F8D830F124F558E500610ABF /* Headers */,
 				F8D830F224F558E500610ABF /* Sources */,
 				F8D830F324F558E500610ABF /* Frameworks */,
 				F8D830F424F558E500610ABF /* Resources */,
@@ -180,7 +226,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8D8310424F5595700610ABF /* Assets.xcassets in Resources */,
+				F8D8310424F5595700610ABF /* TrainingProgrammAssets.xcassets in Resources */,
 				F8D8310F24F55C3F00610ABF /* SelectableItemView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -188,6 +234,46 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0DC569FB96C17B06EDF65CC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TrainingProgramm-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8BF4F2924FA68AA000251A2 /* swiftgen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = swiftgen;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ -f \"${PODS_ROOT}/SwiftGen/bin/swiftgen\" ]]; then\n  \"${PODS_ROOT}/SwiftGen/bin/swiftgen\"\nelse\n  echo \"warning: SwiftGen is not installed. Run 'pod install --repo-update' to install it.\"\n  exit 1\nfi\n";
+		};
 		F8D8310124F5591400610ABF /* swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -213,6 +299,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */,
 				F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */,
 				F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */,
 				F84311A224F5BB00008CC50D /* TrainingTypeView.swift in Sources */,
@@ -347,6 +434,7 @@
 		};
 		F8D830FF24F558E500610ABF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A7E84A8CCE186755BF9F460 /* Pods-TrainingProgramm.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -375,6 +463,7 @@
 		};
 		F8D8310024F558E500610ABF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1AD985F0EA9385A73FE3FAD /* Pods-TrainingProgramm.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;

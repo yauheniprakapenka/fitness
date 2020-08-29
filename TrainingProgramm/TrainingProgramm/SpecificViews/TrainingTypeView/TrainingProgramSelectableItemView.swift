@@ -9,12 +9,12 @@ import UIKit
 
 private extension TrainingProgramSelectableItemView {
     enum Const {
-        static let selectedColor = UIColor(named: "trainingProgramm_blueAccent", in: TrainingProgrammModule.bundle, compatibleWith: nil)!
+        static let selectedColor = Asset.TrainingProgramm.CommonColors.trainingProgrammBlueAccent.color
         static let unselectedColor = UIColor.white
-        static let selectedBorderColor = UIColor(named: "trainingProgramm_selectableItemBorderSelected", in: TrainingProgrammModule.bundle, compatibleWith: nil)!
-        static let unselectedBorderColor = UIColor(named: "trainingProgramm_selectableItemBorderUnselected", in: TrainingProgrammModule.bundle, compatibleWith: nil)!
+        static let selectedBorderColor = Asset.TrainingProgramm.CommonColors.trainingProgrammSelectableItemBorderSelected.color
+        static let unselectedBorderColor = Asset.TrainingProgramm.CommonColors.trainingProgrammSelectableItemBorderUnselected.color
         static let selectedTextColor = UIColor.white
-        static let unselectedTextColor = UIColor(named: "trainingProgramm_selectableItemUnselectedText", in: TrainingProgrammModule.bundle, compatibleWith: nil)!
+        static let unselectedTextColor = Asset.TrainingProgramm.CommonColors.trainingProgrammSelectableItemUnselectedText.color
         static let insets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
     }
 }

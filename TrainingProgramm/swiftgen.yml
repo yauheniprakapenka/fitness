@@ -1,0 +1,12 @@
+
+output_dir: TrainingProgramm/Generated/
+input_dir: TrainingProgramm/
+
+xcassets:
+  inputs:
+    - TrainingProgrammAssets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: XCAssets+Generated.swift

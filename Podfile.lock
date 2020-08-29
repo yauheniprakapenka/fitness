@@ -277,6 +277,7 @@ PODS:
   - nanopb/decode (0.3.9011)
   - nanopb/encode (0.3.9011)
   - PromisesObjC (1.2.9)
+  - SwiftGen (6.3.0)
 
 DEPENDENCIES:
   - Firebase/Analytics
@@ -284,6 +285,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - FirebaseFirestoreSwift
   - FSCalendar
+  - SwiftGen (~> 6.0)
 
 SPEC REPOS:
   trunk:
@@ -310,6 +312,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - PromisesObjC
+    - SwiftGen
 
 SPEC CHECKSUMS:
   abseil: 18063d773f5366ff8736a050fe035a28f635fd27
@@ -335,7 +338,8 @@ SPEC CHECKSUMS:
   leveldb-library: 55d93ee664b4007aac644a782d11da33fba316f7
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  SwiftGen: 3d5024a47ea79e408cded20763d7a17d18a4548c
 
-PODFILE CHECKSUM: 96f25cd89668538d161ac770f7f318a45ad690c0
+PODFILE CHECKSUM: a626b56a30cf4963cceeff66bcef161a4d95fe95
 
 COCOAPODS: 1.9.3
