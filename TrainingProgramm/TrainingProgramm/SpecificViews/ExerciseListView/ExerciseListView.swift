@@ -5,6 +5,8 @@
 //  Created by Vitali on 8/30/20.
 //
 
+// swiftlint:disable nesting
+
 import UIKit
 
 public protocol ExerciseListViewDelegate: class {
