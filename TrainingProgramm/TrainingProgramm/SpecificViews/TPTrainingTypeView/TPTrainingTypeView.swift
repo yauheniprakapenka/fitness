@@ -7,22 +7,22 @@
 
 import UIKit
 
-public extension TrainingTypeView {
+public extension TPTrainingTypeView {
     enum TrainingType: String, CaseIterable {
         case emom, amrap, forTime, rest
     }
 }
 
-public protocol TrainingTypeViewDelegate: class {
-    func trainingTypeView(sender: TrainingTypeView, didSelectTrainingType trainingType: TrainingTypeView.TrainingType)
+public protocol TPTrainingTypeViewDelegate: class {
+    func tpTrainingTypeView(sender: TPTrainingTypeView, didSelectTrainingType trainingType: TPTrainingTypeView.TrainingType)
 }
 
 @IBDesignable
-public class TrainingTypeView: UIStackView {
+public class TPTrainingTypeView: UIStackView {
     // MARK: - Properties
     public private(set) var selectedType: TrainingType?
     
-    weak var viewDelegate: TrainingTypeViewDelegate?
+    weak var viewDelegate: TPTrainingTypeViewDelegate?
     
     // MARK: - Initialization
     override public init(frame: CGRect) {
@@ -41,7 +41,7 @@ public class TrainingTypeView: UIStackView {
         distribution = .fillProportionally
         spacing = 12
         for type in TrainingType.allCases {
-            let view = TrainingProgramSelectableItemView()
+            let view = TPTrainingProgramSelectableItemView()
             view.text = type.rawValue.uppercased()
             view.viewDelegate = self
             addArrangedSubview(view)
@@ -57,8 +57,8 @@ public class TrainingTypeView: UIStackView {
     }
 }
 
-extension TrainingTypeView: SelectableItemViewDelegate {
-    public func selectableItemViewShouldChangeSelection(sender: SelectableItemView) -> Bool {
+extension TPTrainingTypeView: TPSelectableItemViewDelegate {
+    public func tpSelectableItemViewShouldChangeSelection(sender: TPSelectableItemView) -> Bool {
         guard let selectedType = selectedType else { return true }
         if let viewIndex = arrangedSubviews.firstIndex(of: sender),
            let typeIndex = TrainingType.allCases.firstIndex(of: selectedType) {
@@ -67,7 +67,7 @@ extension TrainingTypeView: SelectableItemViewDelegate {
         return true
     }
     
-    public func selectableItemView(sender: SelectableItemView, selectionChanged isSelected: Bool) {
+    public func tpSelectableItemView(sender: TPSelectableItemView, selectionChanged isSelected: Bool) {
         guard
             let viewIndex = arrangedSubviews.firstIndex(of: sender),
             isSelected
@@ -79,10 +79,10 @@ extension TrainingTypeView: SelectableItemViewDelegate {
             if index == viewIndex {
                 continue
             }
-            if let selectableItem = view as? TrainingProgramSelectableItemView {
+            if let selectableItem = view as? TPTrainingProgramSelectableItemView {
                 selectableItem.isSelected = false
             }
         }
-        viewDelegate?.trainingTypeView(sender: self, didSelectTrainingType: selectedType!)
+        viewDelegate?.tpTrainingTypeView(sender: self, didSelectTrainingType: selectedType!)
     }
 }

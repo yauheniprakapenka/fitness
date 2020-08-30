@@ -8,24 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		0FD8A41D441033C3EF6F2CF0 /* libPods-TrainingProgramm.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 031FD79AAEE7E5D28A7974BD /* libPods-TrainingProgramm.a */; };
-		F843119A24F562AF008CC50D /* TrainingProgramSelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */; };
+		F843119A24F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119924F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift */; };
 		F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119B24F56378008CC50D /* TrainingProgrammModule.swift */; };
-		F84311A224F5BB00008CC50D /* TrainingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A124F5BB00008CC50D /* TrainingTypeView.swift */; };
-		F86F787524FB140600F9167F /* TimeSelectionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787424FB140600F9167F /* TimeSelectionContentView.swift */; };
-		F86F787B24FB2D2500F9167F /* ExerciseItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787A24FB2D2500F9167F /* ExerciseItemContentView.swift */; };
-		F86F787D24FB2D4100F9167F /* ExerciseItemContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86F787C24FB2D4100F9167F /* ExerciseItemContentView.xib */; };
-		F86F788424FBC97E00F9167F /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F788324FBC97E00F9167F /* ExerciseListView.swift */; };
-		F86F788624FBCB2300F9167F /* ExerciseListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F788524FBCB2300F9167F /* ExerciseListItemView.swift */; };
+		F84311A224F5BB00008CC50D /* TPTrainingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A124F5BB00008CC50D /* TPTrainingTypeView.swift */; };
+		F85536A324FC4622001E2F1A /* TPTextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536A224FC4622001E2F1A /* TPTextInputView.swift */; };
+		F85536A524FC4665001E2F1A /* TPTextInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85536A424FC4665001E2F1A /* TPTextInputView.xib */; };
+		F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */; };
+		F86F787B24FB2D2500F9167F /* TPExerciseItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */; };
+		F86F787D24FB2D4100F9167F /* TPExerciseItemContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */; };
+		F86F788424FBC97E00F9167F /* TPExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F788324FBC97E00F9167F /* TPExerciseListView.swift */; };
+		F86F788624FBCB2300F9167F /* TPExerciseListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F788524FBCB2300F9167F /* TPExerciseListItemView.swift */; };
 		F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */; };
-		F8CDD40C24FAE72E00772D30 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */; };
-		F8CDD41224FAF67C00772D30 /* VideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */; };
-		F8CDD41824FB11C800772D30 /* TimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41724FB11C800772D30 /* TimeSelectionView.swift */; };
-		F8CDD41A24FB12A300772D30 /* TimeSelectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41924FB12A300772D30 /* TimeSelectionItemView.swift */; };
+		F8CDD40C24FAE72E00772D30 /* TPCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD40B24FAE72E00772D30 /* TPCheckboxView.swift */; };
+		F8CDD41224FAF67C00772D30 /* TPVideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41124FAF67C00772D30 /* TPVideoPreviewView.swift */; };
+		F8CDD41824FB11C800772D30 /* TPTimeSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41724FB11C800772D30 /* TPTimeSelectionView.swift */; };
+		F8CDD41A24FB12A300772D30 /* TPTimeSelectionItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41924FB12A300772D30 /* TPTimeSelectionItemView.swift */; };
 		F8D830FB24F558E500610ABF /* TrainingProgramm.h in Headers */ = {isa = PBXBuildFile; fileRef = F8D830F924F558E500610ABF /* TrainingProgramm.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8D8310424F5595700610ABF /* TrainingProgrammAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310324F5595700610ABF /* TrainingProgrammAssets.xcassets */; };
-		F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8310624F55ABF00610ABF /* SelectableItemView.swift */; };
+		F8D8310724F55ABF00610ABF /* TPSelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8310624F55ABF00610ABF /* TPSelectableItemView.swift */; };
 		F8D8310A24F55B5500610ABF /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D8310924F55B5500610ABF /* FitnessExtensions.framework */; };
-		F8D8310F24F55C3F00610ABF /* SelectableItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310E24F55C3F00610ABF /* SelectableItemView.xib */; };
+		F8D8310F24F55C3F00610ABF /* TPSelectableItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8D8310E24F55C3F00610ABF /* TPSelectableItemView.xib */; };
 		F8D8312A24F55D8400610ABF /* CommonViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8D8312924F55D8400610ABF /* CommonViews.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,26 +35,28 @@
 		031FD79AAEE7E5D28A7974BD /* libPods-TrainingProgramm.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TrainingProgramm.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A7E84A8CCE186755BF9F460 /* Pods-TrainingProgramm.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingProgramm.debug.xcconfig"; path = "Target Support Files/Pods-TrainingProgramm/Pods-TrainingProgramm.debug.xcconfig"; sourceTree = "<group>"; };
 		F1AD985F0EA9385A73FE3FAD /* Pods-TrainingProgramm.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TrainingProgramm.release.xcconfig"; path = "Target Support Files/Pods-TrainingProgramm/Pods-TrainingProgramm.release.xcconfig"; sourceTree = "<group>"; };
-		F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgramSelectableItemView.swift; sourceTree = "<group>"; };
+		F843119924F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingProgramSelectableItemView.swift; sourceTree = "<group>"; };
 		F843119B24F56378008CC50D /* TrainingProgrammModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgrammModule.swift; sourceTree = "<group>"; };
-		F84311A124F5BB00008CC50D /* TrainingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingTypeView.swift; sourceTree = "<group>"; };
-		F86F787424FB140600F9167F /* TimeSelectionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionContentView.swift; sourceTree = "<group>"; };
-		F86F787A24FB2D2500F9167F /* ExerciseItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemContentView.swift; sourceTree = "<group>"; };
-		F86F787C24FB2D4100F9167F /* ExerciseItemContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseItemContentView.xib; sourceTree = "<group>"; };
-		F86F788324FBC97E00F9167F /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
-		F86F788524FBCB2300F9167F /* ExerciseListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListItemView.swift; sourceTree = "<group>"; };
+		F84311A124F5BB00008CC50D /* TPTrainingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingTypeView.swift; sourceTree = "<group>"; };
+		F85536A224FC4622001E2F1A /* TPTextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTextInputView.swift; sourceTree = "<group>"; };
+		F85536A424FC4665001E2F1A /* TPTextInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPTextInputView.xib; sourceTree = "<group>"; };
+		F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimeSelectionContentView.swift; sourceTree = "<group>"; };
+		F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExerciseItemContentView.swift; sourceTree = "<group>"; };
+		F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPExerciseItemContentView.xib; sourceTree = "<group>"; };
+		F86F788324FBC97E00F9167F /* TPExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExerciseListView.swift; sourceTree = "<group>"; };
+		F86F788524FBCB2300F9167F /* TPExerciseListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExerciseListItemView.swift; sourceTree = "<group>"; };
 		F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
-		F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
-		F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewView.swift; sourceTree = "<group>"; };
-		F8CDD41724FB11C800772D30 /* TimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionView.swift; sourceTree = "<group>"; };
-		F8CDD41924FB12A300772D30 /* TimeSelectionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionItemView.swift; sourceTree = "<group>"; };
+		F8CDD40B24FAE72E00772D30 /* TPCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPCheckboxView.swift; sourceTree = "<group>"; };
+		F8CDD41124FAF67C00772D30 /* TPVideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPVideoPreviewView.swift; sourceTree = "<group>"; };
+		F8CDD41724FB11C800772D30 /* TPTimeSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimeSelectionView.swift; sourceTree = "<group>"; };
+		F8CDD41924FB12A300772D30 /* TPTimeSelectionItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimeSelectionItemView.swift; sourceTree = "<group>"; };
 		F8D830F624F558E500610ABF /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D830F924F558E500610ABF /* TrainingProgramm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TrainingProgramm.h; sourceTree = "<group>"; };
 		F8D830FA24F558E500610ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F8D8310324F5595700610ABF /* TrainingProgrammAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TrainingProgrammAssets.xcassets; sourceTree = "<group>"; };
-		F8D8310624F55ABF00610ABF /* SelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableItemView.swift; sourceTree = "<group>"; };
+		F8D8310624F55ABF00610ABF /* TPSelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSelectableItemView.swift; sourceTree = "<group>"; };
 		F8D8310924F55B5500610ABF /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		F8D8310E24F55C3F00610ABF /* SelectableItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SelectableItemView.xib; sourceTree = "<group>"; };
+		F8D8310E24F55C3F00610ABF /* TPSelectableItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPSelectableItemView.xib; sourceTree = "<group>"; };
 		F8D8312924F55D8400610ABF /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -80,52 +84,62 @@
 			path = ../Pods;
 			sourceTree = "<group>";
 		};
+		F829284224FC35A300FF2366 /* TPTextInputView */ = {
+			isa = PBXGroup;
+			children = (
+				F85536A224FC4622001E2F1A /* TPTextInputView.swift */,
+				F85536A424FC4665001E2F1A /* TPTextInputView.xib */,
+			);
+			path = TPTextInputView;
+			sourceTree = "<group>";
+		};
 		F843119824F56248008CC50D /* SpecificViews */ = {
 			isa = PBXGroup;
 			children = (
-				F86F788224FBC96500F9167F /* ExerciseListView */,
-				F86F787924FB2CF800F9167F /* ExerciseView */,
-				F8CDD41624FB11B200772D30 /* TimeSelectionView */,
-				F8CDD41024FAF65B00772D30 /* VideoPreviewView */,
-				F8BF4F2724FA646F000251A2 /* CheckboxView */,
-				F8BF4F2624FA6415000251A2 /* TrainingTypeView */,
+				F829284224FC35A300FF2366 /* TPTextInputView */,
+				F86F788224FBC96500F9167F /* TPExerciseListView */,
+				F86F787924FB2CF800F9167F /* TPExerciseView */,
+				F8CDD41624FB11B200772D30 /* TPTimeSelectionView */,
+				F8CDD41024FAF65B00772D30 /* TPVideoPreviewView */,
+				F8BF4F2724FA646F000251A2 /* TPCheckboxView */,
+				F8BF4F2624FA6415000251A2 /* TPTrainingTypeView */,
 			);
 			path = SpecificViews;
 			sourceTree = "<group>";
 		};
-		F86F787924FB2CF800F9167F /* ExerciseView */ = {
+		F86F787924FB2CF800F9167F /* TPExerciseView */ = {
 			isa = PBXGroup;
 			children = (
-				F86F787A24FB2D2500F9167F /* ExerciseItemContentView.swift */,
-				F86F787C24FB2D4100F9167F /* ExerciseItemContentView.xib */,
+				F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */,
+				F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */,
 			);
-			path = ExerciseView;
+			path = TPExerciseView;
 			sourceTree = "<group>";
 		};
-		F86F788224FBC96500F9167F /* ExerciseListView */ = {
+		F86F788224FBC96500F9167F /* TPExerciseListView */ = {
 			isa = PBXGroup;
 			children = (
-				F86F788324FBC97E00F9167F /* ExerciseListView.swift */,
-				F86F788524FBCB2300F9167F /* ExerciseListItemView.swift */,
+				F86F788324FBC97E00F9167F /* TPExerciseListView.swift */,
+				F86F788524FBCB2300F9167F /* TPExerciseListItemView.swift */,
 			);
-			path = ExerciseListView;
+			path = TPExerciseListView;
 			sourceTree = "<group>";
 		};
-		F8BF4F2624FA6415000251A2 /* TrainingTypeView */ = {
+		F8BF4F2624FA6415000251A2 /* TPTrainingTypeView */ = {
 			isa = PBXGroup;
 			children = (
-				F84311A124F5BB00008CC50D /* TrainingTypeView.swift */,
-				F843119924F562AF008CC50D /* TrainingProgramSelectableItemView.swift */,
+				F84311A124F5BB00008CC50D /* TPTrainingTypeView.swift */,
+				F843119924F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift */,
 			);
-			path = TrainingTypeView;
+			path = TPTrainingTypeView;
 			sourceTree = "<group>";
 		};
-		F8BF4F2724FA646F000251A2 /* CheckboxView */ = {
+		F8BF4F2724FA646F000251A2 /* TPCheckboxView */ = {
 			isa = PBXGroup;
 			children = (
-				F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */,
+				F8CDD40B24FAE72E00772D30 /* TPCheckboxView.swift */,
 			);
-			path = CheckboxView;
+			path = TPCheckboxView;
 			sourceTree = "<group>";
 		};
 		F8BF4F2824FA679E000251A2 /* Generated */ = {
@@ -136,22 +150,22 @@
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		F8CDD41024FAF65B00772D30 /* VideoPreviewView */ = {
+		F8CDD41024FAF65B00772D30 /* TPVideoPreviewView */ = {
 			isa = PBXGroup;
 			children = (
-				F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */,
+				F8CDD41124FAF67C00772D30 /* TPVideoPreviewView.swift */,
 			);
-			path = VideoPreviewView;
+			path = TPVideoPreviewView;
 			sourceTree = "<group>";
 		};
-		F8CDD41624FB11B200772D30 /* TimeSelectionView */ = {
+		F8CDD41624FB11B200772D30 /* TPTimeSelectionView */ = {
 			isa = PBXGroup;
 			children = (
-				F8CDD41724FB11C800772D30 /* TimeSelectionView.swift */,
-				F8CDD41924FB12A300772D30 /* TimeSelectionItemView.swift */,
-				F86F787424FB140600F9167F /* TimeSelectionContentView.swift */,
+				F8CDD41724FB11C800772D30 /* TPTimeSelectionView.swift */,
+				F8CDD41924FB12A300772D30 /* TPTimeSelectionItemView.swift */,
+				F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */,
 			);
-			path = TimeSelectionView;
+			path = TPTimeSelectionView;
 			sourceTree = "<group>";
 		};
 		F8D830EC24F558E500610ABF = {
@@ -189,18 +203,18 @@
 		F8D8310224F5593B00610ABF /* GenericViews */ = {
 			isa = PBXGroup;
 			children = (
-				F8D8310524F55A9800610ABF /* SelectableItem */,
+				F8D8310524F55A9800610ABF /* TPSelectableItem */,
 			);
 			path = GenericViews;
 			sourceTree = "<group>";
 		};
-		F8D8310524F55A9800610ABF /* SelectableItem */ = {
+		F8D8310524F55A9800610ABF /* TPSelectableItem */ = {
 			isa = PBXGroup;
 			children = (
-				F8D8310624F55ABF00610ABF /* SelectableItemView.swift */,
-				F8D8310E24F55C3F00610ABF /* SelectableItemView.xib */,
+				F8D8310624F55ABF00610ABF /* TPSelectableItemView.swift */,
+				F8D8310E24F55C3F00610ABF /* TPSelectableItemView.xib */,
 			);
-			path = SelectableItem;
+			path = TPSelectableItem;
 			sourceTree = "<group>";
 		};
 		F8D8310824F55B5500610ABF /* Frameworks */ = {
@@ -285,9 +299,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85536A524FC4665001E2F1A /* TPTextInputView.xib in Resources */,
 				F8D8310424F5595700610ABF /* TrainingProgrammAssets.xcassets in Resources */,
-				F8D8310F24F55C3F00610ABF /* SelectableItemView.xib in Resources */,
-				F86F787D24FB2D4100F9167F /* ExerciseItemContentView.xib in Resources */,
+				F8D8310F24F55C3F00610ABF /* TPSelectableItemView.xib in Resources */,
+				F86F787D24FB2D4100F9167F /* TPExerciseItemContentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,19 +374,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F8CDD41224FAF67C00772D30 /* VideoPreviewView.swift in Sources */,
+				F8CDD41224FAF67C00772D30 /* TPVideoPreviewView.swift in Sources */,
 				F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */,
-				F8CDD41824FB11C800772D30 /* TimeSelectionView.swift in Sources */,
-				F86F788624FBCB2300F9167F /* ExerciseListItemView.swift in Sources */,
+				F8CDD41824FB11C800772D30 /* TPTimeSelectionView.swift in Sources */,
+				F86F788624FBCB2300F9167F /* TPExerciseListItemView.swift in Sources */,
 				F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */,
-				F86F788424FBC97E00F9167F /* ExerciseListView.swift in Sources */,
-				F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */,
-				F8CDD40C24FAE72E00772D30 /* CheckboxView.swift in Sources */,
-				F86F787B24FB2D2500F9167F /* ExerciseItemContentView.swift in Sources */,
-				F86F787524FB140600F9167F /* TimeSelectionContentView.swift in Sources */,
-				F84311A224F5BB00008CC50D /* TrainingTypeView.swift in Sources */,
-				F843119A24F562AF008CC50D /* TrainingProgramSelectableItemView.swift in Sources */,
-				F8CDD41A24FB12A300772D30 /* TimeSelectionItemView.swift in Sources */,
+				F86F788424FBC97E00F9167F /* TPExerciseListView.swift in Sources */,
+				F8D8310724F55ABF00610ABF /* TPSelectableItemView.swift in Sources */,
+				F8CDD40C24FAE72E00772D30 /* TPCheckboxView.swift in Sources */,
+				F86F787B24FB2D2500F9167F /* TPExerciseItemContentView.swift in Sources */,
+				F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */,
+				F85536A324FC4622001E2F1A /* TPTextInputView.swift in Sources */,
+				F84311A224F5BB00008CC50D /* TPTrainingTypeView.swift in Sources */,
+				F843119A24F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift in Sources */,
+				F8CDD41A24FB12A300772D30 /* TPTimeSelectionItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

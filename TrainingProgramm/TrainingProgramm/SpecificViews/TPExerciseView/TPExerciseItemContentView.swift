@@ -10,12 +10,12 @@
 import UIKit
 import CommonViews
 
-public protocol ExerciseItemContentViewDelegate: class {
-    func exerciseItemContentView(_ sender: ExerciseItemContentView, checkboxStatusChanged status: Bool, userData: [AnyHashable: Any]?)
-    func exerciseItemContentViewPreviewTapped(_ sender: ExerciseItemContentView, userData: [AnyHashable: Any]?)
+public protocol TPExerciseItemContentViewDelegate: class {
+    func tpExerciseItemContentView(_ sender: TPExerciseItemContentView, checkboxStatusChanged status: Bool, userData: [AnyHashable: Any]?)
+    func tpExerciseItemContentViewPreviewTapped(_ sender: TPExerciseItemContentView, userData: [AnyHashable: Any]?)
 }
 
-private extension ExerciseItemContentView {
+private extension TPExerciseItemContentView {
     enum Const {
         static let cornerRadius: CGFloat = 8
         static let additionalBottomInsetWhenBottomContainerNotVisible: CGFloat = 15
@@ -27,7 +27,7 @@ private extension ExerciseItemContentView {
     }
 }
 
-public extension ExerciseItemContentView {
+public extension TPExerciseItemContentView {
     enum ViewModel {
         case topContent(
                 topTitle: String?,
@@ -62,25 +62,25 @@ public extension ExerciseItemContentView {
 }
 
 @IBDesignable
-public class ExerciseItemContentView: UIViewExtended {
+public class TPExerciseItemContentView: UIViewExtended {
     // MARK: - Views
     private weak var contentView: UIViewExtended!
     @IBOutlet private weak var topTitleLabel: UILabel!
     @IBOutlet private weak var mainTitleLabel: UILabel!
-    @IBOutlet private weak var checkboxView: CheckboxView!
+    @IBOutlet private weak var checkboxView: TPCheckboxView!
     @IBOutlet private weak var bottomContainerView: UIView!
     @IBOutlet private weak var leftSubitemTitleLabel: UILabel!
     @IBOutlet private weak var leftSubitemDescriptionLabel: UILabel!
     @IBOutlet private weak var rightSubitemTitleLabel: UILabel!
     @IBOutlet private weak var rightSubitemDescriptionLabel: UILabel!
-    @IBOutlet private weak var videoPreviewView: VideoPreviewView!
+    @IBOutlet private weak var videoPreviewView: TPVideoPreviewView!
     
     // MARK: - Constraints
     @IBOutlet private weak var bottomContrainerViewHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     private var userData: [AnyHashable: Any]?
-    public weak var viewDelegate: ExerciseItemContentViewDelegate?
+    public weak var viewDelegate: TPExerciseItemContentViewDelegate?
     
     private var storyboardBackgroundColor: UIColor = .white
     public var state: State = .normal {
@@ -183,7 +183,7 @@ public class ExerciseItemContentView: UIViewExtended {
     }
 }
 
-private extension ExerciseItemContentView {
+private extension TPExerciseItemContentView {
     func configureState() {
         switch state {
         case .normal:
@@ -209,15 +209,15 @@ private extension ExerciseItemContentView {
 }
 
 // MARK: - CheckboxViewDelegate
-extension ExerciseItemContentView: CheckboxViewDelegate {
-    public func checkboxView(_ sender: CheckboxView, statusChangedTo checked: Bool) {
-        viewDelegate?.exerciseItemContentView(self, checkboxStatusChanged: checked, userData: userData)
+extension TPExerciseItemContentView: TPCheckboxViewDelegate {
+    public func tpCheckboxView(_ sender: TPCheckboxView, statusChangedTo checked: Bool) {
+        viewDelegate?.tpExerciseItemContentView(self, checkboxStatusChanged: checked, userData: userData)
     }
 }
 
 // MARK: - VideoPreviewViewDelegate
-extension ExerciseItemContentView: VideoPreviewViewDelegate {
-    public func videoPreviewViewDidTap(_ sender: VideoPreviewView) {
-        viewDelegate?.exerciseItemContentViewPreviewTapped(self, userData: userData)
+extension TPExerciseItemContentView: TPVideoPreviewViewDelegate {
+    public func tpVideoPreviewViewDidTap(_ sender: TPVideoPreviewView) {
+        viewDelegate?.tpExerciseItemContentViewPreviewTapped(self, userData: userData)
     }
 }

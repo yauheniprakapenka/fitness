@@ -8,16 +8,16 @@
 import UIKit
 import CommonViews
 
-public protocol VideoPreviewViewDelegate: class {
-    func videoPreviewViewDidTap(_ sender: VideoPreviewView)
+public protocol TPVideoPreviewViewDelegate: class {
+    func tpVideoPreviewViewDidTap(_ sender: TPVideoPreviewView)
 }
 
 @IBDesignable
-public class VideoPreviewView: UIViewExtended {
+public class TPVideoPreviewView: UIViewExtended {
     // MARK: - Views
     private weak var imageView: UIImageView!
     // MARK: - Properties
-    weak var viewDelegate: VideoPreviewViewDelegate?
+    weak var viewDelegate: TPVideoPreviewViewDelegate?
     var image: UIImage? {
         didSet {
             imageView.image = image
@@ -56,7 +56,7 @@ public class VideoPreviewView: UIViewExtended {
     // MARK: - Actions and Action Callbacks
     @objc
     private func handleTap() {
-        viewDelegate?.videoPreviewViewDidTap(self)
+        viewDelegate?.tpVideoPreviewViewDidTap(self)
     }
     
     // MARK: - Other

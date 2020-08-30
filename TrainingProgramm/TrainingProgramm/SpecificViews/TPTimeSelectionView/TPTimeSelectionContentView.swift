@@ -7,7 +7,7 @@
 
 import UIKit
 
-private extension TimeSelectionContentView {
+private extension TPTimeSelectionContentView {
     enum Const {
         static let selectedColor = Asset.TrainingProgramm.CommonColors.trainingProgrammBlueAccent.color
         static let unselectedColor = UIColor.white
@@ -20,7 +20,7 @@ private extension TimeSelectionContentView {
 }
 
 @IBDesignable
-public class TimeSelectionContentView: SelectableItemView {
+public class TPTimeSelectionContentView: TPSelectableItemView {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         initCommon()

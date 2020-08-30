@@ -7,9 +7,9 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    @IBOutlet weak var timeSelectionView: TimeSelectionView!
-    @IBOutlet weak var exerciseListView: ExerciseListView!
+class TrainingProgrammViewController1: UIViewController {
+    @IBOutlet weak var timeSelectionView: TPTimeSelectionView!
+    @IBOutlet weak var exerciseListView: TPExerciseListView!
     
     
     override func viewDidLoad() {
@@ -23,30 +23,30 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: TimeSelectionViewDelegate {
-    func timeSelectionViewItems(_ sender: TimeSelectionView) -> [String] {
+extension TrainingProgrammViewController1: TPTimeSelectionViewDelegate {
+    func tpTimeSelectionViewItems(_ sender: TPTimeSelectionView) -> [String] {
         return TrainingExcercisesStubData.timeItems.map { String($0) }
     }
     
-    func timeSelectionView(_ sender: TimeSelectionView, didSelectItemAtIndex index: Int) {
+    func tpTimeSelectionView(_ sender: TPTimeSelectionView, didSelectItemAtIndex index: Int) {
         
     }
 }
 
-extension ViewController: ExerciseListViewDelegate {
-    func exerciseListViewItems(_ sender: ExerciseListView) -> [ExerciseListView.ItemViewModel] {
+extension TrainingProgrammViewController1: TPExerciseListViewDelegate {
+    func tpExerciseListViewItems(_ sender: TPExerciseListView) -> [TPExerciseListView.ItemViewModel] {
         return [
-            ExerciseListView.ItemViewModel(
+            TPExerciseListView.ItemViewModel(
                 isCheckboxVisible: true,
                 itemState: .completed,
                 contentViewModel: TrainingExcercisesStubData.exerciseItemFull
             ),
-            ExerciseListView.ItemViewModel(
+            TPExerciseListView.ItemViewModel(
                 isCheckboxVisible: false,
                 itemState: .active,
                 contentViewModel: TrainingExcercisesStubData.exerciseItemTopContent
             ),
-            ExerciseListView.ItemViewModel(
+            TPExerciseListView.ItemViewModel(
                 isCheckboxVisible: true,
                 itemState: .normal,
                 contentViewModel: TrainingExcercisesStubData.exerciseItemLeftBottomTitles
@@ -54,11 +54,11 @@ extension ViewController: ExerciseListViewDelegate {
         ]
     }
     
-    func exerciseListView(_ sender: ExerciseListView, didTapVideoPreviewAtIndex index: Int) {
+    func tpExerciseListView(_ sender: TPExerciseListView, didTapVideoPreviewAtIndex index: Int) {
         
     }
     
-    func exerciseListView(_ sender: ExerciseListView, didChangeCheckboxStatusAtIndex index: Int, status: Bool) {
+    func tpExerciseListView(_ sender: TPExerciseListView, didChangeCheckboxStatusAtIndex index: Int, status: Bool) {
         
     }
 }

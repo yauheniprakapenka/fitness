@@ -8,7 +8,7 @@
 import UIKit
 import CommonViews
 
-private extension CheckboxView {
+private extension TPCheckboxView {
     enum Const {
         static let checkedColor = Asset.TrainingProgramm.CommonColors.trainingProgrammBlueAccent.color
         static let uncheckedColor = Asset.TrainingProgramm.CheckboxView.Colors.trainingProgrammCheckboxViewUnchecked.color
@@ -16,12 +16,12 @@ private extension CheckboxView {
     }
 }
 
-public protocol CheckboxViewDelegate: class {
-    func checkboxView(_ sender: CheckboxView, statusChangedTo checked: Bool)
+public protocol TPCheckboxViewDelegate: class {
+    func tpCheckboxView(_ sender: TPCheckboxView, statusChangedTo checked: Bool)
 }
 
 @IBDesignable
-public class CheckboxView: UIViewExtended {
+public class TPCheckboxView: UIViewExtended {
     // MARK: - Properties
     var isChecked: Bool = false {
         didSet {
@@ -35,7 +35,7 @@ public class CheckboxView: UIViewExtended {
         }
     }
     
-    weak var viewDelegate: CheckboxViewDelegate?
+    weak var viewDelegate: TPCheckboxViewDelegate?
     
     // MARK: - Initialization
     public override init(frame: CGRect) {
@@ -65,7 +65,7 @@ public class CheckboxView: UIViewExtended {
     @objc
     func handleTap() {
         isChecked = !isChecked
-        viewDelegate?.checkboxView(self, statusChangedTo: isChecked)
+        viewDelegate?.tpCheckboxView(self, statusChangedTo: isChecked)
     }
     
     // MARK: - Other
@@ -77,7 +77,7 @@ public class CheckboxView: UIViewExtended {
 }
 
 // MARK: - Private Methods
-private extension CheckboxView {
+private extension TPCheckboxView {
     func animateUpdateAppearance() {
         UIView.animate(withDuration: Const.animDuration) {
             self.updateAppearance()

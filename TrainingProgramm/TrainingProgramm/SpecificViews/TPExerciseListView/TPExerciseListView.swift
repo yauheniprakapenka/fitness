@@ -9,13 +9,13 @@
 
 import UIKit
 
-public protocol ExerciseListViewDelegate: class {
-    func exerciseListViewItems(_ sender: ExerciseListView) -> [ExerciseListView.ItemViewModel]
-    func exerciseListView(_ sender: ExerciseListView, didTapVideoPreviewAtIndex index: Int)
-    func exerciseListView(_ sender: ExerciseListView, didChangeCheckboxStatusAtIndex index: Int, status: Bool)
+public protocol TPExerciseListViewDelegate: class {
+    func tpExerciseListViewItems(_ sender: TPExerciseListView) -> [TPExerciseListView.ItemViewModel]
+    func tpExerciseListView(_ sender: TPExerciseListView, didTapVideoPreviewAtIndex index: Int)
+    func tpExerciseListView(_ sender: TPExerciseListView, didChangeCheckboxStatusAtIndex index: Int, status: Bool)
 }
 
-public extension ExerciseListView {
+public extension TPExerciseListView {
     struct ItemViewModel {
         public enum ItemState {
             case normal
@@ -25,11 +25,11 @@ public extension ExerciseListView {
         
         var itemState: ItemState
         var isCheckboxVisible: Bool
-        var contentViewModel: ExerciseItemContentView.ViewModel
+        var contentViewModel: TPExerciseItemContentView.ViewModel
         
         public init(isCheckboxVisible: Bool,
                     itemState: ItemState,
-                    contentViewModel: ExerciseItemContentView.ViewModel) {
+                    contentViewModel: TPExerciseItemContentView.ViewModel) {
             self.isCheckboxVisible = isCheckboxVisible
             self.itemState = itemState
             self.contentViewModel = contentViewModel
@@ -37,9 +37,9 @@ public extension ExerciseListView {
     }
 }
 
-public class ExerciseListView: UITableView {
+public class TPExerciseListView: UITableView {
     // MARK: - Properties
-    public weak var viewDelegate: ExerciseListViewDelegate?
+    public weak var viewDelegate: TPExerciseListViewDelegate?
     
     // MARK: - Initialization
     public override init(frame: CGRect, style: UITableView.Style) {
@@ -55,7 +55,7 @@ public class ExerciseListView: UITableView {
     private func initCommon() {
         rowHeight = UITableView.automaticDimension
         dataSource = self
-        register(ExerciseListItemView.self, forCellReuseIdentifier: ExerciseListItemView.description())
+        register(TPExerciseListItemView.self, forCellReuseIdentifier: TPExerciseListItemView.description())
         tableFooterView = UIView()
         separatorStyle = .none
         allowsSelection = false
@@ -66,15 +66,15 @@ public class ExerciseListView: UITableView {
 }
 
 // MARK: - UITableViewDataSource
-extension ExerciseListView: UITableViewDataSource {
+extension TPExerciseListView: UITableViewDataSource {
     public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewDelegate?.exerciseListViewItems(self).count ?? 0
+        return viewDelegate?.tpExerciseListViewItems(self).count ?? 0
     }
     
     public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard
-            let cell = dequeueReusableCell(withIdentifier: ExerciseListItemView.description(), for: indexPath) as? ExerciseListItemView,
-            let item = viewDelegate?.exerciseListViewItems(self)[indexPath.row]
+            let cell = dequeueReusableCell(withIdentifier: TPExerciseListItemView.description(), for: indexPath) as? TPExerciseListItemView,
+            let item = viewDelegate?.tpExerciseListViewItems(self)[indexPath.row]
             else {
                 return UITableViewCell()
         }
@@ -86,14 +86,14 @@ extension ExerciseListView: UITableViewDataSource {
 }
 
 // MARK: - ExerciseItemContentViewDelegate
-extension ExerciseListView: ExerciseItemContentViewDelegate {
-    public func exerciseItemContentView(_ sender: ExerciseItemContentView, checkboxStatusChanged status: Bool, userData: [AnyHashable : Any]?) {
+extension TPExerciseListView: TPExerciseItemContentViewDelegate {
+    public func tpExerciseItemContentView(_ sender: TPExerciseItemContentView, checkboxStatusChanged status: Bool, userData: [AnyHashable : Any]?) {
         guard let index = (userData as? [String: Any])?["Index"] as? Int else { return }
-        viewDelegate?.exerciseListView(self, didChangeCheckboxStatusAtIndex: index, status: status)
+        viewDelegate?.tpExerciseListView(self, didChangeCheckboxStatusAtIndex: index, status: status)
     }
     
-    public func exerciseItemContentViewPreviewTapped(_ sender: ExerciseItemContentView, userData: [AnyHashable : Any]?) {
+    public func tpExerciseItemContentViewPreviewTapped(_ sender: TPExerciseItemContentView, userData: [AnyHashable : Any]?) {
         guard let index = (userData as? [String: Any])?["Index"] as? Int else { return }
-        viewDelegate?.exerciseListView(self, didTapVideoPreviewAtIndex: index)
+        viewDelegate?.tpExerciseListView(self, didTapVideoPreviewAtIndex: index)
     }
 }

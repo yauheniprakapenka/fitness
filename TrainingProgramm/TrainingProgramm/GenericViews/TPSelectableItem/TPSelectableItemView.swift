@@ -8,7 +8,7 @@
 import UIKit
 import CommonViews
 
-public extension SelectableItemView {
+public extension TPSelectableItemView {
     struct Appearance {
         public var cornerRadius: CGFloat = 0
         public var selectedColor: UIColor = .gray
@@ -24,13 +24,13 @@ public extension SelectableItemView {
     }
 }
 
-public protocol SelectableItemViewDelegate: class {
-    func selectableItemViewShouldChangeSelection(sender: SelectableItemView) -> Bool
-    func selectableItemView(sender: SelectableItemView, selectionChanged isSelected: Bool)
+public protocol TPSelectableItemViewDelegate: class {
+    func tpSelectableItemViewShouldChangeSelection(sender: TPSelectableItemView) -> Bool
+    func tpSelectableItemView(sender: TPSelectableItemView, selectionChanged isSelected: Bool)
 }
 
 @IBDesignable
-open class SelectableItemView: UIViewExtended {
+open class TPSelectableItemView: UIViewExtended {
     // MARK: - Views and Constraints
     @IBOutlet private weak var textLabel: UILabel!
     @IBOutlet private weak var bottomConstraint: NSLayoutConstraint!
@@ -57,7 +57,7 @@ open class SelectableItemView: UIViewExtended {
         }
     }
     
-    public weak var viewDelegate: SelectableItemViewDelegate?
+    public weak var viewDelegate: TPSelectableItemViewDelegate?
     
     open override var intrinsicContentSize: CGSize {
         get {
@@ -78,7 +78,7 @@ open class SelectableItemView: UIViewExtended {
     }
     
     private func initCommon() {
-        let view = loadFromNib(type: SelectableItemView.self)
+        let view = loadFromNib(type: TPSelectableItemView.self)
         addSubview(view)
         view.frame = bounds
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -91,14 +91,14 @@ open class SelectableItemView: UIViewExtended {
     // MARK: - Actions and Action Callbacks
     @objc
     private func handleViewTapped() {
-        if viewDelegate?.selectableItemViewShouldChangeSelection(sender: self) ?? false {
+        if viewDelegate?.tpSelectableItemViewShouldChangeSelection(sender: self) ?? false {
             isSelected = !isSelected
-            viewDelegate?.selectableItemView(sender: self, selectionChanged: isSelected)
+            viewDelegate?.tpSelectableItemView(sender: self, selectionChanged: isSelected)
         }
     }
 }
 
-private extension SelectableItemView {
+private extension TPSelectableItemView {
     func animateAppearance() {
         UIView.animate(withDuration: appearance.animationDuration) {
             self.configureAppearance()

@@ -7,9 +7,9 @@
 
 import UIKit
 
-public class ExerciseListItemView: UITableViewCell {
+public class TPExerciseListItemView: UITableViewCell {
     // MARK: - Properties
-    private weak var cellContent: ExerciseItemContentView!
+    private weak var cellContent: TPExerciseItemContentView!
     
     // MARK: - Initialization
     public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -22,7 +22,7 @@ public class ExerciseListItemView: UITableViewCell {
     }
     
     private func inintCommon() {
-        let cellContent = ExerciseItemContentView()
+        let cellContent = TPExerciseItemContentView()
         cellContent.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(cellContent)
         cellContent.constraintAllSidesToSuperview()
@@ -30,7 +30,7 @@ public class ExerciseListItemView: UITableViewCell {
     }
     
     // MARK: - Main Interface
-    public func configire(with model: ExerciseListView.ItemViewModel, delegate: ExerciseItemContentViewDelegate?, userData: [AnyHashable: Any]?) {
+    public func configire(with model: TPExerciseListView.ItemViewModel, delegate: TPExerciseItemContentViewDelegate?, userData: [AnyHashable: Any]?) {
         cellContent.viewDelegate = delegate
         switch model.itemState {
         case .active:

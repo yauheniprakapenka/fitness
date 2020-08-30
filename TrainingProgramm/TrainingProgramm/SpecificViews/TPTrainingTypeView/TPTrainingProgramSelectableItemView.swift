@@ -7,7 +7,7 @@
 
 import UIKit
 
-private extension TrainingProgramSelectableItemView {
+private extension TPTrainingProgramSelectableItemView {
     enum Const {
         static let selectedColor = Asset.TrainingProgramm.CommonColors.trainingProgrammBlueAccent.color
         static let unselectedColor = UIColor.white
@@ -20,7 +20,7 @@ private extension TrainingProgramSelectableItemView {
 }
 
 @IBDesignable
-public class TrainingProgramSelectableItemView: SelectableItemView {
+public class TPTrainingProgramSelectableItemView: TPSelectableItemView {
     override public init(frame: CGRect) {
         super.init(frame: frame)
         initCommon()

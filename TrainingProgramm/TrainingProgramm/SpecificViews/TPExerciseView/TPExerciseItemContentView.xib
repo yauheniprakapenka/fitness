@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExerciseItemContentView" customModule="TrainingProgramm" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPExerciseItemContentView" customModule="TrainingProgramm" customModuleProvider="target">
             <connections>
                 <outlet property="bottomContainerView" destination="ZfH-AZ-L1Z" id="EA4-b3-eQA"/>
                 <outlet property="bottomContrainerViewHeightConstraint" destination="SG8-OY-h0c" id="dvF-2R-jml"/>
@@ -67,7 +67,7 @@
                             <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-wA-dZZ" userLabel="videoPreviewView" customClass="VideoPreviewView" customModule="TrainingProgramm" customModuleProvider="target">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-wA-dZZ" userLabel="videoPreviewView" customClass="TPVideoPreviewView" customModule="TrainingProgramm" customModuleProvider="target">
                             <rect key="frame" x="335" y="-3.5" width="60" height="60"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
@@ -92,7 +92,7 @@
                         <constraint firstItem="2RH-aI-UEc" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="120" id="nuS-3X-eLd"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfb-3z-Y57" customClass="CheckboxView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfb-3z-Y57" customClass="TPCheckboxView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="380" y="10" width="24" height="24"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>

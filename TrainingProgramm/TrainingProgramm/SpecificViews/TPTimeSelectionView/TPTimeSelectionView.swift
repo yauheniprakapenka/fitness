@@ -7,21 +7,21 @@
 
 import UIKit
 
-public protocol TimeSelectionViewDelegate: class {
-    func timeSelectionViewItems(_ sender: TimeSelectionView) -> [String]
-    func timeSelectionView(_ sender: TimeSelectionView, didSelectItemAtIndex index: Int)
+public protocol TPTimeSelectionViewDelegate: class {
+    func tpTimeSelectionViewItems(_ sender: TPTimeSelectionView) -> [String]
+    func tpTimeSelectionView(_ sender: TPTimeSelectionView, didSelectItemAtIndex index: Int)
 }
 
-private extension TimeSelectionView {
+private extension TPTimeSelectionView {
     enum Const {
         static let itemsSize = CGSize(width: 35, height: 35)
         static let itemSpacing: CGFloat = 20
     }
 }
 
-public class TimeSelectionView: UICollectionView {
+public class TPTimeSelectionView: UICollectionView {
     // MARK: - Properties
-    public weak var viewDelegate: TimeSelectionViewDelegate?
+    public weak var viewDelegate: TPTimeSelectionViewDelegate?
     
     // MARK: - Initialization
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -42,7 +42,7 @@ public class TimeSelectionView: UICollectionView {
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = Const.itemSpacing
         collectionViewLayout = layout
-        register(TimeSelectionItemView.self, forCellWithReuseIdentifier: TimeSelectionItemView.description())
+        register(TPTimeSelectionItemView.self, forCellWithReuseIdentifier: TPTimeSelectionItemView.description())
         delegate = self
         dataSource = self
         allowsSelection = true
@@ -67,15 +67,15 @@ public class TimeSelectionView: UICollectionView {
 }
 
 // MARK: - UICollectionViewDataSource
-extension TimeSelectionView: UICollectionViewDataSource {
+extension TPTimeSelectionView: UICollectionViewDataSource {
     public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewDelegate?.timeSelectionViewItems(self).count ?? 0
+        return viewDelegate?.tpTimeSelectionViewItems(self).count ?? 0
     }
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard
-            let item = viewDelegate?.timeSelectionViewItems(self)[indexPath.item],
-            let cell = dequeueReusableCell(withReuseIdentifier: TimeSelectionItemView.description(), for: indexPath) as? TimeSelectionItemView else {
+            let item = viewDelegate?.tpTimeSelectionViewItems(self)[indexPath.item],
+            let cell = dequeueReusableCell(withReuseIdentifier: TPTimeSelectionItemView.description(), for: indexPath) as? TPTimeSelectionItemView else {
             return UICollectionViewCell()
         }
         cell.configure(with: item)
@@ -84,9 +84,9 @@ extension TimeSelectionView: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension TimeSelectionView: UICollectionViewDelegate {
+extension TPTimeSelectionView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        viewDelegate?.timeSelectionView(self, didSelectItemAtIndex: indexPath.item)
+        viewDelegate?.tpTimeSelectionView(self, didSelectItemAtIndex: indexPath.item)
         for selected in indexPathsForSelectedItems ?? [] where selected != indexPath {
             deselectItem(at: selected, animated: true)
         }

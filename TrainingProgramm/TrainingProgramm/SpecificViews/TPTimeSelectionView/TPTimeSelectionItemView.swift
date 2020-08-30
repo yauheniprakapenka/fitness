@@ -7,9 +7,9 @@
 
 import UIKit
 
-public class TimeSelectionItemView: UICollectionViewCell {
+public class TPTimeSelectionItemView: UICollectionViewCell {
     // MARK: - Properties
-    private weak var cellContentView: TimeSelectionContentView!
+    private weak var cellContentView: TPTimeSelectionContentView!
     
     public override var isSelected: Bool {
         didSet {
@@ -30,7 +30,7 @@ public class TimeSelectionItemView: UICollectionViewCell {
     }
     
     private func initCommon() {
-        let content = TimeSelectionContentView()
+        let content = TPTimeSelectionContentView()
         addSubview(content)
         content.translatesAutoresizingMaskIntoConstraints = false
         content.constraintAllSidesToSuperview()
