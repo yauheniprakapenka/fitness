@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var timeSelectionView: TimeSelectionView!
-    @IBOutlet weak var exerciseItemView: ExerciseItemContentView!
+    @IBOutlet weak var exerciseListView: ExerciseListView!
     
     
     override func viewDidLoad() {
@@ -19,10 +19,8 @@ class ViewController: UIViewController {
         timeSelectionView.refreshData()
         timeSelectionView.select(at: 0)
         
-        exerciseItemView.configure(with: TrainingExcercisesStubData.exerciseItemFull, userData: nil)
+        exerciseListView.viewDelegate = self
     }
-
-
 }
 
 extension ViewController: TimeSelectionViewDelegate {
@@ -33,6 +31,34 @@ extension ViewController: TimeSelectionViewDelegate {
     func timeSelectionView(_ sender: TimeSelectionView, didSelectItemAtIndex index: Int) {
         
     }
+}
+
+extension ViewController: ExerciseListViewDelegate {
+    func exerciseListViewItems(_ sender: ExerciseListView) -> [ExerciseListView.ItemViewModel] {
+        return [
+            ExerciseListView.ItemViewModel(
+                isCheckboxVisible: true,
+                itemState: .completed,
+                contentViewModel: TrainingExcercisesStubData.exerciseItemFull
+            ),
+            ExerciseListView.ItemViewModel(
+                isCheckboxVisible: false,
+                itemState: .active,
+                contentViewModel: TrainingExcercisesStubData.exerciseItemTopContent
+            ),
+            ExerciseListView.ItemViewModel(
+                isCheckboxVisible: true,
+                itemState: .normal,
+                contentViewModel: TrainingExcercisesStubData.exerciseItemLeftBottomTitles
+            ),
+        ]
+    }
     
+    func exerciseListView(_ sender: ExerciseListView, didTapVideoPreviewAtIndex index: Int) {
+        
+    }
     
+    func exerciseListView(_ sender: ExerciseListView, didChangeCheckboxStatusAtIndex index: Int, status: Bool) {
+        
+    }
 }

@@ -14,6 +14,8 @@
 		F86F787524FB140600F9167F /* TimeSelectionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787424FB140600F9167F /* TimeSelectionContentView.swift */; };
 		F86F787B24FB2D2500F9167F /* ExerciseItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787A24FB2D2500F9167F /* ExerciseItemContentView.swift */; };
 		F86F787D24FB2D4100F9167F /* ExerciseItemContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86F787C24FB2D4100F9167F /* ExerciseItemContentView.xib */; };
+		F86F788424FBC97E00F9167F /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F788324FBC97E00F9167F /* ExerciseListView.swift */; };
+		F86F788624FBCB2300F9167F /* ExerciseListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F788524FBCB2300F9167F /* ExerciseListItemView.swift */; };
 		F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */; };
 		F8CDD40C24FAE72E00772D30 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */; };
 		F8CDD41224FAF67C00772D30 /* VideoPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */; };
@@ -37,6 +39,8 @@
 		F86F787424FB140600F9167F /* TimeSelectionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSelectionContentView.swift; sourceTree = "<group>"; };
 		F86F787A24FB2D2500F9167F /* ExerciseItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseItemContentView.swift; sourceTree = "<group>"; };
 		F86F787C24FB2D4100F9167F /* ExerciseItemContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExerciseItemContentView.xib; sourceTree = "<group>"; };
+		F86F788324FBC97E00F9167F /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
+		F86F788524FBCB2300F9167F /* ExerciseListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListItemView.swift; sourceTree = "<group>"; };
 		F8CDD3D824FA72BB00772D30 /* XCAssets+Generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "XCAssets+Generated.swift"; sourceTree = "<group>"; };
 		F8CDD40B24FAE72E00772D30 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		F8CDD41124FAF67C00772D30 /* VideoPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPreviewView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,7 @@
 		F843119824F56248008CC50D /* SpecificViews */ = {
 			isa = PBXGroup;
 			children = (
+				F86F788224FBC96500F9167F /* ExerciseListView */,
 				F86F787924FB2CF800F9167F /* ExerciseView */,
 				F8CDD41624FB11B200772D30 /* TimeSelectionView */,
 				F8CDD41024FAF65B00772D30 /* VideoPreviewView */,
@@ -95,6 +100,15 @@
 				F86F787C24FB2D4100F9167F /* ExerciseItemContentView.xib */,
 			);
 			path = ExerciseView;
+			sourceTree = "<group>";
+		};
+		F86F788224FBC96500F9167F /* ExerciseListView */ = {
+			isa = PBXGroup;
+			children = (
+				F86F788324FBC97E00F9167F /* ExerciseListView.swift */,
+				F86F788524FBCB2300F9167F /* ExerciseListItemView.swift */,
+			);
+			path = ExerciseListView;
 			sourceTree = "<group>";
 		};
 		F8BF4F2624FA6415000251A2 /* TrainingTypeView */ = {
@@ -348,7 +362,9 @@
 				F8CDD41224FAF67C00772D30 /* VideoPreviewView.swift in Sources */,
 				F8CDD3D924FA72BB00772D30 /* XCAssets+Generated.swift in Sources */,
 				F8CDD41824FB11C800772D30 /* TimeSelectionView.swift in Sources */,
+				F86F788624FBCB2300F9167F /* ExerciseListItemView.swift in Sources */,
 				F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */,
+				F86F788424FBC97E00F9167F /* ExerciseListView.swift in Sources */,
 				F8D8310724F55ABF00610ABF /* SelectableItemView.swift in Sources */,
 				F8CDD40C24FAE72E00772D30 /* CheckboxView.swift in Sources */,
 				F86F787B24FB2D2500F9167F /* ExerciseItemContentView.swift in Sources */,

@@ -5,11 +5,26 @@
 //  Created by Vitali on 8/30/20.
 //
 
+// swiftlint:disable function_body_length
+
 import UIKit
+import CommonViews
 
 public protocol ExerciseItemContentViewDelegate: class {
     func exerciseItemContentView(_ sender: ExerciseItemContentView, checkboxStatusChanged status: Bool, userData: [AnyHashable: Any]?)
     func exerciseItemContentViewPreviewTapped(_ sender: ExerciseItemContentView, userData: [AnyHashable: Any]?)
+}
+
+private extension ExerciseItemContentView {
+    enum Const {
+        static let cornerRadius: CGFloat = 8
+        static let additionalBottomInsetWhenBottomContainerNotVisible: CGFloat = 15
+        static let activeBakground = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewActiveItemBackground.color
+        static let mainTitleAndDescriptionUnselectedTextColor = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewBlackText.color
+        static let descriptionTextUnselectedTextColor = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewGrayText.color
+        static let activeItemTextColor = UIColor.white
+        static let completedItemTextColor = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewGrayText.color
+    }
 }
 
 public extension ExerciseItemContentView {
@@ -38,11 +53,18 @@ public extension ExerciseItemContentView {
                 checkboxStatus: Bool = false
              )
     }
+    
+    enum State {
+        case normal
+        case active
+        case completed
+    }
 }
 
 @IBDesignable
-public class ExerciseItemContentView: UIView {
+public class ExerciseItemContentView: UIViewExtended {
     // MARK: - Views
+    private weak var contentView: UIViewExtended!
     @IBOutlet private weak var topTitleLabel: UILabel!
     @IBOutlet private weak var mainTitleLabel: UILabel!
     @IBOutlet private weak var checkboxView: CheckboxView!
@@ -60,6 +82,25 @@ public class ExerciseItemContentView: UIView {
     private var userData: [AnyHashable: Any]?
     public weak var viewDelegate: ExerciseItemContentViewDelegate?
     
+    private var storyboardBackgroundColor: UIColor = .white
+    public var state: State = .normal {
+        didSet {
+            configureState()
+        }
+    }
+    public var isCheckboxHidden: Bool = false {
+        didSet {
+            checkboxView.isHidden = isCheckboxHidden
+        }
+    }
+    
+    public override var backgroundColor: UIColor? {
+        didSet {
+            contentView?.backgroundColor = backgroundColor
+            super.backgroundColor = UIColor.clear
+        }
+    }
+    
     // MARK: - Init
     public override init(frame: CGRect) {
         super.init(frame: frame)
@@ -76,8 +117,13 @@ public class ExerciseItemContentView: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
         contentView.constraintAllSidesToSuperview()
+        self.contentView = (contentView as! UIViewExtended)
         videoPreviewView.viewDelegate = self
         checkboxView.viewDelegate = self
+        backgroundColor = .clear
+        self.contentView.cornerRadius = Const.cornerRadius
+        self.storyboardBackgroundColor = contentView.backgroundColor ?? UIColor.white
+        configureState()
     }
     
     // MARK: - Main Interface
@@ -87,7 +133,8 @@ public class ExerciseItemContentView: UIView {
         case .topContent(topTitle: let topTitle,
                          mainTitle: let mainTitle,
                          checkboxStatus: let checkboxStatus):
-            bottomContrainerViewHeightConstraint.constant = 0
+            bottomContrainerViewHeightConstraint.constant = Const.additionalBottomInsetWhenBottomContainerNotVisible
+            bottomContainerView.isHidden = true
             topTitleLabel.text = topTitle
             mainTitleLabel.text = mainTitle
             checkboxView.isChecked = checkboxStatus
@@ -106,6 +153,10 @@ public class ExerciseItemContentView: UIView {
             videoPreviewView.image = videoPreviewImage
             videoPreviewView.isHidden = videoPreviewImage == nil
             bottomContrainerViewHeightConstraint.constant = bottomContainerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            bottomContainerView.isHidden = false
+            for view in [rightSubitemTitleLabel, rightSubitemDescriptionLabel] {
+                view?.isHidden = true
+            }
         case .fullContent(topTitle: let topTitle,
                           mainTitle: let mainTitle,
                           leftSubtitle: let leftSubtitle,
@@ -124,6 +175,35 @@ public class ExerciseItemContentView: UIView {
             videoPreviewView.image = previewImage
             videoPreviewView.isHidden = previewImage == nil
             bottomContrainerViewHeightConstraint.constant = bottomContainerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize).height
+            bottomContainerView.isHidden = false
+            for view in [rightSubitemTitleLabel, rightSubitemDescriptionLabel] {
+                view?.isHidden = false
+            }
+        }
+    }
+}
+
+private extension ExerciseItemContentView {
+    func configureState() {
+        switch state {
+        case .normal:
+            contentView.backgroundColor = storyboardBackgroundColor
+            mainTitleLabel.textColor = Const.mainTitleAndDescriptionUnselectedTextColor
+            topTitleLabel.textColor = Const.descriptionTextUnselectedTextColor
+            leftSubitemTitleLabel.textColor = Const.descriptionTextUnselectedTextColor
+            rightSubitemTitleLabel.textColor = Const.descriptionTextUnselectedTextColor
+            leftSubitemDescriptionLabel.textColor = Const.mainTitleAndDescriptionUnselectedTextColor
+            rightSubitemDescriptionLabel.textColor = Const.mainTitleAndDescriptionUnselectedTextColor
+        case .active:
+            contentView.backgroundColor = Const.activeBakground
+            for label in [mainTitleLabel, topTitleLabel, leftSubitemTitleLabel, leftSubitemDescriptionLabel, rightSubitemTitleLabel, rightSubitemDescriptionLabel] {
+                label?.textColor = Const.activeItemTextColor
+            }
+        case .completed:
+            contentView.backgroundColor = storyboardBackgroundColor
+            for label in [mainTitleLabel, topTitleLabel, leftSubitemTitleLabel, leftSubitemDescriptionLabel, rightSubitemTitleLabel, rightSubitemDescriptionLabel] {
+                label?.textColor = Const.completedItemTextColor
+            }
         }
     }
 }

@@ -24,7 +24,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="061-S7-h5c">
+        <view contentMode="scaleToFill" id="061-S7-h5c" customClass="UIViewExtended" customModule="CommonViews">
             <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
@@ -41,34 +41,34 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfH-AZ-L1Z" userLabel="bottomContentContainerView">
-                    <rect key="frame" x="0.0" y="104.5" width="414" height="60.5"/>
+                    <rect key="frame" x="0.0" y="89.5" width="414" height="75.5"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-eZ-Oz6" userLabel="leftSubitemTitleLabel">
-                            <rect key="frame" x="20" y="0.0" width="20.5" height="13.5"/>
+                            <rect key="frame" x="20" y="15" width="20.5" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" name="trainingProgramm_exerciseViewGrayText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 кг" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-gy-6Rc" userLabel="leftSubitemDescriptionLabel">
-                            <rect key="frame" x="20" y="23.5" width="37" height="18"/>
+                            <rect key="frame" x="20" y="38.5" width="37" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повторы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-aI-UEc" userLabel="rightSubitemTitleLabel">
-                            <rect key="frame" x="120" y="0.0" width="48" height="13.5"/>
+                            <rect key="frame" x="120" y="15" width="48" height="13.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" name="trainingProgramm_exerciseViewGrayText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwp-0s-I9t" userLabel="rightSubtitleDescriptionLabel">
-                            <rect key="frame" x="120" y="23.5" width="9.5" height="18"/>
+                            <rect key="frame" x="120" y="38.5" width="9.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-wA-dZZ" userLabel="videoPreviewView" customClass="VideoPreviewView" customModule="TrainingProgramm" customModuleProvider="target">
-                            <rect key="frame" x="335" y="-18.5" width="60" height="60"/>
+                            <rect key="frame" x="335" y="-3.5" width="60" height="60"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="60" id="8hV-js-44a"/>
@@ -81,11 +81,11 @@
                         <constraint firstItem="h1e-gy-6Rc" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="20" id="BcL-wJ-tMg"/>
                         <constraint firstItem="nwp-0s-I9t" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="120" id="DG3-Jf-uxL"/>
                         <constraint firstAttribute="bottom" secondItem="h1e-gy-6Rc" secondAttribute="bottom" constant="19" id="E29-qK-FgF"/>
-                        <constraint firstItem="2RH-aI-UEc" firstAttribute="top" secondItem="ZfH-AZ-L1Z" secondAttribute="top" id="Nor-7r-3aU"/>
-                        <constraint firstAttribute="height" constant="60.5" id="SG8-OY-h0c" userLabel="bottomConstraintViewHeightConstraint"/>
+                        <constraint firstItem="2RH-aI-UEc" firstAttribute="top" secondItem="ZfH-AZ-L1Z" secondAttribute="top" constant="15" id="Nor-7r-3aU"/>
+                        <constraint firstAttribute="height" constant="75.5" id="SG8-OY-h0c" userLabel="bottomConstraintViewHeightConstraint"/>
                         <constraint firstItem="h1e-gy-6Rc" firstAttribute="top" secondItem="R4F-eZ-Oz6" secondAttribute="bottom" constant="10" id="auw-Go-flc"/>
                         <constraint firstItem="R4F-eZ-Oz6" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="20" id="c6u-xC-Unr"/>
-                        <constraint firstItem="R4F-eZ-Oz6" firstAttribute="top" secondItem="ZfH-AZ-L1Z" secondAttribute="top" id="dPb-Gr-Z8U"/>
+                        <constraint firstItem="R4F-eZ-Oz6" firstAttribute="top" secondItem="ZfH-AZ-L1Z" secondAttribute="top" constant="15" id="dPb-Gr-Z8U"/>
                         <constraint firstAttribute="trailing" secondItem="3cn-wA-dZZ" secondAttribute="trailing" constant="19" id="dPe-IX-Ur3"/>
                         <constraint firstItem="nwp-0s-I9t" firstAttribute="top" secondItem="2RH-aI-UEc" secondAttribute="bottom" constant="10" id="j22-p0-Xeh"/>
                         <constraint firstAttribute="bottom" secondItem="3cn-wA-dZZ" secondAttribute="bottom" constant="19" id="jv1-3c-wWX"/>
@@ -113,7 +113,7 @@
                 <constraint firstAttribute="trailing" secondItem="ZfH-AZ-L1Z" secondAttribute="trailing" id="cZt-Yi-4fN"/>
                 <constraint firstItem="Zfb-3z-Y57" firstAttribute="top" secondItem="061-S7-h5c" secondAttribute="top" constant="10" id="jab-El-Y4x"/>
                 <constraint firstItem="6f4-VZ-jN5" firstAttribute="leading" secondItem="061-S7-h5c" secondAttribute="leading" constant="20" id="l24-az-KtM"/>
-                <constraint firstItem="ZfH-AZ-L1Z" firstAttribute="top" secondItem="k1g-cb-s0A" secondAttribute="bottom" constant="20" id="o0F-qc-SMU"/>
+                <constraint firstItem="ZfH-AZ-L1Z" firstAttribute="top" secondItem="k1g-cb-s0A" secondAttribute="bottom" constant="5" id="o0F-qc-SMU"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="113.04347826086958" y="-173.4375"/>
@@ -121,10 +121,10 @@
     </objects>
     <resources>
         <namedColor name="trainingProgramm_exerciseViewBlackText">
-            <color red="0.082352941176470587" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.082000002264976501" green="0.082000002264976501" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="trainingProgramm_exerciseViewGrayText">
-            <color red="0.59999999999999998" green="0.59999999999999998" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
