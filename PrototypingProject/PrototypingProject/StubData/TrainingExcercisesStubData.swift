@@ -9,4 +9,24 @@ import Foundation
 
 class TrainingExcercisesStubData {
     static let timeItems = [1, 2, 5, 10, 16, 20]
+    
+    
+    static let exerciseItemTopContent: ExerciseItemContentView.ViewModel =
+        .topContent(topTitle: "Что-то", mainTitle: "Что-то надо сделать", checkboxStatus: true)
+    
+    static let exerciseItemLeftBottomTitles: ExerciseItemContentView.ViewModel =
+        .withBottomContentOnlyLeftSubitem(topTitle: "Что-то",
+                                          mainTitle: "Что-то надо сделать",
+                                          leftSubtitle: "Как делать", letfDescription: "Неизвестно", videoPreviewImage: Asset.PrototypingProject.StudDataImages.prototypingProjectStubImagesCat.image,
+                                          checkboxStatus: false)
+    
+    static let exerciseItemFull: ExerciseItemContentView.ViewModel =
+        .fullContent(topTitle: "Что-то",
+                     mainTitle: "Что-то надо сделать",
+                     leftSubtitle: "Как делать",
+                     letfDescription: "Неизвестно",
+                     rightSubtitle: "Что делать?",
+                     rightDescription: "Погладить кота",
+                     videoPreviewImage: Asset.PrototypingProject.StudDataImages.prototypingProjectStubImagesCat.image,
+                     checkboxStatus: false)
 }

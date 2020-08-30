@@ -1,0 +1,12 @@
+
+output_dir: PrototypingProject/Generated/
+input_dir: PrototypingProject/
+
+xcassets:
+  inputs:
+    - Other/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      params:
+        forceProvidesNamespaces: true
+      output: XCAssets+Generated.swift

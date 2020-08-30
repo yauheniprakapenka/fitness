@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var timeSelectionView: TimeSelectionView!
+    @IBOutlet weak var exerciseItemView: ExerciseItemContentView!
     
     
     override func viewDidLoad() {
@@ -17,6 +18,8 @@ class ViewController: UIViewController {
         timeSelectionView.contentInset = UIEdgeInsets(top: 0, left: 25, bottom: 0, right: 0)
         timeSelectionView.refreshData()
         timeSelectionView.select(at: 0)
+        
+        exerciseItemView.configure(with: TrainingExcercisesStubData.exerciseItemFull, userData: nil)
     }
 
 

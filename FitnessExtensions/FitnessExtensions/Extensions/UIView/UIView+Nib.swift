@@ -15,7 +15,7 @@ public extension UIView {
         return UINib(nibName: nibName, bundle: bundle)
     }
     
-    func loadFromNib(type viewType: AnyClass?) -> UIView {
+    func loadFromNib(type viewType: AnyClass? = nil) -> UIView {
         let nib = viewNib(type: viewType)
         return nib.instantiate(withOwner: self, options: nil).first as! UIView
     }

@@ -5,8 +5,9 @@ inhibit_all_warnings!
 
 workspace 'fitnes.xcworkspace'
 
-xcodeproj 'TrainingProgramm/TrainingProgramm.xcodeproj'
-xcodeproj 'fitnes.xcodeproj'
+project 'TrainingProgramm/TrainingProgramm.xcodeproj'
+project 'fitnes.xcodeproj'
+project 'PrototypingProject/PrototypingProject.xcodeproj'
 
 target 'fitnes' do
   project 'fitnes.xcodeproj'
@@ -25,6 +26,11 @@ end
 
 target 'TrainingProgramm' do
   project 'TrainingProgramm/TrainingProgramm.xcodeproj'
+  pod 'SwiftGen', '~> 6.0'
+end
+
+target 'PrototypingProject' do
+  project 'PrototypingProject/PrototypingProject.xcodeproj'
   pod 'SwiftGen', '~> 6.0'
 end
 

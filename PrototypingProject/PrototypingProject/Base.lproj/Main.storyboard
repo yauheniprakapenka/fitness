@@ -50,10 +50,18 @@
                                     <constraint firstAttribute="height" constant="40" id="SHX-EI-UKU"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="355" placeholderIntrinsicHeight="128" translatesAutoresizingMaskIntoConstraints="NO" id="fde-RP-eso" customClass="ExerciseItemContentView" customModule="TrainingProgramm">
+                                <rect key="frame" x="10" y="220" width="355" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="fjW-J5-lhY"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fde-RP-eso" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="6dc-Sc-khZ"/>
                             <constraint firstItem="EcY-Z7-Jqv" firstAttribute="top" secondItem="rgp-zO-nUQ" secondAttribute="bottom" constant="10" id="6iY-TB-X6o"/>
                             <constraint firstItem="guK-Hv-IQs" firstAttribute="top" secondItem="EcY-Z7-Jqv" secondAttribute="bottom" constant="30" id="7GJ-Xm-d0d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="rgp-zO-nUQ" secondAttribute="trailing" constant="5" id="BOj-RY-bxl"/>
@@ -61,12 +69,15 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="guK-Hv-IQs" secondAttribute="trailing" id="NvO-fB-oyG"/>
                             <constraint firstItem="CFF-4F-2aK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="S3R-hk-JFV"/>
                             <constraint firstItem="guK-Hv-IQs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZI6-oi-aiK"/>
+                            <constraint firstItem="fde-RP-eso" firstAttribute="top" secondItem="guK-Hv-IQs" secondAttribute="bottom" constant="10" id="aVI-va-Lcb"/>
                             <constraint firstItem="CFF-4F-2aK" firstAttribute="top" secondItem="rgp-zO-nUQ" secondAttribute="bottom" constant="20" id="bRq-s0-3rf"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="EcY-Z7-Jqv" secondAttribute="trailing" constant="10" id="hhf-Tb-7Hz"/>
                             <constraint firstItem="rgp-zO-nUQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="5" id="iMc-8K-rgj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fde-RP-eso" secondAttribute="trailing" constant="10" id="luG-SV-aTe"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="exerciseItemView" destination="fde-RP-eso" id="eBA-g5-okV"/>
                         <outlet property="timeSelectionView" destination="guK-Hv-IQs" id="lcY-KM-L8Y"/>
                     </connections>
                 </viewController>
@@ -75,6 +86,11 @@
             <point key="canvasLocation" x="141" y="84"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="fde-RP-eso">
+            <size key="intrinsicContentSize" width="355" height="128"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
