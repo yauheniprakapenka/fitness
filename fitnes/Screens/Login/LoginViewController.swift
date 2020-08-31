@@ -43,7 +43,6 @@ class LoginViewController: UIViewController {
     let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     let contentScrollView = UIScrollView()
     
-    
     // MARK: - View Controller LifeCycle Methods
     
     override func viewDidLoad() {
@@ -77,7 +76,6 @@ class LoginViewController: UIViewController {
         super.viewDidLayoutSubviews()
         contentScrollView.resizeContentSizeToFitChilds()
     }
-    
     
     // MARK: - Actions
     
@@ -128,24 +126,15 @@ class LoginViewController: UIViewController {
     func createNewAccountButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
 
-        let alertVC = AlertViewController(question: "привет", description: "описание", actionButtonTitle: "кнопка")
-        alertVC.modalPresentationStyle = .overCurrentContext
-        present(alertVC, animated: true)
+        let vc = RegisterViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
     }
-    
-    @objc
-    private func alertCancelButtonTapped() {
-        print(#function)
-    }
-    
-    @objc
-    private func confirmButtonTapped() {
-        print(#function)
-    }
-    
 }
 
-// MARK: - Radio button
+// MARK: - Private methods
+
 private extension LoginViewController {
     
     func configureRootScrollView() {

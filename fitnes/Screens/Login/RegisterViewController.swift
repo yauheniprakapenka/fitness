@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
     let trainerContainerView = UIView()
     let athleteContainerView = UIView()
     
-    var currentRole: RoleEnum = .trainer
+    var currentRole: RoleEnum = .athlete
     
     let trainerVioletCircle = UIView()
     let athleteVioletCircle = UIView()
@@ -61,6 +61,12 @@ class RegisterViewController: UIViewController {
         configureContinueButton()
         
         configureVioletCircle()
+        
+        // Test Data
+        firstnameTextField.text = "Mickey"
+        lastnameTextField.text = "Mouse"
+        emailTextField.text = "mickey@mouse.com"
+        passwordTextField.text = "123456"
     }
     
     private func configureBackgroundImageView() {
@@ -87,14 +93,9 @@ class RegisterViewController: UIViewController {
         let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
         navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelNavigationButtonTapped))
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
         navigationItem.leftBarButtonItem = cancelButton
-    }
-    
-    @objc
-    private func cancelButtonTapped() {
-        dismiss(animated: true)
     }
     
     private func configureLastnameLabel() {
@@ -172,12 +173,52 @@ class RegisterViewController: UIViewController {
         continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         continueButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
+        continueButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+    }
+    
+    // MARK: - Actions
+    
+    @objc
+    func registerButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        
+        NetworkManager.shared.registerUser(firstname: firstnameTextField.text ?? "",
+                                           lastname: lastnameTextField.text ?? "",
+                                           password: passwordTextField.text ?? "",
+                                           passwordConfirmation: "1234",
+                                           email: emailTextField.text ?? "",
+                                           role: .athlete,
+                                           phone: "79262001813") { result in
+            switch result {
+            case .success(let response):
+                print(response)
+                DispatchQueue.main.async {
+                    let alertVC = AlertViewController(question: "Поздравляем!", description: "Вы успешно зарегистрировались в приложении", actionButtonTitle: "Продолжить", cancelButtonTitle: nil, icon: .chevronDownCircle)
+                    alertVC.modalPresentationStyle = .overCurrentContext
+                    alertVC.modalTransitionStyle = .crossDissolve
+                    alertVC.actionButton.addTarget(self, action: #selector(self.alertSuccessButtonTapped), for: .touchUpInside)
+                    self.present(alertVC, animated: true)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async {
+                    let alertVC = AlertViewController(question: "Не удалось подключиться", description: error.rawValue, actionButtonTitle: "Закрыть", cancelButtonTitle: nil, icon: .multiplyCircle)
+                    alertVC.modalPresentationStyle = .overCurrentContext
+                    alertVC.modalTransitionStyle = .crossDissolve
+                    alertVC.actionButton.addTarget(self, action: #selector(self.alertFailureButtonTapped), for: .touchUpInside)
+                    self.present(alertVC, animated: true)
+                }
+            }
+        }
     }
     
     @objc
-    func continueButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+    private func cancelNavigationButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc
+    private func alertSuccessButtonTapped() {
+        dismiss(animated: false)
         
         switch currentRole {
         case .trainer:
@@ -189,46 +230,20 @@ class RegisterViewController: UIViewController {
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
         }
-        
-        //        guard let selectedRole = selectedRole else {
-        //            showAlert(title: "", message: ValidationError.roleRadioButtonNotSelected.localizedDescription)
-        //            return
-        //        }
-        //
-        //        AuthService.shared.createUser(withEmail: emailTextField.text, password: passwordTextfield.text) { (result) in
-        //
-        //            switch result {
-        //            case .success(let user):
-        //                profileInfoModel.email = String(user.email ?? "")
-        //                profileInfoModel.uid = String(user.uid)
-                        
-        //                FirestoreService.shared.saveProfile(email: profileInfoModel.email, uid: profileInfoModel.uid, lastName: self.lastNameTextField.text ?? "", firstName: self.firstNameTextField.text ?? "", role: selectedRole)
-        //
-        //                FirestoreService.shared.fetchProfile() {
-        //                    switch ConverterRoleToEnum.shared.roleToEnum(role: profileInfoModel.role) {
-        //                    case .Trainer:
-        //                        let vc = TrainerViewController()
-        //                        vc.modalPresentationStyle = .fullScreen
-        //                        self.present(vc, animated: true)
-        //                    case .Athlete:
-        //                        break
-        //                    case .none:
-        //                        break
-        //                    }
-        //                }
-                        
-        //            case .failure(let error):
-        //                self.showAlert(title: "", message: error.localizedDescription)
-        //            }
-        //        }
     }
- 
+    
+    @objc
+    private func alertFailureButtonTapped() {
+        dismiss(animated: true) {
+            
+        }
+    }
 }
 
 // MARK: - Radio button
 
 extension RegisterViewController {
-
+    
     private func configureTrainerContainerView() {
         view.addSubview(trainerContainerView)
         trainerContainerView.isUserInteractionEnabled = true
