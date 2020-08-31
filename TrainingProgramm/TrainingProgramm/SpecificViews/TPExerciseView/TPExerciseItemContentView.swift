@@ -20,7 +20,7 @@ private extension TPExerciseItemContentView {
         static let cornerRadius: CGFloat = 8
         static let additionalBottomInsetWhenBottomContainerNotVisible: CGFloat = 15
         static let activeBakground = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewActiveItemBackground.color
-        static let mainTitleAndDescriptionUnselectedTextColor = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewBlackText.color
+        static let mainTitleAndDescriptionUnselectedTextColor = Asset.TrainingProgramm.CommonColors.tpBlackText.color
         static let descriptionTextUnselectedTextColor = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewGrayText.color
         static let activeItemTextColor = UIColor.white
         static let completedItemTextColor = Asset.TrainingProgramm.ExerciseView.Colors.trainingProgrammExerciseViewGrayText.color

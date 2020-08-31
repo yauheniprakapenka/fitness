@@ -91,21 +91,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
-                                <rect key="frame" x="25" y="64" width="364" height="17.5"/>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
+                                <rect key="frame" x="25" y="64" width="364" height="49.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
+                                <rect key="frame" x="0.0" y="194" width="414" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Tjg-5X-dpq"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-tx-FAX">
+                                <rect key="frame" x="0.0" y="455" width="414" height="128"/>
+                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vSq-Ja-IhP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vSq-Ja-IhP" firstAttribute="bottom" secondItem="1x7-tx-FAX" secondAttribute="bottom" id="5cK-tf-JPQ"/>
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" constant="25" id="5vS-SN-M5t"/>
+                            <constraint firstItem="htz-IZ-OyP" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="7kT-Bk-SS2"/>
+                            <constraint firstItem="htz-IZ-OyP" firstAttribute="top" secondItem="tlE-rZ-Saa" secondAttribute="bottom" constant="20" id="Ois-4o-dKT"/>
+                            <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="htz-IZ-OyP" secondAttribute="trailing" id="V3c-t6-fCs"/>
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="top" secondItem="vSq-Ja-IhP" secondAttribute="top" constant="20" id="VMg-X0-9aE"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="tlE-rZ-Saa" secondAttribute="trailing" constant="25" id="W1h-rJ-vyt"/>
+                            <constraint firstItem="1x7-tx-FAX" firstAttribute="top" secondItem="htz-IZ-OyP" secondAttribute="bottom" constant="20" id="acs-hB-N10"/>
+                            <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="1x7-tx-FAX" secondAttribute="trailing" id="k9Y-Dc-56I"/>
+                            <constraint firstItem="1x7-tx-FAX" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="tPK-sg-UG1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="expandableViewTopConstraint" destination="acs-hB-N10" id="GQW-on-EvM"/>
                         <outlet property="textInputView" destination="tlE-rZ-Saa" id="Sg7-Eo-QPl"/>
+                        <outlet property="timePickerHeightConstraint" destination="Tjg-5X-dpq" id="CR6-9y-vlS"/>
+                        <outlet property="timePickerView" destination="htz-IZ-OyP" id="aLN-cL-YJq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DSj-gp-dXz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -116,6 +137,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

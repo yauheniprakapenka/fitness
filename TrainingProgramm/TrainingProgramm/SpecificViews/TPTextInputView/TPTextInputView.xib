@@ -21,7 +21,7 @@
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qjc-N7-Nmd" userLabel="textField">
                     <rect key="frame" x="20" y="16" width="374" height="65"/>
-                    <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
+                    <color key="textColor" name="tp_blackText"/>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
@@ -52,11 +52,11 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="tp_blackText">
+            <color red="0.082352941176470587" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="tp_textInputViewBorder">
             <color red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="trainingProgramm_exerciseViewBlackText">
-            <color red="0.082000002264976501" green="0.082000002264976501" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -37,7 +37,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Двойные прыжки на скакалке" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-cb-s0A" userLabel="mainTitleLabel">
                     <rect key="frame" x="20" y="43.5" width="141" height="41"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
+                    <color key="textColor" name="tp_blackText"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfH-AZ-L1Z" userLabel="bottomContentContainerView">
@@ -52,7 +52,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 кг" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-gy-6Rc" userLabel="leftSubitemDescriptionLabel">
                             <rect key="frame" x="20" y="38.5" width="37" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
+                            <color key="textColor" name="tp_blackText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повторы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-aI-UEc" userLabel="rightSubitemTitleLabel">
@@ -64,7 +64,7 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwp-0s-I9t" userLabel="rightSubtitleDescriptionLabel">
                             <rect key="frame" x="120" y="38.5" width="9.5" height="18"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" name="trainingProgramm_exerciseViewBlackText"/>
+                            <color key="textColor" name="tp_blackText"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-wA-dZZ" userLabel="videoPreviewView" customClass="TPVideoPreviewView" customModule="TrainingProgramm" customModuleProvider="target">
@@ -120,8 +120,8 @@
         </view>
     </objects>
     <resources>
-        <namedColor name="trainingProgramm_exerciseViewBlackText">
-            <color red="0.082000002264976501" green="0.082000002264976501" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="tp_blackText">
+            <color red="0.082352941176470587" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="trainingProgramm_exerciseViewGrayText">
             <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
