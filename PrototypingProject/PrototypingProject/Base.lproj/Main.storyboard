@@ -91,19 +91,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
                                 <rect key="frame" x="25" y="64" width="364" height="49.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
-                                <rect key="frame" x="0.0" y="194" width="414" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
+                                <rect key="frame" x="0.0" y="133.5" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="Tjg-5X-dpq"/>
+                                    <constraint firstAttribute="height" constant="55" id="Tjg-5X-dpq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-tx-FAX">
-                                <rect key="frame" x="0.0" y="455" width="414" height="128"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-tx-FAX">
+                                <rect key="frame" x="0.0" y="208.5" width="414" height="653.5"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             </view>
                         </subviews>
