@@ -10,7 +10,6 @@ import Foundation
 class TrainingExcercisesStubData {
     static let timeItems = [1, 2, 5, 10, 16, 20]
     
-    
     static let exerciseItemTopContent: TPExerciseItemContentView.ViewModel =
         .topContent(topTitle: "Что-то", mainTitle: "Что-то надо сделать", checkboxStatus: true)
     

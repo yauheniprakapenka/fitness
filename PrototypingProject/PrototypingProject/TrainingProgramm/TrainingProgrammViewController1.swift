@@ -11,7 +11,6 @@ class TrainingProgrammViewController1: UIViewController {
     @IBOutlet weak var timeSelectionView: TPTimeSelectionView!
     @IBOutlet weak var exerciseListView: TPExerciseListView!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         timeSelectionView.viewDelegate = self

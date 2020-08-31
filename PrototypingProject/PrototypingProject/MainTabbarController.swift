@@ -27,7 +27,6 @@ class MainTabbarController: UITabBarController {
         setActiveController(tp2)
     }
     
-    
     private func setActiveController(_ controller: UIViewController) {
         if let index = viewControllers?.firstIndex(of: controller) {
             selectedIndex = index
