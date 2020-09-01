@@ -65,11 +65,13 @@ public class TPTextInputView: UIView {
         addSubview(contentView)
         sendSubviewToBack(contentView)
         contentView.constraintAllSidesToSuperview()
+        textField.addTarget(self, action: #selector(handleValueChanged(_:)), for: .editingChanged)
     }
     
     // MARK: - Actions and Action Callbacks
     
-    @IBAction func handleValueChanged(_ sender: Any) {
+    @objc
+    func handleValueChanged(_ sender: Any) {
         viewDelegate?.tpTextInputViewTextChanged(self, changedText: textField.text)
     }
     

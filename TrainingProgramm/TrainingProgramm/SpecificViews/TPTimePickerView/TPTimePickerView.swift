@@ -45,7 +45,6 @@ public class TPTimePickerView: UIView {
     @IBOutlet private weak var timeViewBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
-    
     public weak var viewDelegate: TPTimePickerViewDelegate?
     public var isOpened: Bool = false {
         didSet {
@@ -101,6 +100,7 @@ public class TPTimePickerView: UIView {
     }
 }
 
+// MARK: - Private Methods
 private extension TPTimePickerView {
     func updateTimeLabel() {
         let timeString = Const.formatter.string(from: timePickerView.date)

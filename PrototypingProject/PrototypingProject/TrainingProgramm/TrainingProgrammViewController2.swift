@@ -19,10 +19,31 @@ class TrainingProgrammViewController2: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textInputView.viewDelegate = self
         timePickerView.viewDelegate = self
-        dropdownList.viewDelegate = self
+        dropdownList.viewPickerDelegate = self
         
     }
+}
+
+extension TrainingProgrammViewController2: TPTextInputViewDelegate {
+    func tpTextInputViewShouldReturn(_ sender: TPTextInputView) -> Bool {
+        return true
+    }
+    
+    func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {
+        
+    }
+    
+    func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {
+        
+    }
+    
+    func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
+        
+    }
+    
+    
 }
 
 extension TrainingProgrammViewController2: TPTimePickerViewDelegate {
@@ -39,7 +60,8 @@ extension TrainingProgrammViewController2: TPTimePickerViewDelegate {
     }
 }
 
-extension TrainingProgrammViewController2: TPDropdownListDelegate {
+extension TrainingProgrammViewController2: TPDropdownListPickerDelegate {
+    func tpDropdownList(_ sender: TPDropdownList, selectedTextInputItem item: String?) {}
     func tpDropdownList(_ sender: TPDropdownList, openStatusChanged isOpened: Bool) {}
     
     func tpDropdownList(_ sender: TPDropdownList, selectedItemAtIndex index: Int) {}
@@ -50,15 +72,5 @@ extension TrainingProgrammViewController2: TPDropdownListDelegate {
     
     func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> (NSLayoutConstraint, UIView)? {
         return (dropdownListHeightConstraint, view)
-    }
-    
-    func tpDropdownListDidBeginEditing(_ sender: TPDropdownList) {}
-    
-    func tpDropdownListDidEndEditing(_ sender: TPDropdownList, byReturn: Bool) {}
-    
-    func tpDropdowList(_ sender: TPDropdownList, textChanged text: String?) {}
-    
-    func tpDropdownListShouldReturn(_ sender: TPDropdownList) -> Bool {
-        return true
     }
 }

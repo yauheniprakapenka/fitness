@@ -27,7 +27,6 @@
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
-                        <action selector="handleValueChanged:" destination="-1" eventType="valueChanged" id="GIa-pM-CXt"/>
                         <outlet property="delegate" destination="-1" id="706-8h-BDP"/>
                     </connections>
                 </textField>
