@@ -15,6 +15,8 @@
 		F85536A524FC4665001E2F1A /* TPTextInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85536A424FC4665001E2F1A /* TPTextInputView.xib */; };
 		F85536AB24FD7525001E2F1A /* TPTimePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536AA24FD7525001E2F1A /* TPTimePickerView.swift */; };
 		F85536AD24FD7530001E2F1A /* TPTimePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85536AC24FD7530001E2F1A /* TPTimePickerView.xib */; };
+		F85536B024FDC419001E2F1A /* TPDropdownList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536AF24FDC419001E2F1A /* TPDropdownList.swift */; };
+		F85536B224FDC4C6001E2F1A /* TPDropdownList.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85536B124FDC4C6001E2F1A /* TPDropdownList.xib */; };
 		F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */; };
 		F86F787B24FB2D2500F9167F /* TPExerciseItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */; };
 		F86F787D24FB2D4100F9167F /* TPExerciseItemContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */; };
@@ -44,6 +46,8 @@
 		F85536A424FC4665001E2F1A /* TPTextInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPTextInputView.xib; sourceTree = "<group>"; };
 		F85536AA24FD7525001E2F1A /* TPTimePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimePickerView.swift; sourceTree = "<group>"; };
 		F85536AC24FD7530001E2F1A /* TPTimePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPTimePickerView.xib; sourceTree = "<group>"; };
+		F85536AF24FDC419001E2F1A /* TPDropdownList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPDropdownList.swift; sourceTree = "<group>"; };
+		F85536B124FDC4C6001E2F1A /* TPDropdownList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPDropdownList.xib; sourceTree = "<group>"; };
 		F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimeSelectionContentView.swift; sourceTree = "<group>"; };
 		F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExerciseItemContentView.swift; sourceTree = "<group>"; };
 		F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPExerciseItemContentView.xib; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 		F843119824F56248008CC50D /* SpecificViews */ = {
 			isa = PBXGroup;
 			children = (
+				F85536AE24FDC3FB001E2F1A /* TPDropdownList */,
 				F85536A924FD74FA001E2F1A /* TPTimePickerView */,
 				F829284224FC35A300FF2366 /* TPTextInputView */,
 				F86F788224FBC96500F9167F /* TPExerciseListView */,
@@ -119,6 +124,15 @@
 				F85536AC24FD7530001E2F1A /* TPTimePickerView.xib */,
 			);
 			path = TPTimePickerView;
+			sourceTree = "<group>";
+		};
+		F85536AE24FDC3FB001E2F1A /* TPDropdownList */ = {
+			isa = PBXGroup;
+			children = (
+				F85536AF24FDC419001E2F1A /* TPDropdownList.swift */,
+				F85536B124FDC4C6001E2F1A /* TPDropdownList.xib */,
+			);
+			path = TPDropdownList;
 			sourceTree = "<group>";
 		};
 		F86F787924FB2CF800F9167F /* TPExerciseView */ = {
@@ -313,6 +327,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F85536B224FDC4C6001E2F1A /* TPDropdownList.xib in Resources */,
 				F85536A524FC4665001E2F1A /* TPTextInputView.xib in Resources */,
 				F8D8310424F5595700610ABF /* TrainingProgrammAssets.xcassets in Resources */,
 				F8D8310F24F55C3F00610ABF /* TPSelectableItemView.xib in Resources */,
@@ -401,6 +416,7 @@
 				F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */,
 				F85536AB24FD7525001E2F1A /* TPTimePickerView.swift in Sources */,
 				F85536A324FC4622001E2F1A /* TPTextInputView.swift in Sources */,
+				F85536B024FDC419001E2F1A /* TPDropdownList.swift in Sources */,
 				F84311A224F5BB00008CC50D /* TPTrainingTypeView.swift in Sources */,
 				F843119A24F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift in Sources */,
 				F8CDD41A24FB12A300772D30 /* TPTimeSelectionItemView.swift in Sources */,

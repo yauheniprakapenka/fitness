@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -102,28 +103,31 @@
                                     <constraint firstAttribute="height" constant="55" id="Tjg-5X-dpq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1x7-tx-FAX">
-                                <rect key="frame" x="0.0" y="208.5" width="414" height="653.5"/>
-                                <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-Te-sNi" customClass="TPDropdownList" customModule="TrainingProgramm">
+                                <rect key="frame" x="0.0" y="198.5" width="414" height="180"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="180" id="i5Q-n4-fHD"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vSq-Ja-IhP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="vSq-Ja-IhP" firstAttribute="bottom" secondItem="1x7-tx-FAX" secondAttribute="bottom" id="5cK-tf-JPQ"/>
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" constant="25" id="5vS-SN-M5t"/>
                             <constraint firstItem="htz-IZ-OyP" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="7kT-Bk-SS2"/>
                             <constraint firstItem="htz-IZ-OyP" firstAttribute="top" secondItem="tlE-rZ-Saa" secondAttribute="bottom" constant="20" id="Ois-4o-dKT"/>
+                            <constraint firstItem="WJF-Te-sNi" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="TID-eL-A3s"/>
+                            <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="WJF-Te-sNi" secondAttribute="trailing" id="Tsq-NR-vwx"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="htz-IZ-OyP" secondAttribute="trailing" id="V3c-t6-fCs"/>
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="top" secondItem="vSq-Ja-IhP" secondAttribute="top" constant="20" id="VMg-X0-9aE"/>
+                            <constraint firstItem="WJF-Te-sNi" firstAttribute="top" secondItem="htz-IZ-OyP" secondAttribute="bottom" constant="10" id="Vkh-re-Tdb"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="tlE-rZ-Saa" secondAttribute="trailing" constant="25" id="W1h-rJ-vyt"/>
-                            <constraint firstItem="1x7-tx-FAX" firstAttribute="top" secondItem="htz-IZ-OyP" secondAttribute="bottom" constant="20" id="acs-hB-N10"/>
-                            <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="1x7-tx-FAX" secondAttribute="trailing" id="k9Y-Dc-56I"/>
-                            <constraint firstItem="1x7-tx-FAX" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="tPK-sg-UG1"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="expandableViewTopConstraint" destination="acs-hB-N10" id="GQW-on-EvM"/>
+                        <outlet property="dropdownList" destination="WJF-Te-sNi" id="3H6-3z-rM4"/>
+                        <outlet property="dropdownListHeightConstraint" destination="i5Q-n4-fHD" id="HCG-7F-GC8"/>
                         <outlet property="textInputView" destination="tlE-rZ-Saa" id="Sg7-Eo-QPl"/>
                         <outlet property="timePickerHeightConstraint" destination="Tjg-5X-dpq" id="CR6-9y-vlS"/>
                         <outlet property="timePickerView" destination="htz-IZ-OyP" id="aLN-cL-YJq"/>
@@ -137,9 +141,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

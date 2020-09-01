@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
             <connections>
                 <outlet property="textField" destination="Qjc-N7-Nmd" id="v2r-o4-K36"/>
+                <outlet property="textFieldLeftConstraint" destination="s9g-wG-ZXh" id="GyV-gr-gEp"/>
+                <outlet property="textFieldRightConstraint" destination="P2h-iy-Xjb" id="vzw-7F-B77"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -26,6 +28,7 @@
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <action selector="handleValueChanged:" destination="-1" eventType="valueChanged" id="GIa-pM-CXt"/>
+                        <outlet property="delegate" destination="-1" id="706-8h-BDP"/>
                     </connections>
                 </textField>
             </subviews>

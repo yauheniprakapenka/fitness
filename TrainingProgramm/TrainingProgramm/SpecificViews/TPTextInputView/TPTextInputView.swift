@@ -9,8 +9,9 @@ import UIKit
 import CommonViews
 
 public protocol TPTextInputViewDelegate: class {
+    func tpTextInputViewShouldReturn(_ sender: TPTextInputView) -> Bool
     func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView)
-    func tpTextInputViewDidEndEditing(_ sender: TPTextInputView)
+    func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool)
     func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?)
 }
 
@@ -29,6 +30,7 @@ public class TPTextInputView: UIView {
         }
     }
     
+    @IBInspectable
     public var placeholderText: String? {
         get {
             return textField.placeholder
@@ -39,6 +41,11 @@ public class TPTextInputView: UIView {
     }
     
     public weak var viewDelegate: TPTextInputViewDelegate?
+    
+    @IBOutlet private weak var textFieldLeftConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var textFieldRightConstraint: NSLayoutConstraint!
+    
+    private var endEditingByReturn: Bool = false
     
     // MARK: - Initialization
     public override init(frame: CGRect) {
@@ -56,6 +63,7 @@ public class TPTextInputView: UIView {
         backgroundColor = .clear
         contentView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(contentView)
+        sendSubviewToBack(contentView)
         contentView.constraintAllSidesToSuperview()
     }
     
@@ -63,6 +71,16 @@ public class TPTextInputView: UIView {
     
     @IBAction func handleValueChanged(_ sender: Any) {
         viewDelegate?.tpTextInputViewTextChanged(self, changedText: textField.text)
+    }
+    
+    // MARK: - Other
+    public override func prepareForInterfaceBuilder() {
+        super.prepareForInterfaceBuilder()
+        textField.placeholder = placeholderText
+    }
+    
+    public override func resignFirstResponder() -> Bool {
+        return textField.resignFirstResponder()
     }
 }
 
@@ -73,6 +91,38 @@ extension TPTextInputView: UITextFieldDelegate {
     }
     
     public func textFieldDidEndEditing(_ textField: UITextField) {
-        viewDelegate?.tpTextInputViewDidEndEditing(self)
+        let endedByReturn = endEditingByReturn
+        endEditingByReturn = false
+        viewDelegate?.tpTextInputViewDidEndEditing(self, byReturn: endedByReturn)
+    }
+    
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        let shouldReturn = viewDelegate?.tpTextInputViewShouldReturn(self) ?? true
+        if shouldReturn {
+            endEditingByReturn = true
+            textField.resignFirstResponder()
+        }
+        return shouldReturn
+    }
+}
+
+public extension TPTextInputView {
+    @IBInspectable
+    var leftInset: CGFloat {
+        get {
+            return textFieldLeftConstraint.constant
+        }
+        set {
+            textFieldLeftConstraint.constant = newValue
+        }
+    }
+    
+    @IBInspectable
+    var rightInset: CGFloat {
+        get {
+            return textFieldRightConstraint.constant
+        } set {
+            textFieldRightConstraint.constant = newValue
+        }
     }
 }

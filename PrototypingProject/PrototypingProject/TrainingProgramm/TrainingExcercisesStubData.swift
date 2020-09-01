@@ -28,4 +28,12 @@ class TrainingExcercisesStubData {
                      rightDescription: "Погладить кота",
                      videoPreviewImage: Asset.PrototypingProject.StudDataImages.prototypingProjectStubImagesCat.image,
                      checkboxStatus: false)
+    
+    
+    static let trainingInventoryDropdown = [
+        "Клюшка",
+        "Гантели",
+        "Штанга",
+        "Лопата"
+    ]
 }
