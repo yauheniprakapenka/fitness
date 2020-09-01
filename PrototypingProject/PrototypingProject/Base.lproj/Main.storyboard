@@ -104,10 +104,18 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-Te-sNi" customClass="TPDropdownList" customModule="TrainingProgramm">
-                                <rect key="frame" x="0.0" y="198.5" width="414" height="180"/>
+                                <rect key="frame" x="0.0" y="198.5" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="180" id="i5Q-n4-fHD"/>
+                                    <constraint firstAttribute="height" constant="55" id="i5Q-n4-fHD"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8V-wC-ZWM" customClass="TPSquaredCheckboxView" customModule="TrainingProgramm">
+                                <rect key="frame" x="5" y="268.5" width="24" height="24"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="crj-Ix-t2i"/>
+                                    <constraint firstAttribute="height" constant="24" id="zs2-Is-kBL"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -123,9 +131,12 @@
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="top" secondItem="vSq-Ja-IhP" secondAttribute="top" constant="20" id="VMg-X0-9aE"/>
                             <constraint firstItem="WJF-Te-sNi" firstAttribute="top" secondItem="htz-IZ-OyP" secondAttribute="bottom" constant="10" id="Vkh-re-Tdb"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="tlE-rZ-Saa" secondAttribute="trailing" constant="25" id="W1h-rJ-vyt"/>
+                            <constraint firstItem="e8V-wC-ZWM" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" constant="5" id="hqm-j3-S8k"/>
+                            <constraint firstItem="e8V-wC-ZWM" firstAttribute="top" secondItem="WJF-Te-sNi" secondAttribute="bottom" constant="15" id="x19-rm-lXF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="checkboxView" destination="e8V-wC-ZWM" id="Nbo-Lw-udm"/>
                         <outlet property="dropdownList" destination="WJF-Te-sNi" id="3H6-3z-rM4"/>
                         <outlet property="dropdownListHeightConstraint" destination="i5Q-n4-fHD" id="HCG-7F-GC8"/>
                         <outlet property="textInputView" destination="tlE-rZ-Saa" id="Sg7-Eo-QPl"/>

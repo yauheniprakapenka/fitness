@@ -16,13 +16,16 @@ class TrainingProgrammViewController2: UIViewController {
     @IBOutlet weak var dropdownList: TPDropdownList!
     @IBOutlet weak var dropdownListHeightConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var checkboxView: TPSquaredCheckboxView!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textInputView.viewDelegate = self
         timePickerView.viewDelegate = self
         dropdownList.viewPickerDelegate = self
-        
+        checkboxView.viewDelegate = self
     }
 }
 
@@ -72,5 +75,11 @@ extension TrainingProgrammViewController2: TPDropdownListPickerDelegate {
     
     func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> (NSLayoutConstraint, UIView)? {
         return (dropdownListHeightConstraint, view)
+    }
+}
+
+extension TrainingProgrammViewController2: TPSquaredCheckboxViewDelegate {
+    func tpSquaredCheckboxView(_ sender: TPSquaredCheckboxView, statusChanged isChecked: Bool) {
+        
     }
 }

@@ -47,7 +47,7 @@
                     <real key="value" value="1"/>
                 </userDefinedRuntimeAttribute>
                 <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                    <color key="value" name="tp_textInputViewBorder"/>
+                    <color key="value" name="tp_grayBorder"/>
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="115.94202898550725" y="324.44196428571428"/>
@@ -57,7 +57,7 @@
         <namedColor name="tp_blackText">
             <color red="0.082352941176470587" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
-        <namedColor name="tp_textInputViewBorder">
+        <namedColor name="tp_grayBorder">
             <color red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
