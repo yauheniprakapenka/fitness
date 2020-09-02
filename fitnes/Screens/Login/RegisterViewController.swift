@@ -161,6 +161,23 @@ private extension RegisterViewController {
         createUserButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
     
+    func saveUserDataToModel() {
+        profile.firstName = firstnameTextField.text ?? nil
+        profile.lastName = lastnameTextField.text ?? nil
+        profile.password = passwordTextField.text ?? nil
+        profile.passwordConfirmation = passwordRepeatTextField.text ?? nil
+        profile.email = emailTextField.text ?? nil
+        profile.phone = phoneTextField.text ?? nil
+        
+        if currentRole == RoleEnum.athlete {
+            profile.client = "client"
+        }
+        
+        if currentRole == RoleEnum.trainer {
+            profile.trainer = "trainer"
+        }
+    }
+    
     func displaySuccessAlert() {
         DispatchQueue.main.async {
             let vc = AlertViewController(question: "Добро пожаловать!", description: "Вы успешно создали профиль", actionButtonTitle: "Продолжить", cancelButtonTitle: nil, icon: .chevronDownCircle)
@@ -193,18 +210,22 @@ private extension RegisterViewController {
     
     @objc
     func createButtonTapped() {
-        NetworkManager.shared.registerUser(firstname: firstnameTextField.text ?? "",
-                                           lastname: lastnameTextField.text ?? "",
-                                           password: passwordTextField.text ?? "",
-                                           passwordConfirmation: passwordRepeatTextField.text ?? "",
-                                           email: emailTextField.text ?? "",
+        saveUserDataToModel()
+        
+        NetworkManager.shared.registerUser(firstname: profile.firstName ?? "",
+                                           lastname: profile.lastName ?? "",
+                                           password: profile.password ?? "",
+                                           passwordConfirmation: profile.passwordConfirmation ?? "",
+                                           email: profile.email ?? "",
                                            role: currentRole,
-                                           phone: phoneTextField.text ?? "") { [weak self] result in
+                                           phone: profile.phone ?? "") { [weak self] result in
                                             guard let self = self else { return }
                                             switch result {
-                                            case .success(_):
+                                            case .success(let response):
+                                                print(response)
                                                 self.displaySuccessAlert()
                                             case .failure(let error):
+                                                print(error.rawValue)
                                                 self.displayFailedAlert(message: error.rawValue)
                                             }
         }
@@ -212,7 +233,11 @@ private extension RegisterViewController {
     
     @objc
     func alertCreateButtonTapped() {
-        dismiss(animated: false)
+        
+        dismiss(animated: false) {
+            NetworkManager.shared.getToken(email: self.emailTextField.text ?? "",
+                                           password: self.passwordTextField.text ?? "")
+        }
         
         switch currentRole {
         case .athlete:

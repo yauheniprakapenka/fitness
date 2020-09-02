@@ -12,6 +12,6 @@ class NetworkManager {
     static let shared = NetworkManager()
     
     let baseURL = "https://crossfit-api-2020.herokuapp.com"
-    var registration = "/registration"
+    let registration = "/registration"
     let oauthToken = "/oauth/token"
 }

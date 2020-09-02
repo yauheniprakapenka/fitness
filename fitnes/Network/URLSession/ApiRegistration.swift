@@ -60,7 +60,7 @@ extension NetworkManager {
                     case "Incorrect password length. Range from 4 to 8 values":
                         completion(.failure(.incorrectPasswordLength))
                     default:
-                        fatalError("Неизвестный ответ: \(registration)")
+                        print("Неизвестный ответ: \(responseMessage)")
                     }
                 }
             } catch let error {

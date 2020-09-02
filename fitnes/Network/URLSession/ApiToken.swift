@@ -6,21 +6,11 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct TokenModel: Decodable {
-    var accessToken: String?
-    var tokenType: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case accessToken = "access_token"
-        case tokenType = "token_type"
-    }
-}
-
 import Foundation
 
 extension NetworkManager {
-    func getToken() {
-        let postString = "grant_type=password&email=user67@example.com&password=12345678"
+    func getToken(email: String, password: String) {
+        let postString = "grant_type=password&email=\(email)&password=\(password)"
         
         let url = URL(string: baseURL + oauthToken)
         guard let requestUrl = url else { return }
@@ -41,7 +31,7 @@ extension NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let responseToken = try decoder.decode(TokenModel.self, from: data)
-                print(responseToken)
+                token = responseToken
             } catch let error {
                 print(error)
             }
