@@ -16,5 +16,5 @@ struct TokenModel: Decodable {
     }
 }
 
-var token = TokenModel(accessToken: nil,
+var tokenModel = TokenModel(accessToken: nil,
                        tokenType: nil)

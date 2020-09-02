@@ -212,32 +212,27 @@ private extension RegisterViewController {
     func createButtonTapped() {
         saveUserDataToModel()
         
-        NetworkManager.shared.registerUser(firstname: profile.firstName ?? "",
-                                           lastname: profile.lastName ?? "",
-                                           password: profile.password ?? "",
-                                           passwordConfirmation: profile.passwordConfirmation ?? "",
-                                           email: profile.email ?? "",
-                                           role: currentRole,
-                                           phone: profile.phone ?? "") { [weak self] result in
-                                            guard let self = self else { return }
-                                            switch result {
-                                            case .success(let response):
-                                                print(response)
-                                                self.displaySuccessAlert()
-                                            case .failure(let error):
-                                                print(error.rawValue)
-                                                self.displayFailedAlert(message: error.rawValue)
-                                            }
+        NetworkManager.shared.makeRegistration(profile: profile, resultCompletion: { (result) in
+            
+            switch result {
+            case .success(let response):
+                print(response)
+                self.displaySuccessAlert()
+            case .failure(let error):
+                print(error.rawValue)
+                self.displayFailedAlert(message: error.rawValue)
+            }
+        }) {
+            NetworkManager.shared.getToken(email: profile.email ?? "",
+                                           password: profile.password ?? "") {
+                                            NetworkManager.shared.getUser()
+            }
         }
     }
     
     @objc
     func alertCreateButtonTapped() {
-        
-        dismiss(animated: false) {
-            NetworkManager.shared.getToken(email: self.emailTextField.text ?? "",
-                                           password: self.passwordTextField.text ?? "")
-        }
+        dismiss(animated: false)
         
         switch currentRole {
         case .athlete:

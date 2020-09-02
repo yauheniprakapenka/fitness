@@ -9,25 +9,19 @@
 import Foundation
 
 extension NetworkManager {
-    func registerUser(firstname: String,
-                      lastname: String,
-                      password: String,
-                      passwordConfirmation: String,
-                      email: String,
-                      role: RoleEnum,
-                      phone: String,
-                      completion: @escaping (Result<RegistrationModel, ApiErrorEnum>) -> Void) {
+    func makeRegistration(profile: ProfileModel,
+                          resultCompletion: @escaping (Result<RegistrationModel, ApiErrorEnum>) -> Void,
+                          completion: @escaping () -> Void) {
         
-        var currentRole = ""
+        let firstName = profile.firstName ?? ""
+        let lastName = profile.lastName ?? ""
+        let password = profile.password ?? ""
+        let passwordConfirmation = profile.passwordConfirmation ?? ""
+        let role = ConverterRoleToString.shared.fromModelToString(profile: profile)
+        let email = profile.email ?? ""
+        let phone = profile.phone ?? ""
         
-        switch role {
-        case .athlete:
-            currentRole = "client=client"
-        case .trainer:
-            currentRole = "trainer=trainer"
-        }
-        
-        let postString = "first_name=\(firstname)&last_name=\(lastname)&password=\(password)&password_confirmation=\(passwordConfirmation)&\(currentRole)&email=\(email)&phone=\(phone)"
+        let postString = "first_name=\(firstName)&last_name=\(lastName)&password=\(password)&password_confirmation=\(passwordConfirmation)&\(role)&email=\(email)&phone=\(phone)"
         
         let url = URL(string: baseURL + registration)
         guard let requestUrl = url else { return }
@@ -47,18 +41,25 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let registration = try decoder.decode(RegistrationModel.self, from: data)
+                let responseRegistration = try decoder.decode(RegistrationModel.self, from: data)
+                print(responseRegistration)
                 
-                if let responseMessage = registration.message {
+                if let userId = responseRegistration.userId {
+                    registrationModel.userId = userId
+                }
+
+                if let responseMessage = responseRegistration.message {
                     switch responseMessage {
                     case "Complete registration on Service":
-                        completion(.success(registration))
+                        resultCompletion(.success(responseRegistration))
+                        completion()
+                        
                     case "Password and confirm password do not match":
-                        completion(.failure(.passwordDoesNotMatch))
+                        resultCompletion(.failure(.passwordDoesNotMatch))
                     case "User exist":
-                        completion(.failure(.userExist))
+                        resultCompletion(.failure(.userExist))
                     case "Incorrect password length. Range from 4 to 8 values":
-                        completion(.failure(.incorrectPasswordLength))
+                        resultCompletion(.failure(.incorrectPasswordLength))
                     default:
                         print("Неизвестный ответ: \(responseMessage)")
                     }

@@ -19,6 +19,7 @@
 		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
 		3E3B660424FFEF6100D1068F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B660324FFEF6100D1068F /* ProfileModel.swift */; };
+		3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B66052500231C00D1068F /* ApiGetUser.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
 		3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */; };
@@ -60,7 +61,7 @@
 		3E99FB1524FBD8FB00F1F1F9 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */; };
 		3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3F39324E049A400DA5959 /* ChatViewController.swift */; };
 		3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */; };
-		3EAA2E4224FDB3A300C8D08D /* ApiToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4124FDB3A300C8D08D /* ApiToken.swift */; };
+		3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */; };
 		3EAA2E4524FEE47300C8D08D /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4424FEE47300C8D08D /* TokenModel.swift */; };
 		3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */; };
 		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
@@ -136,6 +137,7 @@
 		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		3E3B660324FFEF6100D1068F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		3E3B66052500231C00D1068F /* ApiGetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUser.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
 		3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +179,7 @@
 		3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		3EA3F39324E049A400DA5959 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
-		3EAA2E4124FDB3A300C8D08D /* ApiToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiToken.swift; sourceTree = "<group>"; };
+		3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOauthToken.swift; sourceTree = "<group>"; };
 		3EAA2E4424FEE47300C8D08D /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAbonementViewController.swift; sourceTree = "<group>"; };
 		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
@@ -486,20 +488,21 @@
 		3E99FB0F24FBADA600F1F1F9 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
+				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
+				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
 				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
-				3EAA2E4124FDB3A300C8D08D /* ApiToken.swift */,
+				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
 			);
 			path = URLSession;
 			sourceTree = "<group>";
 		};
-		3EAA2E4324FDB59700C8D08D /* Api */ = {
+		3EAA2E4324FDB59700C8D08D /* ModelApi */ = {
 			isa = PBXGroup;
 			children = (
 				3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */,
 				3EAA2E4424FEE47300C8D08D /* TokenModel.swift */,
 			);
-			path = Api;
+			path = ModelApi;
 			sourceTree = "<group>";
 		};
 		3EB0F97924D0B09600AC97EB /* Assets */ = {
@@ -557,7 +560,6 @@
 		3ED7037224DB45CC00E4DB9F /* ModelsNew */ = {
 			isa = PBXGroup;
 			children = (
-				3EAA2E4324FDB59700C8D08D /* Api */,
 				3E3D928224E864F800EEE0C6 /* AbonementModel.swift */,
 				3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */,
 				3E1752C824E169E600F823A8 /* ChatModel.swift */,
@@ -629,6 +631,7 @@
 				3E8DE58124CD9DE500DFB220 /* Enums */,
 				3E87232524BFAD1E005FC365 /* Extension */,
 				3ED7037224DB45CC00E4DB9F /* ModelsNew */,
+				3EAA2E4324FDB59700C8D08D /* ModelApi */,
 				3E235B3824BE2A0E004DDBD6 /* ModelsOldForFirebase */,
 				3EB0F97D24D0B25C00AC97EB /* Network */,
 				F8FACC5524F51F8A00B52063 /* Other */,
@@ -858,7 +861,7 @@
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
 				3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
-				3EAA2E4224FDB3A300C8D08D /* ApiToken.swift in Sources */,
+				3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
@@ -920,6 +923,7 @@
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
 				3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */,
 				3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */,
+				3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */,
 				3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */,
 				3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
