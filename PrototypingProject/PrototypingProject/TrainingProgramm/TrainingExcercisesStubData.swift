@@ -29,11 +29,24 @@ class TrainingExcercisesStubData {
                      videoPreviewImage: Asset.PrototypingProject.StudDataImages.prototypingProjectStubImagesCat.image,
                      checkboxStatus: false)
     
-    
     static let trainingInventoryDropdown = [
         "Клюшка",
         "Гантели",
         "Штанга",
-        "Лопата"
+        "Лопата",
+        "Турник"
     ]
+    
+    static let addToTraining = [
+        ("Тренировка 1", true),
+        ("Супертренировка", false),
+        ("Тренировка силы воли", false)
+    ]
+    
+    static let exercise = TPExercise(
+        name: "Подтягивания",
+        inventory: "Турник",
+        description: "Подтягивания обратным хватом",
+        video: nil
+    )
 }

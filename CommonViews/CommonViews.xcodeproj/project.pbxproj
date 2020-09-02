@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F8012CEB24FF801800AA8A8B /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8012CEA24FF801800AA8A8B /* Decoration.swift */; };
+		F8012CED24FF80F700AA8A8B /* DecoratorCompatible.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8012CEC24FF80F700AA8A8B /* DecoratorCompatible.swift */; };
 		F8D8311F24F55C8200610ABF /* CommonViews.h in Headers */ = {isa = PBXBuildFile; fileRef = F8D8311D24F55C8200610ABF /* CommonViews.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8D8312824F55CE900610ABF /* UIViewExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8D8312724F55CE900610ABF /* UIViewExtended.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F8012CEA24FF801800AA8A8B /* Decoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoration.swift; sourceTree = "<group>"; };
+		F8012CEC24FF80F700AA8A8B /* DecoratorCompatible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoratorCompatible.swift; sourceTree = "<group>"; };
 		F8D8311A24F55C8200610ABF /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8D8311D24F55C8200610ABF /* CommonViews.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonViews.h; sourceTree = "<group>"; };
 		F8D8311E24F55C8200610ABF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -29,6 +33,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F8012CE924FF800500AA8A8B /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				F8012CEA24FF801800AA8A8B /* Decoration.swift */,
+				F8012CEC24FF80F700AA8A8B /* DecoratorCompatible.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		F8D8311024F55C8200610ABF = {
 			isa = PBXGroup;
 			children = (
@@ -48,6 +61,7 @@
 		F8D8311C24F55C8200610ABF /* CommonViews */ = {
 			isa = PBXGroup;
 			children = (
+				F8012CE924FF800500AA8A8B /* Common */,
 				F8D8312624F55CBE00610ABF /* UIKitExtended */,
 				F8D8311D24F55C8200610ABF /* CommonViews.h */,
 				F8D8311E24F55C8200610ABF /* Info.plist */,
@@ -165,6 +179,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F8D8312824F55CE900610ABF /* UIViewExtended.swift in Sources */,
+				F8012CEB24FF801800AA8A8B /* Decoration.swift in Sources */,
+				F8012CED24FF80F700AA8A8B /* DecoratorCompatible.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

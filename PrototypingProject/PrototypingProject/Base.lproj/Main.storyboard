@@ -110,33 +110,42 @@
                                     <constraint firstAttribute="height" constant="55" id="i5Q-n4-fHD"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e8V-wC-ZWM" customClass="TPSquaredCheckboxView" customModule="TrainingProgramm">
-                                <rect key="frame" x="5" y="268.5" width="24" height="24"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Hz-3x-Fy3">
+                                <rect key="frame" x="0.0" y="243.5" width="414" height="168"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bxz-nO-jB7" customClass="TPAddToTrainingListView" customModule="TrainingProgramm">
+                                        <rect key="frame" x="20" y="20" width="414" height="128"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="24" id="crj-Ix-t2i"/>
-                                    <constraint firstAttribute="height" constant="24" id="zs2-Is-kBL"/>
+                                    <constraint firstAttribute="height" constant="200" id="SBb-dT-bM4"/>
+                                    <constraint firstItem="Bxz-nO-jB7" firstAttribute="leading" secondItem="3Hz-3x-Fy3" secondAttribute="leading" constant="20" symbolic="YES" id="iaU-NO-mx0"/>
+                                    <constraint firstItem="Bxz-nO-jB7" firstAttribute="top" secondItem="3Hz-3x-Fy3" secondAttribute="top" constant="20" symbolic="YES" id="yho-cX-jHg"/>
                                 </constraints>
-                            </view>
+                                <viewLayoutGuide key="contentLayoutGuide" id="kOn-cg-4Km"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Sk9-9O-0MW"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vSq-Ja-IhP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" constant="25" id="5vS-SN-M5t"/>
                             <constraint firstItem="htz-IZ-OyP" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="7kT-Bk-SS2"/>
+                            <constraint firstItem="3Hz-3x-Fy3" firstAttribute="leading" secondItem="UIh-21-r50" secondAttribute="leading" id="MxN-ud-G6c"/>
                             <constraint firstItem="htz-IZ-OyP" firstAttribute="top" secondItem="tlE-rZ-Saa" secondAttribute="bottom" constant="20" id="Ois-4o-dKT"/>
                             <constraint firstItem="WJF-Te-sNi" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" id="TID-eL-A3s"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="WJF-Te-sNi" secondAttribute="trailing" id="Tsq-NR-vwx"/>
+                            <constraint firstItem="3Hz-3x-Fy3" firstAttribute="top" secondItem="WJF-Te-sNi" secondAttribute="bottom" constant="10" id="UA7-c2-PSK"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="htz-IZ-OyP" secondAttribute="trailing" id="V3c-t6-fCs"/>
                             <constraint firstItem="tlE-rZ-Saa" firstAttribute="top" secondItem="vSq-Ja-IhP" secondAttribute="top" constant="20" id="VMg-X0-9aE"/>
                             <constraint firstItem="WJF-Te-sNi" firstAttribute="top" secondItem="htz-IZ-OyP" secondAttribute="bottom" constant="10" id="Vkh-re-Tdb"/>
                             <constraint firstItem="vSq-Ja-IhP" firstAttribute="trailing" secondItem="tlE-rZ-Saa" secondAttribute="trailing" constant="25" id="W1h-rJ-vyt"/>
-                            <constraint firstItem="e8V-wC-ZWM" firstAttribute="leading" secondItem="vSq-Ja-IhP" secondAttribute="leading" constant="5" id="hqm-j3-S8k"/>
-                            <constraint firstItem="e8V-wC-ZWM" firstAttribute="top" secondItem="WJF-Te-sNi" secondAttribute="bottom" constant="15" id="x19-rm-lXF"/>
+                            <constraint firstAttribute="trailing" secondItem="3Hz-3x-Fy3" secondAttribute="trailing" id="gqW-nn-UAB"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="checkboxView" destination="e8V-wC-ZWM" id="Nbo-Lw-udm"/>
+                        <outlet property="addToTrainingView" destination="Bxz-nO-jB7" id="fhZ-jn-vcY"/>
                         <outlet property="dropdownList" destination="WJF-Te-sNi" id="3H6-3z-rM4"/>
                         <outlet property="dropdownListHeightConstraint" destination="i5Q-n4-fHD" id="HCG-7F-GC8"/>
                         <outlet property="textInputView" destination="tlE-rZ-Saa" id="Sg7-Eo-QPl"/>

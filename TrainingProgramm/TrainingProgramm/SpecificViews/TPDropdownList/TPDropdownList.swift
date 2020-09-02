@@ -23,6 +23,10 @@ public protocol TPDropdownListTextInputDelegate: class {
 }
 
 private extension TPDropdownList {
+    typealias StateUpdateCompletionHandler = () -> Void
+}
+
+private extension TPDropdownList {
     enum Const {
         static let animDurationCloseSizeChange = 0.2
         static let animDurationCloseFade = 0.2
@@ -48,11 +52,21 @@ public class TPDropdownList: UIView {
     public weak var viewTextInputDelegate: TPDropdownListTextInputDelegate?
     public var isOpened: Bool = false {
         didSet {
-            updateToCurrentState(animated: true)
+            updateToCurrentState(animated: true) {
+                self.viewPickerDelegate?.tpDropdownList(self, openStatusChanged: self.isOpened)
+            }
+        }
+    }
+    public var placeholderText: String? {
+        get {
+            return textInputView.placeholderText
+        }
+        set {
+            textInputView.placeholderText = newValue
         }
     }
     public var openedPickerAdditionalHeight: CGFloat = Const.itemPickerOpenedDefaultHeight
-    //public var selectedItem: String?
+    public var selectedItem: String?
     
     private var textInputItem: String?
     
@@ -86,12 +100,19 @@ public class TPDropdownList: UIView {
         pickerView.reloadAllComponents()
     }
     
+    public func select(itemAt index: Int) {
+        let resolvedIndex = textInputItemValid ? index + 1 : index
+        pickerView.selectRow(resolvedIndex, inComponent: 0, animated: true)
+        let item = pickerView(pickerView, titleForRow: index, forComponent: 0)
+        textInputView.text = item
+        selectedItem = item
+    }
+    
     // MARK: - Action and Action Callbacks
     
     @objc
     private func handleOpenCloseIconTap() {
         isOpened = !isOpened
-        viewPickerDelegate?.tpDropdownList(self, openStatusChanged: isOpened)
     }
 }
 
@@ -115,30 +136,36 @@ private extension TPDropdownList {
         view.layoutIfNeeded()
     }
     
-    func updateToCurrentState(animated: Bool) {
+    func updateToCurrentState(animated: Bool, completion completionHandler: StateUpdateCompletionHandler? = nil) {
         guard animated else {
             updateFadeToCurrentState()
             updateIconToCurrentState()
             updateResizeToCurrentState()
+            completionHandler?()
             return
         }
         
         if isOpened {
-            UIView.animate(withDuration: Const.animDurationOpen) {
+            UIView.animate(withDuration: Const.animDurationOpen, animations: {
                 self.updateFadeToCurrentState()
                 self.updateResizeToCurrentState()
                 self.updateIconToCurrentState()
-            }
+            }, completion: { _ in
+                completionHandler?()
+            })
         } else {
             UIView.animate(withDuration: Const.animDurationCloseFade, animations: {
                 self.updateFadeToCurrentState()
             }, completion: { _ in
-                UIView.animate(withDuration: Const.animDurationCloseSizeChange) {
+                UIView.animate(withDuration: Const.animDurationCloseSizeChange, animations: {
                     self.updateResizeToCurrentState()
-                }
+                }, completion: { _ in
+                    completionHandler?()
+                })
             })
             UIView.animate(withDuration: Const.animDurationCloseIcon) {
                 self.updateIconToCurrentState()
+                completionHandler?()
             }
         }
     }
@@ -163,6 +190,7 @@ extension TPDropdownList: TPTextInputViewDelegate {
         //let changedfromNil = textInputItem == nil && changedText != nil
         //let changedToNil = textInputItem != nil && changedText == nil
         textInputItem = changedText
+        selectedItem = textInputItem
         pickerView.reloadAllComponents()
         let currentSelected = pickerView.selectedRow(inComponent: 0)
         if currentSelected != 0 {
@@ -174,13 +202,17 @@ extension TPDropdownList: TPTextInputViewDelegate {
 
 // MARK: - UIPickerViewDataSource
 extension TPDropdownList: UIPickerViewDataSource {
+    var textInputItemValid: Bool {
+        return textInputItem != nil && !(textInputItem?.isEmpty ?? true)
+    }
+    
     public func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     public func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         let delegateItemsCount = viewPickerDelegate?.tpDropdownListItems(self).count ?? 0
-        let textInputCount = textInputItem != nil ? 1 : 0
+        let textInputCount = textInputItemValid ? 1 : 0
         return delegateItemsCount + textInputCount
     }
 }
@@ -188,7 +220,7 @@ extension TPDropdownList: UIPickerViewDataSource {
 extension TPDropdownList: UIPickerViewDelegate {
     public func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let delegateItems = viewPickerDelegate?.tpDropdownListItems(self) ?? []
-        if textInputItem != nil {
+        if textInputItemValid {
             let items = [textInputItem] + delegateItems
             return items[row]
         } else {
@@ -198,17 +230,20 @@ extension TPDropdownList: UIPickerViewDelegate {
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let items = viewPickerDelegate?.tpDropdownListItems(self)
-        if textInputItem != nil {
+        if textInputItemValid {
             if row == 0 {
                 textInputView.text = textInputItem
+                selectedItem = textInputView.text
                 viewPickerDelegate?.tpDropdownList(self, selectedTextInputItem: textInputItem)
                 
             } else {
                 textInputView.text = items?[row - 1]
+                selectedItem = textInputView.text
                 viewPickerDelegate?.tpDropdownList(self, selectedItemAtIndex: row - 1)
             }
         } else {
             textInputView.text = items?[row]
+            selectedItem = textInputView.text
             viewPickerDelegate?.tpDropdownList(self, selectedItemAtIndex: row)
         }
     }

@@ -16,17 +16,29 @@ class TrainingProgrammViewController2: UIViewController {
     @IBOutlet weak var dropdownList: TPDropdownList!
     @IBOutlet weak var dropdownListHeightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var checkboxView: TPSquaredCheckboxView!
-    
-    
+    @IBOutlet weak var addToTrainingView: TPAddToTrainingListView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textInputView.viewDelegate = self
         timePickerView.viewDelegate = self
         dropdownList.viewPickerDelegate = self
-        checkboxView.viewDelegate = self
+        addToTrainingView.viewDelegate = self
+        addToTrainingView.refreshData()
+        
     }
+}
+
+extension TrainingProgrammViewController2: TPAddToTrainingListViewDelegate {
+    func tpAddToTrainingListViewItems(_ sender: TPAddToTrainingListView) -> [(String, Bool)] {
+        return TrainingExcercisesStubData.addToTraining
+    }
+    
+    func tpAddToTrainingListView(_ sender: TPAddToTrainingListView, checboxStatusChanged isChecked: Bool, atIndex index: Int) {
+        
+    }
+    
+    
 }
 
 extension TrainingProgrammViewController2: TPTextInputViewDelegate {
@@ -45,8 +57,6 @@ extension TrainingProgrammViewController2: TPTextInputViewDelegate {
     func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
         
     }
-    
-    
 }
 
 extension TrainingProgrammViewController2: TPTimePickerViewDelegate {
