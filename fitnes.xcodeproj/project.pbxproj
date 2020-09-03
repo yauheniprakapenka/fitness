@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */; };
 		3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */; };
 		3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */; };
 		3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */; };
@@ -17,6 +18,8 @@
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
 		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
+		3E3B660424FFEF6100D1068F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B660324FFEF6100D1068F /* ProfileModel.swift */; };
+		3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B66052500231C00D1068F /* ApiGetUser.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
 		3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */; };
@@ -53,8 +56,13 @@
 		3E87232224BF9FC4005FC365 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232124BF9FC4005FC365 /* AuthService.swift */; };
 		3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */; };
 		3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */; };
+		3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */; };
+		3E99FB1324FBD86300F1F1F9 /* ApiErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */; };
+		3E99FB1524FBD8FB00F1F1F9 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */; };
 		3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3F39324E049A400DA5959 /* ChatViewController.swift */; };
 		3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */; };
+		3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */; };
+		3EAA2E4524FEE47300C8D08D /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4424FEE47300C8D08D /* TokenModel.swift */; };
 		3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */; };
 		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
 		3EC3D3BD24C43CE2006B2EE1 /* ExerciseModelOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC3D3BC24C43CE2006B2EE1 /* ExerciseModelOld.swift */; };
@@ -90,6 +98,7 @@
 		3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5870624E01C1000CA0530 /* HapticFeedback.swift */; };
 		3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */; };
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
+		3EE5E29324FD9B9B00705B89 /* ApiRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */; };
 		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
@@ -119,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
+		3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageEnum.swift; sourceTree = "<group>"; };
 		3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteQRAbonementViewController.swift; sourceTree = "<group>"; };
 		3E10DA3024C3317900163F26 /* ProfileInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInfoModel.swift; sourceTree = "<group>"; };
 		3E10DA3224C37DB000163F26 /* ProfileRoleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRoleModel.swift; sourceTree = "<group>"; };
@@ -129,6 +139,8 @@
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
+		3E3B660324FFEF6100D1068F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
+		3E3B66052500231C00D1068F /* ApiGetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUser.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
 		3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -165,8 +177,13 @@
 		3E87232124BF9FC4005FC365 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alerts.swift"; sourceTree = "<group>"; };
 		3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSectionEnum.swift; sourceTree = "<group>"; };
+		3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorEnum.swift; sourceTree = "<group>"; };
+		3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
 		3EA3F39324E049A400DA5959 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOauthToken.swift; sourceTree = "<group>"; };
+		3EAA2E4424FEE47300C8D08D /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
 		3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAbonementViewController.swift; sourceTree = "<group>"; };
 		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3EC3D3BC24C43CE2006B2EE1 /* ExerciseModelOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelOld.swift; sourceTree = "<group>"; };
@@ -204,6 +221,7 @@
 		3EE5870624E01C1000CA0530 /* HapticFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedback.swift; sourceTree = "<group>"; };
 		3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
+		3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRegistration.swift; sourceTree = "<group>"; };
 		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
@@ -462,12 +480,34 @@
 		3E8DE58124CD9DE500DFB220 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */,
 				3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */,
+				3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */,
 				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
 				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
 				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		3E99FB0F24FBADA600F1F1F9 /* URLSession */ = {
+			isa = PBXGroup;
+			children = (
+				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
+				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
+				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
+				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
+			);
+			path = URLSession;
+			sourceTree = "<group>";
+		};
+		3EAA2E4324FDB59700C8D08D /* ModelApi */ = {
+			isa = PBXGroup;
+			children = (
+				3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */,
+				3EAA2E4424FEE47300C8D08D /* TokenModel.swift */,
+			);
+			path = ModelApi;
 			sourceTree = "<group>";
 		};
 		3EB0F97924D0B09600AC97EB /* Assets */ = {
@@ -490,6 +530,7 @@
 		3EB0F97D24D0B25C00AC97EB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				3E99FB0F24FBADA600F1F1F9 /* URLSession */,
 				3E87232024BF9FB2005FC365 /* Firebase */,
 			);
 			path = Network;
@@ -528,9 +569,10 @@
 				3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */,
 				3E1752C824E169E600F823A8 /* ChatModel.swift */,
 				3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */,
+				3EDB022224ED977200A4808F /* PlaceModel.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
-				3EDB022224ED977200A4808F /* PlaceModel.swift */,
+				3E3B660324FFEF6100D1068F /* ProfileModel.swift */,
 			);
 			path = ModelsNew;
 			sourceTree = "<group>";
@@ -594,13 +636,14 @@
 				3E8DE58124CD9DE500DFB220 /* Enums */,
 				3E87232524BFAD1E005FC365 /* Extension */,
 				3ED7037224DB45CC00E4DB9F /* ModelsNew */,
+				3EAA2E4324FDB59700C8D08D /* ModelApi */,
 				3E235B3824BE2A0E004DDBD6 /* ModelsOldForFirebase */,
 				3EB0F97D24D0B25C00AC97EB /* Network */,
+				F8FACC5524F51F8A00B52063 /* Other */,
 				3EB0F97E24D0B4A200AC97EB /* Plist */,
 				3EE3901624BCE863003AF6D8 /* Screens */,
 				3E235B3724BE29D8004DDBD6 /* Storyboard */,
 				3EE2DDE124C0D8A100D85CAE /* Utils */,
-				F8FACC5524F51F8A00B52063 /* Other */,
 			);
 			path = fitnes;
 			sourceTree = "<group>";
@@ -824,6 +867,7 @@
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
 				3E10DA3124C3317900163F26 /* ProfileInfoModel.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
+				3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
@@ -838,6 +882,7 @@
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
 				3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */,
+				3E3B660424FFEF6100D1068F /* ProfileModel.swift in Sources */,
 				3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */,
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
@@ -847,6 +892,7 @@
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
+				3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */,
 				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
@@ -869,10 +915,13 @@
 				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
+				3EAA2E4524FEE47300C8D08D /* TokenModel.swift in Sources */,
 				3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
+				3E99FB1524FBD8FB00F1F1F9 /* RegistrationModel.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
+				3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
@@ -880,15 +929,18 @@
 				3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */,
 				3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */,
 				3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */,
+				3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */,
 				3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */,
 				3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */,
 				3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */,
 				3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */,
+				3EE5E29324FD9B9B00705B89 /* ApiRegistration.swift in Sources */,
 				3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
 				3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */,
 				3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */,
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
+				3E99FB1324FBD86300F1F1F9 /* ApiErrorEnum.swift in Sources */,
 				3E3D928124E8555800EEE0C6 /* RegisterViewController.swift in Sources */,
 				F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,

@@ -10,7 +10,7 @@ class ConverterRoleToString {
     
     static let shared = ConverterRoleToString()
     
-    func roleToString(role: RoleEnum?) -> String {
+    func fromEnumToString(role: RoleEnum?) -> String {
         switch role {
         case .athlete:
             return "Athlete"
@@ -19,5 +19,19 @@ class ConverterRoleToString {
         default:
             return "Роль не найдена"
         }
+    }
+    
+    func fromModelToString(profile: ProfileModel) -> String {
+        var currentRole = "missing_role"
+        
+        if profile.client != nil {
+            currentRole = "client=client"
+        }
+        
+        if profile.trainer != nil {
+            currentRole = "trainer=trainer"
+        }
+        
+        return currentRole
     }
 }

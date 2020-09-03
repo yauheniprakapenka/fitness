@@ -124,7 +124,7 @@ class BuyAbonementViewController: UIViewController {
     
     @objc
     func buyButtonTapped() {
-        let alertVC = AlertViewController(question: "Вы хотите купить\nабонемент?", description: "После покупки он отобразится\nв вашем профиле", actionButtonTitle: "Купить")
+        let alertVC = AlertViewController(question: "Вы хотите купить\nабонемент?", description: "После покупки он отобразится\nв вашем профиле", actionButtonTitle: "Купить", cancelButtonTitle: "Отмена", icon: .chevronDownCircle)
         alertVC.modalPresentationStyle = .overCurrentContext
         
         alertVC.actionButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
