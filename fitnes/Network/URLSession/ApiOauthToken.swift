@@ -9,7 +9,7 @@
 import Foundation
 
 extension NetworkManager {
-    func getToken(email: String, password: String, completion: @escaping () -> Void) {
+    func getToken(email: String, password: String, completion: @escaping (Result<TokenModel, ApiErrorEnum>) -> Void) {
         let postString = "grant_type=password&email=\(email)&password=\(password)"
         
         let url = URL(string: baseURL + oauthToken)
@@ -32,8 +32,22 @@ extension NetworkManager {
                 let decoder = JSONDecoder()
                 let responseToken = try decoder.decode(TokenModel.self, from: data)
                 print(responseToken)
+                
+                if let responseToken = responseToken.error {
+                    switch responseToken {
+                    case "invalid_grant":
+                        completion(.failure(.invalidGrant))
+                        return
+                    default:
+                        break
+                    }
+                }
+                
                 tokenModel = responseToken
-                completion()
+                
+                if tokenModel.accessToken != nil {
+                    completion(.success(tokenModel))
+                }
             } catch let error {
                 print(error)
             }

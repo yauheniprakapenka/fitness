@@ -9,10 +9,14 @@
 struct TokenModel: Decodable {
     var accessToken: String?
     var tokenType: String?
+    var error: String?
+    var errorDescription: String?
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
         case tokenType = "token_type"
+        case error
+        case errorDescription = "error_description"
     }
 }
 

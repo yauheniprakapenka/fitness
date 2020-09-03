@@ -16,5 +16,4 @@ struct RegistrationModel: Decodable {
     }
 }
 
-var registrationModel = RegistrationModel(message: nil,
-                                          userId: nil)
+var registrationModel = RegistrationModel(message: nil, userId: nil)

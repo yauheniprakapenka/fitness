@@ -14,7 +14,7 @@ extension FirestoreService {
             "uid": uid,
             "lastName": lastName,
             "firstName": firstName,
-            "role": ConverterRoleToString.shared.roleToString(role: role)
+            "role": ConverterRoleToString.shared.fromEnumToString(role: role)
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")

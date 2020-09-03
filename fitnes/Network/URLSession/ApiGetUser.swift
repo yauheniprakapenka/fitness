@@ -11,7 +11,10 @@ import Foundation
 extension NetworkManager {
     func getUser() {
         
-        let url = URL(string: baseURL + users + String(registrationModel.userId ?? 0))
+        let isUserId = registrationModel.userId != nil && registrationModel.userId != 0
+        let userId = isUserId ? String(registrationModel.userId ?? 0) : ""
+        
+        let url = URL(string: baseURL + users + userId)
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
@@ -31,8 +34,8 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let response = try decoder.decode(TokenModel.self, from: data)
-                tokenModel = response
+                let userResponse = try decoder.decode(UserModel.self, from: data)
+                print(userResponse)
             } catch let error {
                 print(error)
             }

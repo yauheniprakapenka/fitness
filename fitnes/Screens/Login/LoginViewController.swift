@@ -17,33 +17,27 @@ private extension LoginViewController {
 
 class LoginViewController: UIViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
+    let trainerContainerView = UIView()
+    let athleteContainerView = UIView()
+    let trainerVioletCircle = UIView()
+    let athleteVioletCircle = UIView()
+    let contentScrollView = UIScrollView()
     let backgroundImageView = UIImageView()
     
     let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнём")
     let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
-    
     let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
     let emailTextField = RoundedTextField(placeholderText: "Введите email", placeholderColor: .gray)
-    
     let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
     let passwordTextField = RoundedTextField(placeholderText: "Введите пароль", placeholderColor: .gray)
-    
-    let trainerContainerView = UIView()
-    let athleteContainerView = UIView()
+    let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
+    let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     
     var currentRole: RoleEnum = .trainer
     
-    let trainerVioletCircle = UIView()
-    let athleteVioletCircle = UIView()
-    
-    let continueButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
-    
-    let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
-    let contentScrollView = UIScrollView()
-    
-    // MARK: - View Controller LifeCycle Methods
+    // MARK: - View Controller Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,15 +46,13 @@ class LoginViewController: UIViewController {
         
         configureBackgroundImageView()
         configureRootScrollView()
+        
         configureStartLabel(addTo: contentScrollView)
         configureSigninLabel(addTo: contentScrollView)
-        
         configureEmailLabel(addTo: contentScrollView)
         configureEmailTextField(addTo: contentScrollView)
-        
         configurePasswordLabel(addTo: contentScrollView)
         configurePasswordTextField(addTo: contentScrollView)
-        
         configureTrainerContainerView(addTo: contentScrollView)
         configureAthleteContainerView(addTo: contentScrollView)
         
@@ -70,6 +62,10 @@ class LoginViewController: UIViewController {
         
         configureContinueButton(addTo: contentScrollView)
         configureCreateNewAccountButton(addTo: contentScrollView)
+        
+        // test data
+        emailTextField.text = "mickey@mouse7.com"
+        passwordTextField.text = "123456"
     }
     
     override func viewDidLayoutSubviews() {
@@ -80,46 +76,31 @@ class LoginViewController: UIViewController {
     // MARK: - Actions
     
     @objc
-    func continueButtonTapped() {
+    func loginButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
+        saveUserDataToModel()
+      
+        NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "", completion: { (result) in
+            switch result {
+                
+            case .success(let success):
+                print(success)
+                NetworkManager.shared.getUser()
+            case .failure(let failure):
+                print(failure)
+            }
+        })
         
-        switch currentRole {
-        case .trainer:
-            let vc = TrainerViewController()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
-        case .athlete:
-            let vc = AthleteViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-        }
-        
-        //        AuthService.shared.signIn(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result) in
-        //            switch result {
-        //            case .success(let user):
-        //                profileInfoModel.email = user.email ?? ""
-        //                profileInfoModel.uid = user.uid
-        //
-        //                FirestoreService.shared.fetchProfile() {
-        //                    switch ConverterRoleToEnum.shared.roleToEnum(role: profileInfoModel.role) {
-        //                    case .Trainer:
-        //
-        //                        let vc = TrainerViewController()
-        //                        vc.modalPresentationStyle = .fullScreen
-        //                        self.present(vc, animated: true)
-        //                    case .Athlete:
-        //                        let vc = AthleteViewController()
-        //                        vc.modalPresentationStyle = .fullScreen
-        //                        self.present(vc, animated: true)
-        //                    case .none:
-        //                        break
-        //                    }
-        //                }
-        //
-        //            case .failure(let error):
-        //                self.showAlert(title: "Что-то пошло не так", message: error.localizedDescription)
-        //            }
-        //        }
+//        switch currentRole {
+//        case .trainer:
+//            let vc = TrainerViewController()
+//            vc.modalPresentationStyle = .fullScreen
+//            self.present(vc, animated: true)
+//        case .athlete:
+//            let vc = AthleteViewController()
+//            vc.modalPresentationStyle = .fullScreen
+//            present(vc, animated: true)
+//        }
     }
     
     @objc
@@ -136,6 +117,11 @@ class LoginViewController: UIViewController {
 // MARK: - Private methods
 
 private extension LoginViewController {
+    
+    func saveUserDataToModel() {
+        profile.email = emailTextField.text
+        profile.password = passwordTextField.text
+    }
     
     func configureRootScrollView() {
         view.addSubview(contentScrollView)
@@ -213,20 +199,20 @@ private extension LoginViewController {
     }
     
     func configureContinueButton(addTo view: UIView) {
-        view.addSubview(continueButton)
-        continueButton.translatesAutoresizingMaskIntoConstraints = false
-        continueButton.topAnchor.constraint(equalTo: athleteContainerView.bottomAnchor, constant: 20).isActive = true
-        continueButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
-        continueButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
-        continueButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        continueButton.addTarget(self, action: #selector(continueButtonTapped), for: .touchUpInside)
-        continueButton.cornerRadius = 5
+        view.addSubview(loginButton)
+        loginButton.translatesAutoresizingMaskIntoConstraints = false
+        loginButton.topAnchor.constraint(equalTo: athleteContainerView.bottomAnchor, constant: 20).isActive = true
+        loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        loginButton.cornerRadius = 5
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
     func configureCreateNewAccountButton(addTo view: UIView) {
         view.addSubview(createNewAccountButton)
         createNewAccountButton.translatesAutoresizingMaskIntoConstraints = false
-        createNewAccountButton.topAnchor.constraint(equalTo: continueButton.bottomAnchor, constant: 20).isActive = true
+        createNewAccountButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 20).isActive = true
         createNewAccountButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
         createNewAccountButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
         createNewAccountButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

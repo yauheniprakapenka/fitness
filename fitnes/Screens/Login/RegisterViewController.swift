@@ -162,12 +162,12 @@ private extension RegisterViewController {
     }
     
     func saveUserDataToModel() {
-        profile.firstName = firstnameTextField.text ?? nil
-        profile.lastName = lastnameTextField.text ?? nil
-        profile.password = passwordTextField.text ?? nil
-        profile.passwordConfirmation = passwordRepeatTextField.text ?? nil
-        profile.email = emailTextField.text ?? nil
-        profile.phone = phoneTextField.text ?? nil
+        profile.firstName = firstnameTextField.text
+        profile.lastName = lastnameTextField.text
+        profile.password = passwordTextField.text
+        profile.passwordConfirmation = passwordRepeatTextField.text
+        profile.email = emailTextField.text
+        profile.phone = phoneTextField.text
         
         if currentRole == RoleEnum.athlete {
             profile.client = "client"
@@ -211,23 +211,24 @@ private extension RegisterViewController {
     @objc
     func createButtonTapped() {
         saveUserDataToModel()
-        
         NetworkManager.shared.makeRegistration(profile: profile, resultCompletion: { (result) in
-            
             switch result {
             case .success(let response):
                 print(response)
-                self.displaySuccessAlert()
+                NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "") { (result) in
+                    switch result {
+                    case .success(let success):
+                        print(success)
+                        NetworkManager.shared.getUser()
+                    case .failure(let failure):
+                        print(failure.rawValue)
+                    }
+                }
             case .failure(let error):
                 print(error.rawValue)
                 self.displayFailedAlert(message: error.rawValue)
             }
-        }) {
-            NetworkManager.shared.getToken(email: profile.email ?? "",
-                                           password: profile.password ?? "") {
-                                            NetworkManager.shared.getUser()
-            }
-        }
+        }, completion: nil)
     }
     
     @objc

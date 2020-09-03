@@ -11,7 +11,7 @@ import Foundation
 extension NetworkManager {
     func makeRegistration(profile: ProfileModel,
                           resultCompletion: @escaping (Result<RegistrationModel, ApiErrorEnum>) -> Void,
-                          completion: @escaping () -> Void) {
+                          completion: (() -> Void)? = nil) {
         
         let firstName = profile.firstName ?? ""
         let lastName = profile.lastName ?? ""
@@ -52,8 +52,7 @@ extension NetworkManager {
                     switch responseMessage {
                     case "Complete registration on Service":
                         resultCompletion(.success(responseRegistration))
-                        completion()
-                        
+                        completion?()
                     case "Password and confirm password do not match":
                         resultCompletion(.failure(.passwordDoesNotMatch))
                     case "User exist":
