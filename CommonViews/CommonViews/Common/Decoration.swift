@@ -11,7 +11,7 @@ public typealias Decoration<T> = (T) -> Void
 
 public struct Decorator<T> {
     public let object: T
-    public func apply(_ decorations: Decoration<T>...) -> Void {
+    public func apply(_ decorations: Decoration<T>...) {
             decorations.forEach({ $0(object) })
         }
 }

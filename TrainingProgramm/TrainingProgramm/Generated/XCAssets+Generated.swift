@@ -36,6 +36,9 @@ internal enum Asset {
       internal static let trainingProgrammSelectableItemBorderUnselected = ColorAsset(name: "trainingProgramm_selectableItemBorderUnselected")
       internal static let trainingProgrammSelectableItemUnselectedText = ColorAsset(name: "trainingProgramm_selectableItemUnselectedText")
     }
+    internal enum CommonIcons {
+      internal static let tpOpenCloseIcon = ImageAsset(name: "tp_OpenCloseIcon")
+    }
     internal enum ExerciseView {
       internal enum Colors {
         internal static let trainingProgrammExerciseViewActiveItemBackground = ColorAsset(name: "trainingProgramm_exerciseViewActiveItemBackground")
@@ -45,9 +48,6 @@ internal enum Asset {
     }
     internal enum SupportImages {
       internal static let trainingProgrammSupportImageVideoPreview = ImageAsset(name: "trainingProgramm_supportImageVideoPreview")
-    }
-    internal enum TimePickerView {
-      internal static let tpTimePickerOpenCloseIcon = ImageAsset(name: "tp_timePickerOpenCloseIcon")
     }
   }
 }

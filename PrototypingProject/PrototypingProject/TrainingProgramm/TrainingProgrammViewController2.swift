@@ -37,8 +37,6 @@ extension TrainingProgrammViewController2: TPAddToTrainingListViewDelegate {
     func tpAddToTrainingListView(_ sender: TPAddToTrainingListView, checboxStatusChanged isChecked: Bool, atIndex index: Int) {
         
     }
-    
-    
 }
 
 extension TrainingProgrammViewController2: TPTextInputViewDelegate {

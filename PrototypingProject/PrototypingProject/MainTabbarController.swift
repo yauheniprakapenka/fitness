@@ -25,7 +25,6 @@ class MainTabbarController: UITabBarController {
             tp3.configure(with: TrainingExcercisesStubData.exercise)
         }
         
-        
         let list = [
             trainingProgramm1,
             tp2,
