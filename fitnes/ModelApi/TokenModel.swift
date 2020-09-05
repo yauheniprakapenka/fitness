@@ -12,8 +12,8 @@ struct TokenModel: Decodable {
     var error: String?
     var errorDescription: String?
     var userId: UInt32?
-    var trainer: Bool
-    var client: Bool
+    var trainer: Bool?
+    var client: Bool?
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"

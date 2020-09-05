@@ -69,7 +69,7 @@ class LoginViewController: UIViewController {
     func loginButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         saveUserDataToModel()
-      
+        
         NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
     @objc
     func createNewAccountButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-
+        
         let vc = RegistrationViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
@@ -115,17 +115,24 @@ private extension LoginViewController {
     
     func presentProfile() {
         DispatchQueue.main.async {
-            if tokenModel.client {
-                let vc = AthleteViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
-            } else if tokenModel.trainer {
-                let vc = TrainerViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
-            } else {
-                 self.presentAlertVC(errorMessage: "Не удалось определить роль")
+            if let client = tokenModel.client {
+                if client {
+                    let vc = AthleteViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                    return
+                }
             }
+            
+            if let trainer = tokenModel.trainer {
+                if trainer {
+                    let vc = TrainerViewController()
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true)
+                    return
+                }
+            }
+            self.presentAlertVC(errorMessage: "Не удалось определить роль")
         }
     }
     

@@ -205,17 +205,21 @@ private extension RegistrationViewController {
     }
     
     func presentVC() {
-        if tokenModel.client {
-            DispatchQueue.main.async {
-                let vc = AthleteViewController()
-                self.present(vc, animated: true)
+        if let client = tokenModel.client {
+            if client {
+                DispatchQueue.main.async {
+                    let vc = AthleteViewController()
+                    self.present(vc, animated: true)
+                }
             }
         }
-        
-        if tokenModel.trainer {
-            DispatchQueue.main.async {
-                let vc = TrainerViewController()
-                self.present(vc, animated: true)
+
+        if let trainer = tokenModel.trainer {
+            if trainer {
+                DispatchQueue.main.async {
+                    let vc = TrainerViewController()
+                    self.present(vc, animated: true)
+                }
             }
         }
     }
