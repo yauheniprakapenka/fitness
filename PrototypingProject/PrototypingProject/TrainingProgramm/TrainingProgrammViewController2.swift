@@ -81,8 +81,8 @@ extension TrainingProgrammViewController2: TPDropdownListPickerDelegate {
         return TrainingExcercisesStubData.trainingInventoryDropdown
     }
     
-    func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> (NSLayoutConstraint, UIView)? {
-        return (dropdownListHeightConstraint, view)
+    func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)] {
+        return [(dropdownListHeightConstraint, view)]
     }
 }
 

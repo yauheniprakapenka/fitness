@@ -17,4 +17,10 @@ extension UIViewController {
             return UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: TrainingProgrammViewController2.self)) as! TrainingProgrammViewController2
         }
     }
+    
+    static var trainingProgrammViewController3: TrainingProgrammViewController3 {
+        get {
+            return UIStoryboard.mainStoryboard.instantiateViewController(withIdentifier: String(describing: TrainingProgrammViewController3.self)) as! TrainingProgrammViewController3
+        }
+    }
 }

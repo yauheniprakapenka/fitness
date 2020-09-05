@@ -13,7 +13,7 @@ public protocol TPDropdownListPickerDelegate: class {
     func tpDropdownList(_ sender: TPDropdownList,
                         selectedTextInputItem item: String?)
     func tpDropdownListItems(_ sender: TPDropdownList) -> [String]
-    func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> (NSLayoutConstraint, UIView)?
+    func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)]
 }
 public protocol TPDropdownListTextInputDelegate: class {
     func tpDropdownListDidBeginEditing(_ sender: TPDropdownList)
@@ -57,6 +57,7 @@ public class TPDropdownList: UIView {
             }
         }
     }
+    @IBInspectable
     public var placeholderText: String? {
         get {
             return textInputView.placeholderText
@@ -125,15 +126,21 @@ private extension TPDropdownList {
         pickerView.alpha = isOpened ? 1 : 0
     }
     func updateResizeToCurrentState() {
-        guard let (constraint, view) = viewPickerDelegate?.tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(self) else {
+        guard let constraintViewList = viewPickerDelegate?.tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(self) else {
             return
         }
-        if isOpened {
-            constraint.constant += openedPickerAdditionalHeight
-        } else {
-            constraint.constant -= openedPickerAdditionalHeight
+        for (constraint, view) in constraintViewList {
+            if isOpened {
+                constraint.constant += openedPickerAdditionalHeight
+            } else {
+                constraint.constant -= openedPickerAdditionalHeight
+            }
+            if let _ = view as? UIStackView {
+                view.setNeedsLayout()
+            }
+            
+            view.layoutIfNeeded()
         }
-        view.layoutIfNeeded()
     }
     
     func updateToCurrentState(animated: Bool, completion completionHandler: StateUpdateCompletionHandler? = nil) {

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPSectionHeaderView" customModule="TrainingProgramm" customModuleProvider="target">
+            <connections>
+                <outlet property="nameInputView" destination="YvF-Fx-lqn" id="i7p-ob-byr"/>
+                <outlet property="timeSelectionView" destination="GKZ-bd-QXd" id="WWX-J9-mEL"/>
+                <outlet property="trainingTypeView" destination="5ie-GV-Una" id="AJW-Q7-QEE"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Wk1-e4-6Ig">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="280"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Категория" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KlF-bA-ri4">
+                    <rect key="frame" x="25" y="10" width="364" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" name="tp_blackText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5C-is-NNh">
+                    <rect key="frame" x="25" y="94" width="364" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" name="tp_blackText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ie-GV-Una" userLabel="selectTypeView" customClass="TPTrainingTypeView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="25" y="43" width="364" height="36"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="XgH-8U-3ud"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YvF-Fx-lqn" userLabel="nameInput" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="25" y="127" width="364" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Введите название"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Время(минуты)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fy-vH-CHH">
+                    <rect key="frame" x="25" y="191.5" width="364" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" name="tp_blackText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GKZ-bd-QXd" userLabel="timeSelectionView" customClass="TPTimeSelectionView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="25" y="234.5" width="364" height="35"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Sew-Jm-WR9"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="GKZ-bd-QXd" firstAttribute="leading" secondItem="Wk1-e4-6Ig" secondAttribute="leading" constant="25" id="2aH-0P-s5f"/>
+                <constraint firstAttribute="trailing" secondItem="GKZ-bd-QXd" secondAttribute="trailing" constant="25" id="6rl-fv-n2A"/>
+                <constraint firstItem="YvF-Fx-lqn" firstAttribute="leading" secondItem="Wk1-e4-6Ig" secondAttribute="leading" constant="25" id="8NW-E1-p6J"/>
+                <constraint firstItem="KlF-bA-ri4" firstAttribute="top" secondItem="Wk1-e4-6Ig" secondAttribute="top" constant="10" id="9Pi-Fw-wPZ"/>
+                <constraint firstItem="5ie-GV-Una" firstAttribute="leading" secondItem="Wk1-e4-6Ig" secondAttribute="leading" constant="25" id="AYI-0U-pby"/>
+                <constraint firstAttribute="trailing" secondItem="YvF-Fx-lqn" secondAttribute="trailing" constant="25" id="DIe-6f-hxf"/>
+                <constraint firstAttribute="trailing" secondItem="KlF-bA-ri4" secondAttribute="trailing" constant="25" id="FuJ-1e-o4e"/>
+                <constraint firstItem="KlF-bA-ri4" firstAttribute="leading" secondItem="Wk1-e4-6Ig" secondAttribute="leading" constant="25" id="I7I-KT-LIM"/>
+                <constraint firstItem="L5C-is-NNh" firstAttribute="top" secondItem="5ie-GV-Una" secondAttribute="bottom" constant="15" id="J23-cD-gvb"/>
+                <constraint firstAttribute="bottom" secondItem="GKZ-bd-QXd" secondAttribute="bottom" constant="10.5" id="RRk-M6-izU"/>
+                <constraint firstItem="GKZ-bd-QXd" firstAttribute="top" secondItem="9fy-vH-CHH" secondAttribute="bottom" constant="25" id="SJb-0O-A0I"/>
+                <constraint firstItem="9fy-vH-CHH" firstAttribute="leading" secondItem="Wk1-e4-6Ig" secondAttribute="leading" constant="25" id="bUX-aM-EPK"/>
+                <constraint firstItem="L5C-is-NNh" firstAttribute="leading" secondItem="Wk1-e4-6Ig" secondAttribute="leading" constant="25" id="cDF-ke-FDj"/>
+                <constraint firstItem="5ie-GV-Una" firstAttribute="top" secondItem="KlF-bA-ri4" secondAttribute="bottom" constant="15" id="eag-e6-4SJ"/>
+                <constraint firstItem="YvF-Fx-lqn" firstAttribute="top" secondItem="L5C-is-NNh" secondAttribute="bottom" constant="15" id="fpP-sH-PRE"/>
+                <constraint firstItem="9fy-vH-CHH" firstAttribute="top" secondItem="YvF-Fx-lqn" secondAttribute="bottom" constant="15" id="iz5-P7-KUe"/>
+                <constraint firstAttribute="trailing" secondItem="5ie-GV-Una" secondAttribute="trailing" constant="25" id="kJF-2U-00n"/>
+                <constraint firstAttribute="trailing" secondItem="9fy-vH-CHH" secondAttribute="trailing" constant="25" id="kRH-Mm-QY6"/>
+                <constraint firstAttribute="trailing" secondItem="L5C-is-NNh" secondAttribute="trailing" constant="25" id="v21-Y0-lho"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="89.855072463768124" y="-102.12053571428571"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="tp_blackText">
+            <color red="0.082000002264976501" green="0.082000002264976501" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

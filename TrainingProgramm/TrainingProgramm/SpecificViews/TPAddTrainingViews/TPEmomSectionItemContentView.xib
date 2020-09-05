@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPEmomSectionItemContentView" customModule="TrainingProgramm" customModuleProvider="target">
+            <connections>
+                <outlet property="exercisePickerView" destination="nQM-pN-9Zh" id="VKF-5p-oj4"/>
+                <outlet property="exercisePickerViewHeightConstraint" destination="2lg-Ip-JGt" id="js7-iU-B4Z"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="6n5-nt-VZ6">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="284"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Минута 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvR-O8-9Wj">
+                    <rect key="frame" x="25" y="10" width="364" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" name="tp_blackText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQM-pN-9Zh" customClass="TPDropdownList" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="38" width="414" height="55"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="2lg-Ip-JGt"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Упражнение"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-4J-Zo1" userLabel="profileValue" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="25" y="103" width="174.5" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Показатель профиля"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-g0-E1m" userLabel="koeff" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="214.5" y="103" width="174.5" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Коэф.(%)"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-SN-l97" userLabel="weightM" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="25" y="162.5" width="174.5" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Вес по ум. М"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E88-fa-uZz" userLabel="weightW" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="214.5" y="162.5" width="174.5" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Вес по ум. Ж"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDs-Hc-xIK" userLabel="repeats" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="25" y="222" width="174.5" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Повторов"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-vI-YhN" userLabel="distance" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="214.5" y="222" width="174.5" height="49.5"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Дистанция"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="RDs-Hc-xIK" firstAttribute="top" secondItem="Cae-SN-l97" secondAttribute="bottom" constant="10" id="2Yk-dw-nPr"/>
+                <constraint firstAttribute="trailing" secondItem="pvR-O8-9Wj" secondAttribute="trailing" constant="25" id="2zZ-xN-GSz"/>
+                <constraint firstItem="RPp-4J-Zo1" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="50H-BY-XZp"/>
+                <constraint firstItem="Cae-SN-l97" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="5bE-cC-R3O"/>
+                <constraint firstAttribute="trailing" secondItem="NbS-vI-YhN" secondAttribute="trailing" constant="25" id="8rM-1d-FGY"/>
+                <constraint firstItem="NbS-vI-YhN" firstAttribute="centerY" secondItem="RDs-Hc-xIK" secondAttribute="centerY" id="Cvm-ai-ONf"/>
+                <constraint firstItem="Cae-SN-l97" firstAttribute="top" secondItem="RPp-4J-Zo1" secondAttribute="bottom" constant="10" id="G9y-dU-VvX"/>
+                <constraint firstItem="Cae-SN-l97" firstAttribute="width" secondItem="6n5-nt-VZ6" secondAttribute="width" multiplier="0.5" constant="-32.5" id="H4H-w8-KS5"/>
+                <constraint firstItem="nQM-pN-9Zh" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" id="IT2-eV-Nda"/>
+                <constraint firstItem="RPq-g0-E1m" firstAttribute="centerY" secondItem="RPp-4J-Zo1" secondAttribute="centerY" id="IrE-8O-xz6"/>
+                <constraint firstItem="pvR-O8-9Wj" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="NNe-24-o4e"/>
+                <constraint firstItem="NbS-vI-YhN" firstAttribute="leading" secondItem="RDs-Hc-xIK" secondAttribute="trailing" constant="15" id="SjZ-9v-imo"/>
+                <constraint firstAttribute="trailing" secondItem="nQM-pN-9Zh" secondAttribute="trailing" id="VlT-Pg-KbC"/>
+                <constraint firstItem="RPp-4J-Zo1" firstAttribute="top" secondItem="nQM-pN-9Zh" secondAttribute="bottom" constant="10" id="VmH-mC-TQ5"/>
+                <constraint firstItem="nQM-pN-9Zh" firstAttribute="top" secondItem="pvR-O8-9Wj" secondAttribute="bottom" constant="10" id="Xk9-Br-MqT"/>
+                <constraint firstItem="RDs-Hc-xIK" firstAttribute="width" secondItem="6n5-nt-VZ6" secondAttribute="width" multiplier="0.5" constant="-32.5" id="cpr-9S-y3H"/>
+                <constraint firstItem="pvR-O8-9Wj" firstAttribute="top" secondItem="6n5-nt-VZ6" secondAttribute="top" constant="10" id="cs5-oM-cN9"/>
+                <constraint firstAttribute="trailing" secondItem="E88-fa-uZz" secondAttribute="trailing" constant="25" id="g0Y-gG-Z57"/>
+                <constraint firstAttribute="bottom" secondItem="RDs-Hc-xIK" secondAttribute="bottom" constant="12.5" id="kxg-5b-m0f"/>
+                <constraint firstItem="E88-fa-uZz" firstAttribute="leading" secondItem="Cae-SN-l97" secondAttribute="trailing" constant="15" id="pKi-aa-ccC"/>
+                <constraint firstItem="RPp-4J-Zo1" firstAttribute="width" secondItem="6n5-nt-VZ6" secondAttribute="width" multiplier="0.5" constant="-32.5" id="pxM-yx-uOY"/>
+                <constraint firstItem="E88-fa-uZz" firstAttribute="centerY" secondItem="Cae-SN-l97" secondAttribute="centerY" id="sgI-Dc-y46"/>
+                <constraint firstItem="RDs-Hc-xIK" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="uD7-b0-ggI"/>
+                <constraint firstAttribute="trailing" secondItem="RPq-g0-E1m" secondAttribute="trailing" constant="25" id="zgd-2D-V7c"/>
+                <constraint firstItem="RPq-g0-E1m" firstAttribute="leading" secondItem="RPp-4J-Zo1" secondAttribute="trailing" constant="15" id="zkz-ne-qeR"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="102.89855072463769" y="-96.428571428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="tp_blackText">
+            <color red="0.082000002264976501" green="0.082000002264976501" blue="0.13300000131130219" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

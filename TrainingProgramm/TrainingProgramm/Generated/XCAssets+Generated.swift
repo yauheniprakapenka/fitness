@@ -38,6 +38,7 @@ internal enum Asset {
     }
     internal enum CommonIcons {
       internal static let tpOpenCloseIcon = ImageAsset(name: "tp_OpenCloseIcon")
+      internal static let tpPlusIcon = ImageAsset(name: "tp_PlusIcon")
     }
     internal enum ExerciseView {
       internal enum Colors {

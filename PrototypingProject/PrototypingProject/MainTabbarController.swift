@@ -24,15 +24,22 @@ class MainTabbarController: UITabBarController {
             tp3.configure(with: TrainingExcercisesStubData.trainingInventoryDropdown)
             tp3.configure(with: TrainingExcercisesStubData.exercise)
         }
+        let tp4 = TPNewTrainingViewController()
+        tp4.tabBarItem = UITabBarItem(title: "NewTrain", image: nil, selectedImage: nil)
+        
+        let tp5 = UIViewController.trainingProgrammViewController3
+        tp5.tabBarItem = UITabBarItem(title: "TP3", image: nil, selectedImage: nil)
         
         let list = [
             trainingProgramm1,
             tp2,
-            tp3
+            tp3,
+            tp4,
+            tp5
         ]
         
         viewControllers = list
-        setActiveController(tp3)
+        setActiveController(tp4)
     }
     
     private func setActiveController(_ controller: UIViewController) {

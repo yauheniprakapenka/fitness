@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		02DA82B7DE36047F4381613D /* libPods-PrototypingProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2201661C52F00A956149DE0C /* libPods-PrototypingProject.a */; };
+		F84D6D0A2503BE8100C96FCE /* TrainingProgrammViewController3.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84D6D092503BE8100C96FCE /* TrainingProgrammViewController3.swift */; };
 		F855369C24FC4231001E2F1A /* MainTabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855369B24FC4231001E2F1A /* MainTabbarController.swift */; };
 		F855369F24FC4349001E2F1A /* UIStoryboards+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855369E24FC4349001E2F1A /* UIStoryboards+Utils.swift */; };
 		F85536A124FC4387001E2F1A /* UIViewController+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536A024FC4387001E2F1A /* UIViewController+Utils.swift */; };
@@ -47,6 +48,7 @@
 		01B1BC76A566FC8130FC6ABB /* Pods-PrototypingProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypingProject.debug.xcconfig"; path = "Target Support Files/Pods-PrototypingProject/Pods-PrototypingProject.debug.xcconfig"; sourceTree = "<group>"; };
 		2201661C52F00A956149DE0C /* libPods-PrototypingProject.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PrototypingProject.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC1F176E3C8A7E582726A243 /* Pods-PrototypingProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PrototypingProject.release.xcconfig"; path = "Target Support Files/Pods-PrototypingProject/Pods-PrototypingProject.release.xcconfig"; sourceTree = "<group>"; };
+		F84D6D092503BE8100C96FCE /* TrainingProgrammViewController3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgrammViewController3.swift; sourceTree = "<group>"; };
 		F855369B24FC4231001E2F1A /* MainTabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabbarController.swift; sourceTree = "<group>"; };
 		F855369E24FC4349001E2F1A /* UIStoryboards+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboards+Utils.swift"; sourceTree = "<group>"; };
 		F85536A024FC4387001E2F1A /* UIViewController+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Utils.swift"; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				F86F787624FB171C00F9167F /* TrainingExcercisesStubData.swift */,
 				F8CDD3EA24FADCB700772D30 /* TrainingProgrammViewController1.swift */,
 				F85536A624FC4B0B001E2F1A /* TrainingProgrammViewController2.swift */,
+				F84D6D092503BE8100C96FCE /* TrainingProgrammViewController3.swift */,
 			);
 			path = TrainingProgramm;
 			sourceTree = "<group>";
@@ -108,13 +111,6 @@
 				F85536A024FC4387001E2F1A /* UIViewController+Utils.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		F86F787824FB174200F9167F /* StubData */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = StubData;
 			sourceTree = "<group>";
 		};
 		F86F787F24FB938F00F9167F /* Generated */ = {
@@ -149,7 +145,6 @@
 				F855369D24FC432A001E2F1A /* Extensions */,
 				F84206C424FC3EF800331389 /* TrainingProgramm */,
 				F86F787F24FB938F00F9167F /* Generated */,
-				F86F787824FB174200F9167F /* StubData */,
 				F8CDD3FC24FADD1000772D30 /* Other */,
 				F8CDD3EC24FADCB700772D30 /* Main.storyboard */,
 				F855369B24FC4231001E2F1A /* MainTabbarController.swift */,
@@ -296,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F84D6D0A2503BE8100C96FCE /* TrainingProgrammViewController3.swift in Sources */,
 				F85536A124FC4387001E2F1A /* UIViewController+Utils.swift in Sources */,
 				F86F788124FB96E800F9167F /* XCAssets+Generated.swift in Sources */,
 				F85536A724FC4B0C001E2F1A /* TrainingProgrammViewController2.swift in Sources */,

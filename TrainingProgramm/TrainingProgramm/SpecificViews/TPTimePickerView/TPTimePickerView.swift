@@ -15,6 +15,10 @@ public protocol TPTimePickerViewDelegate: class {
 }
 
 private extension TPTimePickerView {
+    typealias OnAnimationFinishedCallback = () -> Void
+}
+
+private extension TPTimePickerView {
     enum Const {
         static let formatter: DateFormatter = {
            let fm = DateFormatter()
@@ -48,7 +52,9 @@ public class TPTimePickerView: UIView {
     public weak var viewDelegate: TPTimePickerViewDelegate?
     public var isOpened: Bool = false {
         didSet {
-            updateToCurrentState(animated: true)
+            updateToCurrentState(animated: true) {
+                self.viewDelegate?.tpTimePickerView(self, openStatusChanged: self.isOpened)
+            }
         }
     }
     public var currentDate: Date {
@@ -90,7 +96,6 @@ public class TPTimePickerView: UIView {
     @objc
     private func handleTimeViewTap() {
         isOpened = !isOpened
-        viewDelegate?.tpTimePickerView(self, openStatusChanged: isOpened)
     }
     
     @objc
@@ -127,27 +132,30 @@ private extension TPTimePickerView {
         view.layoutIfNeeded()
     }
     
-    func updateToCurrentState(animated: Bool) {
+    func updateToCurrentState(animated: Bool, completion: OnAnimationFinishedCallback? = nil) {
         guard animated else {
             updateFadeToCurrentState()
             updateIconToCurrentState()
             updateResizeToCurrentState()
+            completion?()
             return
         }
         
         if isOpened {
-            UIView.animate(withDuration: Const.animDurationOpen) {
+            UIView.animate(withDuration: Const.animDurationOpen, animations: {
                 self.updateFadeToCurrentState()
                 self.updateResizeToCurrentState()
                 self.updateIconToCurrentState()
-            }
+            }, completion: { _ in completion?() })
         } else {
             UIView.animate(withDuration: Const.animDurationClosedFade, animations: {
                 self.updateFadeToCurrentState()
             }, completion: { _ in
-                UIView.animate(withDuration: Const.animDurationCloseSizeChange) {
+                UIView.animate(withDuration: Const.animDurationCloseSizeChange, animations: {
                     self.updateResizeToCurrentState()
-                }
+                }, completion: { _ in
+                    completion?()
+                })
             })
             UIView.animate(withDuration: Const.animDurationCloseIcon) {
                 self.updateIconToCurrentState()

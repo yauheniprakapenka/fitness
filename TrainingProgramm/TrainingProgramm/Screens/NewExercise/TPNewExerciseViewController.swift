@@ -43,7 +43,7 @@ public class TPNewExerciseViewController: UIViewController {
     // MARK: - Lifecycle
     public override func loadView() {
         super.loadView()
-        let scrollView = createRootScrollView(superview: view)
+        let scrollView = TPFormControllerUtils.createRootScrollView(superview: view)
         rootScrollView = scrollView
         view.backgroundColor = .white
         createContentViews(addTo: scrollView)
@@ -80,55 +80,15 @@ public class TPNewExerciseViewController: UIViewController {
     }
 }
 
+// MARK: - Private Methods
 private extension TPNewExerciseViewController {
-    func makeConstraints(to view: UIView, topAnchor: NSLayoutYAxisAnchor, topOffset: CGFloat) {
-        guard let superview = view.superview else {
-            fatalError("No superview")
-        }
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: topAnchor, constant: topOffset).isActive = true
-        view.leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: Const.offsetLeftRightAllFields).isActive = true
-        view.widthAnchor.constraint(equalTo: superview.widthAnchor, constant: -2 * Const.offsetLeftRightAllFields).isActive = true
-    }
-    
-    func createRootScrollView(superview: UIView) -> UIScrollView {
-        let scrollView = UIScrollView()
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.showsHorizontalScrollIndicator = false
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        superview.addSubview(scrollView)
-        let layoutGuide = superview.safeAreaLayoutGuide
-        scrollView.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: layoutGuide.bottomAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
-        return scrollView
-    }
-    
-    func createTitleLabel(superview: UIView, text: String, topAnchor: NSLayoutYAxisAnchor, topOffet: CGFloat) -> UILabel {
-        let label = UILabel()
-        superview.addSubview(label)
-        makeConstraints(to: label, topAnchor: topAnchor, topOffset: topOffet)
-        label.text = text
-        label.decorator.apply(Const.titleLabelDecoration)
-        return label
-    }
-    
-    func createInputField(superview: UIView, placeholderText: String, topAnchor: NSLayoutYAxisAnchor, topOffset: CGFloat) -> TPTextInputView {
-        let input = TPTextInputView()
-        superview.addSubview(input)
-        makeConstraints(to: input, topAnchor: topAnchor, topOffset: topOffset)
-        input.placeholderText = placeholderText
-        return input
-    }
-    
     func createInventoryPicker(superview: UIView, topAnchor: NSLayoutYAxisAnchor) -> (TPDropdownList, NSLayoutConstraint) {
         let picker = TPDropdownList()
         picker.inputViewLeftConstraint.constant = 0
         picker.inputViewRightConstraint.constant = 0
         picker.placeholderText = "Введите имя или выберите"
         superview.addSubview(picker)
-        makeConstraints(to: picker, topAnchor: topAnchor, topOffset: Const.offsetTopInputFields)
+        TPFormControllerUtils.makeConstraints(to: picker, topAnchor: topAnchor, topOffset: Const.offsetTopInputFields)
         let heightConstraint = picker.heightAnchor.constraint(equalToConstant: 55)
         heightConstraint.isActive = true
         return (picker, heightConstraint)
@@ -137,60 +97,61 @@ private extension TPNewExerciseViewController {
     func createTrainingList(superview: UIView, topAnchor: NSLayoutYAxisAnchor) -> (TPAddToTrainingListView) {
         let list = TPAddToTrainingListView()
         superview.addSubview(list)
-        makeConstraints(to: list, topAnchor: topAnchor, topOffset: 15)
+        TPFormControllerUtils.makeConstraints(to: list, topAnchor: topAnchor, topOffset: 15)
         list.leftOffset = 0
         list.rightOffset = 0
         list.spacing = 10
         return list
     }
     
-    func createContentViews(addTo superivew: UIView) {
-        let nameLabel = createTitleLabel(
-            superview: superivew,
+    func createContentViews(addTo superview: UIView) {
+        let nameLabel = TPFormControllerUtils.createTitleLabel(
+            superview: superview,
             text: "Название",
-            topAnchor: superivew.topAnchor,
+            topAnchor: superview.topAnchor,
             topOffet: Const.offsetTopTitleFirst)
-        nameTextInputView = createInputField(
-            superview: superivew,
+        nameTextInputView = TPFormControllerUtils.createInputField(
+            superview: superview,
             placeholderText: "Введите название",
             topAnchor: nameLabel.bottomAnchor,
             topOffset: Const.offsetTopInputFields)
-        let inventoryTypeTitle = createTitleLabel(
-            superview: superivew,
+        let inventoryTypeTitle = TPFormControllerUtils.createTitleLabel(
+            superview: superview,
             text: "Тип инвертаря",
             topAnchor: nameTextInputView.bottomAnchor,
             topOffet: Const.offsetTopTitleOthers)
-        let (picker, pickerHeightConstraint) = createInventoryPicker(superview: superivew, topAnchor: inventoryTypeTitle.bottomAnchor)
+        let (picker, pickerHeightConstraint) = createInventoryPicker(superview: superview, topAnchor: inventoryTypeTitle.bottomAnchor)
         inventoryPickerView = picker
         inventoryPickerView.viewPickerDelegate = self
         inventoryPickerHeightConstraint = pickerHeightConstraint
-        let descriptionTitle = createTitleLabel(
-            superview: superivew,
+        let descriptionTitle = TPFormControllerUtils.createTitleLabel(
+            superview: superview,
             text: "Описание",
             topAnchor: inventoryPickerView.bottomAnchor,
             topOffet: Const.offsetTopTitleOthers)
-        descriptionTextInputView = createInputField(
-            superview: superivew,
+        descriptionTextInputView = TPFormControllerUtils.createInputField(
+            superview: superview,
             placeholderText: "Введите краткое описание",
             topAnchor: descriptionTitle.bottomAnchor,
             topOffset: Const.offsetTopInputFields)
-        let videoTitle = createTitleLabel(
-            superview: superivew,
+        let videoTitle = TPFormControllerUtils.createTitleLabel(
+            superview: superview,
             text: "Видео",
             topAnchor: descriptionTextInputView.bottomAnchor,
             topOffet: Const.offsetTopTitleOthers)
-        videoTextInputView = createInputField(
-            superview: superivew,
+        videoTextInputView = TPFormControllerUtils.createInputField(
+            superview: superview,
             placeholderText: "Вставьте ссылку",
             topAnchor: videoTitle.bottomAnchor,
             topOffset: Const.offsetTopInputFields)
-        let addToTrainingTitle = createTitleLabel(
-            superview: superivew,
+        let addToTrainingTitle = TPFormControllerUtils.createTitleLabel(
+            superview: superview,
             text: "Добавить в тренировку",
             topAnchor: videoTextInputView.bottomAnchor,
             topOffet: Const.offsetTopTitleOthers)
-        trainingListView = createTrainingList(superview: superivew, topAnchor: addToTrainingTitle.bottomAnchor)
-        trainingListView.bottomAnchor.constraint(equalTo: superivew.bottomAnchor).isActive = true
+        trainingListView = createTrainingList(superview: superview, topAnchor: addToTrainingTitle.bottomAnchor)
+        
+        trainingListView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
     }
     
     func setupDelegates() {
@@ -216,8 +177,8 @@ extension TPNewExerciseViewController: TPDropdownListPickerDelegate {
         return inventory
     }
     
-    public func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> (NSLayoutConstraint, UIView)? {
-        return (inventoryPickerHeightConstraint, rootScrollView)
+    public func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)] {
+        return [(inventoryPickerHeightConstraint, rootScrollView)]
     }
 }
 
