@@ -11,14 +11,19 @@ struct TokenModel: Decodable {
     var tokenType: String?
     var error: String?
     var errorDescription: String?
+    var userId: UInt32?
+    var trainer: Bool
+    var client: Bool
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"
         case tokenType = "token_type"
         case error
         case errorDescription = "error_description"
+        case userId = "user_id"
+        case trainer
+        case client
     }
 }
 
-var tokenModel = TokenModel(accessToken: nil,
-                       tokenType: nil)
+var tokenModel = TokenModel(trainer: false, client: false)

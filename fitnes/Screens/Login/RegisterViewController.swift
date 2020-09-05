@@ -78,7 +78,7 @@ class RegisterViewController: UIViewController {
         // test data
         lastnameTextField.text = "Mickey"
         firstnameTextField.text = "Mouse"
-        emailTextField.text = "mickey@mouse7.com"
+        emailTextField.text = "mickey@mouse2.com"
         phoneTextField.text = "79262001813"
         passwordTextField.text = "123456"
         passwordRepeatTextField.text = "123456"
@@ -168,14 +168,6 @@ private extension RegisterViewController {
         profile.passwordConfirmation = passwordRepeatTextField.text
         profile.email = emailTextField.text
         profile.phone = phoneTextField.text
-        
-        if currentRole == RoleEnum.athlete {
-            profile.client = "client"
-        }
-        
-        if currentRole == RoleEnum.trainer {
-            profile.trainer = "trainer"
-        }
     }
     
     func displaySuccessAlert() {
@@ -197,6 +189,22 @@ private extension RegisterViewController {
             self.present(vc, animated: false)
         }
     }
+    
+    func presentVC() {
+        if tokenModel.client {
+            DispatchQueue.main.async {
+                let vc = AthleteViewController()
+                self.present(vc, animated: true)
+            }
+        }
+        
+        if tokenModel.trainer {
+            DispatchQueue.main.async {
+                let vc = TrainerViewController()
+                self.present(vc, animated: true)
+            }
+        }
+    }
 }
 
 // MARK: - Actions
@@ -211,7 +219,7 @@ private extension RegisterViewController {
     @objc
     func createButtonTapped() {
         saveUserDataToModel()
-        NetworkManager.shared.makeRegistration(profile: profile, resultCompletion: { (result) in
+        NetworkManager.shared.makeRegistration(profile: profile, role: currentRole, resultCompletion: { (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -219,7 +227,9 @@ private extension RegisterViewController {
                     switch result {
                     case .success(let success):
                         print(success)
-                        NetworkManager.shared.getUser()
+                        NetworkManager.shared.getUser {
+                            self.presentVC()
+                        }
                     case .failure(let failure):
                         print(failure.rawValue)
                     }

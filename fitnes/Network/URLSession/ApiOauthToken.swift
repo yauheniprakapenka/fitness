@@ -17,7 +17,6 @@ extension NetworkManager {
         
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
-        
         request.httpBody = postString.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -32,11 +31,15 @@ extension NetworkManager {
                 let decoder = JSONDecoder()
                 let responseToken = try decoder.decode(TokenModel.self, from: data)
                 print(responseToken)
+                tokenModel = responseToken
                 
                 if let responseToken = responseToken.error {
                     switch responseToken {
                     case "invalid_grant":
                         completion(.failure(.invalidGrant))
+                        return
+                    case IsInvalidPasswordError.handleMessage(message: responseToken):
+                        completion(.failure(.invalidPassword))
                         return
                     default:
                         break

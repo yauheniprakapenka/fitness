@@ -284,7 +284,11 @@ class SetPlaceViewController: UIViewController {
     
     @objc
     private func deleteButtonTapped() {
-        let alertVC = AlertViewController(question: "Вы хотите удалить\nместо тренировки?", description: "Вы всегда сможете\nдобавить его снова", actionButtonTitle: "Удалить", cancelButtonTitle: "Отмена", icon: .chevronDownCircle)
+        let alertVC = AlertViewController(question: "Вы хотите удалить\nместо тренировки?",
+                                          description: "Вы всегда сможете\nдобавить его снова",
+                                          actionButtonTitle: "Удалить",
+                                          cancelButtonTitle: "Отмена",
+                                          icon: .chevronDownCircle)
         alertVC.modalPresentationStyle = .overCurrentContext
         
         alertVC.actionButton.addTarget(self, action: #selector(alertActionButtonTapped), for: .touchUpInside)

@@ -10,6 +10,7 @@ import Foundation
 
 extension NetworkManager {
     func makeRegistration(profile: ProfileModel,
+                          role: RoleEnum,
                           resultCompletion: @escaping (Result<RegistrationModel, ApiErrorEnum>) -> Void,
                           completion: (() -> Void)? = nil) {
         
@@ -17,7 +18,7 @@ extension NetworkManager {
         let lastName = profile.lastName ?? ""
         let password = profile.password ?? ""
         let passwordConfirmation = profile.passwordConfirmation ?? ""
-        let role = ConverterRoleToString.shared.fromModelToString(profile: profile)
+        let role = ConverterFromEnumToString.shared.fromEnumToString(role: role)
         let email = profile.email ?? ""
         let phone = profile.phone ?? ""
         

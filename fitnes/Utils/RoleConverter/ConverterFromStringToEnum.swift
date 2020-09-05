@@ -6,11 +6,11 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-class ConverterRoleToEnum {
+class ConverterFromStringToEnum {
     
-    static let shared = ConverterRoleToEnum()
+    static let shared = ConverterFromStringToEnum()
     
-    func roleToEnum(role: String) -> RoleEnum? {
+    func fromStringToEnum(role: String) -> RoleEnum? {
         switch role {
         case "Athlete":
             return .athlete
