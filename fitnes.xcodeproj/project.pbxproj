@@ -110,6 +110,8 @@
 		F843119F24F5678A008CC50D /* TrainingProgramm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; };
 		F84311A024F5678A008CC50D /* TrainingProgramm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
+		F8754E18250450D50063F5D6 /* CommonViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; };
+		F8754E19250450D50063F5D6 /* CommonViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; };
 		F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -122,6 +124,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */,
+				F8754E19250450D50063F5D6 /* CommonViews.framework in Embed Frameworks */,
 				F84311A024F5678A008CC50D /* TrainingProgramm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -236,6 +239,7 @@
 		E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F843119E24F5678A008CC50D /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
+		F8754E17250450D50063F5D6 /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5424F51E1400B52063 /* fitnes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fitnes-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -245,6 +249,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8754E18250450D50063F5D6 /* CommonViews.framework in Frameworks */,
 				F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */,
 				F843119F24F5678A008CC50D /* TrainingProgramm.framework in Frameworks */,
 				D97B8932EFE3294B6EA84B7A /* Pods_fitnes.framework in Frameworks */,
@@ -721,6 +726,7 @@
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F8754E17250450D50063F5D6 /* CommonViews.framework */,
 				F843119E24F5678A008CC50D /* TrainingProgramm.framework */,
 				F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */,
 				E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */,
