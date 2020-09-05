@@ -8,22 +8,34 @@
 
 import UIKit
 
+private extension BuyAbonementViewController {
+    enum Const {
+        static let buyAbonemen = "Вы хотите купить\nабонемент?"
+        static let purchaseDescription = "После покупки он отобразится\nв вашем профиле"
+        static let buy = "Купить"
+        static let cancel = "Закрыть"
+        
+        static let notIndicated = "Не указано"
+        static let workouts = "ТРЕНИРОВОК"
+    }
+}
+
 class BuyAbonementViewController: UIViewController {
     
-    // MARK: - Variables
+    // MARK: - Properties
     
     var abonement: AbonementModel!
     
     let backButton = UIButton()
     let buyButton = UIButton()
     
-    let abonementNameLabel = FLabel(fontSize: 34, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
-    let costLabel = FLabel(fontSize: 26, weight: .regular, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
+    let abonementNameLabel = FLabel(fontSize: 34, weight: .semibold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: Const.notIndicated)
+    let costLabel = FLabel(fontSize: 26, weight: .regular, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: Const.notIndicated)
     
-    let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
-    let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: "Не указано")
+    let trainingLeftNumber = FLabel(fontSize: 72, weight: .bold, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: Const.notIndicated)
+    let trainingLeftText = FLabel(fontSize: 24, weight: .semibold, color: #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1), message: Const.notIndicated)
     
-    // MARK: - View Controller LifeCycle Methods
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,7 +112,7 @@ class BuyAbonementViewController: UIViewController {
         view.addSubview(trainingLeftText)
         trainingLeftText.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         trainingLeftText.topAnchor.constraint(equalTo: trainingLeftNumber.bottomAnchor, constant: 20).isActive = true
-        trainingLeftText.text = "ТРЕНИРОВОК"
+        trainingLeftText.text = Const.workouts
     }
     
     // MARK: - Actions
@@ -124,11 +136,16 @@ class BuyAbonementViewController: UIViewController {
     
     @objc
     func buyButtonTapped() {
-        let alertVC = AlertViewController(question: "Вы хотите купить\nабонемент?", description: "После покупки он отобразится\nв вашем профиле", actionButtonTitle: "Купить", cancelButtonTitle: "Отмена", icon: .chevronDownCircle)
+        let alertVC = AlertViewController(question: Const.buyAbonemen,
+                                          description: Const.purchaseDescription ,
+                                          actionButtonTitle: Const.buy,
+                                          cancelButtonTitle: Const.cancel,
+                                          icon: .chevronDownCircle)
         alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.modalTransitionStyle = .crossDissolve
         
         alertVC.actionButton.addTarget(self, action: #selector(confirmButtonTapped), for: .touchUpInside)
         
-        present(alertVC, animated: true)
+        present(alertVC, animated: false)
     }
 }
