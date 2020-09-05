@@ -1,9 +1,16 @@
-# Uncomment the next line to define a global platform for your project
+
 platform :ios, '13.5'
 
 inhibit_all_warnings!
 
+workspace 'fitnes.xcworkspace'
+
+project 'TrainingProgramm/TrainingProgramm.xcodeproj'
+project 'fitnes.xcodeproj'
+project 'PrototypingProject/PrototypingProject.xcodeproj'
+
 target 'fitnes' do
+  project 'fitnes.xcodeproj'
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
@@ -13,7 +20,18 @@ target 'fitnes' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'FSCalendar'
+  pod 'SwiftGen', '~> 6.0'
 
+end
+
+target 'TrainingProgramm' do
+  project 'TrainingProgramm/TrainingProgramm.xcodeproj'
+  pod 'SwiftGen', '~> 6.0'
+end
+
+target 'PrototypingProject' do
+  project 'PrototypingProject/PrototypingProject.xcodeproj'
+  pod 'SwiftGen', '~> 6.0'
 end
 
 

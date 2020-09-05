@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+            <connections>
+                <outlet property="textField" destination="Qjc-N7-Nmd" id="v2r-o4-K36"/>
+                <outlet property="textFieldLeftConstraint" destination="s9g-wG-ZXh" id="GyV-gr-gEp"/>
+                <outlet property="textFieldRightConstraint" destination="P2h-iy-Xjb" id="vzw-7F-B77"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="WgL-hD-75Z" customClass="UIViewExtended" customModule="CommonViews">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="97"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите название" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qjc-N7-Nmd" userLabel="textField">
+                    <rect key="frame" x="20" y="16" width="374" height="65"/>
+                    <color key="textColor" name="tp_blackText"/>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="13"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="706-8h-BDP"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Qjc-N7-Nmd" secondAttribute="trailing" constant="20" id="P2h-iy-Xjb"/>
+                <constraint firstAttribute="bottom" secondItem="Qjc-N7-Nmd" secondAttribute="bottom" constant="16" id="VEw-Ko-PKS"/>
+                <constraint firstItem="Qjc-N7-Nmd" firstAttribute="leading" secondItem="WgL-hD-75Z" secondAttribute="leading" constant="20" id="s9g-wG-ZXh"/>
+                <constraint firstItem="Qjc-N7-Nmd" firstAttribute="top" secondItem="WgL-hD-75Z" secondAttribute="top" constant="16" id="vNh-hs-9qj"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                    <real key="value" value="1"/>
+                </userDefinedRuntimeAttribute>
+                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                    <color key="value" name="tp_grayBorder"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
+            <point key="canvasLocation" x="115.94202898550725" y="324.44196428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="tp_blackText">
+            <color red="0.082352941176470587" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="tp_grayBorder">
+            <color red="0.89411764705882346" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

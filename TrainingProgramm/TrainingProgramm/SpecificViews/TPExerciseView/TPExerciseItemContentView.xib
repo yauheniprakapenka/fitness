@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TPExerciseItemContentView" customModule="TrainingProgramm" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomContainerView" destination="ZfH-AZ-L1Z" id="EA4-b3-eQA"/>
+                <outlet property="bottomContrainerViewHeightConstraint" destination="SG8-OY-h0c" id="dvF-2R-jml"/>
+                <outlet property="checkboxView" destination="Zfb-3z-Y57" id="T6W-bT-3hG"/>
+                <outlet property="leftSubitemDescriptionLabel" destination="h1e-gy-6Rc" id="Ie9-VF-fGn"/>
+                <outlet property="leftSubitemTitleLabel" destination="R4F-eZ-Oz6" id="mZF-kN-U3R"/>
+                <outlet property="mainTitleLabel" destination="k1g-cb-s0A" id="iK3-TV-bOI"/>
+                <outlet property="rightSubitemDescriptionLabel" destination="nwp-0s-I9t" id="Y9m-M2-g8L"/>
+                <outlet property="rightSubitemTitleLabel" destination="2RH-aI-UEc" id="B5E-zE-aaG"/>
+                <outlet property="topTitleLabel" destination="6f4-VZ-jN5" id="Kwm-Gp-nzY"/>
+                <outlet property="videoPreviewView" destination="3cn-wA-dZZ" id="rP9-ae-0wk"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="061-S7-h5c" customClass="UIViewExtended" customModule="CommonViews">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="165"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Упражнение 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f4-VZ-jN5" userLabel="topTitleLabel">
+                    <rect key="frame" x="20" y="20" width="76.5" height="13.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" name="trainingProgramm_exerciseViewGrayText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Двойные прыжки на скакалке" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1g-cb-s0A" userLabel="mainTitleLabel">
+                    <rect key="frame" x="20" y="43.5" width="141" height="41"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" name="tp_blackText"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZfH-AZ-L1Z" userLabel="bottomContentContainerView">
+                    <rect key="frame" x="0.0" y="89.5" width="414" height="75.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R4F-eZ-Oz6" userLabel="leftSubitemTitleLabel">
+                            <rect key="frame" x="20" y="15" width="20.5" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" name="trainingProgramm_exerciseViewGrayText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50 кг" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h1e-gy-6Rc" userLabel="leftSubitemDescriptionLabel">
+                            <rect key="frame" x="20" y="38.5" width="37" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" name="tp_blackText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Повторы" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2RH-aI-UEc" userLabel="rightSubitemTitleLabel">
+                            <rect key="frame" x="120" y="15" width="48" height="13.5"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                            <color key="textColor" name="trainingProgramm_exerciseViewGrayText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nwp-0s-I9t" userLabel="rightSubtitleDescriptionLabel">
+                            <rect key="frame" x="120" y="38.5" width="9.5" height="18"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" name="tp_blackText"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3cn-wA-dZZ" userLabel="videoPreviewView" customClass="TPVideoPreviewView" customModule="TrainingProgramm" customModuleProvider="target">
+                            <rect key="frame" x="335" y="-3.5" width="60" height="60"/>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="8hV-js-44a"/>
+                                <constraint firstAttribute="height" constant="60" id="Daz-JN-iaY"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="h1e-gy-6Rc" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="20" id="BcL-wJ-tMg"/>
+                        <constraint firstItem="nwp-0s-I9t" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="120" id="DG3-Jf-uxL"/>
+                        <constraint firstAttribute="bottom" secondItem="h1e-gy-6Rc" secondAttribute="bottom" constant="19" id="E29-qK-FgF"/>
+                        <constraint firstItem="2RH-aI-UEc" firstAttribute="top" secondItem="ZfH-AZ-L1Z" secondAttribute="top" constant="15" id="Nor-7r-3aU"/>
+                        <constraint firstAttribute="height" constant="75.5" id="SG8-OY-h0c" userLabel="bottomConstraintViewHeightConstraint"/>
+                        <constraint firstItem="h1e-gy-6Rc" firstAttribute="top" secondItem="R4F-eZ-Oz6" secondAttribute="bottom" constant="10" id="auw-Go-flc"/>
+                        <constraint firstItem="R4F-eZ-Oz6" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="20" id="c6u-xC-Unr"/>
+                        <constraint firstItem="R4F-eZ-Oz6" firstAttribute="top" secondItem="ZfH-AZ-L1Z" secondAttribute="top" constant="15" id="dPb-Gr-Z8U"/>
+                        <constraint firstAttribute="trailing" secondItem="3cn-wA-dZZ" secondAttribute="trailing" constant="19" id="dPe-IX-Ur3"/>
+                        <constraint firstItem="nwp-0s-I9t" firstAttribute="top" secondItem="2RH-aI-UEc" secondAttribute="bottom" constant="10" id="j22-p0-Xeh"/>
+                        <constraint firstAttribute="bottom" secondItem="3cn-wA-dZZ" secondAttribute="bottom" constant="19" id="jv1-3c-wWX"/>
+                        <constraint firstItem="2RH-aI-UEc" firstAttribute="leading" secondItem="ZfH-AZ-L1Z" secondAttribute="leading" constant="120" id="nuS-3X-eLd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zfb-3z-Y57" customClass="TPCheckboxView" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="380" y="10" width="24" height="24"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="24" id="ex8-HE-F9d"/>
+                        <constraint firstAttribute="width" constant="24" id="uq6-dK-0MA"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="ZfH-AZ-L1Z" firstAttribute="leading" secondItem="061-S7-h5c" secondAttribute="leading" id="57n-bf-I4J"/>
+                <constraint firstItem="k1g-cb-s0A" firstAttribute="top" secondItem="6f4-VZ-jN5" secondAttribute="bottom" constant="10" id="6f6-wL-bZ5"/>
+                <constraint firstItem="6f4-VZ-jN5" firstAttribute="top" secondItem="061-S7-h5c" secondAttribute="top" constant="20" id="ChA-PN-k1X"/>
+                <constraint firstAttribute="trailing" secondItem="Zfb-3z-Y57" secondAttribute="trailing" constant="10" id="Hf6-GN-ypG"/>
+                <constraint firstItem="k1g-cb-s0A" firstAttribute="width" secondItem="061-S7-h5c" secondAttribute="width" multiplier="0.34" id="I8b-bx-gPS"/>
+                <constraint firstItem="k1g-cb-s0A" firstAttribute="leading" secondItem="061-S7-h5c" secondAttribute="leading" constant="20" id="Ktg-Ms-8nC"/>
+                <constraint firstAttribute="bottom" secondItem="ZfH-AZ-L1Z" secondAttribute="bottom" id="RgE-0r-ClQ"/>
+                <constraint firstAttribute="trailing" secondItem="ZfH-AZ-L1Z" secondAttribute="trailing" id="cZt-Yi-4fN"/>
+                <constraint firstItem="Zfb-3z-Y57" firstAttribute="top" secondItem="061-S7-h5c" secondAttribute="top" constant="10" id="jab-El-Y4x"/>
+                <constraint firstItem="6f4-VZ-jN5" firstAttribute="leading" secondItem="061-S7-h5c" secondAttribute="leading" constant="20" id="l24-az-KtM"/>
+                <constraint firstItem="ZfH-AZ-L1Z" firstAttribute="top" secondItem="k1g-cb-s0A" secondAttribute="bottom" constant="5" id="o0F-qc-SMU"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="113.04347826086958" y="-173.4375"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="tp_blackText">
+            <color red="0.082352941176470587" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="trainingProgramm_exerciseViewGrayText">
+            <color red="0.60000002384185791" green="0.60000002384185791" blue="0.60000002384185791" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -249,7 +249,6 @@ class SetPlaceViewController: UIViewController {
     }
     
     // MARK: - Actions
-
     @objc
     private func cancelButtonTapped() {
         dismiss(animated: true)

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F84311A524F5CE87008CC50D /* CGSize+UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */; };
+		F8CDD40F24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD40E24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift */; };
+		F8CDD41524FAF90100772D30 /* CGRect+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41424FAF90100772D30 /* CGRect+Utils.swift */; };
 		F8FACC3124F5199F00B52063 /* FitnessExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = F8FACC2F24F5199F00B52063 /* FitnessExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F8FACC4124F51A8E00B52063 /* UIScrollView+ContentSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FACC4024F51A8E00B52063 /* UIScrollView+ContentSize.swift */; };
 		F8FACC4424F51ABC00B52063 /* UIView+Constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8FACC4324F51ABC00B52063 /* UIView+Constraints.swift */; };
@@ -15,6 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+UIEdgeInsets.swift"; sourceTree = "<group>"; };
+		F8CDD40E24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Utils.swift"; sourceTree = "<group>"; };
+		F8CDD41424FAF90100772D30 /* CGRect+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Utils.swift"; sourceTree = "<group>"; };
 		F8FACC2C24F5199F00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC2F24F5199F00B52063 /* FitnessExtensions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FitnessExtensions.h; sourceTree = "<group>"; };
 		F8FACC3024F5199F00B52063 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +41,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F84311A324F5CE6F008CC50D /* CGSize */ = {
+			isa = PBXGroup;
+			children = (
+				F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */,
+			);
+			path = CGSize;
+			sourceTree = "<group>";
+		};
+		F8CDD40D24FAEF4800772D30 /* UIEdgeInsets */ = {
+			isa = PBXGroup;
+			children = (
+				F8CDD40E24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift */,
+			);
+			path = UIEdgeInsets;
+			sourceTree = "<group>";
+		};
+		F8CDD41324FAF8EA00772D30 /* CGRect */ = {
+			isa = PBXGroup;
+			children = (
+				F8CDD41424FAF90100772D30 /* CGRect+Utils.swift */,
+			);
+			path = CGRect;
+			sourceTree = "<group>";
+		};
 		F8FACC2224F5199F00B52063 = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +94,9 @@
 		F8FACC3724F51A5400B52063 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F8CDD41324FAF8EA00772D30 /* CGRect */,
+				F8CDD40D24FAEF4800772D30 /* UIEdgeInsets */,
+				F84311A324F5CE6F008CC50D /* CGSize */,
 				F8FACC4D24F51D2500B52063 /* String */,
 				F8FACC4224F51AB200B52063 /* UIView */,
 				F8FACC3F24F51A8200B52063 /* UIScrollView */,
@@ -196,10 +229,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F8CDD40F24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift in Sources */,
 				F8FACC4124F51A8E00B52063 /* UIScrollView+ContentSize.swift in Sources */,
 				F8FACC4424F51ABC00B52063 /* UIView+Constraints.swift in Sources */,
+				F84311A524F5CE87008CC50D /* CGSize+UIEdgeInsets.swift in Sources */,
 				F8FACC4F24F51D2E00B52063 /* String + Extension.swift in Sources */,
 				F8FACC4824F51B8100B52063 /* UIView+Nib.swift in Sources */,
+				F8CDD41524FAF90100772D30 /* CGRect+Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
