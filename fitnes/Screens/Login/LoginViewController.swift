@@ -87,7 +87,7 @@ class LoginViewController: UIViewController {
     func createNewAccountButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
 
-        let vc = RegisterViewController()
+        let vc = RegistrationViewController()
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)

@@ -23,7 +23,7 @@
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
 		3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */; };
-		3E3D928124E8555800EEE0C6 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */; };
+		3E3D928124E8555800EEE0C6 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928024E8555800EEE0C6 /* RegistrationViewController.swift */; };
 		3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928224E864F800EEE0C6 /* AbonementModel.swift */; };
 		3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
@@ -47,6 +47,9 @@
 		3E64BCF924C45DFC0014E91B /* FirestoreServiceProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */; };
 		3E64BCFB24C45F750014E91B /* FirestoreServiceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */; };
 		3E707E2E24C48C1E0049BAB6 /* ExercisesListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */; };
+		3E70A12A250170C300353159 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A129250170C300353159 /* UserModel.swift */; };
+		3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */; };
+		3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12D25038AAD00353159 /* FRadioButtonView.swift */; };
 		3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */; };
 		3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */; };
 		3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */; };
@@ -99,8 +102,8 @@
 		3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */; };
 		3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */; };
 		3EE5E29324FD9B9B00705B89 /* ApiRegistration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */; };
-		3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */; };
-		3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */; };
+		3EEB9C2524D9FEA400E1EC0B /* ConverterFromEnumToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2424D9FEA400E1EC0B /* ConverterFromEnumToString.swift */; };
+		3EEB9C2724D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift */; };
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
 		3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */; };
 		D97B8932EFE3294B6EA84B7A /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */; };
@@ -141,7 +144,7 @@
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
 		3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		3E3D928024E8555800EEE0C6 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		3E3D928224E864F800EEE0C6 /* AbonementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementModel.swift; sourceTree = "<group>"; };
 		3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
@@ -165,6 +168,9 @@
 		3E64BCF824C45DFC0014E91B /* FirestoreServiceProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceProfile.swift; sourceTree = "<group>"; };
 		3E64BCFA24C45F750014E91B /* FirestoreServiceExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreServiceExercise.swift; sourceTree = "<group>"; };
 		3E707E2D24C48C1E0049BAB6 /* ExercisesListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesListModel.swift; sourceTree = "<group>"; };
+		3E70A129250170C300353159 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsInvalidPasswordError.swift; sourceTree = "<group>"; };
+		3E70A12D25038AAD00353159 /* FRadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRadioButtonView.swift; sourceTree = "<group>"; };
 		3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndCheckboxCell.swift; sourceTree = "<group>"; };
 		3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonCheckmark.swift; sourceTree = "<group>"; };
 		3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithSFSymbol.swift; sourceTree = "<group>"; };
@@ -219,8 +225,8 @@
 		3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewController.swift; sourceTree = "<group>"; };
 		3EE5A64D24D71631004110C6 /* MyTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRegistration.swift; sourceTree = "<group>"; };
-		3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToString.swift; sourceTree = "<group>"; };
-		3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterRoleToEnum.swift; sourceTree = "<group>"; };
+		3EEB9C2424D9FEA400E1EC0B /* ConverterFromEnumToString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterFromEnumToString.swift; sourceTree = "<group>"; };
+		3EEB9C2624D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterFromStringToEnum.swift; sourceTree = "<group>"; };
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
 		3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewBlankPlace.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -386,6 +392,7 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E70A12D25038AAD00353159 /* FRadioButtonView.swift */,
 				3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */,
 				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
 				3EE586F324DEEA1B00CA0530 /* FViewContentPlace.swift */,
@@ -501,6 +508,7 @@
 			children = (
 				3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */,
 				3EAA2E4424FEE47300C8D08D /* TokenModel.swift */,
+				3E70A129250170C300353159 /* UserModel.swift */,
 			);
 			path = ModelApi;
 			sourceTree = "<group>";
@@ -599,7 +607,7 @@
 			isa = PBXGroup;
 			children = (
 				3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */,
-				3E3D928024E8555800EEE0C6 /* RegisterViewController.swift */,
+				3E3D928024E8555800EEE0C6 /* RegistrationViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -664,6 +672,7 @@
 			children = (
 				3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */,
 				3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */,
+				3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */,
 			);
 			path = Validation;
 			sourceTree = "<group>";
@@ -689,8 +698,8 @@
 		3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */ = {
 			isa = PBXGroup;
 			children = (
-				3EEB9C2424D9FEA400E1EC0B /* ConverterRoleToString.swift */,
-				3EEB9C2624D9FF2C00E1EC0B /* ConverterRoleToEnum.swift */,
+				3EEB9C2424D9FEA400E1EC0B /* ConverterFromEnumToString.swift */,
+				3EEB9C2624D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift */,
 			);
 			path = RoleConverter;
 			sourceTree = "<group>";
@@ -875,6 +884,7 @@
 				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
+				3E70A12A250170C300353159 /* UserModel.swift in Sources */,
 				3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */,
 				3E3B660424FFEF6100D1068F /* ProfileModel.swift in Sources */,
 				3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */,
@@ -886,11 +896,12 @@
 				3E64BCF624C45DB40014E91B /* FirestoreServiceTrainer.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
+				3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */,
 				3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */,
 				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
-				3EEB9C2724D9FF2C00E1EC0B /* ConverterRoleToEnum.swift in Sources */,
+				3EEB9C2724D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift in Sources */,
 				3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */,
 				3E444AB224D201350004B978 /* FViewItem.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
@@ -917,6 +928,7 @@
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
+				3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */,
 				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,
@@ -932,10 +944,10 @@
 				3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
 				3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */,
-				3EEB9C2524D9FEA400E1EC0B /* ConverterRoleToString.swift in Sources */,
+				3EEB9C2524D9FEA400E1EC0B /* ConverterFromEnumToString.swift in Sources */,
 				3E10DA3324C37DB000163F26 /* ProfileRoleModel.swift in Sources */,
 				3E99FB1324FBD86300F1F1F9 /* ApiErrorEnum.swift in Sources */,
-				3E3D928124E8555800EEE0C6 /* RegisterViewController.swift in Sources */,
+				3E3D928124E8555800EEE0C6 /* RegistrationViewController.swift in Sources */,
 				F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
 				3EE586E424DD5A8100CA0530 /* AthleteParameterViewController.swift in Sources */,

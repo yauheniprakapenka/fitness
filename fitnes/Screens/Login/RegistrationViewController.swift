@@ -8,8 +8,8 @@
 
 import UIKit
 
-private extension RegisterViewController {
-    enum Constants {
+private extension RegistrationViewController {
+    enum Const {
         static let screenSize: CGRect = UIScreen.main.bounds
         static let screenWidth = screenSize.width
         static let screenHeight = screenSize.height
@@ -25,30 +25,32 @@ private extension RegisterViewController {
     }
 }
 
-class RegisterViewController: UIViewController {
+class RegistrationViewController: UIViewController {
     var scrollView: UIScrollView!
     
-    let lastnameLabel = FLabel(fontSize: Constants.labelFontSize, weight: .regular, color: .white, message: "Фамилия")
+    let lastnameLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Фамилия")
     let lastnameTextField = FTextField(placeholderText: "Введите фамилию", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let firstnameLabel = FLabel(fontSize: Constants.labelFontSize, weight: .regular, color: .white, message: "Имя")
+    let firstnameLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Имя")
     let firstnameTextField = FTextField(placeholderText: "Введите имя", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let emailLabel = FLabel(fontSize: Constants.labelFontSize, weight: .regular, color: .white, message: "email")
+    let emailLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "email")
     let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let phoneLabel = FLabel(fontSize: Constants.labelFontSize, weight: .regular, color: .white, message: "Телефон")
+    let phoneLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Телефон")
     let phoneTextField = FTextField(placeholderText: "Введите телефон", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let passwordLabel = FLabel(fontSize: Constants.labelFontSize, weight: .regular, color: .white, message: "Пароль")
+    let passwordLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Пароль")
     let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let passwordRepeatLabel = FLabel(fontSize: Constants.labelFontSize, weight: .regular, color: .white, message: "Повторите пароль")
+    let passwordRepeatLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Повторите пароль")
     let passwordRepeatTextField = FTextField(placeholderText: "Повторите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
     let createUserButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать профиль", size: 18)
     
     let trainerContainerView = UIView()
     let athleteContainerView = UIView()
     
-    var currentRole: RoleEnum = .trainer
+//    var currentRole: RoleEnum = .trainer
     
     let trainerVioletCircle = UIView()
     let athleteVioletCircle = UIView()
+    
+    let fRadioButtonView = FRadioButtonView()
     
     override func viewDidLoad() {
         configureView()
@@ -71,9 +73,9 @@ class RegisterViewController: UIViewController {
         configureView(view: passwordRepeatTextField, topAnchor: passwordRepeatLabel)
         configureCreateUserButton()
         
-        configureRadioButton()
-        
         configureScrollView()
+        
+        configureRadioButton()
         
         // test data
         lastnameTextField.text = "Mickey"
@@ -87,7 +89,7 @@ class RegisterViewController: UIViewController {
 
 // MARK: - Private methods
 
-private extension RegisterViewController {
+private extension RegistrationViewController {
     
     func configureView() {
         view.backgroundColor = .white
@@ -127,12 +129,12 @@ private extension RegisterViewController {
     func configureScrollViewFrame() {
         scrollView = UIScrollView(frame: CGRect(x: 0,
                                                 y: 120,
-                                                width: Constants.screenWidth,
-                                                height: Constants.screenHeight - 290))
+                                                width: Const.screenWidth,
+                                                height: Const.screenHeight - 290))
     }
     
     func configureScrollView() {
-        scrollView.contentSize = CGSize(width: Constants.screenWidth,
+        scrollView.contentSize = CGSize(width: Const.screenWidth,
                                         height: 1000)
         view.addSubview(scrollView)
     }
@@ -141,10 +143,22 @@ private extension RegisterViewController {
         scrollView.addSubview(view)
         
         NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: Constants.bottomAnchor),
-            view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Constants.leftMargin),
-            view.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: Constants.rightMargin),
-            view.heightAnchor.constraint(equalToConstant: Constants.textfieldHeightAnchor)
+            view.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: Const.bottomAnchor),
+            view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Const.leftMargin),
+            view.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: Const.rightMargin),
+            view.heightAnchor.constraint(equalToConstant: Const.textfieldHeightAnchor)
+        ])
+    }
+    
+    func configureRadioButton() {
+        scrollView.addSubview(fRadioButtonView)
+        fRadioButtonView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            fRadioButtonView.topAnchor.constraint(equalTo: passwordRepeatTextField.bottomAnchor, constant: Const.bottomAnchor),
+            fRadioButtonView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Const.leftMargin),
+            fRadioButtonView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: Const.rightMargin),
+            fRadioButtonView.heightAnchor.constraint(equalToConstant: 140)
         ])
     }
     
@@ -152,10 +166,10 @@ private extension RegisterViewController {
         view.addSubview(createUserButton)
         
         NSLayoutConstraint.activate([
-            createUserButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Constants.createButtonBottonAnchor),
-            createUserButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.leftMargin),
-            createUserButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Constants.rightMargin),
-            createUserButton.heightAnchor.constraint(equalToConstant: Constants.textfieldHeightAnchor)
+            createUserButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: Const.createButtonBottonAnchor),
+            createUserButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftMargin),
+            createUserButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: Const.rightMargin),
+            createUserButton.heightAnchor.constraint(equalToConstant: Const.textfieldHeightAnchor)
         ])
         
         createUserButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
@@ -209,7 +223,7 @@ private extension RegisterViewController {
 
 // MARK: - Actions
 
-private extension RegisterViewController {
+private extension RegistrationViewController {
     
     @objc
     func cancelNavigationButtonTapped() {
@@ -219,7 +233,8 @@ private extension RegisterViewController {
     @objc
     func createButtonTapped() {
         saveUserDataToModel()
-        NetworkManager.shared.makeRegistration(profile: profile, role: currentRole, resultCompletion: { (result) in
+        
+        NetworkManager.shared.makeRegistration(profile: profile, role: fRadioButtonView.currentRole, resultCompletion: { (result) in
             switch result {
             case .success(let response):
                 print(response)
@@ -245,7 +260,7 @@ private extension RegisterViewController {
     func alertCreateButtonTapped() {
         dismiss(animated: false)
         
-        switch currentRole {
+        switch fRadioButtonView.currentRole {
         case .athlete:
             let vc = AthleteViewController()
             vc.modalPresentationStyle = .fullScreen
@@ -260,107 +275,5 @@ private extension RegisterViewController {
     @objc
     func alertCancelButtonTapped() {
         dismiss(animated: false)
-    }
-}
-
-// MARK: - Radio button
-
-private extension RegisterViewController {
-    
-    func configureRadioButton() {
-        configureContainer(view: trainerContainerView,
-                           topAnchor: passwordRepeatTextField,
-                           roleVioletCircle: trainerVioletCircle)
-        
-        configureContainer(view: athleteContainerView,
-                           topAnchor: trainerContainerView,
-                           roleVioletCircle: athleteVioletCircle)
-        
-        let trainerTap = UITapGestureRecognizer(target: self, action: #selector(trainerContainerViewTapped))
-        trainerContainerView.addGestureRecognizer(trainerTap)
-        
-        let athleteTap = UITapGestureRecognizer(target: self, action: #selector(athleteContainerViewTapped))
-        athleteContainerView.addGestureRecognizer(athleteTap)
-    }
-    
-    func configureContainer(view: UIView, topAnchor: UIView, roleVioletCircle: UIView) {
-        scrollView.addSubview(view)
-        view.isUserInteractionEnabled = true
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.topAnchor.constraint(equalTo: topAnchor.bottomAnchor, constant: 20).isActive = true
-        view.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: 20).isActive = true
-        view.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40).isActive = true
-        view.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        configureShapeView(container: view, roleVioletCircle: roleVioletCircle)
-    }
-    
-    func configureShapeView(container: UIView, roleVioletCircle: UIView) {
-        let whiteShape = UIView()
-        container.addSubview(whiteShape)
-        whiteShape.translatesAutoresizingMaskIntoConstraints = false
-        whiteShape.layer.cornerRadius = 12
-        whiteShape.clipsToBounds = true
-        whiteShape.backgroundColor = .white
-        
-        whiteShape.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
-        whiteShape.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        whiteShape.heightAnchor.constraint(equalToConstant: 24).isActive = true
-        whiteShape.widthAnchor.constraint(equalToConstant: 24).isActive = true
-        
-        var roleString = ""
-        
-        switch container {
-        case trainerContainerView:
-            roleString = "Я тренер"
-        case athleteContainerView:
-            roleString = "Я атлет"
-        default:
-            break
-        }
-        
-        let roleLabel = FLabel(fontSize: 16, weight: .medium, color: .white, message: roleString)
-        container.addSubview(roleLabel)
-        roleLabel.leadingAnchor.constraint(equalTo: whiteShape.trailingAnchor, constant: 10).isActive = true
-        roleLabel.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
-        
-        whiteShape.addSubview(roleVioletCircle)
-        roleVioletCircle.translatesAutoresizingMaskIntoConstraints = false
-        roleVioletCircle.layer.cornerRadius = 8
-        roleVioletCircle.clipsToBounds = true
-        roleVioletCircle.backgroundColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
-        
-        roleVioletCircle.centerXAnchor.constraint(equalTo: whiteShape.centerXAnchor).isActive = true
-        roleVioletCircle.centerYAnchor.constraint(equalTo: whiteShape.centerYAnchor).isActive = true
-        roleVioletCircle.heightAnchor.constraint(equalToConstant: 16).isActive = true
-        roleVioletCircle.widthAnchor.constraint(equalToConstant: 16).isActive = true
-        
-        configureVioletCircle()
-    }
-    
-    @objc
-    func trainerContainerViewTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        currentRole = .trainer
-        configureVioletCircle()
-    }
-    
-    @objc
-    func athleteContainerViewTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        currentRole = .athlete
-        configureVioletCircle()
-    }
-    
-    func configureVioletCircle() {
-        athleteVioletCircle.alpha = 0
-        trainerVioletCircle.alpha = 0
-        
-        switch currentRole {
-        case .trainer:
-            trainerVioletCircle.alpha = 1
-        case .athlete:
-            athleteVioletCircle.alpha = 1
-        }
     }
 }
