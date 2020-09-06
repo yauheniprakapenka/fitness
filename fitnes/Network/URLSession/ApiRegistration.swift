@@ -9,9 +9,9 @@
 import Foundation
 
 extension NetworkManager {
-    func makeRegistration(profile: ProfileModel,
+    func makeRegistration(profile: CurrentProfileModel,
                           role: RoleEnum,
-                          resultCompletion: @escaping (Result<RegistrationModel, ApiErrorEnum>) -> Void,
+                          resultCompletion: @escaping (Result<ApiRegistrationModel, ApiErrorEnum>) -> Void,
                           completion: (() -> Void)? = nil) {
         
         let firstName = profile.firstName ?? ""
@@ -41,11 +41,11 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let responseRegistration = try decoder.decode(RegistrationModel.self, from: data)
+                let responseRegistration = try decoder.decode(ApiRegistrationModel.self, from: data)
                 print(responseRegistration)
                 
                 if let userId = responseRegistration.userId {
-                    registrationModel.userId = userId
+                    apiRegistrationModel.userId = userId
                 }
 
                 if let responseMessage = responseRegistration.message {

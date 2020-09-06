@@ -10,10 +10,10 @@ import Foundation
 
 struct GetUserId {
     static func getUserId() -> String {
-        if registrationModel.userId != nil && registrationModel.userId != 0 {
-            return String(registrationModel.userId ?? 0)
-        } else if tokenModel.userId != nil && tokenModel.userId != 0 {
-            return String(tokenModel.userId ?? 0)
+        if apiRegistrationModel.userId != nil && apiRegistrationModel.userId != 0 {
+            return String(apiRegistrationModel.userId ?? 0)
+        } else if apiTokenModel.userId != nil && apiTokenModel.userId != 0 {
+            return String(apiTokenModel.userId ?? 0)
         } else {
             return ""
         }

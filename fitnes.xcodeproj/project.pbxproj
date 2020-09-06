@@ -15,7 +15,6 @@
 		3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */; };
 		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
-		3E3B660424FFEF6100D1068F /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B660324FFEF6100D1068F /* ProfileModel.swift */; };
 		3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B66052500231C00D1068F /* ApiGetUser.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
@@ -40,9 +39,12 @@
 		3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60119224E9E06700CAE51B /* ViewColorEnum.swift */; };
 		3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGenerator.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
-		3E70A12A250170C300353159 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A129250170C300353159 /* UserModel.swift */; };
 		3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */; };
 		3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12D25038AAD00353159 /* FRadioButtonView.swift */; };
+		3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */; };
+		3E7C73C825051B3300BD21ED /* CurrentProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73C725051B3300BD21ED /* CurrentProfile.swift */; };
+		3E7C73CA25051C9900BD21ED /* ApiGetUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73C925051C9900BD21ED /* ApiGetUserModel.swift */; };
+		3E7C73CC25051CF100BD21ED /* AthleteProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73CB25051CF100BD21ED /* AthleteProfileModel.swift */; };
 		3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */; };
 		3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */; };
 		3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */; };
@@ -53,11 +55,11 @@
 		3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */; };
 		3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */; };
 		3E99FB1324FBD86300F1F1F9 /* ApiErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */; };
-		3E99FB1524FBD8FB00F1F1F9 /* RegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */; };
+		3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */; };
 		3EA3F39424E049A400DA5959 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA3F39324E049A400DA5959 /* ChatViewController.swift */; };
 		3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */; };
 		3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */; };
-		3EAA2E4524FEE47300C8D08D /* TokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4424FEE47300C8D08D /* TokenModel.swift */; };
+		3EAA2E4524FEE47300C8D08D /* ApiTokenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAA2E4424FEE47300C8D08D /* ApiTokenModel.swift */; };
 		3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */; };
 		3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */; };
 		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
@@ -134,7 +136,6 @@
 		3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarTrainingModel.swift; sourceTree = "<group>"; };
 		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
-		3E3B660324FFEF6100D1068F /* ProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		3E3B66052500231C00D1068F /* ApiGetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUser.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
@@ -159,9 +160,12 @@
 		3E60119224E9E06700CAE51B /* ViewColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewColorEnum.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
-		3E70A129250170C300353159 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsInvalidPasswordError.swift; sourceTree = "<group>"; };
 		3E70A12D25038AAD00353159 /* FRadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRadioButtonView.swift; sourceTree = "<group>"; };
+		3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAthleteCell.swift; sourceTree = "<group>"; };
+		3E7C73C725051B3300BD21ED /* CurrentProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentProfile.swift; sourceTree = "<group>"; };
+		3E7C73C925051C9900BD21ED /* ApiGetUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUserModel.swift; sourceTree = "<group>"; };
+		3E7C73CB25051CF100BD21ED /* AthleteProfileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteProfileModel.swift; sourceTree = "<group>"; };
 		3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleAndCheckboxCell.swift; sourceTree = "<group>"; };
 		3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonCheckmark.swift; sourceTree = "<group>"; };
 		3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithSFSymbol.swift; sourceTree = "<group>"; };
@@ -172,11 +176,11 @@
 		3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSectionEnum.swift; sourceTree = "<group>"; };
 		3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorEnum.swift; sourceTree = "<group>"; };
-		3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationModel.swift; sourceTree = "<group>"; };
+		3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRegistrationModel.swift; sourceTree = "<group>"; };
 		3EA3F39324E049A400DA5959 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		3EA5A5C424E2CD5A00745F73 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiOauthToken.swift; sourceTree = "<group>"; };
-		3EAA2E4424FEE47300C8D08D /* TokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenModel.swift; sourceTree = "<group>"; };
+		3EAA2E4424FEE47300C8D08D /* ApiTokenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiTokenModel.swift; sourceTree = "<group>"; };
 		3EAD44E824E45D9A0044264C /* BuyAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyAbonementViewController.swift; sourceTree = "<group>"; };
 		3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerViewController.swift; sourceTree = "<group>"; };
 		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				3EE586F724DF484C00CA0530 /* CalendarTrainingCell.swift */,
+				3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */,
 				3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */,
 				3E1752DF24E2954F00F823A8 /* TrainingCell.swift */,
 			);
@@ -469,9 +474,9 @@
 		3EAA2E4324FDB59700C8D08D /* ModelApi */ = {
 			isa = PBXGroup;
 			children = (
-				3E99FB1424FBD8FB00F1F1F9 /* RegistrationModel.swift */,
-				3EAA2E4424FEE47300C8D08D /* TokenModel.swift */,
-				3E70A129250170C300353159 /* UserModel.swift */,
+				3E7C73C925051C9900BD21ED /* ApiGetUserModel.swift */,
+				3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */,
+				3EAA2E4424FEE47300C8D08D /* ApiTokenModel.swift */,
 			);
 			path = ModelApi;
 			sourceTree = "<group>";
@@ -524,13 +529,14 @@
 			isa = PBXGroup;
 			children = (
 				3E3D928224E864F800EEE0C6 /* AbonementModel.swift */,
+				3E7C73CB25051CF100BD21ED /* AthleteProfileModel.swift */,
 				3E1752D124E1A09000F823A8 /* CalendarTrainingModel.swift */,
 				3E1752C824E169E600F823A8 /* ChatModel.swift */,
+				3E7C73C725051B3300BD21ED /* CurrentProfile.swift */,
 				3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */,
 				3EDB022224ED977200A4808F /* PlaceModel.swift */,
 				3E1752CA24E16A1500F823A8 /* TrainerModel.swift */,
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
-				3E3B660324FFEF6100D1068F /* ProfileModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -840,9 +846,7 @@
 				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
-				3E70A12A250170C300353159 /* UserModel.swift in Sources */,
 				3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */,
-				3E3B660424FFEF6100D1068F /* ProfileModel.swift in Sources */,
 				3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */,
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
@@ -852,6 +856,7 @@
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
 				3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */,
 				3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */,
+				3E7C73C825051B3300BD21ED /* CurrentProfile.swift in Sources */,
 				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
@@ -861,22 +866,25 @@
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
 				3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */,
+				3E7C73CA25051C9900BD21ED /* ApiGetUserModel.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
 				3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */,
+				3E7C73CC25051CF100BD21ED /* AthleteProfileModel.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,
 				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
-				3EAA2E4524FEE47300C8D08D /* TokenModel.swift in Sources */,
+				3EAA2E4524FEE47300C8D08D /* ApiTokenModel.swift in Sources */,
 				3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */,
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
+				3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
-				3E99FB1524FBD8FB00F1F1F9 /* RegistrationModel.swift in Sources */,
+				3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,

@@ -70,7 +70,7 @@ class LoginViewController: UIViewController {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         saveUserDataToModel()
         
-        NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "", completion: { (result) in
+        NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
                 print(tokenModel)
@@ -115,7 +115,7 @@ private extension LoginViewController {
     
     func presentProfile() {
         DispatchQueue.main.async {
-            if let client = tokenModel.client {
+            if let client = apiTokenModel.client {
                 if client {
                     let vc = AthleteViewController()
                     vc.modalPresentationStyle = .fullScreen
@@ -124,7 +124,7 @@ private extension LoginViewController {
                 }
             }
             
-            if let trainer = tokenModel.trainer {
+            if let trainer = apiTokenModel.trainer {
                 if trainer {
                     let vc = TrainerViewController()
                     vc.modalPresentationStyle = .fullScreen
@@ -137,8 +137,8 @@ private extension LoginViewController {
     }
     
     func saveUserDataToModel() {
-        profile.email = emailTextField.text
-        profile.password = passwordTextField.text
+        currentProfile.email = emailTextField.text
+        currentProfile.password = passwordTextField.text
     }
     
     func configureRootScrollView() {

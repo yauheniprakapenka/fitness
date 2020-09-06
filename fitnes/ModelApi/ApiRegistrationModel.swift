@@ -6,7 +6,7 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct RegistrationModel: Decodable {
+struct ApiRegistrationModel: Decodable {
     var message: String?
     var userId: UInt32?
     
@@ -16,4 +16,4 @@ struct RegistrationModel: Decodable {
     }
 }
 
-var registrationModel = RegistrationModel()
+var apiRegistrationModel = ApiRegistrationModel()

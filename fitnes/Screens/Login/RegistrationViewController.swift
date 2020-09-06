@@ -176,12 +176,12 @@ private extension RegistrationViewController {
     }
     
     func saveUserDataToModel() {
-        profile.firstName = firstnameTextField.text
-        profile.lastName = lastnameTextField.text
-        profile.password = passwordTextField.text
-        profile.passwordConfirmation = passwordRepeatTextField.text
-        profile.email = emailTextField.text
-        profile.phone = phoneTextField.text
+        currentProfile.firstName = firstnameTextField.text
+        currentProfile.lastName = lastnameTextField.text
+        currentProfile.password = passwordTextField.text
+        currentProfile.passwordConfirmation = passwordRepeatTextField.text
+        currentProfile.email = emailTextField.text
+        currentProfile.phone = phoneTextField.text
     }
     
     func displaySuccessAlert() {
@@ -205,7 +205,7 @@ private extension RegistrationViewController {
     }
     
     func presentVC() {
-        if let client = tokenModel.client {
+        if let client = apiTokenModel.client {
             if client {
                 DispatchQueue.main.async {
                     let vc = AthleteViewController()
@@ -214,7 +214,7 @@ private extension RegistrationViewController {
             }
         }
 
-        if let trainer = tokenModel.trainer {
+        if let trainer = apiTokenModel.trainer {
             if trainer {
                 DispatchQueue.main.async {
                     let vc = TrainerViewController()
@@ -238,11 +238,11 @@ private extension RegistrationViewController {
     func createButtonTapped() {
         saveUserDataToModel()
         
-        NetworkManager.shared.makeRegistration(profile: profile, role: fRadioButtonView.currentRole, resultCompletion: { (result) in
+        NetworkManager.shared.makeRegistration(profile: currentProfile, role: fRadioButtonView.currentRole, resultCompletion: { (result) in
             switch result {
             case .success(let response):
                 print(response)
-                NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "") { (result) in
+                NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "") { (result) in
                     switch result {
                     case .success(let success):
                         print(success)

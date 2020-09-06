@@ -15,7 +15,6 @@ private extension AthleteProfileViewController {
         static let leftRightMargin: CGFloat = 20
         static let screenSizeHeight: CGFloat = UIScreen.main.bounds.height
         static let imageSize: CGFloat = Const.screenSizeHeight / 6
-        static let title = "Профиль"
     }
 }
 
@@ -27,15 +26,13 @@ class AthleteProfileViewController: UIViewController {
     let tableView = UITableView()
     var safeArea: UILayoutGuide!
     
-    var characters = ["Link", "Zelda", "Ganondorf", "Midna"]
-    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        safeArea = view.layoutMarginsGuide
         configureView()
+        configureNavigationBar()
         configureBackNavigationButton()
         configureAvatarImageView()
         configureTableView()
@@ -60,12 +57,19 @@ private extension AthleteProfileViewController {
     
     func configureView() {
         view.backgroundColor = .white
-        title = Const.title
+        safeArea = view.layoutMarginsGuide
+    }
+    
+    func configureNavigationBar() {
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.navigationBar.isTranslucent = true
     }
     
     func configureBackNavigationButton() {
-        let button1 = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(backButtonTapped))
-        self.navigationItem.leftBarButtonItem  = button1
+        let backButton = UIBarButtonItem(title: "Вернуться", style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationItem.leftBarButtonItem  = backButton
+        navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.4548649788, green: 0.4549226761, blue: 0.4548452497, alpha: 1)
     }
     
     func configureAvatarImageView() {
@@ -95,18 +99,19 @@ private extension AthleteProfileViewController {
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.dataSource = self
+        tableView.register(ProfileAthleteCell.self, forCellReuseIdentifier: "cell")
     }
 }
 
 extension AthleteProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        characters.count
+        athelteProfileModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = characters[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileAthleteCell
+        cell.data = athelteProfileModel[indexPath.row]
         return cell
     }
 }

@@ -1,15 +1,15 @@
 //
-//  UserModel.swift
+//  ApiGetUserModel.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 03.09.2020.
+//  Created by yauheni prakapenka on 06.09.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
 import Foundation
 
-// MARK: - User
-struct UserModel: Codable {
+// MARK: - GetUserModel
+struct ApiGetUserModel: Codable {
     let data: DataClass
 }
 

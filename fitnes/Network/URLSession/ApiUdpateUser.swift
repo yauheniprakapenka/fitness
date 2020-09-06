@@ -21,7 +21,7 @@ extension NetworkManager {
         let bodyData = "{\"trainer\":\"BORODACH\"}"
         request.httpBody = bodyData.data(using: String.Encoding.utf8)
         
-        let accessToken = "Bearer \(tokenModel.accessToken ?? "missingToken")"
+        let accessToken = "Bearer \(apiTokenModel.accessToken ?? "missingToken")"
         request.setValue(accessToken, forHTTPHeaderField: "authorization")
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
@@ -34,7 +34,7 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let userResponse = try decoder.decode(UserModel.self, from: data)
+                let userResponse = try decoder.decode(ApiGetUserModel.self, from: data)
                 print(userResponse)
                 completion?()
             } catch let error {

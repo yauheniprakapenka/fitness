@@ -9,7 +9,7 @@
 import Foundation
 
 extension NetworkManager {
-    func getToken(email: String, password: String, completion: @escaping (Result<TokenModel, ApiErrorEnum>) -> Void) {
+    func getToken(email: String, password: String, completion: @escaping (Result<ApiTokenModel, ApiErrorEnum>) -> Void) {
         
         let url = URL(string: baseURL + oauthToken)
         guard let requestUrl = url else { return }
@@ -30,9 +30,9 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let responseToken = try decoder.decode(TokenModel.self, from: data)
+                let responseToken = try decoder.decode(ApiTokenModel.self, from: data)
                 print(responseToken)
-                tokenModel = responseToken
+                apiTokenModel = responseToken
                 
                 if let responseToken = responseToken.error {
                     switch responseToken {
@@ -47,10 +47,10 @@ extension NetworkManager {
                     }
                 }
                 
-                tokenModel = responseToken
+                apiTokenModel = responseToken
                 
-                if tokenModel.accessToken != nil {
-                    completion(.success(tokenModel))
+                if apiTokenModel.accessToken != nil {
+                    completion(.success(apiTokenModel))
                 }
             } catch let error {
                 print(error)
