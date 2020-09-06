@@ -13,8 +13,12 @@ private extension AthleteProfileViewController {
         static let avatarTopAnchor: CGFloat = 120
         static let tableViewTopAnchor: CGFloat = 40
         static let leftRightMargin: CGFloat = 25
+        
         static let screenSizeHeight: CGFloat = UIScreen.main.bounds.height
         static let imageSize: CGFloat = Const.screenSizeHeight / 6
+        
+        static let cameraSize: CGFloat = 60
+        static let cameraAnchor: CGFloat = 0
     }
 }
 
@@ -22,9 +26,22 @@ class AthleteProfileViewController: UIViewController {
     
     // MARK: - Properties
     
-    let avatarImageView = UIImageView()
+    private let avatarContainerView = UIView()
+    private let avatarImageView = UIImageView()
     let tableView = UITableView()
-    var safeArea: UILayoutGuide!
+    private var safeArea: UILayoutGuide!
+    
+    private let cameraImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
+        let cameraImage = UIImage(systemName: "camera.circle.fill")?.withTintColor(#colorLiteral(red: 0.3195307553, green: 0.8156289458, blue: 0.7399761081, alpha: 1), renderingMode: .alwaysOriginal)
+        imageView.image = cameraImage
+        imageView.backgroundColor = .white
+        imageView.layer.cornerRadius = Const.cameraSize / 2
+        imageView.clipsToBounds = true
+        return imageView
+    }()
     
     // MARK: - View life cycle
     
@@ -34,7 +51,7 @@ class AthleteProfileViewController: UIViewController {
         configureView()
         configureNavigationBar()
         configureBackNavigationButton()
-        configureAvatarImageView()
+        configureAvatarContainerView()
         configureTableView()
     }
 }
@@ -46,6 +63,11 @@ private extension AthleteProfileViewController {
     @objc
     private func backButtonTapped() {
         dismiss(animated: true)
+    }
+    
+    @objc
+    private func avatarTapped() {
+        print(#function)
     }
 }
 
@@ -70,22 +92,6 @@ private extension AthleteProfileViewController {
         navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.4548649788, green: 0.4549226761, blue: 0.4548452497, alpha: 1)
     }
     
-    func configureAvatarImageView() {
-        view.addSubview(avatarImageView)
-        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
-        avatarImageView.contentMode = .scaleAspectFill
-        avatarImageView.image = #imageLiteral(resourceName: "Screenshot 08-12-2020 23.44.58")
-        avatarImageView.clipsToBounds = true
-        avatarImageView.layer.cornerRadius = Const.imageSize / 2
-        
-        NSLayoutConstraint.activate([
-            avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: Const.avatarTopAnchor),
-            avatarImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            avatarImageView.heightAnchor.constraint(equalToConstant: Const.imageSize),
-            avatarImageView.widthAnchor.constraint(equalToConstant: Const.imageSize)
-        ])
-    }
-    
     func configureTableView() {
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
@@ -98,11 +104,67 @@ private extension AthleteProfileViewController {
         ])
         
         tableView.dataSource = self
+        tableView.delegate = self
+        
         tableView.register(ProfileAthleteCell.self, forCellReuseIdentifier: "cell")
         
         tableView.rowHeight = 60
     }
 }
+
+// MARK: - Avatar Image
+
+private extension AthleteProfileViewController {
+    
+    func configureAvatarContainerView() {
+        view.addSubview(avatarContainerView)
+        avatarContainerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            avatarContainerView.topAnchor.constraint(equalTo: view.topAnchor, constant: Const.avatarTopAnchor),
+            avatarContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            avatarContainerView.heightAnchor.constraint(equalToConstant: Const.imageSize),
+            avatarContainerView.widthAnchor.constraint(equalToConstant: Const.imageSize)
+        ])
+        
+        avatarContainerView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+        avatarContainerView.addGestureRecognizer(tap)
+        
+        configureAvatarImageView()
+    }
+    
+    func configureAvatarImageView() {
+        avatarContainerView.addSubview(avatarImageView)
+        avatarImageView.translatesAutoresizingMaskIntoConstraints = false
+        avatarImageView.contentMode = .scaleAspectFill
+        avatarImageView.image = #imageLiteral(resourceName: "Screenshot 08-12-2020 23.44.58")
+        avatarImageView.clipsToBounds = true
+        avatarImageView.layer.cornerRadius = Const.imageSize / 2
+        
+        NSLayoutConstraint.activate([
+            avatarImageView.topAnchor.constraint(equalTo: avatarContainerView.topAnchor),
+            avatarImageView.leadingAnchor.constraint(equalTo: avatarContainerView.leadingAnchor),
+            avatarImageView.trailingAnchor.constraint(equalTo: avatarContainerView.trailingAnchor),
+            avatarImageView.bottomAnchor.constraint(equalTo: avatarContainerView.bottomAnchor)
+        ])
+        
+        configureCameraImage()
+    }
+    
+    func configureCameraImage() {
+        avatarContainerView.addSubview(cameraImageView)
+        
+        NSLayoutConstraint.activate([
+            cameraImageView.bottomAnchor.constraint(equalTo: avatarContainerView.bottomAnchor, constant: -Const.cameraAnchor),
+            cameraImageView.trailingAnchor.constraint(equalTo: avatarContainerView.trailingAnchor, constant: -Const.cameraAnchor),
+            cameraImageView.widthAnchor.constraint(equalToConstant: Const.cameraSize),
+            cameraImageView.heightAnchor.constraint(equalToConstant: Const.cameraSize)
+        ])
+    }
+}
+
+// MARK: - UITableViewDataSource
 
 extension AthleteProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -111,7 +173,16 @@ extension AthleteProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileAthleteCell
+        cell.selectionStyle = .none
         cell.data = athelteProfileModel[indexPath.row]
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension AthleteProfileViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(athelteProfileModel[indexPath.row])
     }
 }

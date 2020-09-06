@@ -49,13 +49,14 @@ private extension ProfileAthleteCell {
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         descriptionLabel.numberOfLines = 2
+        descriptionLabel.font = descriptionLabel.font.withSize(14)
         
         let widthAnchor: CGFloat = (self.bounds.width / 2) - 4
         
         NSLayoutConstraint.activate([
             descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
             descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            descriptionLabel.widthAnchor.constraint(equalToConstant: widthAnchor)
+            descriptionLabel.widthAnchor.constraint(equalToConstant: widthAnchor),
         ])
     }
     
@@ -64,6 +65,7 @@ private extension ProfileAthleteCell {
         userDataLabel.translatesAutoresizingMaskIntoConstraints = false
         userDataLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         userDataLabel.textAlignment = .right
+        userDataLabel.font = userDataLabel.font.withSize(14)
         
         let widthAnchor: CGFloat = (self.bounds.width / 2) - 4
         
