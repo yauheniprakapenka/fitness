@@ -17,7 +17,7 @@ private extension AthleteProfileViewController {
         static let screenSizeHeight: CGFloat = UIScreen.main.bounds.height
         static let imageSize: CGFloat = Const.screenSizeHeight / 6
         
-        static let cameraSize: CGFloat = 60
+        static let cameraSize: CGFloat = 56
         static let cameraAnchor: CGFloat = 0
     }
 }
@@ -32,7 +32,7 @@ class AthleteProfileViewController: UIViewController {
     private var safeArea: UILayoutGuide!
     
     private let cameraImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         let cameraImage = UIImage(systemName: "camera.circle.fill")?.withTintColor(#colorLiteral(red: 0.3195307553, green: 0.8156289458, blue: 0.7399761081, alpha: 1), renderingMode: .alwaysOriginal)
@@ -68,6 +68,19 @@ private extension AthleteProfileViewController {
     @objc
     private func avatarTapped() {
         print(#function)
+        
+        let alert = UIAlertController(title: "Добавить фото", message: "Выберите изображение для вашего профиля", preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Камерта", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in
+            self.openGallery()
+        }))
+        
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
@@ -184,5 +197,39 @@ extension AthleteProfileViewController: UITableViewDataSource {
 extension AthleteProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(athelteProfileModel[indexPath.row])
+    }
+}
+
+// MARK: - UI Image Picker Controller Delegate
+
+extension AthleteProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+ 
+        guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
+            dismiss(animated: true)
+            return
+        }
+        
+        avatarImageView.image = image
+        dismiss(animated: true)
+    }
+    
+    func openCamera() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .fullScreen
+        imagePicker.sourceType = .camera
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
+    }
+    
+    func openGallery() {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.modalPresentationStyle = .fullScreen
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        present(imagePicker, animated: true)
     }
 }
