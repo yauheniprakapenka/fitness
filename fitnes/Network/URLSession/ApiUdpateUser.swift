@@ -11,7 +11,7 @@ import Foundation
 extension NetworkManager {
     func updateUser(completion: (() -> Void)? = nil) {
         
-        let url = URL(string: baseURL + users + getUserId())
+        let url = URL(string: baseURL + users + GetUserId.getUserId())
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)

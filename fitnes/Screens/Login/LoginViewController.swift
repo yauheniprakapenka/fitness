@@ -54,7 +54,7 @@ class LoginViewController: UIViewController {
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
         
         // test data
-        emailTextField.text = "mickey@mouse2.com"
+        emailTextField.text = "mickey@mouse2.coma"
         passwordTextField.text = "123456"
     }
     

@@ -63,6 +63,8 @@
 		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
 		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */; };
 		3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */; };
+		3ECCF5272504DA1400E8D603 /* ApiUdpateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCF5262504DA1400E8D603 /* ApiUdpateUser.swift */; };
+		3ECCF5292504E8F600E8D603 /* GetUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCF5282504E8F600E8D603 /* GetUserId.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
 		3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */; };
@@ -76,7 +78,7 @@
 		3EE3901824BCFEF6003AF6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */; };
 		3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */; };
 		3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E024DD3A0500CA0530 /* AbonementsCollectionCell.swift */; };
-		3EE586E424DD5A8100CA0530 /* AthleteParameterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */; };
+		3EE586E424DD5A8100CA0530 /* AthleteProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E324DD5A8100CA0530 /* AthleteProfileViewController.swift */; };
 		3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E924DDBF9400CA0530 /* FButtonFran.swift */; };
 		3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
@@ -180,6 +182,8 @@
 		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCollectionCell.swift; sourceTree = "<group>"; };
 		3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnum.swift; sourceTree = "<group>"; };
+		3ECCF5262504DA1400E8D603 /* ApiUdpateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUdpateUser.swift; sourceTree = "<group>"; };
+		3ECCF5282504E8F600E8D603 /* GetUserId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserId.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
 		3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationConverter.swift; sourceTree = "<group>"; };
@@ -195,7 +199,7 @@
 		3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementsViewController.swift; sourceTree = "<group>"; };
 		3EE586E024DD3A0500CA0530 /* AbonementsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementsCollectionCell.swift; sourceTree = "<group>"; };
-		3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteParameterViewController.swift; sourceTree = "<group>"; };
+		3EE586E324DD5A8100CA0530 /* AthleteProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteProfileViewController.swift; sourceTree = "<group>"; };
 		3EE586E924DDBF9400CA0530 /* FButtonFran.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonFran.swift; sourceTree = "<group>"; };
 		3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerViewController.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
@@ -288,7 +292,7 @@
 			isa = PBXGroup;
 			children = (
 				3E82E21D24DCA96500145E9D /* AthleteViewController.swift */,
-				3EE586E324DD5A8100CA0530 /* AthleteParameterViewController.swift */,
+				3EE586E324DD5A8100CA0530 /* AthleteProfileViewController.swift */,
 			);
 			path = Athlete;
 			sourceTree = "<group>";
@@ -456,6 +460,7 @@
 				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
 				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
 				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
+				3ECCF5262504DA1400E8D603 /* ApiUdpateUser.swift */,
 				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
 			);
 			path = URLSession;
@@ -492,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				3E99FB0F24FBADA600F1F1F9 /* URLSession */,
+				3ECCF5282504E8F600E8D603 /* GetUserId.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -514,7 +520,7 @@
 			path = TextFields;
 			sourceTree = "<group>";
 		};
-		3ED7037224DB45CC00E4DB9F /* ModelsNew */ = {
+		3ED7037224DB45CC00E4DB9F /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				3E3D928224E864F800EEE0C6 /* AbonementModel.swift */,
@@ -526,7 +532,7 @@
 				3E1752CF24E1A01500F823A8 /* TrainingModel.swift */,
 				3E3B660324FFEF6100D1068F /* ProfileModel.swift */,
 			);
-			path = ModelsNew;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		3ED8381624F10A3D00C12B42 /* GeolocationConverter */ = {
@@ -588,7 +594,7 @@
 				3E8DE58124CD9DE500DFB220 /* Enums */,
 				3E87232524BFAD1E005FC365 /* Extension */,
 				3EAA2E4324FDB59700C8D08D /* ModelApi */,
-				3ED7037224DB45CC00E4DB9F /* ModelsNew */,
+				3ED7037224DB45CC00E4DB9F /* Model */,
 				3EB0F97D24D0B25C00AC97EB /* Network */,
 				F8FACC5524F51F8A00B52063 /* Other */,
 				3EB0F97E24D0B4A200AC97EB /* Plist */,
@@ -819,6 +825,7 @@
 				3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */,
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
+				3ECCF5272504DA1400E8D603 /* ApiUdpateUser.swift in Sources */,
 				3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
@@ -829,6 +836,7 @@
 				3E1752C924E169E600F823A8 /* ChatModel.swift in Sources */,
 				3E444ABB24D220760004B978 /* FViewHorisontalLine.swift in Sources */,
 				3E444ABF24D340560004B978 /* FViewShape.swift in Sources */,
+				3ECCF5292504E8F600E8D603 /* GetUserId.swift in Sources */,
 				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,
@@ -892,7 +900,7 @@
 				3E3D928124E8555800EEE0C6 /* RegistrationViewController.swift in Sources */,
 				F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
-				3EE586E424DD5A8100CA0530 /* AthleteParameterViewController.swift in Sources */,
+				3EE586E424DD5A8100CA0530 /* AthleteProfileViewController.swift in Sources */,
 				3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */,
 				3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */,
 				3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */,
