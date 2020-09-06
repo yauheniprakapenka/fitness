@@ -21,6 +21,7 @@ class LoginViewController: UIViewController {
     
     let contentScrollView = UIScrollView()
     let backgroundImageView = UIImageView()
+    let activityIndicator = FActivityIndicator()
     
     let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
     let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
@@ -50,12 +51,17 @@ class LoginViewController: UIViewController {
         
         configureCreateNewAccountButton()
         configureContinueButton()
+        configureActivityIndicator()
         
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
         
         // test data
         emailTextField.text = "mickey@mouse2.coma"
         passwordTextField.text = "123456"
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        activityIndicator.stopAnimating()
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,6 +74,7 @@ class LoginViewController: UIViewController {
     @objc
     func loginButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
+        activityIndicator.startAnimate()
         saveUserDataToModel()
         
         NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
@@ -102,6 +109,11 @@ class LoginViewController: UIViewController {
 // MARK: - Private methods
 
 private extension LoginViewController {
+    
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
     
     func presentAlertVC(errorMessage: String) {
         DispatchQueue.main.async {
