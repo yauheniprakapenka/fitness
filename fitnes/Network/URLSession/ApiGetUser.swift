@@ -44,8 +44,8 @@ extension NetworkManager {
     func getUserId() -> String {
         if registrationModel.userId != nil && registrationModel.userId != 0 {
             return String(registrationModel.userId ?? 0)
-        } else if registrationModel.userId != nil && registrationModel.userId != 0 {
-            return String(registrationModel.userId != 0)
+        } else if tokenModel.userId != nil && tokenModel.userId != 0 {
+            return String(tokenModel.userId ?? 0)
         } else {
             return ""
         }
