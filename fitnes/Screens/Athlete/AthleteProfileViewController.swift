@@ -12,7 +12,7 @@ struct TitleForCategory {
     var title: String
 }
 
-class AthleteParameterViewController: UIViewController {
+class AthleteProfileViewController: UIViewController {
     
     var scrollView: UIScrollView!
     let tableView = UITableView()
@@ -210,7 +210,7 @@ class AthleteParameterViewController: UIViewController {
     
 }
 
-extension AthleteParameterViewController: UITableViewDelegate {
+extension AthleteProfileViewController: UITableViewDelegate {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
@@ -228,7 +228,7 @@ extension AthleteParameterViewController: UITableViewDelegate {
     }
 }
 
-extension AthleteParameterViewController: UITableViewDataSource {
+extension AthleteProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return titleForCategory.count
     }
@@ -246,7 +246,7 @@ extension AthleteParameterViewController: UITableViewDataSource {
 }
 
 // MARK: - Sorry for this horror. Im refactor it later
-extension AthleteParameterViewController {
+extension AthleteProfileViewController {
     
     private func configureFran10Button() {
         let squareSize: CGFloat = 35
@@ -388,7 +388,7 @@ extension AthleteParameterViewController {
 }
 
 // MARK: - Sorry for this horror. Im refactor it later
-extension AthleteParameterViewController {
+extension AthleteProfileViewController {
     
     private func configureGraceLabel() {
         scrollView.addSubview(graceLabel)

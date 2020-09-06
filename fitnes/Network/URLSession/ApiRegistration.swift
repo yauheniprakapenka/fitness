@@ -22,15 +22,14 @@ extension NetworkManager {
         let email = profile.email ?? ""
         let phone = profile.phone ?? ""
         
-        let postString = "first_name=\(firstName)&last_name=\(lastName)&password=\(password)&password_confirmation=\(passwordConfirmation)&\(role)&email=\(email)&phone=\(phone)"
-        
         let url = URL(string: baseURL + registration)
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
         
-        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let bodyData = "first_name=\(firstName)&last_name=\(lastName)&password=\(password)&password_confirmation=\(passwordConfirmation)&\(role)&email=\(email)&phone=\(phone)"
+        request.httpBody = bodyData.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

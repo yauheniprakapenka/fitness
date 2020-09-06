@@ -10,14 +10,15 @@ import Foundation
 
 extension NetworkManager {
     func getToken(email: String, password: String, completion: @escaping (Result<TokenModel, ApiErrorEnum>) -> Void) {
-        let postString = "grant_type=password&email=\(email)&password=\(password)"
         
         let url = URL(string: baseURL + oauthToken)
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
-        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        let bodyData = "grant_type=password&email=\(email)&password=\(password)"
+        request.httpBody = bodyData.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {

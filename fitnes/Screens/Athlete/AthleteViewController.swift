@@ -10,23 +10,29 @@ import UIKit
 
 class AthleteViewController: UIViewController {
     
-    var scrollView: UIScrollView!
+    // MARK: - Properties
     
+    var scrollView: UIScrollView!
+    let headerView = UIView()
+    let itemsView = UIView()
+    let comingTrainingView = UIView()
+    let trainingView = UIView()
+    let abonementsView = UIView()
     let abonementsViewController = AbonementsViewController()
     
     let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
     let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
-    let headerView = UIView()
-    let itemsView = UIView()
-    let comingTrainingView = UIView()
-    let trainingView = UIView()
-    let abonementsView = UIView()
-    
     var athleteAbonement: [AbonementModel] = [
-        AbonementModel(abonementName: "Вечерний", cost: "3 мес - 55 руб", color: "blue", countVisit: 8, daysLeft: 10)
+        AbonementModel(abonementName: "Вечерний",
+                       cost: "3 мес - 55 руб",
+                       color: "blue",
+                       countVisit: 8,
+                       daysLeft: 10)
     ]
+    
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,14 +49,45 @@ class AthleteViewController: UIViewController {
         
         addChildVC()
     }
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         
         abonementsViewController.currentVC = .athletVC
     }
+    
+    // MARK: - Actions
+    
+    @objc private func backButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc func profileButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        
+        let vc = AthleteProfileViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
+    
+    @objc func findTrainerButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        
+        let nav = UINavigationController(rootViewController: FindTrainerViewController())
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    // MARK: - Public methods
+    
+    func reloadData() {
+        abonementsViewController.collectionView.reloadData()
+    }
+}
 
-    private func configureBackButton() {
+private extension AthleteViewController {
+    
+    func configureBackButton() {
         scrollView.addSubview(backButton)
         backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
         backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -58,11 +95,7 @@ class AthleteViewController: UIViewController {
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
     
-    @objc private func backButtonTapped() {
-        dismiss(animated: true)
-    }
-    
-    private func configureScrollViewLayout() {
+    func configureScrollViewLayout() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.5)
         scrollView.backgroundColor = .white
@@ -73,21 +106,21 @@ class AthleteViewController: UIViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    private func configureMoreButton() {
+    func configureMoreButton() {
         scrollView.addSubview(findTrainerButton)
         findTrainerButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         findTrainerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        findTrainerButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        findTrainerButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
     }
     
-    private func configureTitleLabel() {
+    func configureTitleLabel() {
         scrollView.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
     
-    private func configureHeaderLayout() {
+    func configureHeaderLayout() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
         headerView.topAnchor.constraint(equalTo: findTrainerButton.bottomAnchor, constant: 0).isActive = true
@@ -96,7 +129,7 @@ class AthleteViewController: UIViewController {
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
     }
     
-    private func configureItemsLayout() {
+    func configureItemsLayout() {
         scrollView.addSubview(itemsView)
         itemsView.translatesAutoresizingMaskIntoConstraints = false
         itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
@@ -105,7 +138,7 @@ class AthleteViewController: UIViewController {
         itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
     }
     
-    private func configureComingTraininLayout() {
+    func configureComingTraininLayout() {
         scrollView.addSubview(comingTrainingView)
         comingTrainingView.translatesAutoresizingMaskIntoConstraints = false
         comingTrainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 20).isActive = true
@@ -114,7 +147,7 @@ class AthleteViewController: UIViewController {
         comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureTrainingLayout() {
+    func configureTrainingLayout() {
         scrollView.addSubview(trainingView)
         trainingView.translatesAutoresizingMaskIntoConstraints = false
         trainingView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 100).isActive = true
@@ -123,7 +156,7 @@ class AthleteViewController: UIViewController {
         trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    private func configureAbonements() {
+    func configureAbonements() {
         scrollView.addSubview(abonementsView)
         abonementsView.translatesAutoresizingMaskIntoConstraints = false
         abonementsView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 100).isActive = true
@@ -132,7 +165,7 @@ class AthleteViewController: UIViewController {
         abonementsView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
-    private func addChildVC() {
+    func addChildVC() {
         view.backgroundColor = .white
         
         let headerViewController = HeaderViewController()
@@ -153,31 +186,10 @@ class AthleteViewController: UIViewController {
         abonementsViewController.currentVC = .athletVC
     }
     
-    private func add(childVC: UIViewController, to containerView: UIView) {
+    func add(childVC: UIViewController, to containerView: UIView) {
         addChild(childVC)
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
     }
-
-    @objc func moreButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        
-        let vc = AthleteParameterViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
-    
-    @objc func findTrainerButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        
-        let nav = UINavigationController(rootViewController: FindTrainerViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
-    }
-    
-    func reloadData() {
-        abonementsViewController.collectionView.reloadData()
-    }
-    
 }
