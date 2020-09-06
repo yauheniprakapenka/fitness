@@ -47,21 +47,30 @@ private extension ProfileAthleteCell {
     func configureDescriptionLabel() {
         addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-        descriptionLabel.textColor = #colorLiteral(red: 0.6077951789, green: 0.6078702807, blue: 0.6077696681, alpha: 1)
+        descriptionLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        descriptionLabel.numberOfLines = 2
+        
+        let widthAnchor: CGFloat = (self.bounds.width / 2) - 4
         
         NSLayoutConstraint.activate([
             descriptionLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor)
+            descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            descriptionLabel.widthAnchor.constraint(equalToConstant: widthAnchor)
         ])
     }
     
     func configureUserDataLabel() {
         addSubview(userDataLabel)
         userDataLabel.translatesAutoresizingMaskIntoConstraints = false
+        userDataLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+        userDataLabel.textAlignment = .right
+        
+        let widthAnchor: CGFloat = (self.bounds.width / 2) - 4
         
         NSLayoutConstraint.activate([
             userDataLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            userDataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor)
+            userDataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            userDataLabel.widthAnchor.constraint(equalToConstant: widthAnchor)
         ])
     }
 }
