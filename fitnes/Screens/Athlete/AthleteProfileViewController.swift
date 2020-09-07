@@ -152,12 +152,7 @@ private extension AthleteProfileViewController {
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.contentMode = .scaleAspectFill
         
-        if let avatar = apiGetUserModel.avatar {
-            let image = Base64Converter.shared.stringToImage(imageBase64String: avatar)
-            avatarImageView.image = image
-        } else {
-            avatarImageView.image = #imageLiteral(resourceName: "fitnes-girl")
-        }
+        SetAvatarImage.shared.set(imageView: avatarImageView)
         
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.cornerRadius = Const.imageSize / 2

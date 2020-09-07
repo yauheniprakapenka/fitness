@@ -21,8 +21,8 @@ class AthleteViewController: UIViewController {
     let abonementsViewController = AbonementsViewController()
     let activityIndicator = FActivityIndicator()
     let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
-    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
-    let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
+//    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Атлет")
+//    let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     var athleteAbonement: [AbonementModel] = [
         AbonementModel(abonementName: "Вечерний",
@@ -38,10 +38,10 @@ class AthleteViewController: UIViewController {
         super.viewDidLoad()
         
         configureScrollViewLayout()
-        configureBackButton()
+//        configureBackButton()
         configureMoreButton()
-        configureTitleLabel()
-        configureHeaderLayout()
+//        configureTitleLabel()
+        configureHeader()
         configureItemsLayout()
         configureComingTraininLayout()
         configureTrainingLayout()
@@ -114,13 +114,13 @@ private extension AthleteViewController {
         activityIndicator.center = view.center
     }
     
-    func configureBackButton() {
-        scrollView.addSubview(backButton)
-        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-    }
+//    func configureBackButton() {
+//        scrollView.addSubview(backButton)
+//        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+//        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+//
+//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+//    }
     
     func configureScrollViewLayout() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -141,16 +141,16 @@ private extension AthleteViewController {
         findTrainerButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
     }
     
-    func configureTitleLabel() {
-        scrollView.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
+//    func configureTitleLabel() {
+//        scrollView.addSubview(titleLabel)
+//        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//    }
     
-    func configureHeaderLayout() {
+    func configureHeader() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: findTrainerButton.bottomAnchor, constant: 0).isActive = true
+        headerView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 80).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
@@ -195,14 +195,16 @@ private extension AthleteViewController {
     func addChildVC() {
         view.backgroundColor = .white
         
-        let headerViewController = HeaderViewController()
-        self.add(childVC: headerViewController, to: self.headerView)
-        headerViewController.nameLabel.text = "Алина Волк"
+        let headerVC = HeaderViewController()
+        self.add(childVC: headerVC, to: self.headerView)
+        headerVC.nameLabel.text = "Безымянный атлет"
+        headerVC.descriptionLabel.text = "У меня все получится!"
+        SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
         
-        let itemsAthleteViewController = ItemsAthleteViewController()
-        self.add(childVC: itemsAthleteViewController, to: self.itemsView)
-        itemsAthleteViewController.actionButton.setTitle("Найти тренера", for: .normal)
-        itemsAthleteViewController.actionButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
+        let itemsAthleteVC = ItemsAthleteViewController()
+        self.add(childVC: itemsAthleteVC, to: self.itemsView)
+        itemsAthleteVC.actionButton.setTitle("Найти тренера", for: .normal)
+        itemsAthleteVC.actionButton.addTarget(self, action: #selector(findTrainerButtonTapped), for: .touchUpInside)
         
         self.add(childVC: ComingTrainingViewController(), to: self.comingTrainingView)
         self.add(childVC: TrainingViewController(), to: self.trainingView)

@@ -90,12 +90,8 @@ private extension RegistrationViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
         
-//        navigationItem.title = "Новый профиль"
-//        let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-//        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
         let cancelButton = UIBarButtonItem(title: "Обратно", style: .plain, target: self, action: #selector(cancelNavigationButtonTapped))
-        cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+        cancelButton.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
         navigationItem.leftBarButtonItem = cancelButton
     }
     
