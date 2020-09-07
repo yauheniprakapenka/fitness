@@ -27,23 +27,24 @@ class FActivityIndicator: UIActivityIndicatorView {
 extension FActivityIndicator {
     
     func startAnimate() {
-        self.startAnimating()
+        DispatchQueue.main.async {
+            self.startAnimating()
+        }
     }
     
     func stopAnimate() {
         self.stopAnimating()
     }
 }
-
-// MARK: - Private methods
-
-private extension FActivityIndicator {
+    // MARK: - Private methods
     
-    func configure() {
-        self.hidesWhenStopped = true
-        self.style = .large
-        self.layer.cornerRadius = 10
-        self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6986001131)
-        self.color = .white
-    }
+    private extension FActivityIndicator {
+        
+        func configure() {
+            self.hidesWhenStopped = true
+            self.style = .large
+            self.layer.cornerRadius = 10
+            self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6986001131)
+            self.color = .white
+        }
 }

@@ -8,61 +8,74 @@
 
 import Foundation
 
-// MARK: - GetUserModel
-struct ApiGetUserModel: Codable {
-    let data: DataClass
-}
-
-// MARK: - DataClass
-struct DataClass: Codable {
-    let id, type: String
-    let links: DataLinks
-    let attributes: Attributes
-    let relationships: Relationships
-}
-
-// MARK: - Attributes
-struct Attributes: Codable {
-    let email, firstName, lastName, phone: String
-
+struct ApiGetUserModel: Decodable {
+    var firstName: String?
+    var lastName: String?
+    var email: String?
+    var phone: String?
+    var birthDate: String?
+    var sex: String?
+    var weight: Int?
+    var id: Int?
+    var purchaseTime: String?
+    var backSquat: Int?
+    var frontSquat: Int?
+    var cleanAndJerk: Int?
+    var snatch: Int?
+    var benchPress: Int?
+    var deadlift: Int?
+    var overheadPress: Int?
+    var subscriptionId: Int?
+    var ticketId: Int?
+    var trainerId: Int?
+    var duration: Int?
+    var visits: Int?
+    var price: Int?
+    var attendanceTime: Int?
+    var trainingId: Int?
+    var tickets: Int?
+    var club: String?
+    var description: String?
+    var trainer: Bool
+    var client: Bool
+    var height: Int?
+    var avatar: String?
+    //      "attendances": [],
+    //      "subscriptions": [],
+   
     enum CodingKeys: String, CodingKey {
+        case id
         case email
-        case firstName = "first-name"
-        case lastName = "last-name"
+        case firstName = "first_name"
+        case lastName = "last_name"
         case phone
+        case birthDate
+        case sex
+        case purchaseTime
+        case weight
+        case backSquat
+        case frontSquat
+        case cleanAndJerk = "clean_and_jerk"
+        case snatch
+        case benchPress
+        case deadlift
+        case overheadPress
+        case subscriptionId
+        case ticketId
+        case trainerId
+        case duration
+        case visits
+        case price
+        case attendanceTime
+        case trainingId
+        case tickets
+        case club
+        case description
+        case trainer
+        case client
+        case height
+        case avatar
     }
 }
 
-// MARK: - DataLinks
-struct DataLinks: Codable {
-    let linksSelf: String
-
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-    }
-}
-
-// MARK: - Relationships
-struct Relationships: Codable {
-    let account, userContacts: Account
-
-    enum CodingKeys: String, CodingKey {
-        case account
-        case userContacts = "user-contacts"
-    }
-}
-
-// MARK: - Account
-struct Account: Codable {
-    let links: AccountLinks
-}
-
-// MARK: - AccountLinks
-struct AccountLinks: Codable {
-    let linksSelf, related: String
-
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case related
-    }
-}
+var apiGetUserModel = ApiGetUserModel(trainer: false, client: false)

@@ -63,6 +63,7 @@ class AthleteViewController: UIViewController {
     }
     
     @objc func profileButtonTapped() {
+        print(apiGetUserModel)
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         let vc = AthleteProfileViewController()

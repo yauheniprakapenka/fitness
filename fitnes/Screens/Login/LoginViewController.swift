@@ -19,20 +19,20 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
-    let contentScrollView = UIScrollView()
-    let backgroundImageView = UIImageView()
-    let activityIndicator = FActivityIndicator()
+    private let contentScrollView = UIScrollView()
+    private let backgroundImageView = UIImageView()
+    private let activityIndicator = FActivityIndicator()
     
-    let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
-    let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
-    let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
-    let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
-    let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
-    let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
+    private let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
+    private let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
+    private let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
+    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
+    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
+    private let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     
-    // MARK: - View Controller Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,10 +60,6 @@ class LoginViewController: UIViewController {
         passwordTextField.text = "123456"
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        activityIndicator.stopAnimating()
-    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         contentScrollView.resizeContentSizeToFitChilds()
@@ -80,10 +76,17 @@ class LoginViewController: UIViewController {
         NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
                 print(tokenModel)
                 NetworkManager.shared.getUser()
                 self.presentProfile()
+                
             case .failure(let failure):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
                 print(failure)
                 self.presentAlertVC(errorMessage: failure.rawValue)
             }
@@ -109,7 +112,7 @@ class LoginViewController: UIViewController {
 // MARK: - Private methods
 
 private extension LoginViewController {
-    
+        
     func configureActivityIndicator() {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center

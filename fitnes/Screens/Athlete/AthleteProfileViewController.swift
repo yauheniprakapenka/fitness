@@ -12,7 +12,7 @@ private extension AthleteProfileViewController {
     enum Const {
         static let avatarTopAnchor: CGFloat = 120
         static let tableViewTopAnchor: CGFloat = 40
-        static let leftRightMargin: CGFloat = 25
+        static let leftRightMargin: CGFloat = 20
         
         static let screenSizeHeight: CGFloat = UIScreen.main.bounds.height
         static let imageSize: CGFloat = Const.screenSizeHeight / 6
@@ -181,13 +181,13 @@ private extension AthleteProfileViewController {
 
 extension AthleteProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        athelteProfileModel.count
+        athleteProfileModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ProfileAthleteCell
         cell.selectionStyle = .none
-        cell.data = athelteProfileModel[indexPath.row]
+        cell.data = athleteProfileModel[indexPath.row]
         return cell
     }
 }
@@ -196,7 +196,7 @@ extension AthleteProfileViewController: UITableViewDataSource {
 
 extension AthleteProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(athelteProfileModel[indexPath.row])
+        print(athleteProfileModel[indexPath.row])
     }
 }
 
@@ -205,7 +205,7 @@ extension AthleteProfileViewController: UITableViewDelegate {
 extension AthleteProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
- 
+        
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             dismiss(animated: true)
             return
