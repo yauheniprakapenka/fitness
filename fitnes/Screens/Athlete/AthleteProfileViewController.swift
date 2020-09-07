@@ -70,7 +70,7 @@ private extension AthleteProfileViewController {
         print(#function)
         
         let alert = UIAlertController(title: "Добавить фото", message: "Выберите изображение для вашего профиля", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Камерта", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
             self.openCamera()
         }))
         
@@ -100,7 +100,7 @@ private extension AthleteProfileViewController {
     }
     
     func configureBackNavigationButton() {
-        let backButton = UIBarButtonItem(title: "Вернуться", style: .plain, target: self, action: #selector(backButtonTapped))
+        let backButton = UIBarButtonItem(title: "Обратно", style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem  = backButton
         navigationItem.leftBarButtonItem?.tintColor = #colorLiteral(red: 0.4548649788, green: 0.4549226761, blue: 0.4548452497, alpha: 1)
     }
@@ -151,7 +151,19 @@ private extension AthleteProfileViewController {
         avatarContainerView.addSubview(avatarImageView)
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.contentMode = .scaleAspectFill
-        avatarImageView.image = #imageLiteral(resourceName: "Screenshot 08-12-2020 23.44.58")
+        
+//        avatarImageView.image = Base64Converter.shared.convertBase64StringToImage(imageBase64String: )
+//        if apiGetUserModel.avatar == nil {
+//            avatarImageView.image = #imageLiteral(resourceName: "fitnes-girl")
+//        } else {
+//
+//        }
+        
+        if let avatar = apiGetUserModel.avatar {
+            let image = Base64Converter.shared.stringToImage(imageBase64String: avatar)
+            avatarImageView.image = image
+        }
+        
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.cornerRadius = Const.imageSize / 2
         

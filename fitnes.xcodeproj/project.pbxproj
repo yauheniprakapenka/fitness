@@ -22,6 +22,7 @@
 		3E3D928124E8555800EEE0C6 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928024E8555800EEE0C6 /* RegistrationViewController.swift */; };
 		3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928224E864F800EEE0C6 /* AbonementModel.swift */; };
 		3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */; };
+		3E421A012506D32800BFD0D5 /* Base64Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E421A002506D32800BFD0D5 /* Base64Converter.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
@@ -144,6 +145,7 @@
 		3E3D928024E8555800EEE0C6 /* RegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		3E3D928224E864F800EEE0C6 /* AbonementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementModel.swift; sourceTree = "<group>"; };
 		3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		3E421A002506D32800BFD0D5 /* Base64Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Converter.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
@@ -318,6 +320,14 @@
 				3EE3900B24BCE78D003AF6D8 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		3E4219FF2506D30C00BFD0D5 /* Base64Converter */ = {
+			isa = PBXGroup;
+			children = (
+				3E421A002506D32800BFD0D5 /* Base64Converter.swift */,
+			);
+			path = Base64Converter;
 			sourceTree = "<group>";
 		};
 		3E444A6F24D1C7880004B978 /* CustomViews */ = {
@@ -555,6 +565,7 @@
 		3EE2DDE124C0D8A100D85CAE /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				3E4219FF2506D30C00BFD0D5 /* Base64Converter */,
 				3ED8381624F10A3D00C12B42 /* GeolocationConverter */,
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3E60118824E9844800CAE51B /* ColorConverter */,
@@ -888,6 +899,7 @@
 				3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
 				3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */,
+				3E421A012506D32800BFD0D5 /* Base64Converter.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,

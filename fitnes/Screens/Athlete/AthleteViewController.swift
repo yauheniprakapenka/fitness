@@ -19,7 +19,7 @@ class AthleteViewController: UIViewController {
     let trainingView = UIView()
     let abonementsView = UIView()
     let abonementsViewController = AbonementsViewController()
-    
+    let activityIndicator = FActivityIndicator()
     let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль атлета")
     let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
@@ -46,7 +46,7 @@ class AthleteViewController: UIViewController {
         configureComingTraininLayout()
         configureTrainingLayout()
         configureAbonements()
-        
+        configureActivityIndicator()
         addChildVC()
     }
     
@@ -55,39 +55,64 @@ class AthleteViewController: UIViewController {
         
         abonementsViewController.currentVC = .athletVC
     }
+}
+
+// MARK: - Actions
+
+private extension AthleteViewController {
     
-    // MARK: - Actions
-    
-    @objc private func backButtonTapped() {
+    @objc
+    func backButtonTapped() {
         dismiss(animated: true)
     }
     
-    @objc func profileButtonTapped() {
-        print(apiGetUserModel)
+    @objc
+    func profileButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
-        let vc = AthleteProfileViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimate()
+        }
+        
+        NetworkManager.shared.getUser {
+            DispatchQueue.main.async {
+                let vc = AthleteProfileViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+                self.activityIndicator.stopAnimate()
+            }
+            print(apiGetUserModel)
+        }
     }
     
-    @objc func findTrainerButtonTapped() {
+    @objc
+    func findTrainerButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         let nav = UINavigationController(rootViewController: FindTrainerViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
-    
-    // MARK: - Public methods
+}
+
+// MARK: - Public methods
+
+extension AthleteViewController {
     
     func reloadData() {
         abonementsViewController.collectionView.reloadData()
     }
 }
 
+// MARK: - Private methods
+
 private extension AthleteViewController {
+    
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
     
     func configureBackButton() {
         scrollView.addSubview(backButton)
