@@ -23,6 +23,7 @@
 		3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D928224E864F800EEE0C6 /* AbonementModel.swift */; };
 		3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */; };
 		3E421A012506D32800BFD0D5 /* Base64Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E421A002506D32800BFD0D5 /* Base64Converter.swift */; };
+		3E421A032506DF4B00BFD0D5 /* SetAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E421A022506DF4B00BFD0D5 /* SetAvatarImage.swift */; };
 		3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */; };
 		3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA624D1E5230004B978 /* FAvatarImageView.swift */; };
 		3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E444AA924D1E5830004B978 /* HeaderViewController.swift */; };
@@ -146,6 +147,7 @@
 		3E3D928224E864F800EEE0C6 /* AbonementModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementModel.swift; sourceTree = "<group>"; };
 		3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		3E421A002506D32800BFD0D5 /* Base64Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base64Converter.swift; sourceTree = "<group>"; };
+		3E421A022506DF4B00BFD0D5 /* SetAvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetAvatarImage.swift; sourceTree = "<group>"; };
 		3E444AA324D1E4B70004B978 /* ComingTrainingCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComingTrainingCollectionCell.swift; sourceTree = "<group>"; };
 		3E444AA624D1E5230004B978 /* FAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FAvatarImageView.swift; sourceTree = "<group>"; };
 		3E444AA924D1E5830004B978 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 				3E0CDED724EB2EE3001546CD /* QRGenerator */,
 				3EEB9C2324D9FE6B00E1EC0B /* RoleConverter */,
 				3EE586F924DFAFA000CA0530 /* Validation */,
+				3E421A022506DF4B00BFD0D5 /* SetAvatarImage.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -908,6 +911,7 @@
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,
 				3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */,
+				3E421A032506DF4B00BFD0D5 /* SetAvatarImage.swift in Sources */,
 				3E60118A24E9845A00CAE51B /* ColorConverter.swift in Sources */,
 				3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */,
 				3EE586FC24DFAFCE00CA0530 /* DayOfWeekConverter.swift in Sources */,
