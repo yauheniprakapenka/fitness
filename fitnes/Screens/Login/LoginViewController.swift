@@ -30,7 +30,7 @@ class LoginViewController: UIViewController {
     private let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
     private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
     private let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
-    private let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
+    private let createNewAccountButton = FButtonSimple(title: "Создать новый профиль", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     
     // MARK: - View Life Cycle
     
@@ -230,7 +230,7 @@ private extension LoginViewController {
     func configureContinueButton() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.bottomAnchor.constraint(equalTo: createNewAccountButton.topAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: createNewAccountButton.topAnchor, constant: -30).isActive = true
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
         loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

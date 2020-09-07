@@ -23,7 +23,7 @@ class ProfileAthleteCell: UITableViewCell {
                 descriptionLabel.text = description
             }
             
-            if athleteData.userData == "0" || athleteData.userData == nil {
+            if athleteData.userData == "0" || athleteData.userData == nil || athleteData.userData == "" {
                 userDataLabel.text = "Не указано"
                 userDataLabel.textColor = #colorLiteral(red: 0.2012411571, green: 0.711050549, blue: 0.6543387656, alpha: 1)
             } else {

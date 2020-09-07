@@ -29,18 +29,10 @@ class RegistrationViewController: UIViewController {
     var scrollView: UIScrollView!
     private let activityIndicator = FActivityIndicator()
     
-    private let lastnameLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Фамилия")
-    private let lastnameTextField = FTextField(placeholderText: "Введите фамилию", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    private let firstnameLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Имя")
-    private let firstnameTextField = FTextField(placeholderText: "Введите имя", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    private let emailLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "email")
+    private let emailLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Почта")
     private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    private let phoneLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Телефон")
-    private let phoneTextField = FTextField(placeholderText: "Введите телефон", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
     private let passwordLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Пароль")
     private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    private let passwordRepeatLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Повторите пароль")
-    private let passwordRepeatTextField = FTextField(placeholderText: "Повторите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
     private let createUserButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать профиль", size: 18)
     
     private let trainerContainerView = UIView()
@@ -59,19 +51,11 @@ class RegistrationViewController: UIViewController {
         configureNavigation()
         
         configureScrollViewFrame()
-        
-        configureView(view: lastnameLabel, topAnchor: scrollView)
-        configureView(view: lastnameTextField, topAnchor: lastnameLabel)
-        configureView(view: firstnameLabel, topAnchor: lastnameTextField)
-        configureView(view: firstnameTextField, topAnchor: firstnameLabel)
-        configureView(view: emailLabel, topAnchor: firstnameTextField)
+
+        configureView(view: emailLabel, topAnchor: scrollView)
         configureView(view: emailTextField, topAnchor: emailLabel)
-        configureView(view: phoneLabel, topAnchor: emailTextField)
-        configureView(view: phoneTextField, topAnchor: phoneLabel)
-        configureView(view: passwordLabel, topAnchor: phoneTextField)
+        configureView(view: passwordLabel, topAnchor: emailTextField)
         configureView(view: passwordTextField, topAnchor: passwordLabel)
-        configureView(view: passwordRepeatLabel, topAnchor: passwordTextField)
-        configureView(view: passwordRepeatTextField, topAnchor: passwordRepeatLabel)
         configureCreateUserButton()
         
         configureScrollView()
@@ -80,12 +64,8 @@ class RegistrationViewController: UIViewController {
         configureRadioButton()
         
         // test data
-        lastnameTextField.text = "Mouse"
-        firstnameTextField.text = "Mickey"
         emailTextField.text = "mickey@mouse4.com"
-        phoneTextField.text = "79262001813"
         passwordTextField.text = "123456"
-        passwordRepeatTextField.text = "123456"
     }
 }
 
@@ -110,11 +90,11 @@ private extension RegistrationViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
         
-        navigationItem.title = "Новый профиль"
-        let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
+//        navigationItem.title = "Новый профиль"
+//        let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
+//        navigationController?.navigationBar.titleTextAttributes = textAttributes
         
-        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelNavigationButtonTapped))
+        let cancelButton = UIBarButtonItem(title: "Обратно", style: .plain, target: self, action: #selector(cancelNavigationButtonTapped))
         cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
         navigationItem.leftBarButtonItem = cancelButton
     }
@@ -162,10 +142,10 @@ private extension RegistrationViewController {
         fRadioButtonView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            fRadioButtonView.topAnchor.constraint(equalTo: passwordRepeatTextField.bottomAnchor, constant: Const.bottomAnchor),
+            fRadioButtonView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Const.bottomAnchor + 20),
             fRadioButtonView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Const.leftMargin),
             fRadioButtonView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: Const.rightMargin),
-            fRadioButtonView.heightAnchor.constraint(equalToConstant: 140)
+            fRadioButtonView.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     
@@ -183,12 +163,9 @@ private extension RegistrationViewController {
     }
     
     func saveUserDataToModel() {
-        currentProfile.firstName = firstnameTextField.text
-        currentProfile.lastName = lastnameTextField.text
         currentProfile.password = passwordTextField.text
-        currentProfile.passwordConfirmation = passwordRepeatTextField.text
+        currentProfile.passwordConfirmation = passwordTextField.text
         currentProfile.email = emailTextField.text
-        currentProfile.phone = phoneTextField.text
     }
     
     func displaySuccessAlert() {
