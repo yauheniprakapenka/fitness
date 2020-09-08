@@ -48,6 +48,11 @@ class AthleteProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateProfileModel()
+        
+        print("\nОтвет от сервера\n\(apiGetUserModel)\n")
+        print("\nМоделька для table view\n\(athleteProfileModel)\n")
+        
         configureView()
         configureNavigationBar()
         configureBackNavigationButton()
@@ -67,8 +72,6 @@ private extension AthleteProfileViewController {
     
     @objc
     private func avatarTapped() {
-        print(#function)
-        
         let alert = UIAlertController(title: "Добавить фото", message: "Выберите изображение для вашего профиля", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
             self.openCamera()

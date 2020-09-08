@@ -18,6 +18,7 @@ class AthleteViewController: UIViewController {
     let comingTrainingView = UIView()
     let trainingView = UIView()
     let abonementsView = UIView()
+    let headerVC = HeaderViewController()
     let abonementsViewController = AbonementsViewController()
     let activityIndicator = FActivityIndicator()
     let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
@@ -37,9 +38,11 @@ class AthleteViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        updateProfileModel()
+        
         configureScrollViewLayout()
-//        configureBackButton()
         configureMoreButton()
+//        configureBackButton()
 //        configureTitleLabel()
         configureHeader()
         configureItemsLayout()
@@ -47,6 +50,7 @@ class AthleteViewController: UIViewController {
         configureTrainingLayout()
         configureAbonements()
         configureActivityIndicator()
+        
         addChildVC()
     }
     
@@ -54,6 +58,9 @@ class AthleteViewController: UIViewController {
         super.viewWillAppear(true)
         
         abonementsViewController.currentVC = .athletVC
+        SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
+        SetProfileName.shared.set(label: headerVC.nameLabel)
+        SetProflleDescription.shared.set(label: headerVC.descriptionLabel)
     }
 }
 
@@ -195,7 +202,6 @@ private extension AthleteViewController {
     func addChildVC() {
         view.backgroundColor = .white
         
-        let headerVC = HeaderViewController()
         self.add(childVC: headerVC, to: self.headerView)
         headerVC.nameLabel.text = "Безымянный атлет"
         headerVC.descriptionLabel.text = "У меня все получится!"
