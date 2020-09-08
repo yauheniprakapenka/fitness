@@ -22,8 +22,6 @@ class AthleteViewController: UIViewController {
     let abonementsViewController = AbonementsViewController()
     let activityIndicator = FActivityIndicator()
     let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
-//    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Атлет")
-//    let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     var athleteAbonement: [AbonementModel] = [
         AbonementModel(abonementName: "Вечерний",
@@ -42,8 +40,6 @@ class AthleteViewController: UIViewController {
         
         configureScrollViewLayout()
         configureMoreButton()
-//        configureBackButton()
-//        configureTitleLabel()
         configureHeader()
         configureItemsLayout()
         configureComingTraininLayout()
@@ -121,14 +117,6 @@ private extension AthleteViewController {
         activityIndicator.center = view.center
     }
     
-//    func configureBackButton() {
-//        scrollView.addSubview(backButton)
-//        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-//        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-//
-//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-//    }
-    
     func configureScrollViewLayout() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.5)
@@ -147,12 +135,6 @@ private extension AthleteViewController {
         
         findTrainerButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
     }
-    
-//    func configureTitleLabel() {
-//        scrollView.addSubview(titleLabel)
-//        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//    }
     
     func configureHeader() {
         scrollView.addSubview(headerView)
