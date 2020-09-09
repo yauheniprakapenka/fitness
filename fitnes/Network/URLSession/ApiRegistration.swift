@@ -9,9 +9,9 @@
 import Foundation
 
 extension NetworkManager {
-    func makeRegistration(profile: ProfileModel,
+    func makeRegistration(profile: CurrentProfileModel,
                           role: RoleEnum,
-                          resultCompletion: @escaping (Result<RegistrationModel, ApiErrorEnum>) -> Void,
+                          resultCompletion: @escaping (Result<ApiRegistrationModel, ApiErrorEnum>) -> Void,
                           completion: (() -> Void)? = nil) {
         
         let firstName = profile.firstName ?? ""
@@ -22,15 +22,14 @@ extension NetworkManager {
         let email = profile.email ?? ""
         let phone = profile.phone ?? ""
         
-        let postString = "first_name=\(firstName)&last_name=\(lastName)&password=\(password)&password_confirmation=\(passwordConfirmation)&\(role)&email=\(email)&phone=\(phone)"
-        
         let url = URL(string: baseURL + registration)
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
         
-        request.httpBody = postString.data(using: String.Encoding.utf8)
+        let bodyData = "first_name=\(firstName)&last_name=\(lastName)&password=\(password)&password_confirmation=\(passwordConfirmation)&\(role)&email=\(email)&phone=\(phone)"
+        request.httpBody = bodyData.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -42,11 +41,11 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let responseRegistration = try decoder.decode(RegistrationModel.self, from: data)
+                let responseRegistration = try decoder.decode(ApiRegistrationModel.self, from: data)
                 print(responseRegistration)
                 
                 if let userId = responseRegistration.userId {
-                    registrationModel.userId = userId
+                    apiRegistrationModel.userId = userId
                 }
 
                 if let responseMessage = responseRegistration.message {

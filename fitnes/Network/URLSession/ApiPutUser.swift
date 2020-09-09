@@ -1,22 +1,35 @@
 //
-//  ApiGetUser.swift
+//  ApiUdpateUser.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 02.09.2020.
+//  Created by yauheni prakapenka on 06.09.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
 import Foundation
 
 extension NetworkManager {
-    func getUser(completion: (() -> Void)? = nil) {
+    
+    func putUser(bodyData: AthelteProfileModel, completion: (() -> Void)? = nil) {
         
         let url = URL(string: baseURL + users + GetUserId.getUserId())
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
-        request.httpMethod = "GET"
+        request.httpMethod = "PUT"
         request.setValue("application/json", forHTTPHeaderField: "content-type")
+        
+        var jsonString = ""
+       
+        if bodyData.userDataInt != nil {
+            jsonString = "{\"\(bodyData.apiName ?? "")\":\(bodyData.userDataInt ?? 0)}"
+        } else if bodyData.userDataString != nil {
+            jsonString = "{\"\(bodyData.apiName ?? "")\":\"\(bodyData.userDataString ?? "string error")\"}"
+        } else {
+            print("Error: unknown user data type")
+        }
+        
+        request.httpBody = jsonString.data(using: String.Encoding.utf8)
         
         let accessToken = "Bearer \(apiTokenModel.accessToken ?? "missingToken")"
         request.setValue(accessToken, forHTTPHeaderField: "authorization")

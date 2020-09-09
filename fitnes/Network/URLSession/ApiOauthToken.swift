@@ -9,15 +9,16 @@
 import Foundation
 
 extension NetworkManager {
-    func getToken(email: String, password: String, completion: @escaping (Result<TokenModel, ApiErrorEnum>) -> Void) {
-        let postString = "grant_type=password&email=\(email)&password=\(password)"
+    func getToken(email: String, password: String, completion: @escaping (Result<ApiTokenModel, ApiErrorEnum>) -> Void) {
         
         let url = URL(string: baseURL + oauthToken)
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
-        request.httpBody = postString.data(using: String.Encoding.utf8)
+        
+        let bodyData = "grant_type=password&email=\(email)&password=\(password)"
+        request.httpBody = bodyData.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -29,9 +30,9 @@ extension NetworkManager {
             
             do {
                 let decoder = JSONDecoder()
-                let responseToken = try decoder.decode(TokenModel.self, from: data)
+                let responseToken = try decoder.decode(ApiTokenModel.self, from: data)
                 print(responseToken)
-                tokenModel = responseToken
+                apiTokenModel = responseToken
                 
                 if let responseToken = responseToken.error {
                     switch responseToken {
@@ -46,10 +47,10 @@ extension NetworkManager {
                     }
                 }
                 
-                tokenModel = responseToken
+                apiTokenModel = responseToken
                 
-                if tokenModel.accessToken != nil {
-                    completion(.success(tokenModel))
+                if apiTokenModel.accessToken != nil {
+                    completion(.success(apiTokenModel))
                 }
             } catch let error {
                 print(error)

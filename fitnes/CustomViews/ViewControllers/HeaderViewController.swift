@@ -48,7 +48,7 @@ class HeaderViewController: UIViewController {
     
     private func configureUIElements() {
         avatarImageView.image = #imageLiteral(resourceName: "photo-1476480862126-209bfaa8edc8")
-        nameLabel.text = "\(profileInfoModel.firstName) \(profileInfoModel.lastName)"
+        nameLabel.text = "test test"
         descriptionLabel.text = "А ну-ка быстро бросай булку хлеба"
     }
 }

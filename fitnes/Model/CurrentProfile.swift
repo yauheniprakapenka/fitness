@@ -1,12 +1,12 @@
 //
-//  ProfileModel.swift
+//  CurrentProfile.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 02.09.2020.
+//  Created by yauheni prakapenka on 06.09.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct ProfileModel {
+struct CurrentProfileModel {
     var trainer: String?
     var client: String?
     var email: String?
@@ -17,7 +17,7 @@ struct ProfileModel {
     var phone: String?
 }
 
-var profile = ProfileModel(trainer: nil,
+var currentProfile = CurrentProfileModel(trainer: nil,
                            client: nil,
                            email: nil,
                            password: nil,

@@ -27,30 +27,23 @@ private extension RegistrationViewController {
 
 class RegistrationViewController: UIViewController {
     var scrollView: UIScrollView!
+    private let activityIndicator = FActivityIndicator()
     
-    let lastnameLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Фамилия")
-    let lastnameTextField = FTextField(placeholderText: "Введите фамилию", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let firstnameLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Имя")
-    let firstnameTextField = FTextField(placeholderText: "Введите имя", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let emailLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "email")
-    let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let phoneLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Телефон")
-    let phoneTextField = FTextField(placeholderText: "Введите телефон", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let passwordLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Пароль")
-    let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let passwordRepeatLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Повторите пароль")
-    let passwordRepeatTextField = FTextField(placeholderText: "Повторите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let createUserButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать профиль", size: 18)
+    private let emailLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Почта")
+    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let passwordLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Пароль")
+    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let createUserButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать профиль", size: 18)
     
-    let trainerContainerView = UIView()
-    let athleteContainerView = UIView()
+    private let trainerContainerView = UIView()
+    private let athleteContainerView = UIView()
     
 //    var currentRole: RoleEnum = .trainer
     
-    let trainerVioletCircle = UIView()
-    let athleteVioletCircle = UIView()
+    private let trainerVioletCircle = UIView()
+    private let athleteVioletCircle = UIView()
     
-    let fRadioButtonView = FRadioButtonView()
+    private let fRadioButtonView = FRadioButtonView()
     
     override func viewDidLoad() {
         configureView()
@@ -58,38 +51,32 @@ class RegistrationViewController: UIViewController {
         configureNavigation()
         
         configureScrollViewFrame()
-        
-        configureView(view: lastnameLabel, topAnchor: scrollView)
-        configureView(view: lastnameTextField, topAnchor: lastnameLabel)
-        configureView(view: firstnameLabel, topAnchor: lastnameTextField)
-        configureView(view: firstnameTextField, topAnchor: firstnameLabel)
-        configureView(view: emailLabel, topAnchor: firstnameTextField)
+
+        configureView(view: emailLabel, topAnchor: scrollView)
         configureView(view: emailTextField, topAnchor: emailLabel)
-        configureView(view: phoneLabel, topAnchor: emailTextField)
-        configureView(view: phoneTextField, topAnchor: phoneLabel)
-        configureView(view: passwordLabel, topAnchor: phoneTextField)
+        configureView(view: passwordLabel, topAnchor: emailTextField)
         configureView(view: passwordTextField, topAnchor: passwordLabel)
-        configureView(view: passwordRepeatLabel, topAnchor: passwordTextField)
-        configureView(view: passwordRepeatTextField, topAnchor: passwordRepeatLabel)
         configureCreateUserButton()
         
         configureScrollView()
+        configureActivityIndicator()
         
         configureRadioButton()
         
         // test data
-        lastnameTextField.text = "Mickey"
-        firstnameTextField.text = "Mouse"
-        emailTextField.text = "mickey@mouse2.com"
-        phoneTextField.text = "79262001813"
+        emailTextField.text = "mickey@mouse4.com"
         passwordTextField.text = "123456"
-        passwordRepeatTextField.text = "123456"
     }
 }
 
 // MARK: - Private methods
 
 private extension RegistrationViewController {
+    
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
     
     func configureView() {
         view.backgroundColor = .white
@@ -103,12 +90,8 @@ private extension RegistrationViewController {
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.view.backgroundColor = .clear
         
-        navigationItem.title = "Новый профиль"
-        let textAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white]
-        navigationController?.navigationBar.titleTextAttributes = textAttributes
-        
-        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelNavigationButtonTapped))
-        cancelButton.setTitleTextAttributes([NSAttributedString.Key.foregroundColor : UIColor.white], for: .normal)
+        let cancelButton = UIBarButtonItem(title: "Обратно", style: .plain, target: self, action: #selector(cancelNavigationButtonTapped))
+        cancelButton.setTitleTextAttributes([.foregroundColor : UIColor.white], for: .normal)
         navigationItem.leftBarButtonItem = cancelButton
     }
     
@@ -155,10 +138,10 @@ private extension RegistrationViewController {
         fRadioButtonView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            fRadioButtonView.topAnchor.constraint(equalTo: passwordRepeatTextField.bottomAnchor, constant: Const.bottomAnchor),
+            fRadioButtonView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Const.bottomAnchor + 20),
             fRadioButtonView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor, constant: Const.leftMargin),
             fRadioButtonView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: Const.rightMargin),
-            fRadioButtonView.heightAnchor.constraint(equalToConstant: 140)
+            fRadioButtonView.heightAnchor.constraint(equalToConstant: 120)
         ])
     }
     
@@ -176,12 +159,9 @@ private extension RegistrationViewController {
     }
     
     func saveUserDataToModel() {
-        profile.firstName = firstnameTextField.text
-        profile.lastName = lastnameTextField.text
-        profile.password = passwordTextField.text
-        profile.passwordConfirmation = passwordRepeatTextField.text
-        profile.email = emailTextField.text
-        profile.phone = phoneTextField.text
+        currentProfile.password = passwordTextField.text
+        currentProfile.passwordConfirmation = passwordTextField.text
+        currentProfile.email = emailTextField.text
     }
     
     func displaySuccessAlert() {
@@ -205,16 +185,17 @@ private extension RegistrationViewController {
     }
     
     func presentVC() {
-        if let client = tokenModel.client {
+        if let client = apiTokenModel.client {
             if client {
                 DispatchQueue.main.async {
                     let vc = AthleteViewController()
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true)
                 }
             }
         }
 
-        if let trainer = tokenModel.trainer {
+        if let trainer = apiTokenModel.trainer {
             if trainer {
                 DispatchQueue.main.async {
                     let vc = TrainerViewController()
@@ -236,13 +217,20 @@ private extension RegistrationViewController {
     
     @objc
     func createButtonTapped() {
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimate()
+        }
+        
         saveUserDataToModel()
         
-        NetworkManager.shared.makeRegistration(profile: profile, role: fRadioButtonView.currentRole, resultCompletion: { (result) in
+        NetworkManager.shared.makeRegistration(profile: currentProfile, role: fRadioButtonView.currentRole, resultCompletion: { (result) in
             switch result {
             case .success(let response):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimate()
+                }
                 print(response)
-                NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "") { (result) in
+                NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "") { (result) in
                     switch result {
                     case .success(let success):
                         print(success)
@@ -254,6 +242,9 @@ private extension RegistrationViewController {
                     }
                 }
             case .failure(let error):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimate()
+                }
                 print(error.rawValue)
                 self.displayFailedAlert(message: error.rawValue)
             }

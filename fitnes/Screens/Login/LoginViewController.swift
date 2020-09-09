@@ -19,19 +19,20 @@ class LoginViewController: UIViewController {
     
     // MARK: - Properties
     
-    let contentScrollView = UIScrollView()
-    let backgroundImageView = UIImageView()
+    private let contentScrollView = UIScrollView()
+    private let backgroundImageView = UIImageView()
+    private let activityIndicator = FActivityIndicator()
     
-    let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
-    let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
-    let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
-    let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
-    let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
-    let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
-    let createNewAccountButton = FButtonSimple(title: "Создать новый аккаунт", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
+    private let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
+    private let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
+    private let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
+    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
+    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
+    private let createNewAccountButton = FButtonSimple(title: "Создать новый профиль", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     
-    // MARK: - View Controller Life Cycle
+    // MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,11 +51,12 @@ class LoginViewController: UIViewController {
         
         configureCreateNewAccountButton()
         configureContinueButton()
+        configureActivityIndicator()
         
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
         
         // test data
-        emailTextField.text = "mickey@mouse2.com"
+        emailTextField.text = "mickey@mouse2.coma"
         passwordTextField.text = "123456"
     }
     
@@ -68,15 +70,23 @@ class LoginViewController: UIViewController {
     @objc
     func loginButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
+        activityIndicator.startAnimate()
         saveUserDataToModel()
         
-        NetworkManager.shared.getToken(email: profile.email ?? "", password: profile.password ?? "", completion: { (result) in
+        NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
                 print(tokenModel)
                 NetworkManager.shared.getUser()
                 self.presentProfile()
+                
             case .failure(let failure):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
                 print(failure)
                 self.presentAlertVC(errorMessage: failure.rawValue)
             }
@@ -102,6 +112,11 @@ class LoginViewController: UIViewController {
 // MARK: - Private methods
 
 private extension LoginViewController {
+        
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
     
     func presentAlertVC(errorMessage: String) {
         DispatchQueue.main.async {
@@ -115,7 +130,7 @@ private extension LoginViewController {
     
     func presentProfile() {
         DispatchQueue.main.async {
-            if let client = tokenModel.client {
+            if let client = apiTokenModel.client {
                 if client {
                     let vc = AthleteViewController()
                     vc.modalPresentationStyle = .fullScreen
@@ -124,7 +139,7 @@ private extension LoginViewController {
                 }
             }
             
-            if let trainer = tokenModel.trainer {
+            if let trainer = apiTokenModel.trainer {
                 if trainer {
                     let vc = TrainerViewController()
                     vc.modalPresentationStyle = .fullScreen
@@ -137,8 +152,8 @@ private extension LoginViewController {
     }
     
     func saveUserDataToModel() {
-        profile.email = emailTextField.text
-        profile.password = passwordTextField.text
+        currentProfile.email = emailTextField.text
+        currentProfile.password = passwordTextField.text
     }
     
     func configureRootScrollView() {
@@ -215,7 +230,7 @@ private extension LoginViewController {
     func configureContinueButton() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.bottomAnchor.constraint(equalTo: createNewAccountButton.topAnchor, constant: -20).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: createNewAccountButton.topAnchor, constant: -30).isActive = true
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
         loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true

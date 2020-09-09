@@ -6,7 +6,7 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-struct TokenModel: Decodable {
+struct ApiTokenModel: Decodable {
     var accessToken: String?
     var tokenType: String?
     var error: String?
@@ -26,4 +26,4 @@ struct TokenModel: Decodable {
     }
 }
 
-var tokenModel = TokenModel(trainer: false, client: false)
+var apiTokenModel = ApiTokenModel(trainer: false, client: false)
