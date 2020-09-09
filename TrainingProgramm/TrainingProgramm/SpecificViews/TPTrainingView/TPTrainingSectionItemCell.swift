@@ -33,30 +33,14 @@ public class TPTrainingSectionItemCell: UITableViewCell {
     // MARK: - Main Interface
     public func configure(withTitle title: String,
                           sectionItem: TPTrainingSectionItem,
+                          exercises: [TPExercise],
                           viewDelegate: TPTrainingSectionItemContentViewDelegate,
                           userData: [AnyHashable: Any]) {
         
         cellContentView.titleText = title
         cellContentView.viewDelegate = viewDelegate
         cellContentView.userData = userData
-        if let profileValue = sectionItem.profileValue {
-            cellContentView.profileValueInputView.text = "\(profileValue)"
-        }
-        if let koefficient = sectionItem.koeff {
-            cellContentView.koefficientInputView.text = "\(koefficient * 100)"
-        }
-        if let weightMan = sectionItem.weightForManKg {
-            cellContentView.weightMan.text = "\(weightMan)"
-        }
-        if let weightWoman = sectionItem.weightForWomanKg {
-            cellContentView.weightWoman.text = "\(weightWoman)"
-        }
-        if let repeats = sectionItem.repeats {
-            cellContentView.repeatsInputView.text = "\(repeats)"
-        }
-        if let distanceMeters = sectionItem.distanceMeters {
-            cellContentView.distanceInputView.text = "\(distanceMeters)"
-        }
-        
+        cellContentView.configure(with: exercises)
+        cellContentView.configure(with: sectionItem)
     }
 }

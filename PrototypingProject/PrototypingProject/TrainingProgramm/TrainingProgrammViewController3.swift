@@ -14,6 +14,14 @@ class TrainingProgrammViewController3: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let exercises = [
+            TPExercise(name: "Прыжки", inventory: nil, description: nil, video: nil),
+            TPExercise(name: "Кувырки", inventory: nil, description: nil, video: nil),
+            TPExercise(name: "Подтягивания", inventory: nil, description: nil, video: nil),
+        ]
+        listView.configure(withAllowedExercises: exercises)
+        
         //listView.viewDelegate = self
         //listView.refreshData()
     }

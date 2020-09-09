@@ -23,6 +23,7 @@ public class TPTrainingSectionsItemListView: UIStackView {
     public weak var viewDelegate: TPTrainingSectionsItemListViewDelegate?
     
     private var heightConstraints: [NSLayoutConstraint] = []
+    private var exercises = [TPExercise]()
     
     // MARK: - Init
     public override init(frame: CGRect) {
@@ -41,6 +42,11 @@ public class TPTrainingSectionsItemListView: UIStackView {
     }
     
     // MARK: - Main Interface
+    public func configure(with exercises: [TPExercise]) {
+        self.exercises = exercises
+        refreshData()
+    }
+    
     public func refreshData() {
         for view in arrangedSubviews {
             removeArrangedSubview(view)
@@ -58,6 +64,7 @@ public class TPTrainingSectionsItemListView: UIStackView {
             view.userData = userData
             view.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
             view.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+            view.configure(with: exercises)
             let heightConstraint = view.heightAnchor.constraint(equalToConstant: Const.collapsedItemHeight)
             heightConstraint.isActive = true
             heightConstraints.append(heightConstraint)
@@ -71,10 +78,5 @@ extension TPTrainingSectionsItemListView: TPTrainingSectionItemContentViewDelega
         
     }
     
-    public func tpTrainingSectionItemContentWillNeedAnimateHeightChange(_ sender: TPTrainingSectionItemContentView, heightDelta: CGFloat, animationDuration: TimeInterval, userData: [AnyHashable : Any]?) {
-        guard let index = userData?["Index"] as? Int else {
-            fatalError()
-        }
-        // not used
-    }
+    public func tpTrainingSectionItemContentWillNeedAnimateHeightChange(_ sender: TPTrainingSectionItemContentView, heightDelta: CGFloat, animationDuration: TimeInterval, userData: [AnyHashable : Any]?) {}
 }

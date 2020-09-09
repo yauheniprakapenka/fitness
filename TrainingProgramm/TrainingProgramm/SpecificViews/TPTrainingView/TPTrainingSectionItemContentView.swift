@@ -35,33 +35,6 @@ public extension TPTrainingSectionItemContentView {
     }
 }
 
-public extension TPTrainingSectionItemContentView {
-    struct ViewData {
-        public var exerciseName: String?
-        public var koeff: Int?
-        public var defaultWeightMan: Int?
-        public var defaultWeightWoman: Int?
-        public var repeats: Int?
-        public var distance: Int?
-        
-        public init(
-            exerciseName: String?,
-            koeff: Int?,
-            defaultWeightMan: Int?,
-            defaultWeightWoman: Int?,
-            repeats: Int?,
-            distance: Int?
-        ) {
-            self.exerciseName = exerciseName
-            self.koeff = koeff
-            self.defaultWeightMan = defaultWeightMan
-            self.defaultWeightWoman = defaultWeightWoman
-            self.repeats = repeats
-            self.distance = distance
-        }
-    }
-}
-
 private extension TPTrainingSectionItemContentView {
     enum Const {
         static let titleLabelDecoration: Decoration<UILabel> = { label in
@@ -73,6 +46,7 @@ private extension TPTrainingSectionItemContentView {
         static let offsetTopInputFields: CGFloat = 15
         static let offsetLeftRightAllFields: CGFloat = 25
         static let offsetInnerSpaceTwoViews: CGFloat = 15
+        static let inputFieldRowHeight: CGFloat = 50
     }
 }
 
@@ -91,6 +65,9 @@ public class TPTrainingSectionItemContentView: UIView {
     
     // MARK: - Constraints
     @IBOutlet weak var exercisePickerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var firstRowHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var secondRowHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var thirdRowHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     public weak var viewDelegate: TPTrainingSectionItemContentViewDelegate?
@@ -105,6 +82,7 @@ public class TPTrainingSectionItemContentView: UIView {
     }
     
     public private(set) var model: TPTrainingSectionItem!
+    public private(set) var exercises: [TPExercise] = []
     private var emptyFields: [Field] = []
     private var notValidFields: [Field] = []
     
@@ -138,9 +116,23 @@ public class TPTrainingSectionItemContentView: UIView {
     }
     
     // MARK: - Main Interface
+    public func configure(with exercises: [TPExercise]) {
+        self.exercises = exercises
+    }
+    
     public func configure(with model: TPTrainingSectionItem) {
         emptyFields = []
         notValidFields = []
+        
+        if
+            let exercise = model.exercise,
+            let index = exercises.firstIndex(where: { $0.name == exercise.name }) {
+            
+            exercisePickerView.select(itemAt: index)
+        } else {
+            emptyFields.append(.profileValue)
+        }
+        
         if let profileValue = model.profileValue {
             profileValueInputView.text = "\(profileValue)"
         } else {
@@ -174,6 +166,7 @@ public class TPTrainingSectionItemContentView: UIView {
     }
 }
 
+// MARK: - Private Methods
 private extension TPTrainingSectionItemContentView {
     func getFloatValue(_ text: String?) -> Float? {
         return Float(text ?? "")
@@ -218,11 +211,15 @@ private extension TPTrainingSectionItemContentView {
     }
 }
 
+// MARK: - TPDropdownListPickerDelegate
 extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     public func tpDropdownListNeedAnimateHeight(_ sender: TPDropdownList, heightDelta: CGFloat, animationDuration: TimeInterval) {
         
         UIView.animate(withDuration: animationDuration, animations: {
             self.exercisePickerViewHeightConstraint.constant += heightDelta
+            let inputFieldsHeight: CGFloat = heightDelta > 0 ? 0 : Const.inputFieldRowHeight
+            self.firstRowHeightConstraint.constant = inputFieldsHeight
+            self.secondRowHeightConstraint.constant = inputFieldsHeight
             self.nibContnetView.layoutIfNeeded()
         })
         
@@ -234,7 +231,8 @@ extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     }
     
     public func tpDropdownList(_ sender: TPDropdownList, selectedItemAtIndex index: Int) {
-        
+        model.exercise = exercises[index]
+        viewDelegate?.tpTrainingSectionItemContentView(self, modelUpdated: model, emptyFields: emptyFields, notValidFields: notValidFields, userData: userData)
     }
     
     public func tpDropdownList(_ sender: TPDropdownList, selectedTextInputItem item: String?) {
@@ -242,7 +240,7 @@ extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     }
     
     public func tpDropdownListItems(_ sender: TPDropdownList) -> [String] {
-        return ["One", "Two", "Three"]
+        return exercises.map { $0.name ?? "Без имени" }
     }
 }
 

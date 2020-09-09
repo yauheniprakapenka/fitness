@@ -33,6 +33,7 @@ public class TPTrainingView: UITableView {
     public weak var viewDelegate: TPTrainingViewDelegate?
     
     private weak var headerHeightConstraint: NSLayoutConstraint!
+    private var exercises: [TPExercise] = []
     
     // MARK: - Init
     public override init(frame: CGRect, style: UITableView.Style) {
@@ -70,9 +71,18 @@ public class TPTrainingView: UITableView {
     }
     
     // MARK: - Main Interface
-    public func configure(with training: TPTraining) {
+    public func configure(withTraining training: TPTraining) {
         self.training = training
         trainingSections = training.sections ?? []
+        reloadData()
+    }
+    
+    public func configure(withAllowedExercises exercises: [TPExercise]) {
+        self.exercises = exercises
+        reloadData()
+    }
+    
+    public func refreshData() {
         reloadData()
     }
 }
@@ -154,6 +164,7 @@ extension TPTrainingView: UITableViewDataSource {
                 ]
                 cell.configure(withTitle: title,
                                sectionItem: item,
+                               exercises: exercises,
                                viewDelegate: self,
                                userData: userData)
                 return cell
@@ -244,7 +255,7 @@ extension TPTrainingView: TPTrainingAddEntityViewDelegate {
     public func tpTrainingAddEntityViewButtonDidTap(_ sender: TPTrainingAddEntityView, userData: [AnyHashable : Any]?) {
         
         if let trainintSectionIndex = userData?["TrainingSectionIndex"] as? Int {
-            trainingSections[trainintSectionIndex] = trainingSections[trainintSectionIndex].addedEmptyExercise()
+            trainingSections[trainintSectionIndex] = trainingSections[trainintSectionIndex].addedEmptyItem()
             let reloadSection = IndexSet(integer: trainintSectionIndex + 1)
             beginUpdates()
             deleteSections(reloadSection, with: .fade)
@@ -292,7 +303,6 @@ extension TPTrainingView: TPTrainingHeaderViewDelegate {
         UIView.animate(withDuration: animationDuration, animations: {
             self.headerHeightConstraint.constant += heightDelta
             self.tableHeaderView?.layoutIfNeeded()
-            
             self.reloadData()
         })
     }
@@ -329,7 +339,7 @@ private extension TPTrainingSection {
         }
     }
     
-    func addedEmptyExercise() -> Self {
+    func addedEmptyItem() -> Self {
         switch self {
         case .amrap(minutes: let minutes, items: let items, name: let name):
             return .amrap(minutes: minutes, items: items + [TPTrainingSectionItem()], name: name)
