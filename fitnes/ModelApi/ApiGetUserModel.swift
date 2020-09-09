@@ -10,7 +10,7 @@ import Foundation
 
 struct ApiGetUserModel: Decodable {
     var firstName: String?
-    var lastName: String?
+//    var lastName: String?
     var email: String?
     var phone: String?
     var birthDate: String?
@@ -47,7 +47,7 @@ struct ApiGetUserModel: Decodable {
         case id
         case email
         case firstName = "first_name"
-        case lastName = "last_name"
+//        case lastName = "last_name"
         case phone
         case birthDate
         case sex

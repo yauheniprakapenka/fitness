@@ -126,6 +126,24 @@ private extension AthleteProfileViewController {
         
         tableView.rowHeight = 60
     }
+    
+    func showAlert(title: String, completion: @escaping (String) -> Void) {
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
+
+        alert.addTextField(configurationHandler: { textField in
+            textField.placeholder = "Input your name here..."
+        })
+
+        alert.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { action in
+
+            if let data = alert.textFields?.first?.text {
+                completion(data)
+            }
+        }))
+
+        present(alert, animated: true)
+    }
 }
 
 // MARK: - Avatar Image
@@ -202,6 +220,24 @@ extension AthleteProfileViewController: UITableViewDataSource {
 extension AthleteProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(athleteProfileModel[indexPath.row])
+        
+        showAlert(title: athleteProfileModel[indexPath.row].description ?? "missing description") { (data) in
+            
+            print(athleteProfileModel[indexPath.row])
+            
+            if athleteProfileModel[indexPath.row].typeData == TypeData.int {
+                athleteProfileModel[indexPath.row].userDataInt = Int(data)
+            } else if athleteProfileModel[indexPath.row].typeData == TypeData.string {
+                athleteProfileModel[indexPath.row].userDataString = data
+            } else {
+                print("Error: unknown type data")
+            }
+            
+            print(athleteProfileModel[indexPath.row])
+            
+            NetworkManager.shared.putUser(bodyData: athleteProfileModel[indexPath.row])
+            tableView.reloadData()
+        }
     }
 }
 

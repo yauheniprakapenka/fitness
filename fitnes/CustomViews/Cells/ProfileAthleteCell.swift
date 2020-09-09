@@ -23,16 +23,30 @@ class ProfileAthleteCell: UITableViewCell {
                 descriptionLabel.text = description
             }
             
-            if athleteData.userData == "0" || athleteData.userData == nil || athleteData.userData == "" {
-                userDataLabel.text = "Не указано"
-                userDataLabel.textColor = #colorLiteral(red: 0.2012411571, green: 0.711050549, blue: 0.6543387656, alpha: 1)
-            } else {
-                userDataLabel.text = athleteData.userData
-                userDataLabel.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+            if let stringData = athleteData.userDataString {
+                
+                if stringData.isEmpty {
+                    userDataLabel.text = "Не указано"
+                    userDataLabel.textColor = #colorLiteral(red: 0.2012411571, green: 0.711050549, blue: 0.6543387656, alpha: 1)
+                    return
+                }
+                
+                userDataLabel.text = stringData
+                userDataLabel.textColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+                return
             }
+            
+            if let intData = athleteData.userDataInt {
+                userDataLabel.text = String(intData)
+                userDataLabel.textColor = #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
+                return
+            }
+            
+            userDataLabel.text = "Не указано"
+            userDataLabel.textColor = #colorLiteral(red: 0.2012411571, green: 0.711050549, blue: 0.6543387656, alpha: 1)
         }
     }
-  
+    
     // MARK: - Cell life cycle
     
     override func prepareForReuse() {

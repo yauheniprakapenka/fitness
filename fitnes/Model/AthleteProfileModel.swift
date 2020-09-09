@@ -8,27 +8,34 @@
 
 struct AthelteProfileModel {
     var description: String?
-    var userData: String?
+    var userDataString: String?
+    var userDataInt: Int?
+    var apiName: String?
+    var typeData: TypeData
+}
+
+enum TypeData {
+    case int
+    case string
 }
 
 var athleteProfileModel: [AthelteProfileModel] = []
 
 func updateProfileModel() {
     athleteProfileModel = [
-        AthelteProfileModel(description: "Имя", userData: apiGetUserModel.firstName),
-//        AthelteProfileModel(description: "Фамилия", userData: apiGetUserModel.lastName),
-        AthelteProfileModel(description: "Подпись", userData: apiGetUserModel.description),
-        AthelteProfileModel(description: "Почта", userData: apiGetUserModel.email),
-        AthelteProfileModel(description: "Телефон", userData: apiGetUserModel.phone),
-        AthelteProfileModel(description: "День рождения", userData: apiGetUserModel.birthDate),
-        AthelteProfileModel(description: "Пол", userData: apiGetUserModel.sex),
-        AthelteProfileModel(description: "Вес (в килограммах)", userData: String(apiGetUserModel.weight ?? 0)),
-        AthelteProfileModel(description: "Приседание со штангой на спине", userData: String(apiGetUserModel.backSquat ?? 0)),
-        AthelteProfileModel(description: "Приседание со штангой на груди", userData: String(apiGetUserModel.frontSquat ?? 0)),
-        AthelteProfileModel(description: "Толчок тяжелоатлетический", userData: String(apiGetUserModel.cleanAndJerk ?? 0)),
-        AthelteProfileModel(description: "Рывок тяжелоатлетический", userData: String(apiGetUserModel.snatch ?? 0)),
-        AthelteProfileModel(description: "Жим лежа", userData: String(apiGetUserModel.benchPress ?? 0)),
-        AthelteProfileModel(description: "Одноповторный максимум в уп soражнении «Становая тяга»", userData: String(apiGetUserModel.deadlift ?? 0)),
-        AthelteProfileModel(description: "Становая тяга", userData: String(apiGetUserModel.deadlift ?? 0))
+        AthelteProfileModel(description: "Имя", userDataString: apiGetUserModel.firstName, apiName: "first_name", typeData: .string),
+        AthelteProfileModel(description: "Подпись", userDataString: apiGetUserModel.description, apiName: "description", typeData: .string),
+        AthelteProfileModel(description: "Почта", userDataString: apiGetUserModel.email, apiName: "email", typeData: .string),
+        AthelteProfileModel(description: "Телефон", userDataString: apiGetUserModel.phone, apiName: "phone", typeData: .string),
+        AthelteProfileModel(description: "День рождения", userDataString: apiGetUserModel.birthDate, apiName: "birthDate", typeData: .string),
+        AthelteProfileModel(description: "Пол", userDataString: apiGetUserModel.sex, apiName: "sex", typeData: .string),
+        AthelteProfileModel(description: "Вес (в килограммах)", userDataInt: apiGetUserModel.weight, apiName: "weight", typeData: .int),
+        AthelteProfileModel(description: "Приседание со штангой на спине", userDataInt: apiGetUserModel.backSquat, apiName: "backSquat", typeData: .int),
+        AthelteProfileModel(description: "Приседание со штангой на груди", userDataInt: apiGetUserModel.frontSquat, apiName: "frontSquat", typeData: .int),
+        AthelteProfileModel(description: "Толчок тяжелоатлетический", userDataInt: apiGetUserModel.cleanAndJerk, apiName: "clean_and_jerk", typeData: .int),
+        AthelteProfileModel(description: "Рывок тяжелоатлетический", userDataInt: apiGetUserModel.snatch, apiName: "snatch", typeData: .int),
+        AthelteProfileModel(description: "Жим лежа", userDataInt: apiGetUserModel.benchPress, apiName: "benchPress", typeData: .int),
+        AthelteProfileModel(description: "Одноповторный максимум в уп soражнении «Становая тяга»", userDataInt: apiGetUserModel.deadlift, apiName: "deadlift", typeData: .int),
+        AthelteProfileModel(description: "Становая тяга", userDataInt: apiGetUserModel.deadlift, apiName: "deadlift", typeData: .int)
     ]
 }

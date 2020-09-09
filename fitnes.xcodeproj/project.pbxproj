@@ -70,7 +70,7 @@
 		3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */; };
 		3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */; };
 		3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */; };
-		3ECCF5272504DA1400E8D603 /* ApiUdpateUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCF5262504DA1400E8D603 /* ApiUdpateUser.swift */; };
+		3ECCF5272504DA1400E8D603 /* ApiPutUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */; };
 		3ECCF5292504E8F600E8D603 /* GetUserId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ECCF5282504E8F600E8D603 /* GetUserId.swift */; };
 		3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037024DB38B600E4DB9F /* FTextField.swift */; };
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
@@ -196,7 +196,7 @@
 		3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		3EC9CD5F24D87F7500B1F8C6 /* MyExerciseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyExerciseCollectionCell.swift; sourceTree = "<group>"; };
 		3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoleEnum.swift; sourceTree = "<group>"; };
-		3ECCF5262504DA1400E8D603 /* ApiUdpateUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiUdpateUser.swift; sourceTree = "<group>"; };
+		3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPutUser.swift; sourceTree = "<group>"; };
 		3ECCF5282504E8F600E8D603 /* GetUserId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUserId.swift; sourceTree = "<group>"; };
 		3ED7037024DB38B600E4DB9F /* FTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTextField.swift; sourceTree = "<group>"; };
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
@@ -483,8 +483,8 @@
 			children = (
 				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
 				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
+				3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */,
 				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
-				3ECCF5262504DA1400E8D603 /* ApiUdpateUser.swift */,
 				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
 			);
 			path = URLSession;
@@ -854,7 +854,7 @@
 				3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */,
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
-				3ECCF5272504DA1400E8D603 /* ApiUdpateUser.swift in Sources */,
+				3ECCF5272504DA1400E8D603 /* ApiPutUser.swift in Sources */,
 				3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
