@@ -110,6 +110,8 @@
 		D97B8932EFE3294B6EA84B7A /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */; };
 		F843119F24F5678A008CC50D /* TrainingProgramm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; };
 		F84311A024F5678A008CC50D /* TrainingProgramm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8496E2025097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */; };
+		F8496E2225097B3E00874F8E /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */; };
 		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
 		F8754E18250450D50063F5D6 /* CommonViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; };
 		F8754E19250450D50063F5D6 /* CommonViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -240,6 +242,8 @@
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
 		E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F843119E24F5678A008CC50D /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStoredPropertyWrapper.swift; sourceTree = "<group>"; };
+		F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
 		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		F8754E17250450D50063F5D6 /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -623,6 +627,7 @@
 		3EE38FFF24BCE78A003AF6D8 /* fitnes */ = {
 			isa = PBXGroup;
 			children = (
+				F8496E1E250975B500874F8E /* Storage */,
 				3EB0F97A24D0B0B100AC97EB /* AppDelegate */,
 				3EB0F97924D0B09600AC97EB /* Assets */,
 				3E444A6F24D1C7880004B978 /* CustomViews */,
@@ -700,6 +705,15 @@
 				3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		F8496E1E250975B500874F8E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */,
+				F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
@@ -900,11 +914,13 @@
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
+				F8496E2225097B3E00874F8E /* UserDefaultsStorage.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
 				3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */,
 				3E7C73CC25051CF100BD21ED /* AthleteProfileModel.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
+				F8496E2025097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,
 				3E82C8512507E9B4005FE93B /* SetProflleDescription.swift in Sources */,
 				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,

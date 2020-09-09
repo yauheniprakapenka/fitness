@@ -55,8 +55,9 @@ class LoginViewController: UIViewController {
         
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
         
+        emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
+        
         // test data
-        emailTextField.text = "mickey@mouse2.coma"
         passwordTextField.text = "123456"
     }
     
@@ -76,6 +77,7 @@ class LoginViewController: UIViewController {
         NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
+                UserDefaultsStorage.shared.previousEnteredLogin = currentProfile.email
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
                 }

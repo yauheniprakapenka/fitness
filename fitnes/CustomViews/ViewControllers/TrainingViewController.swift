@@ -29,6 +29,17 @@ class TrainingViewController: UIViewController {
         return cv
     }()
     
+    private var contentInset: UIEdgeInsets
+    
+    init(contentInset: UIEdgeInsets = .zero) {
+        self.contentInset = contentInset
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        contentInset = .zero
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -37,6 +48,9 @@ class TrainingViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = contentInset
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     func reloadData() {
@@ -51,8 +65,8 @@ class TrainingViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             myTrainingsLabel.topAnchor.constraint(equalTo: view.topAnchor),
-            myTrainingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            myTrainingsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            myTrainingsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: contentInset.left),
+            myTrainingsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -contentInset.right),
             
             moreButton.bottomAnchor.constraint(equalTo: myTrainingsLabel.bottomAnchor),
             moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),

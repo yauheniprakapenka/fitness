@@ -8,6 +8,12 @@
 
 import UIKit
 
+private extension MyTrainingCollectionCell {
+    enum Const {
+        static let cornerRadius: CGFloat = 12
+    }
+}
+
 class MyTrainingCollectionCell: UICollectionViewCell {
     
     var data: TrainingModel? {
@@ -30,7 +36,7 @@ class MyTrainingCollectionCell: UICollectionViewCell {
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
-        imageView.layer.cornerRadius = 12
+        imageView.layer.cornerRadius = Const.cornerRadius
         return imageView
     }()
     
@@ -74,5 +80,6 @@ class MyTrainingCollectionCell: UICollectionViewCell {
     
     private func configureUI() {
         trainingNameLabel.numberOfLines = 2
+        layer.cornerRadius = Const.cornerRadius
     }
 }

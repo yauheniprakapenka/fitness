@@ -14,9 +14,6 @@ class TrainingProgrammViewController3: UIViewController {
     @IBOutlet weak var addSectionFloatingViewTopConstraint: NSLayoutConstraint!
     @IBOutlet weak var floatingViewContainerView: UIView!
     
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         

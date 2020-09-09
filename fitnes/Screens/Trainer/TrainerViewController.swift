@@ -8,12 +8,18 @@
 
 import UIKit
 
+private extension TrainerViewController {
+    enum Const {
+        static let horizontalListInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+    }
+}
+
 class TrainerViewController: UIViewController {
     
     var scrollView: UIScrollView!
     
     let abonementsVC = AbonementsViewController()
-    let trainingVC = TrainingViewController()
+    let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
     
     let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
@@ -52,6 +58,7 @@ class TrainerViewController: UIViewController {
     
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        scrollView.showsVerticalScrollIndicator = false
         scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.8)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
@@ -109,7 +116,7 @@ class TrainerViewController: UIViewController {
         scrollView.addSubview(trainingView)
         trainingView.translatesAutoresizingMaskIntoConstraints = false
         trainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 10).isActive = true
-        trainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        trainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         trainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
@@ -118,7 +125,7 @@ class TrainerViewController: UIViewController {
         scrollView.addSubview(exerciseView)
         exerciseView.translatesAutoresizingMaskIntoConstraints = false
         exerciseView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 110).isActive = true
-        exerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        exerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         exerciseView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         exerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
@@ -247,7 +254,7 @@ class TrainerViewController: UIViewController {
         
         // ExercisesVC
         
-        self.add(childVC: ExercisesViewController(), to: self.exerciseView)
+        self.add(childVC: ExercisesViewController(contentInset: Const.horizontalListInsets), to: self.exerciseView)
         
         // abonementsVC
         

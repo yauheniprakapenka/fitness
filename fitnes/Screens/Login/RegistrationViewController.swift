@@ -70,7 +70,6 @@ class RegistrationViewController: UIViewController {
 }
 
 // MARK: - Private methods
-
 private extension RegistrationViewController {
     
     func configureActivityIndicator() {
@@ -164,16 +163,6 @@ private extension RegistrationViewController {
         currentProfile.email = emailTextField.text
     }
     
-    func displaySuccessAlert() {
-        DispatchQueue.main.async {
-            let vc = AlertViewController(question: "Добро пожаловать!", description: "Вы успешно создали профиль", actionButtonTitle: "Продолжить", cancelButtonTitle: nil, icon: .chevronDownCircle)
-            vc.modalPresentationStyle = .fullScreen
-            vc.modalPresentationStyle = .overCurrentContext
-            vc.actionButton.addTarget(self, action: #selector(self.alertCreateButtonTapped), for: .touchUpInside)
-            self.present(vc, animated: false)
-        }
-    }
-    
     func displayFailedAlert(message: String) {
         DispatchQueue.main.async {
             let vc = AlertViewController.init(question: "Упс", description: message, actionButtonTitle: "Закрыть", cancelButtonTitle: nil, icon: .multiplyCircle)
@@ -185,29 +174,29 @@ private extension RegistrationViewController {
     }
     
     func presentVC() {
-        if let client = apiTokenModel.client {
-            if client {
-                DispatchQueue.main.async {
-                    let vc = AthleteViewController()
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true)
-                }
+        if let client = apiTokenModel.client,
+           client {
+            
+            DispatchQueue.main.async {
+                let vc = AthleteViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
             }
         }
 
-        if let trainer = apiTokenModel.trainer {
-            if trainer {
-                DispatchQueue.main.async {
-                    let vc = TrainerViewController()
-                    self.present(vc, animated: true)
-                }
+        if let trainer = apiTokenModel.trainer,
+           trainer {
+            
+            DispatchQueue.main.async {
+                let vc = TrainerViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
             }
         }
     }
 }
 
 // MARK: - Actions
-
 private extension RegistrationViewController {
     
     @objc
@@ -249,22 +238,6 @@ private extension RegistrationViewController {
                 self.displayFailedAlert(message: error.rawValue)
             }
         }, completion: nil)
-    }
-    
-    @objc
-    func alertCreateButtonTapped() {
-        dismiss(animated: false)
-        
-        switch fRadioButtonView.currentRole {
-        case .athlete:
-            let vc = AthleteViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-        case .trainer:
-            let vc = TrainerViewController()
-            vc.modalPresentationStyle = .fullScreen
-            present(vc, animated: true)
-        }
     }
     
     @objc

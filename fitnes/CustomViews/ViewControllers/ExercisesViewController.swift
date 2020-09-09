@@ -26,6 +26,18 @@ class ExercisesViewController: UIViewController {
         ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталь", kindInventory: "Брусья")
     ]
     
+    let contentInset: UIEdgeInsets
+    
+    init(contentInset: UIEdgeInsets = .zero) {
+        self.contentInset = contentInset
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        contentInset = .zero
+        super.init(coder: coder)
+    }
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -44,6 +56,9 @@ class ExercisesViewController: UIViewController {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.contentInset = contentInset
+        collectionView.showsVerticalScrollIndicator = false
+        collectionView.showsHorizontalScrollIndicator = false
     }
     
     private func configureLayout() {
@@ -52,8 +67,8 @@ class ExercisesViewController: UIViewController {
         view.addSubview(collectionView)
         
         exerciseLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        exerciseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        exerciseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        exerciseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: contentInset.left).isActive = true
+        exerciseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -contentInset.right).isActive = true
         exerciseLabel.textAlignment = .left
         
         moreButton.bottomAnchor.constraint(equalTo: exerciseLabel.bottomAnchor).isActive = true
