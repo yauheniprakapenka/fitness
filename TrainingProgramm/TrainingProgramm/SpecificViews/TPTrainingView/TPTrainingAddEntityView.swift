@@ -34,6 +34,7 @@ private extension TPTrainingAddEntityView {
     }
 }
  
+@IBDesignable
 public class TPTrainingAddEntityView: UIView {
     private weak var titleLabel: UILabel!
     private weak var button: UIButton!

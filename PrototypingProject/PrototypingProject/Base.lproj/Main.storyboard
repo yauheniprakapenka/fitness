@@ -92,18 +92,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
                                 <rect key="frame" x="25" y="64" width="364" height="49.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
                                 <rect key="frame" x="0.0" y="133.5" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Tjg-5X-dpq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-Te-sNi" customClass="TPDropdownList" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-Te-sNi" customClass="TPDropdownList" customModule="TrainingProgramm">
                                 <rect key="frame" x="0.0" y="198.5" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -180,6 +180,25 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BUP-aC-VrY">
+                                <rect key="frame" x="0.0" y="44" width="414" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="auM-Fo-1v1" customClass="TPTrainingAddEntityView" customModule="TrainingProgramm">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="DO0-TM-rAQ"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="auM-Fo-1v1" firstAttribute="top" secondItem="BUP-aC-VrY" secondAttribute="top" id="1ew-eD-cG4"/>
+                                    <constraint firstAttribute="height" constant="50" id="2eJ-yu-ltH"/>
+                                    <constraint firstAttribute="trailing" secondItem="auM-Fo-1v1" secondAttribute="trailing" id="cld-84-vLX"/>
+                                    <constraint firstItem="auM-Fo-1v1" firstAttribute="leading" secondItem="BUP-aC-VrY" secondAttribute="leading" id="vlu-fb-SII"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uge-hz-Eac"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -187,10 +206,16 @@
                             <constraint firstItem="Uge-hz-Eac" firstAttribute="bottom" secondItem="bNJ-g5-j8H" secondAttribute="bottom" id="5zN-hU-8M3" customClass="KeyboardLayoutConstraint" customModule="CommonViews"/>
                             <constraint firstItem="Uge-hz-Eac" firstAttribute="trailing" secondItem="bNJ-g5-j8H" secondAttribute="trailing" id="U5k-vJ-WXN"/>
                             <constraint firstItem="bNJ-g5-j8H" firstAttribute="top" secondItem="Uge-hz-Eac" secondAttribute="top" id="ZE8-Rp-8qu"/>
+                            <constraint firstAttribute="trailing" secondItem="BUP-aC-VrY" secondAttribute="trailing" id="aFx-P9-bGQ"/>
+                            <constraint firstItem="BUP-aC-VrY" firstAttribute="leading" secondItem="bx8-ut-fdq" secondAttribute="leading" id="cUx-Nw-HKE"/>
                             <constraint firstItem="bNJ-g5-j8H" firstAttribute="leading" secondItem="Uge-hz-Eac" secondAttribute="leading" id="gd1-Nl-Dy2"/>
+                            <constraint firstItem="BUP-aC-VrY" firstAttribute="top" secondItem="Uge-hz-Eac" secondAttribute="top" id="s62-PG-0eF"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="addSectionFloatingView" destination="auM-Fo-1v1" id="bkC-mM-oha"/>
+                        <outlet property="addSectionFloatingViewTopConstraint" destination="1ew-eD-cG4" id="9OI-PQ-GHh"/>
+                        <outlet property="floatingViewContainerView" destination="BUP-aC-VrY" id="SmQ-9W-tay"/>
                         <outlet property="listView" destination="bNJ-g5-j8H" id="BVW-KQ-cME"/>
                     </connections>
                 </viewController>
@@ -199,6 +224,11 @@
             <point key="canvasLocation" x="1619" y="84"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="htz-IZ-OyP">
+            <size key="intrinsicContentSize" width="-1" height="50"/>
+        </designable>
+    </designables>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

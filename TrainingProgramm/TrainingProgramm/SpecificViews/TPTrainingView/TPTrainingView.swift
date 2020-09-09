@@ -17,10 +17,8 @@ private extension TPTrainingView {
 }
 
 public protocol TPTrainingViewDelegate: class {
-    //func tpTrainingViewAddSectionTapped(_ sender: TPTrainingView)
-    //func tpTrainingViewAddMinuteTapped(_ sender: TPTrainingView, sectionIndex index: Int)
-    //func tpTrainingSectionExerciseAddExerciseTapped(_ sender: TPTrainingView, sectionIndex index: Int)
     func tpTrainingViewTrainingChanged(_ sender: TPTrainingView, training: TPTraining)
+    func tpTrainingViewAddSectionVisibilityChange(_ sender: TPTrainingView, isVisible: Bool)
 }
 
 public class TPTrainingView: UITableView {
@@ -34,6 +32,7 @@ public class TPTrainingView: UITableView {
     
     private weak var headerHeightConstraint: NSLayoutConstraint!
     private var exercises: [TPExercise] = []
+    private var isAddSecionRowVisible: Bool = true
     
     // MARK: - Init
     public override init(frame: CGRect, style: UITableView.Style) {
@@ -52,8 +51,6 @@ public class TPTrainingView: UITableView {
         
         let header = TPTrainingHeaderView()
         header.viewDelegate = self
-        //let headerSize = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
-//        header.frame = CGRect(origin: .zero, size: CGSize(width: headerSize.width, height: headerSize.height + 20))
         header.layer.zPosition = -1
         tableHeaderView = header
         headerHeightConstraint = header.heightAnchor.constraint(equalToConstant: 342)
@@ -83,6 +80,11 @@ public class TPTrainingView: UITableView {
     }
     
     public func refreshData() {
+        reloadData()
+    }
+    
+    public func addSection() {
+        trainingSections.append(.emom(minutes: 1, items: [], name: nil))
         reloadData()
     }
 }
@@ -320,6 +322,21 @@ extension TPTrainingView: TPTrainingHeaderViewDelegate {
     public func tpTrainingHeaderView(_ sender: TPTrainingHeaderView, timeChanged newTime: Date?) {
         training.time = newTime
         viewDelegate?.tpTrainingViewTrainingChanged(self, training: training)
+    }
+}
+
+extension TPTrainingView: UIScrollViewDelegate {
+    public func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        var addSectionVisible = false
+        for indexPath in indexPathsForVisibleRows ?? [] {
+            if indexPath.section == 0 && indexPath.row == 0 {
+                addSectionVisible = true
+            }
+        }
+        if addSectionVisible != isAddSecionRowVisible {
+            isAddSecionRowVisible = addSectionVisible
+            viewDelegate?.tpTrainingViewAddSectionVisibilityChange(self, isVisible: isAddSecionRowVisible)
+        }
     }
 }
 
