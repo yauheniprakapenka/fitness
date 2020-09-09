@@ -15,6 +15,13 @@ public protocol TPTextInputViewDelegate: class {
     func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?)
 }
 
+public extension TPTextInputView {
+    enum State {
+        case normal
+        case error
+    }
+}
+
 @IBDesignable
 public class TPTextInputView: UIView {
     // MARK: - Properties
@@ -40,12 +47,25 @@ public class TPTextInputView: UIView {
         }
     }
     
+    public var state: State = .normal {
+        didSet {
+            switch state {
+            case .normal:
+                textField.textColor = normalStateTextColor
+            case .error:
+                textField.textColor = errorStateTextColor
+            }
+        }
+    }
+    
     public weak var viewDelegate: TPTextInputViewDelegate?
     
     @IBOutlet private weak var textFieldLeftConstraint: NSLayoutConstraint!
     @IBOutlet private weak var textFieldRightConstraint: NSLayoutConstraint!
     
     private var endEditingByReturn: Bool = false
+    private var normalStateTextColor: UIColor = .black
+    private var errorStateTextColor: UIColor = .red
     
     // MARK: - Initialization
     public override init(frame: CGRect) {
@@ -66,6 +86,7 @@ public class TPTextInputView: UIView {
         sendSubviewToBack(contentView)
         contentView.constraintAllSidesToSuperview()
         textField.addTarget(self, action: #selector(handleValueChanged(_:)), for: .editingChanged)
+        normalStateTextColor = textField.textColor ?? normalStateTextColor
     }
     
     // MARK: - Actions and Action Callbacks

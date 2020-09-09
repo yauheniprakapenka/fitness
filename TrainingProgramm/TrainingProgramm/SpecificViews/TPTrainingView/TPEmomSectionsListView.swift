@@ -7,20 +7,20 @@
 
 import UIKit
 
-public protocol TPEmomSectionsListViewDelegate: class {
-    func tpEmomSectionsListViewItems(_ sender: TPEmomSectionsListView) -> [String]
+public protocol TPTrainingSectionsItemListViewDelegate: class {
+    func tpTrainingSectionsItemListViewItems(_ sender: TPTrainingSectionsItemListView) -> [String]
     
 }
 
-private extension TPEmomSectionsListView {
+private extension TPTrainingSectionsItemListView {
     enum Const {
         static let collapsedItemHeight: CGFloat = 284
     }
 }
 
-public class TPEmomSectionsListView: UIStackView {
+public class TPTrainingSectionsItemListView: UIStackView {
     // MARK: - Properties
-    public weak var viewDelegate: TPEmomSectionsListViewDelegate?
+    public weak var viewDelegate: TPTrainingSectionsItemListViewDelegate?
     
     private var heightConstraints: [NSLayoutConstraint] = []
     
@@ -46,13 +46,13 @@ public class TPEmomSectionsListView: UIStackView {
             removeArrangedSubview(view)
         }
         heightConstraints = []
-        guard let items = viewDelegate?.tpEmomSectionsListViewItems(self) else {
+        guard let items = viewDelegate?.tpTrainingSectionsItemListViewItems(self) else {
             return
         }
         
         for (index, _) in items.enumerated() {
             let userData: [AnyHashable: Any] = ["Index": index]
-            let view = TPEmomSectionItemContentView()
+            let view = TPTrainingSectionItemContentView()
             view.translatesAutoresizingMaskIntoConstraints = false
             addArrangedSubview(view)
             view.userData = userData
@@ -66,8 +66,12 @@ public class TPEmomSectionsListView: UIStackView {
     }
 }
 
-extension TPEmomSectionsListView: TPEmomSectionItemContentViewDelegate {
-    public func tpEmomSectionItemContentViewHeightConstarintAndViewToAnimate(_ sender: TPEmomSectionItemContentView, userData: [AnyHashable : Any]?) -> (NSLayoutConstraint, UIView)? {
+extension TPTrainingSectionsItemListView: TPTrainingSectionItemContentViewDelegate {
+    public func tpTrainingSectionItemContentView(_ sender: TPTrainingSectionItemContentView, modelUpdated model: TPTrainingSectionItem, emptyFields: [TPTrainingSectionItemContentView.Field], notValidFields: [TPTrainingSectionItemContentView.Field], userData: [AnyHashable : Any]?) {
+        
+    }
+    
+    public func tpTrainingSectionItemContentViewHeightConstarintAndViewToAnimate(_ sender: TPTrainingSectionItemContentView, userData: [AnyHashable : Any]?) -> (NSLayoutConstraint, UIView)? {
         guard let index = userData?["Index"] as? Int else {
             return nil
         }

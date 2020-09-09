@@ -92,18 +92,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tlE-rZ-Saa" customClass="TPTextInputView" customModule="TrainingProgramm">
                                 <rect key="frame" x="25" y="64" width="364" height="49.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="htz-IZ-OyP" customClass="TPTimePickerView" customModule="TrainingProgramm">
                                 <rect key="frame" x="0.0" y="133.5" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="Tjg-5X-dpq"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-Te-sNi" customClass="TPDropdownList" customModule="TrainingProgramm">
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WJF-Te-sNi" customClass="TPDropdownList" customModule="TrainingProgramm">
                                 <rect key="frame" x="0.0" y="198.5" width="414" height="55"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
@@ -175,22 +175,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rxe-5o-jlV" customClass="TPEmomSectionsListView" customModule="TrainingProgramm">
-                                <rect key="frame" x="0.0" y="54" width="414" height="808"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="bNJ-g5-j8H" customClass="TPTrainingView" customModule="TrainingProgramm">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Uge-hz-Eac"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Rxe-5o-jlV" firstAttribute="leading" secondItem="Uge-hz-Eac" secondAttribute="leading" id="LK1-0O-UZg"/>
-                            <constraint firstItem="Rxe-5o-jlV" firstAttribute="top" secondItem="Uge-hz-Eac" secondAttribute="top" constant="10" id="Sw4-gp-xdU"/>
-                            <constraint firstItem="Uge-hz-Eac" firstAttribute="trailing" secondItem="Rxe-5o-jlV" secondAttribute="trailing" id="fsb-Vq-qQj"/>
-                            <constraint firstItem="Uge-hz-Eac" firstAttribute="bottom" secondItem="Rxe-5o-jlV" secondAttribute="bottom" id="hSm-ph-CfG"/>
+                            <constraint firstItem="Uge-hz-Eac" firstAttribute="bottom" secondItem="bNJ-g5-j8H" secondAttribute="bottom" id="5zN-hU-8M3" customClass="KeyboardLayoutConstraint" customModule="CommonViews"/>
+                            <constraint firstItem="Uge-hz-Eac" firstAttribute="trailing" secondItem="bNJ-g5-j8H" secondAttribute="trailing" id="U5k-vJ-WXN"/>
+                            <constraint firstItem="bNJ-g5-j8H" firstAttribute="top" secondItem="Uge-hz-Eac" secondAttribute="top" id="ZE8-Rp-8qu"/>
+                            <constraint firstItem="bNJ-g5-j8H" firstAttribute="leading" secondItem="Uge-hz-Eac" secondAttribute="leading" id="gd1-Nl-Dy2"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="listView" destination="Rxe-5o-jlV" id="mRj-yD-qLH"/>
+                        <outlet property="listView" destination="bNJ-g5-j8H" id="BVW-KQ-cME"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjM-78-7pe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

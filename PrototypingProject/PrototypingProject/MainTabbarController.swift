@@ -39,7 +39,7 @@ class MainTabbarController: UITabBarController {
         ]
         
         viewControllers = list
-        setActiveController(tp4)
+        setActiveController(tp5)
     }
     
     private func setActiveController(_ controller: UIViewController) {

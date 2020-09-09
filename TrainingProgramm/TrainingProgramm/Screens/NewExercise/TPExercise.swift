@@ -8,18 +8,22 @@
 import Foundation
 
 public struct TPExercise {
-    public var name: String
-    public var inventory: String
+    public var name: String?
+    public var inventory: String?
     public var description: String?
     public var video: VideoLink?
     
-    public init(name: String,
-                inventory: String,
+    public init(name: String?,
+                inventory: String?,
                 description: String?,
                 video: VideoLink?) {
         self.name = name
         self.inventory = inventory
         self.description = description
         self.video = video
+    }
+    
+    public init() {
+        self.init(name: nil, inventory: nil, description: nil, video: nil)
     }
 }

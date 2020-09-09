@@ -27,7 +27,6 @@ public class TPNewTrainingViewController: UIViewController {
     private weak var nameTextInputView: TPTextInputView!
     private weak var descriptionTextInputView: TPTextInputView!
     private weak var timePickerView: TPTimePickerView!
-    private weak var emomList: TPEmomSectionsListView!
     
     // MARK: - Constraints
     private weak var trainingTimePickerHeightConstraint: NSLayoutConstraint!
@@ -86,8 +85,7 @@ private extension TPNewTrainingViewController {
         let addSectionHolder = TPAddSectionViewHolder(superview: superview)
         addSectionHolder.topAnchor.constraint(equalTo: timePickerView.bottomAnchor, constant: 20).isActive = true
         
-        emomList = createEmomSectionList(superview: superview, topAnchor: addSectionHolder.bottomAnchor)
-        emomList.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+        addSectionHolder.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
     }
     
     func createTimePicker(superview: UIView, topAnchor: NSLayoutYAxisAnchor) -> (TPTimePickerView, NSLayoutConstraint) {
@@ -100,37 +98,25 @@ private extension TPNewTrainingViewController {
         return (picker, heightConstraint)
     }
     
-    func createEmomSectionList(superview: UIView, topAnchor: NSLayoutYAxisAnchor) -> TPEmomSectionsListView {
-        let list = TPEmomSectionsListView()
-        superview.addSubview(list)
-        TPFormControllerUtils.makeConstraints(to: list, topAnchor: topAnchor, topOffset: Const.offsetTopInputFields, leftRight: 0)
-        return list
-    }
-    
     func setupDelegates() {
         timePickerView.viewDelegate = self
-        emomList.viewDelegate = self
-        emomList.refreshData()
     }
     
 }
 
 extension TPNewTrainingViewController: TPTimePickerViewDelegate {
+    public func tpTimePickerViewWillBegintAnimate(_ sender: TPTimePickerView, heightDelta: CGFloat, animationDuration: TimeInterval) {
+        rootScrollView.layoutIfNeeded()
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.trainingTimePickerHeightConstraint.constant += heightDelta
+            self.rootScrollView.layoutIfNeeded()
+            
+        })
+    }
+    
     public func tpTimePickerView(_ sender: TPTimePickerView, openStatusChanged isOpened: Bool) {
         handleContentSizeChange()
     }
     
-    public func tpTimePickerView(_ sender: TPTimePickerView, selectedTimeChanged time: Date) {
-        
-    }
-    
-    public func tpTimePickerViewConstraintAndRelatedViewToAnimateHeightChange(_ sender: TPTimePickerView) -> (NSLayoutConstraint, UIView)? {
-        return (trainingTimePickerHeightConstraint, rootScrollView)
-    }
-}
-
-extension TPNewTrainingViewController: TPEmomSectionsListViewDelegate {
-    public func tpEmomSectionsListViewItems(_ sender: TPEmomSectionsListView) -> [String] {
-        return Array(repeating: "ОАp", count: 2)
-    }
+    public func tpTimePickerView(_ sender: TPTimePickerView, selectedTimeChanged time: Date) {}
 }

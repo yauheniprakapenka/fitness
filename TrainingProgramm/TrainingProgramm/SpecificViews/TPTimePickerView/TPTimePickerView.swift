@@ -11,7 +11,7 @@ import CommonViews
 public protocol TPTimePickerViewDelegate: class {
     func tpTimePickerView(_ sender: TPTimePickerView, openStatusChanged isOpened: Bool)
     func tpTimePickerView(_ sender: TPTimePickerView, selectedTimeChanged time: Date)
-    func tpTimePickerViewConstraintAndRelatedViewToAnimateHeightChange(_ sender: TPTimePickerView) -> (NSLayoutConstraint, UIView)?
+    func tpTimePickerViewWillBegintAnimate(_ sender: TPTimePickerView, heightDelta: CGFloat, animationDuration: TimeInterval)
 }
 
 private extension TPTimePickerView {
@@ -120,16 +120,9 @@ private extension TPTimePickerView {
         iconImageView.transform = isOpened ? CGAffineTransform(rotationAngle: CGFloat(Double.pi)) : CGAffineTransform.identity
     }
     
-    func updateResizeToCurrentState() {
-        guard let (constraint, view) = viewDelegate?.tpTimePickerViewConstraintAndRelatedViewToAnimateHeightChange(self) else {
-            return
-        }
-        if isOpened {
-            constraint.constant += openedPickerAdditionalHeight
-        } else {
-            constraint.constant -= openedPickerAdditionalHeight
-        }
-        view.layoutIfNeeded()
+    func updateResizeToCurrentState(duration: TimeInterval = 0.0) {
+        let delta = isOpened ? openedPickerAdditionalHeight : -openedPickerAdditionalHeight
+        viewDelegate?.tpTimePickerViewWillBegintAnimate(self, heightDelta: delta, animationDuration: Const.animDurationOpen)
     }
     
     func updateToCurrentState(animated: Bool, completion: OnAnimationFinishedCallback? = nil) {
@@ -142,20 +135,17 @@ private extension TPTimePickerView {
         }
         
         if isOpened {
+            self.updateResizeToCurrentState(duration: Const.animDurationOpen)
             UIView.animate(withDuration: Const.animDurationOpen, animations: {
                 self.updateFadeToCurrentState()
-                self.updateResizeToCurrentState()
                 self.updateIconToCurrentState()
             }, completion: { _ in completion?() })
         } else {
             UIView.animate(withDuration: Const.animDurationClosedFade, animations: {
                 self.updateFadeToCurrentState()
             }, completion: { _ in
-                UIView.animate(withDuration: Const.animDurationCloseSizeChange, animations: {
-                    self.updateResizeToCurrentState()
-                }, completion: { _ in
-                    completion?()
-                })
+                self.updateResizeToCurrentState(duration: Const.animDurationCloseSizeChange)
+                completion?()
             })
             UIView.animate(withDuration: Const.animDurationCloseIcon) {
                 self.updateIconToCurrentState()

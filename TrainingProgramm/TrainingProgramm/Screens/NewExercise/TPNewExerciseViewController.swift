@@ -72,7 +72,7 @@ public class TPNewExerciseViewController: UIViewController {
             return
         }
         nameTextInputView.text = training.name
-        if let index = inventory.firstIndex(of: training.inventory) {
+        if let index = inventory.firstIndex(of: training.inventory ?? "") {
             inventoryPickerView.select(itemAt: index)
         }
         descriptionTextInputView.text = training.description

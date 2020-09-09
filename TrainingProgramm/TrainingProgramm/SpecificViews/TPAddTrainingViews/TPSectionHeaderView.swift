@@ -15,9 +15,9 @@ public enum TPTrainingType {
 }
 
 public protocol TPSectionHeaderViewDelegate: class {
-    func tpSectionHeaderView(_ sender: TPSectionHeaderView, selectTrainingType: TPTrainingType)
-    func tpSectionHeaderView(_ sender: TPSectionHeaderView, selectTime: Int)
-    func tpSectionHeaderView(_ sender: TPSectionHeaderView, inputName: String?)
+    func tpSectionHeaderView(_ sender: TPSectionHeaderView, selectTrainingType: TPTrainingType, userData: [AnyHashable: Any]?)
+    func tpSectionHeaderView(_ sender: TPSectionHeaderView, selectTime: Int, userData: [AnyHashable: Any]?)
+    func tpSectionHeaderView(_ sender: TPSectionHeaderView, inputName: String?, userData: [AnyHashable: Any]?)
 }
 
 @IBDesignable
@@ -29,6 +29,8 @@ public class TPSectionHeaderView: UIView {
     
     // MARK: - Properties
     public weak var viewDelegate: TPSectionHeaderViewDelegate?
+    
+    public var userData: [AnyHashable: Any]?
     
     public var timeArray: [Int] = [
         1, 2, 5, 10, 16, 20
@@ -45,6 +47,23 @@ public class TPSectionHeaderView: UIView {
         set {
             nameInputView.text = newValue
         }
+    }
+    
+    public func select(time: Int) {
+        if let index = timeArray.firstIndex(of: time) {
+            timeSelectionView.select(at: index)
+        }
+    }
+    public func select(trainingType: TPTrainingType) {
+        let mappedTrainingType: TPTrainingTypeView.TrainingType = {
+            switch trainingType {
+            case .emom: return .emom
+            case .amrap: return .amrap
+            case .forTime: return .forTime
+            case .rest: return .rest
+            }
+        }()
+        trainingTypeView.select(trainingType: mappedTrainingType)
     }
     
     // MARK: - Init
@@ -81,7 +100,7 @@ extension TPSectionHeaderView: TPTrainingTypeViewDelegate {
             case .rest: return .rest
             }
         }()
-        viewDelegate?.tpSectionHeaderView(self, selectTrainingType: resultTraining)
+        viewDelegate?.tpSectionHeaderView(self, selectTrainingType: resultTraining, userData: userData)
     }
 }
 
@@ -94,7 +113,7 @@ extension TPSectionHeaderView: TPTextInputViewDelegate {
     public func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {}
     
     public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {
-        viewDelegate?.tpSectionHeaderView(self, inputName: nameInputView.text)
+        viewDelegate?.tpSectionHeaderView(self, inputName: nameInputView.text, userData: userData)
     }
     
     public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {}
@@ -107,6 +126,6 @@ extension TPSectionHeaderView: TPTimeSelectionViewDelegate {
     }
     
     public func tpTimeSelectionView(_ sender: TPTimeSelectionView, didSelectItemAtIndex index: Int) {
-        viewDelegate?.tpSectionHeaderView(self, selectTime: timeArray[index])
+        viewDelegate?.tpSectionHeaderView(self, selectTime: timeArray[index], userData: userData)
     }
 }

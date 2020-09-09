@@ -48,6 +48,20 @@ public class TPTrainingTypeView: UIStackView {
         }
     }
     
+    // MARK: - Main Interface
+    public func select(trainingType: TrainingType) {
+        selectedType = trainingType
+        guard let selectedIndex = TrainingType.allCases.firstIndex(of: trainingType) else {
+            return
+        }
+        for (index, view) in arrangedSubviews.enumerated() {
+            if let selectableItem = view as? TPTrainingProgramSelectableItemView {
+                
+                selectableItem.isSelected = index == selectedIndex
+            }
+        }
+    }
+    
     // MARK: - Other
     public override func prepareForInterfaceBuilder() {
         for view in arrangedSubviews {

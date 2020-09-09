@@ -58,8 +58,11 @@ extension TrainingProgrammViewController2: TPTextInputViewDelegate {
 }
 
 extension TrainingProgrammViewController2: TPTimePickerViewDelegate {
-    func tpTimePickerViewConstraintAndRelatedViewToAnimateHeightChange(_ sender: TPTimePickerView) -> (NSLayoutConstraint, UIView)? {
-        (timePickerHeightConstraint, view)
+    func tpTimePickerViewWillBegintAnimate(_ sender: TPTimePickerView, heightDelta: CGFloat, animationDuration: TimeInterval) {
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.timePickerHeightConstraint.constant += heightDelta
+            self.view.layoutIfNeeded()
+        })
     }
     
     func tpTimePickerView(_ sender: TPTimePickerView, openStatusChanged isOpened: Bool) {
