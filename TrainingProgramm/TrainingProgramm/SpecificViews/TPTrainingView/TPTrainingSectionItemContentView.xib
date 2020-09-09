@@ -43,42 +43,42 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Упражнение"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-4J-Zo1" userLabel="profileValue" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-4J-Zo1" userLabel="profileValue" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="25" y="103" width="174.5" height="49.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Показатель профиля"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-g0-E1m" userLabel="koeff" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-g0-E1m" userLabel="koeff" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="214.5" y="103" width="174.5" height="49.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Коэф.(%)"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-SN-l97" userLabel="weightM" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-SN-l97" userLabel="weightM" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="25" y="162.5" width="174.5" height="49.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Вес по ум. М"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E88-fa-uZz" userLabel="weightW" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E88-fa-uZz" userLabel="weightW" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="214.5" y="162.5" width="174.5" height="49.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Вес по ум. Ж"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDs-Hc-xIK" userLabel="repeats" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDs-Hc-xIK" userLabel="repeats" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="25" y="222" width="174.5" height="49.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Повторов"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-vI-YhN" userLabel="distance" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NbS-vI-YhN" userLabel="distance" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                     <rect key="frame" x="214.5" y="222" width="174.5" height="49.5"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <userDefinedRuntimeAttributes>

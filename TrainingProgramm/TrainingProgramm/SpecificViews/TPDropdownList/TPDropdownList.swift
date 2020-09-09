@@ -13,7 +13,7 @@ public protocol TPDropdownListPickerDelegate: class {
     func tpDropdownList(_ sender: TPDropdownList,
                         selectedTextInputItem item: String?)
     func tpDropdownListItems(_ sender: TPDropdownList) -> [String]
-    func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)]
+    func tpDropdownListNeedAnimateHeight(_ sender: TPDropdownList, heightDelta: CGFloat, animationDuration: TimeInterval)
 }
 public protocol TPDropdownListTextInputDelegate: class {
     func tpDropdownListDidBeginEditing(_ sender: TPDropdownList)
@@ -64,6 +64,15 @@ public class TPDropdownList: UIView {
         }
         set {
             textInputView.placeholderText = newValue
+        }
+    }
+    
+    public var enableCustomInput: Bool {
+        get {
+            return textInputView.isEditable
+        }
+        set {
+            textInputView.isEditable = newValue
         }
     }
     public var openedPickerAdditionalHeight: CGFloat = Const.itemPickerOpenedDefaultHeight
@@ -125,22 +134,10 @@ private extension TPDropdownList {
     func updateFadeToCurrentState() {
         pickerView.alpha = isOpened ? 1 : 0
     }
-    func updateResizeToCurrentState() {
-        guard let constraintViewList = viewPickerDelegate?.tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(self) else {
-            return
-        }
-        for (constraint, view) in constraintViewList {
-            if isOpened {
-                constraint.constant += openedPickerAdditionalHeight
-            } else {
-                constraint.constant -= openedPickerAdditionalHeight
-            }
-            if let _ = view as? UIStackView {
-                view.setNeedsLayout()
-            }
-            
-            view.layoutIfNeeded()
-        }
+    func updateResizeToCurrentState(duration: TimeInterval = 0) {
+        let delta = isOpened ? openedPickerAdditionalHeight : -openedPickerAdditionalHeight
+        let duration = isOpened ? Const.animDurationOpen : Const.animDurationCloseSizeChange
+        viewPickerDelegate?.tpDropdownListNeedAnimateHeight(self, heightDelta: delta, animationDuration: duration)
     }
     
     func updateToCurrentState(animated: Bool, completion completionHandler: StateUpdateCompletionHandler? = nil) {

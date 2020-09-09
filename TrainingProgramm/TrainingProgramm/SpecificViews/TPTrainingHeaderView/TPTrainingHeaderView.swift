@@ -36,7 +36,7 @@ public class TPTrainingHeaderView: UIView {
     private weak var timePickerView: TPTimePickerView!
     
     // MARK: - Constraints
-    private weak var trainingTimePickerHeightConstraint: NSLayoutConstraint!
+    public weak var trainingTimePickerHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
     public weak var viewDelegate: TPTrainingHeaderViewDelegate?
@@ -58,7 +58,9 @@ public class TPTrainingHeaderView: UIView {
         timePickerView.viewDelegate = self
         nameTextInputView.viewDelegate = self
         descriptionTextInputView.viewDelegate = self
+        clipsToBounds = true
     }
+    
 }
 
 // MARK: - Private methods
@@ -75,7 +77,7 @@ private extension TPTrainingHeaderView {
             placeholderText: "Введите название",
             topAnchor: nameLabel.bottomAnchor,
             topOffset: Const.offsetTopInputFields)
-        nameTextInputView.setContentHuggingPriority(.init(1000), for: .vertical)
+        nameTextInputView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         let descriptionTitle = TPFormControllerUtils.createTitleLabel(
             superview: superview,
             text: "Описание",
@@ -87,7 +89,7 @@ private extension TPTrainingHeaderView {
             placeholderText: "Введите описание",
             topAnchor: descriptionTitle.bottomAnchor,
             topOffset: Const.offsetTopInputFields)
-        descriptionTextInputView.setContentHuggingPriority(.init(1000), for: .vertical)
+        descriptionTextInputView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         let startTimeLabel = TPFormControllerUtils.createTitleLabel(
             superview: superview,
             text: "Время начала",
@@ -96,7 +98,6 @@ private extension TPTrainingHeaderView {
         startTimeLabel.setContentHuggingPriority(.init(1000), for: .vertical)
         (timePickerView, trainingTimePickerHeightConstraint) = createTimePicker(superview: superview, topAnchor: startTimeLabel.bottomAnchor)
         timePickerView.setContentHuggingPriority(.init(rawValue: 249), for: .vertical)
-        timePickerView.setContentHuggingPriority(.init(rawValue: 249), for: .horizontal)
         timePickerView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
     }
     
@@ -106,7 +107,7 @@ private extension TPTrainingHeaderView {
         picker.timeViewLeftConstraint.constant = 0
         TPFormControllerUtils.makeConstraints(to: picker, topAnchor: topAnchor, topOffset: Const.offsetTopInputFields)
         let heightConstraint = picker.heightAnchor.constraint(equalToConstant: 55)
-        heightConstraint.isActive = true
+        heightConstraint.isActive = false
         return (picker, heightConstraint)
     }
 }
@@ -121,10 +122,6 @@ extension TPTrainingHeaderView: TPTimePickerViewDelegate {
     
     public func tpTimePickerView(_ sender: TPTimePickerView, selectedTimeChanged time: Date) {
         viewDelegate?.tpTrainingHeaderView(self, timeChanged: time)
-    }
-    
-    public func tpTimePickerViewConstraintAndRelatedViewToAnimateHeightChange(_ sender: TPTimePickerView) -> (NSLayoutConstraint, UIView)? {
-        return (trainingTimePickerHeightConstraint, self)
     }
 }
 

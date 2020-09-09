@@ -177,8 +177,11 @@ extension TPNewExerciseViewController: TPDropdownListPickerDelegate {
         return inventory
     }
     
-    public func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)] {
-        return [(inventoryPickerHeightConstraint, rootScrollView)]
+    public func tpDropdownListNeedAnimateHeight(_ sender: TPDropdownList, heightDelta: CGFloat, animationDuration: TimeInterval) {
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.inventoryPickerHeightConstraint.constant += heightDelta
+            self.rootScrollView.layoutIfNeeded()
+        })
     }
 }
 

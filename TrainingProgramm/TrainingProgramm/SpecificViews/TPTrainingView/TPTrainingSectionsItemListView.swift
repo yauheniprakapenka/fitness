@@ -71,10 +71,10 @@ extension TPTrainingSectionsItemListView: TPTrainingSectionItemContentViewDelega
         
     }
     
-    public func tpTrainingSectionItemContentViewHeightConstarintAndViewToAnimate(_ sender: TPTrainingSectionItemContentView, userData: [AnyHashable : Any]?) -> (NSLayoutConstraint, UIView)? {
+    public func tpTrainingSectionItemContentWillNeedAnimateHeightChange(_ sender: TPTrainingSectionItemContentView, heightDelta: CGFloat, animationDuration: TimeInterval, userData: [AnyHashable : Any]?) {
         guard let index = userData?["Index"] as? Int else {
-            return nil
+            fatalError()
         }
-        return (heightConstraints[index], self)
+        // not used
     }
 }

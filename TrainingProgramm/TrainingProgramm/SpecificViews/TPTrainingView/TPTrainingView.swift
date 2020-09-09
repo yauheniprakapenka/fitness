@@ -51,11 +51,11 @@ public class TPTrainingView: UITableView {
         
         let header = TPTrainingHeaderView()
         header.viewDelegate = self
-        let headerSize = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        //let headerSize = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
 //        header.frame = CGRect(origin: .zero, size: CGSize(width: headerSize.width, height: headerSize.height + 20))
         header.layer.zPosition = -1
         tableHeaderView = header
-        headerHeightConstraint = header.heightAnchor.constraint(equalToConstant: headerSize.height)
+        headerHeightConstraint = header.heightAnchor.constraint(equalToConstant: 342)
         headerHeightConstraint.isActive = true
         header.layoutIfNeeded()
         
@@ -281,22 +281,20 @@ extension TPTrainingView: TPTrainingSectionItemContentViewDelegate {
         
     }
     
-    public func tpTrainingSectionItemContentViewHeightConstarintAndViewToAnimate(_ sender: TPTrainingSectionItemContentView, userData: [AnyHashable : Any]?) -> (NSLayoutConstraint, UIView)? {
-        return nil
+    public func tpTrainingSectionItemContentWillNeedAnimateHeightChange(_ sender: TPTrainingSectionItemContentView, heightDelta: CGFloat, animationDuration: TimeInterval, userData: [AnyHashable: Any]?) {
+        
     }
 }
 
 extension TPTrainingView: TPTrainingHeaderViewDelegate {
     public func tpTrainingHeaderViewWillNeedAnimateHeightChange(_ sender: TPTrainingHeaderView, heightDelta: CGFloat, animationDuration: TimeInterval) {
         
-        headerHeightConstraint.constant += heightDelta
-        reloadData()
-//        UIView.animate(withDuration: animationDuration, animations: {
-//            headerView.frame = newFrame
-//            self.tableHeaderView = headerView
-//            headerView.layoutIfNeeded()
-//            headerView.setNeedsLayout()
-//        })
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.headerHeightConstraint.constant += heightDelta
+            self.tableHeaderView?.layoutIfNeeded()
+            
+            self.reloadData()
+        })
     }
     
     public func tpTrainingHeaderView(_ sender: TPTrainingHeaderView, nameChanged newName: String?) {

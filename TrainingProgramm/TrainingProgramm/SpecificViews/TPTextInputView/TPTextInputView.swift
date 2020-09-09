@@ -58,6 +58,15 @@ public class TPTextInputView: UIView {
         }
     }
     
+    public var isEditable: Bool {
+        get {
+            return textField.isEnabled
+        }
+        set {
+            textField.isEnabled = newValue
+        }
+    }
+    
     public weak var viewDelegate: TPTextInputViewDelegate?
     
     @IBOutlet private weak var textFieldLeftConstraint: NSLayoutConstraint!

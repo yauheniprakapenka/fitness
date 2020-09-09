@@ -9,13 +9,22 @@ import UIKit
 import CommonViews
 
 public protocol TPTrainingSectionItemContentViewDelegate: class {
-    func tpTrainingSectionItemContentViewHeightConstarintAndViewToAnimate(_ sender: TPTrainingSectionItemContentView, userData: [AnyHashable: Any]?) -> (NSLayoutConstraint, UIView)?
+    func tpTrainingSectionItemContentWillNeedAnimateHeightChange(
+        _ sender: TPTrainingSectionItemContentView,
+        heightDelta: CGFloat,
+        animationDuration: TimeInterval,
+        userData: [AnyHashable: Any]?)
     
-    func tpTrainingSectionItemContentView(_ sender: TPTrainingSectionItemContentView, modelUpdated model: TPTrainingSectionItem, emptyFields: [TPTrainingSectionItemContentView.Field], notValidFields: [TPTrainingSectionItemContentView.Field], userData: [AnyHashable: Any]?)
+    func tpTrainingSectionItemContentView(
+        _ sender: TPTrainingSectionItemContentView,
+        modelUpdated model: TPTrainingSectionItem,
+        emptyFields: [TPTrainingSectionItemContentView.Field],
+        notValidFields: [TPTrainingSectionItemContentView.Field],
+        userData: [AnyHashable: Any]?)
 }
 
 public extension TPTrainingSectionItemContentView {
-    enum Field: CaseIterable{
+    enum Field: CaseIterable {
         case profileValue
         case koeff
         case exerciseName
@@ -117,6 +126,7 @@ public class TPTrainingSectionItemContentView: UIView {
         view.constraintAllSidesToSuperview()
         nibContnetView = view
         exercisePickerView.viewPickerDelegate = self
+        exercisePickerView.enableCustomInput = false
         emptyFields = Field.allCases
         model = TPTrainingSectionItem()
         profileValueInputView.viewDelegate = self
@@ -209,6 +219,16 @@ private extension TPTrainingSectionItemContentView {
 }
 
 extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
+    public func tpDropdownListNeedAnimateHeight(_ sender: TPDropdownList, heightDelta: CGFloat, animationDuration: TimeInterval) {
+        
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.exercisePickerViewHeightConstraint.constant += heightDelta
+            self.nibContnetView.layoutIfNeeded()
+        })
+        
+        viewDelegate?.tpTrainingSectionItemContentWillNeedAnimateHeightChange(self, heightDelta: heightDelta, animationDuration: animationDuration, userData: userData)
+    }
+    
     public func tpDropdownList(_ sender: TPDropdownList, openStatusChanged isOpened: Bool) {
         
     }
@@ -223,14 +243,6 @@ extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     
     public func tpDropdownListItems(_ sender: TPDropdownList) -> [String] {
         return ["One", "Two", "Three"]
-    }
-    
-    public func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)] {
-        if let parentItems = viewDelegate?.tpTrainingSectionItemContentViewHeightConstarintAndViewToAnimate(self, userData: userData) {
-            return [(exercisePickerViewHeightConstraint, nibContnetView), parentItems]
-        } else {
-            fatalError("Enclosing view must provide constraints to animate heigth")
-        }
     }
 }
 

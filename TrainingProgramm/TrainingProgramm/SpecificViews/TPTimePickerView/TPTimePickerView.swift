@@ -85,6 +85,7 @@ public class TPTimePickerView: UIView {
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view)
         view.constraintAllSidesToSuperview()
+        view.setContentHuggingPriority(.init(249), for: .vertical)
         let recognizer = UITapGestureRecognizer(target: self, action: #selector(handleTimeViewTap))
         borderContainerView.addGestureRecognizer(recognizer)
         timePickerView.addTarget(self, action: #selector(handleTimePickerChange(sender:)), for: .valueChanged)
@@ -102,6 +103,18 @@ public class TPTimePickerView: UIView {
     private func handleTimePickerChange(sender: UIDatePicker) {
         updateTimeLabel()
         viewDelegate?.tpTimePickerView(self, selectedTimeChanged: timePickerView.date)
+    }
+    
+    public override var intrinsicContentSize: CGSize {
+        get {
+            let inputSize = borderContainerView.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            let height = inputSize.height + (isOpened ? openedPickerAdditionalHeight : 0)
+            return CGSize(width: UIView.noIntrinsicMetric, height: height)
+        }
+    }
+    
+    public override func systemLayoutSizeFitting(_ targetSize: CGSize) -> CGSize {
+        return intrinsicContentSize
     }
 }
 

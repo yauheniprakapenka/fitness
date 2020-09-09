@@ -25,7 +25,6 @@ class TrainingProgrammViewController2: UIViewController {
         dropdownList.viewPickerDelegate = self
         addToTrainingView.viewDelegate = self
         addToTrainingView.refreshData()
-        
     }
 }
 
@@ -75,6 +74,7 @@ extension TrainingProgrammViewController2: TPTimePickerViewDelegate {
 }
 
 extension TrainingProgrammViewController2: TPDropdownListPickerDelegate {
+    
     func tpDropdownList(_ sender: TPDropdownList, selectedTextInputItem item: String?) {}
     func tpDropdownList(_ sender: TPDropdownList, openStatusChanged isOpened: Bool) {}
     
@@ -84,8 +84,11 @@ extension TrainingProgrammViewController2: TPDropdownListPickerDelegate {
         return TrainingExcercisesStubData.trainingInventoryDropdown
     }
     
-    func tpDropdownListConstraintAndRelativeViewToAnimateHeightChange(_ sender: TPDropdownList) -> [(NSLayoutConstraint, UIView)] {
-        return [(dropdownListHeightConstraint, view)]
+    func tpDropdownListNeedAnimateHeight(_ sender: TPDropdownList, heightDelta: CGFloat, animationDuration: TimeInterval) {
+        UIView.animate(withDuration: animationDuration, animations: {
+            self.dropdownListHeightConstraint.constant += heightDelta
+            self.view.layoutIfNeeded()
+        })
     }
 }
 
