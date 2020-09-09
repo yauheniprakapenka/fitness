@@ -16,4 +16,13 @@ public extension UIScrollView {
         }
         contentSize = contentRect.size
     }
+    
+    func resizeContentSizeHeightToFitChildUsingAutolayout() {
+        var height: CGFloat = 0
+        for view in subviews {
+            let size = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+            height += size.height
+        }
+        contentSize = CGSize(width: bounds.width, height: height)
+    }
 }

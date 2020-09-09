@@ -56,10 +56,14 @@ class TrainerViewController: UIViewController {
         addChildVC()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        scrollView.resizeContentSizeToFitChilds()
+    }
+    
     private func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         scrollView.showsVerticalScrollIndicator = false
-        scrollView.contentSize = CGSize(width: scrollView.contentSize.width, height: UIScreen.main.bounds.height * 1.8)
         scrollView.backgroundColor = .white
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
