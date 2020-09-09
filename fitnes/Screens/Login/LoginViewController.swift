@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
         
         // test data
-        emailTextField.text = "mickey@mouse2.coma"
+        emailTextField.text = "tony@hawk.com"
         passwordTextField.text = "123456"
     }
     
@@ -80,9 +80,9 @@ class LoginViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                 }
                 print(tokenModel)
-                NetworkManager.shared.getUser()
-                self.presentProfile()
-                
+                NetworkManager.shared.getUser {
+                    self.presentProfile()
+                }
             case .failure(let failure):
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()

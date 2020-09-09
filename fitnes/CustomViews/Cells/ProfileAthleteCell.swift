@@ -95,7 +95,7 @@ private extension ProfileAthleteCell {
         
         NSLayoutConstraint.activate([
             userDataLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-            userDataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            userDataLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -20),
             userDataLabel.widthAnchor.constraint(equalToConstant: widthAnchor)
         ])
     }
