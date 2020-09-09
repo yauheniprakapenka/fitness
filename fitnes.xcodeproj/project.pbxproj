@@ -52,6 +52,8 @@
 		3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */; };
 		3E82C84F2507E2F1005FE93B /* SetProfileName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C84E2507E2F1005FE93B /* SetProfileName.swift */; };
 		3E82C8512507E9B4005FE93B /* SetProflleDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C8502507E9B4005FE93B /* SetProflleDescription.swift */; };
+		3E82C85325095291005FE93B /* KeyboardTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C85225095291005FE93B /* KeyboardTypeEnum.swift */; };
+		3E82C855250952C0005FE93B /* TypeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82C854250952C0005FE93B /* TypeData.swift */; };
 		3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */; };
 		3E82E21E24DCA96500145E9D /* AthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21D24DCA96500145E9D /* AthleteViewController.swift */; };
 		3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */; };
@@ -178,6 +180,8 @@
 		3E82C79024DC8CA000145E9D /* FButtonCheckmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonCheckmark.swift; sourceTree = "<group>"; };
 		3E82C84E2507E2F1005FE93B /* SetProfileName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProfileName.swift; sourceTree = "<group>"; };
 		3E82C8502507E9B4005FE93B /* SetProflleDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetProflleDescription.swift; sourceTree = "<group>"; };
+		3E82C85225095291005FE93B /* KeyboardTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardTypeEnum.swift; sourceTree = "<group>"; };
+		3E82C854250952C0005FE93B /* TypeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeData.swift; sourceTree = "<group>"; };
 		3E82E21B24DCA8B100145E9D /* FButtonWithSFSymbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonWithSFSymbol.swift; sourceTree = "<group>"; };
 		3E82E21D24DCA96500145E9D /* AthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteViewController.swift; sourceTree = "<group>"; };
 		3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsAthleteViewController.swift; sourceTree = "<group>"; };
@@ -471,9 +475,11 @@
 				3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */,
 				3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */,
 				3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */,
+				3E82C85225095291005FE93B /* KeyboardTypeEnum.swift */,
 				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
 				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
 				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,
+				3E82C854250952C0005FE93B /* TypeData.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -881,6 +887,7 @@
 				3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */,
 				3E7C73C825051B3300BD21ED /* CurrentProfile.swift in Sources */,
 				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
+				3E82C855250952C0005FE93B /* TypeData.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift in Sources */,
@@ -908,6 +915,7 @@
 				3E444AB624D21ACC0004B978 /* FButtonWithBackgroundColor.swift in Sources */,
 				3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */,
 				3E3D928324E864F800EEE0C6 /* AbonementModel.swift in Sources */,
+				3E82C85325095291005FE93B /* KeyboardTypeEnum.swift in Sources */,
 				3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */,
 				3E421A012506D32800BFD0D5 /* Base64Converter.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,

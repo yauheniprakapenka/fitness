@@ -127,12 +127,19 @@ private extension AthleteProfileViewController {
         tableView.rowHeight = 60
     }
     
-    func showAlert(title: String, completion: @escaping (String) -> Void) {
+    func showAlert(title: String, keyboardType: KeyboardTypeEnum, completion: @escaping (String) -> Void) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
 
         alert.addTextField(configurationHandler: { textField in
-            textField.placeholder = "Input your name here..."
+            textField.placeholder = "Укажите данные"
+            
+            switch keyboardType {
+            case .numberPad:
+                textField.keyboardType = .numberPad
+            case .alphabet:
+                textField.keyboardType = .alphabet
+            }
         })
 
         alert.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { action in
@@ -219,9 +226,18 @@ extension AthleteProfileViewController: UITableViewDataSource {
 
 extension AthleteProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var currentAlertKeyboard: KeyboardTypeEnum?
+        
+        switch athleteProfileModel[indexPath.row].typeData {
+        case .int:
+            currentAlertKeyboard = .numberPad
+        case .string:
+            currentAlertKeyboard = .alphabet
+        }
+
         print(athleteProfileModel[indexPath.row])
         
-        showAlert(title: athleteProfileModel[indexPath.row].description ?? "missing description") { (data) in
+        showAlert(title: athleteProfileModel[indexPath.row].description ?? "missing description", keyboardType: currentAlertKeyboard!) { (data) in
             
             print(athleteProfileModel[indexPath.row])
             
@@ -253,7 +269,15 @@ extension AthleteProfileViewController: UIImagePickerControllerDelegate, UINavig
         }
         
         avatarImageView.image = image
-        dismiss(animated: true)
+        
+        let stringAvatar = Base64Converter.shared.imageToString(img: image)
+        let avatarProfileModel = AthelteProfileModel(description: "Фото", userDataString: stringAvatar, userDataInt: nil, apiName: "avatar", typeData: .string)
+        
+        NetworkManager.shared.putUser(bodyData: avatarProfileModel) {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+            }
+        }
     }
     
     func openCamera() {

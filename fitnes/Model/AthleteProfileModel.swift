@@ -14,11 +14,6 @@ struct AthelteProfileModel {
     var typeData: TypeData
 }
 
-enum TypeData {
-    case int
-    case string
-}
-
 var athleteProfileModel: [AthelteProfileModel] = []
 
 func updateProfileModel() {
@@ -36,6 +31,6 @@ func updateProfileModel() {
         AthelteProfileModel(description: "Рывок тяжелоатлетический", userDataInt: apiGetUserModel.snatch, apiName: "snatch", typeData: .int),
         AthelteProfileModel(description: "Жим лежа", userDataInt: apiGetUserModel.benchPress, apiName: "benchPress", typeData: .int),
         AthelteProfileModel(description: "Одноповторный максимум в уп soражнении «Становая тяга»", userDataInt: apiGetUserModel.deadlift, apiName: "deadlift", typeData: .int),
-        AthelteProfileModel(description: "Становая тяга", userDataInt: apiGetUserModel.deadlift, apiName: "deadlift", typeData: .int)
+        AthelteProfileModel(description: "Становая тяга", userDataInt: apiGetUserModel.deadlift, apiName: "deadlift", typeData: .int),
     ]
 }
