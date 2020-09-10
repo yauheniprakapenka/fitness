@@ -64,7 +64,7 @@ class RegistrationViewController: UIViewController {
         configureRadioButton()
         
         // test data
-        emailTextField.text = "mickey@mouse4.com"
+        emailTextField.text = "tony@hawk.com"
         passwordTextField.text = "123456"
     }
 }

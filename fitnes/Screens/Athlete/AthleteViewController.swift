@@ -54,6 +54,10 @@ class AthleteViewController: UIViewController {
         super.viewWillAppear(true)
         
         abonementsViewController.currentVC = .athletVC
+        configureProfileData()
+    }
+    
+    func configureProfileData() {
         SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
         SetProfileName.shared.set(label: headerVC.nameLabel)
         SetProflleDescription.shared.set(label: headerVC.descriptionLabel)

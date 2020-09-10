@@ -58,6 +58,7 @@ class LoginViewController: UIViewController {
         emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
         
         // test data
+        emailTextField.text = "tony@hawk.com"
         passwordTextField.text = "123456"
     }
     
@@ -82,9 +83,9 @@ class LoginViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                 }
                 print(tokenModel)
-                NetworkManager.shared.getUser()
-                self.presentProfile()
-                
+                NetworkManager.shared.getUser {
+                    self.presentProfile()
+                }
             case .failure(let failure):
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
