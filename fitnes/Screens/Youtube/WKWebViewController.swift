@@ -2,7 +2,7 @@
 //  WKWebViewController.swift
 //  fitnes
 //
-//  Created by yauheni prakapenka on 11.08.2020.
+//  Created by yauheni prakapenka on 10.09.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
@@ -11,7 +11,9 @@ import WebKit
 
 class WKWebViewController: UIViewController, WKUIDelegate {
     
-    lazy var webView: WKWebView = {
+    // MARK: - Private properties
+    
+    private lazy var webView: WKWebView = {
         let webConfiguration = WKWebViewConfiguration()
         let webView = WKWebView(frame: .zero, configuration: webConfiguration)
         webView.uiDelegate = self
@@ -19,7 +21,11 @@ class WKWebViewController: UIViewController, WKUIDelegate {
         return webView
     }()
     
+    // MARK: - Public properties
+    
     var urlString = "http://mail.ru"
+    
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +36,12 @@ class WKWebViewController: UIViewController, WKUIDelegate {
         let myRequest = URLRequest(url: myURL!)
         webView.load(myRequest)
     }
-    
+}
+
+// MARK: - Private methods
+
+private extension WKWebViewController {
+
     func configureWerView() {
         view.backgroundColor = .white
         view.addSubview(webView)
