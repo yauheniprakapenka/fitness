@@ -22,7 +22,7 @@ class TrainerViewController: UIViewController {
     
     let abonementsVC = AbonementsViewController()
     let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
-    let profileButton = FButtonWithSFSymbol(sfSymbol: "person", color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
+    let profileButton = FButtonWithSFSymbol(sfSymbol: .person, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
     let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     let activityIndicator = FActivityIndicator()
     
