@@ -25,8 +25,10 @@ extension NetworkManager {
             jsonString = "{\"\(bodyData.apiName ?? "")\":\(bodyData.userDataInt ?? 0)}"
         } else if bodyData.userDataString != nil {
             jsonString = "{\"\(bodyData.apiName ?? "")\":\"\(bodyData.userDataString ?? "string error")\"}"
+        } else if bodyData.userDataDouble != nil {
+            jsonString = "{\"\(bodyData.apiName ?? "")\":\(bodyData.userDataDouble ?? 0)}"
         } else {
-            print("Error: unknown user data type")
+            fatalError("Error: unknown user data type")
         }
         
         request.httpBody = jsonString.data(using: String.Encoding.utf8)

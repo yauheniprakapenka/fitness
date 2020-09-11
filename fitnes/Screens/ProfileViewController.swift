@@ -8,7 +8,7 @@
 
 import UIKit
 
-private extension AthleteProfileViewController {
+private extension ProfileViewController {
     enum Const {
         static let avatarTopAnchor: CGFloat = 120
         static let tableViewTopAnchor: CGFloat = 40
@@ -19,10 +19,12 @@ private extension AthleteProfileViewController {
         
         static let cameraSize: CGFloat = 56
         static let cameraAnchor: CGFloat = 0
+        
+        static let trashButtonSize: CGFloat = 60
     }
 }
 
-class AthleteProfileViewController: UIViewController {
+class ProfileViewController: UIViewController {
     
     // MARK: - Properties
     
@@ -57,21 +59,22 @@ class AthleteProfileViewController: UIViewController {
         configureNavigationBar()
         configureBackNavigationButton()
         configureAvatarContainerView()
+        configureTrashButton()
         configureTableView()
     }
 }
 
 // MARK: - Private actions
 
-private extension AthleteProfileViewController {
+private extension ProfileViewController {
     
     @objc
-    private func backButtonTapped() {
+    func backButtonTapped() {
         dismiss(animated: true)
     }
     
     @objc
-    private func avatarTapped() {
+    func avatarTapped() {
         let alert = UIAlertController(title: "Добавить фото", message: "Выберите изображение для вашего профиля", preferredStyle: .actionSheet)
         alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
             self.openCamera()
@@ -85,11 +88,65 @@ private extension AthleteProfileViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+    @objc
+    func trashButtonTapped() {
+        print(#function)
+        let vc = AlertViewController(question: "Удалить профиль?", description: "Будут удалены все ваши данные без возможности их восстановления", actionButtonTitle: "Удалить", cancelButtonTitle: "Отменить", icon: .trashCircle)
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        
+        vc.actionButton.addTarget(self, action: #selector(deleteProfileTapped), for: .touchUpInside)
+        vc.cancelButton.addTarget(self, action: #selector(cancelAlertButtonTapped), for: .touchUpInside)
+        
+        present(vc, animated: true)
+    }
+    
+    @objc
+    func deleteProfileTapped() {
+        NetworkManager.shared.deleteUser {
+            DispatchQueue.main.async {
+                self.dismiss(animated: true)
+                
+                let vc = LoginViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false)
+            }
+        }
+    }
+    
+    @objc
+    func cancelAlertButtonTapped() {
+        dismiss(animated: true)
+    }
 }
 
 // MARK: - Private methods
 
-private extension AthleteProfileViewController {
+private extension ProfileViewController {
+    
+    func configureTrashButton() {
+        let containerView = UIView()
+        view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: avatarImageView.leadingAnchor)
+        ])
+        
+        let trashButton = FButtonWithSFSymbol(sfSymbol: "trash.circle", color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
+        containerView.addSubview(trashButton)
+        
+        NSLayoutConstraint.activate([
+            trashButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            trashButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+        ])
+        
+        trashButton.addTarget(self, action: #selector(trashButtonTapped), for: .touchUpInside)
+    }
     
     func configureView() {
         view.backgroundColor = .white
@@ -155,7 +212,7 @@ private extension AthleteProfileViewController {
 
 // MARK: - Avatar Image
 
-private extension AthleteProfileViewController {
+private extension ProfileViewController {
     
     func configureAvatarContainerView() {
         view.addSubview(avatarContainerView)
@@ -209,7 +266,7 @@ private extension AthleteProfileViewController {
 
 // MARK: - UITableViewDataSource
 
-extension AthleteProfileViewController: UITableViewDataSource {
+extension ProfileViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         athleteProfileModel.count
     }
@@ -224,7 +281,7 @@ extension AthleteProfileViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension AthleteProfileViewController: UITableViewDelegate {
+extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         var currentAlertKeyboard: KeyboardTypeEnum?
         
@@ -233,6 +290,8 @@ extension AthleteProfileViewController: UITableViewDelegate {
             currentAlertKeyboard = .numberPad
         case .string:
             currentAlertKeyboard = .alphabet
+        case .double:
+            currentAlertKeyboard = .numberPad
         }
 
         print(athleteProfileModel[indexPath.row])
@@ -259,7 +318,7 @@ extension AthleteProfileViewController: UITableViewDelegate {
 
 // MARK: - UI Image Picker Controller Delegate
 
-extension AthleteProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

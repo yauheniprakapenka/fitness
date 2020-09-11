@@ -169,6 +169,7 @@ class SetPlaceViewController: UIViewController {
         addressTextField.delegate = self
         addressTextField.translatesAutoresizingMaskIntoConstraints = false
         addressTextField.returnKeyType = .done
+        addressTextField.textColor = .black
         
         addressTextField.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 20).isActive = true
         addressTextField.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 20).isActive = true
@@ -248,15 +249,19 @@ class SetPlaceViewController: UIViewController {
         }
     }
     
-    // MARK: - Actions
+}
+
+// MARK: - Actions
+
+private extension SetPlaceViewController {
     
     @objc
-    private func cancelButtonTapped() {
+    func cancelButtonTapped() {
         dismiss(animated: true)
     }
     
     @objc
-    private func saveButtonTapped() {
+    func saveButtonTapped() {
         guard let currnetLatitude = currentLatitude else { return }
         guard let currentLongitude = currentLongitude else { return }
         
@@ -279,11 +284,17 @@ class SetPlaceViewController: UIViewController {
             latitude: currnetLatitude,
             longitude: currentLongitude)
         
+        let latitude = AthelteProfileModel(description: "",
+                                           userDataDouble: currnetLatitude as Double,
+                                           apiName: "latitude",
+                                           typeData: .double)
+        
+        NetworkManager.shared.putUser(bodyData: latitude)
         delegate?.addPlace(place: place!)
     }
     
     @objc
-    private func deleteButtonTapped() {
+    func deleteButtonTapped() {
         let alertVC = AlertViewController(question: "Вы хотите удалить\nместо тренировки?",
                                           description: "Вы всегда сможете\nдобавить его снова",
                                           actionButtonTitle: "Удалить",
@@ -297,7 +308,7 @@ class SetPlaceViewController: UIViewController {
     }
     
     @objc
-    private func recognizeLongPress(_ sender: UILongPressGestureRecognizer) {
+    func recognizeLongPress(_ sender: UILongPressGestureRecognizer) {
         
         if sender.state != UIGestureRecognizer.State.began {
             return
@@ -317,7 +328,7 @@ class SetPlaceViewController: UIViewController {
     }
     
     @objc
-    private func addPhotoButtonTapped() {
+    func addPhotoButtonTapped() {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.modalPresentationStyle = .fullScreen
@@ -327,7 +338,7 @@ class SetPlaceViewController: UIViewController {
     }
     
     @objc
-    private func alertActionButtonTapped() {
+    func alertActionButtonTapped() {
         self.place = nil
         self.delegate?.addPlace(place: self.place)
     }

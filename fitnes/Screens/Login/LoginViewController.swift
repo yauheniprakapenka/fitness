@@ -58,7 +58,7 @@ class LoginViewController: UIViewController {
         emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
         
         // test data
-        emailTextField.text = "tony@hawk.com"
+        emailTextField.text = "tony@hawk.trainer"
         passwordTextField.text = "123456"
     }
     
@@ -115,7 +115,7 @@ class LoginViewController: UIViewController {
 // MARK: - Private methods
 
 private extension LoginViewController {
-        
+    
     func configureActivityIndicator() {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
@@ -133,22 +133,18 @@ private extension LoginViewController {
     
     func presentProfile() {
         DispatchQueue.main.async {
-            if let client = apiTokenModel.client {
-                if client {
-                    let vc = AthleteViewController()
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true)
-                    return
-                }
+            if let client = apiTokenModel.client, client {
+                let vc = AthleteViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+                return
             }
             
-            if let trainer = apiTokenModel.trainer {
-                if trainer {
-                    let vc = TrainerViewController()
-                    vc.modalPresentationStyle = .fullScreen
-                    self.present(vc, animated: true)
-                    return
-                }
+            if let trainer = apiTokenModel.trainer, trainer {
+                let vc = TrainerViewController()
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true)
+                return
             }
             self.presentAlertVC(errorMessage: "Не удалось определить роль")
         }
