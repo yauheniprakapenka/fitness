@@ -24,7 +24,6 @@ struct UserDefaultStored<Value> {
     }
 }
 
-
 @propertyWrapper
 struct UserDefaultStoredNullable<Value> {
     let key: String

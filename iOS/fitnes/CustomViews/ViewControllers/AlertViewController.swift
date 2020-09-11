@@ -34,7 +34,7 @@ class AlertViewController: UIViewController {
     
     // MARK: - Initializers
     
-    init(question: String, description: String, actionButtonTitle: String?, cancelButtonTitle: String?, icon: IconImageEnum) {
+    init(question: String, description: String, actionButtonTitle: String?, cancelButtonTitle: String?, icon: SfSymbolEnum) {
         super.init(nibName: nil, bundle: nil)
         
         questionLabel.text = question
@@ -127,7 +127,7 @@ private extension AlertViewController {
         ])
     }
     
-    func configureIconImageView(icon: IconImageEnum) {
+    func configureIconImageView(icon: SfSymbolEnum) {
         verticalStackView.addArrangedSubview(iconImageView)
         iconImageView.translatesAutoresizingMaskIntoConstraints = false
         

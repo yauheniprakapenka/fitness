@@ -15,11 +15,11 @@ class FButtonWithSFSymbol: UIButton {
         configure()
     }
     
-    init(sfSymbol: String, color: UIColor, size: CGFloat) {
+    init(sfSymbol: SfSymbolEnum, color: UIColor, size: CGFloat) {
         super.init(frame: .zero)
         
         let largeConfig = UIImage.SymbolConfiguration(pointSize: size, weight: .medium, scale: .small)
-        let more = UIImage(systemName: sfSymbol, withConfiguration: largeConfig)?.withTintColor(color, renderingMode: .alwaysOriginal)
+        let more = UIImage(systemName: sfSymbol.rawValue, withConfiguration: largeConfig)?.withTintColor(color, renderingMode: .alwaysOriginal)
         setImage(more, for: .normal)
         
         configure()

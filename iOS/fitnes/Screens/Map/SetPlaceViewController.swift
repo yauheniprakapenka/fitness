@@ -289,7 +289,18 @@ private extension SetPlaceViewController {
                                            apiName: "latitude",
                                            typeData: .double)
         
-        NetworkManager.shared.putUser(bodyData: latitude)
+        let longitude = AthelteProfileModel(description: "",
+                                            userDataDouble: currentLongitude as Double,
+                                            apiName: "longitude",
+                                            typeData: .double)
+        
+        // Реализовано одновременное обновление только одного параметра профиля,
+        // поэтому отправляется по одному
+        
+        NetworkManager.shared.putUser(bodyData: latitude) {
+            NetworkManager.shared.putUser(bodyData: longitude)
+        }
+        
         delegate?.addPlace(place: place!)
     }
     

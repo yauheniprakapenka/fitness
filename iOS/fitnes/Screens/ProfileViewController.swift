@@ -137,7 +137,7 @@ private extension ProfileViewController {
             containerView.trailingAnchor.constraint(equalTo: avatarImageView.leadingAnchor)
         ])
         
-        let trashButton = FButtonWithSFSymbol(sfSymbol: "trash.circle", color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
+        let trashButton = FButtonWithSFSymbol(sfSymbol: .trashCircle, color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
         containerView.addSubview(trashButton)
         
         NSLayoutConstraint.activate([

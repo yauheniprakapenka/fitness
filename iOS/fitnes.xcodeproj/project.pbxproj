@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */; };
+		3E0435FC24FD70D3003501C5 /* SfSymbolEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0435FB24FD70D3003501C5 /* SfSymbolEnum.swift */; };
 		3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */; };
 		3E1752C924E169E600F823A8 /* ChatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752C824E169E600F823A8 /* ChatModel.swift */; };
 		3E1752CB24E16A1500F823A8 /* TrainerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752CA24E16A1500F823A8 /* TrainerModel.swift */; };
@@ -142,7 +142,7 @@
 
 /* Begin PBXFileReference section */
 		0D45113D45CEC2A8132EDF62 /* Pods-fitnes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.release.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.release.xcconfig"; sourceTree = "<group>"; };
-		3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImageEnum.swift; sourceTree = "<group>"; };
+		3E0435FB24FD70D3003501C5 /* SfSymbolEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SfSymbolEnum.swift; sourceTree = "<group>"; };
 		3E0CDEB324EAFE05001546CD /* AthleteQRAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteQRAbonementViewController.swift; sourceTree = "<group>"; };
 		3E1752C824E169E600F823A8 /* ChatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatModel.swift; sourceTree = "<group>"; };
 		3E1752CA24E16A1500F823A8 /* TrainerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModel.swift; sourceTree = "<group>"; };
@@ -488,7 +488,7 @@
 			children = (
 				3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */,
 				3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */,
-				3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */,
+				3E0435FB24FD70D3003501C5 /* SfSymbolEnum.swift */,
 				3E82C85225095291005FE93B /* KeyboardTypeEnum.swift */,
 				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
 				3E82C854250952C0005FE93B /* TypeData.swift */,
@@ -970,7 +970,7 @@
 				3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */,
 				3E421A012506D32800BFD0D5 /* Base64Converter.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
-				3E0435FC24FD70D3003501C5 /* IconImageEnum.swift in Sources */,
+				3E0435FC24FD70D3003501C5 /* SfSymbolEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */,
 				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,
