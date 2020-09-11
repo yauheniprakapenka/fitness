@@ -82,9 +82,9 @@ class LoginViewController: UIViewController {
                     self.activityIndicator.stopAnimating()
                 }
                 print(tokenModel)
-                NetworkManager.shared.getUser()
-                self.presentProfile()
-                
+                NetworkManager.shared.getUser {
+                    self.presentProfile()
+                }
             case .failure(let failure):
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()

@@ -115,7 +115,7 @@ private extension AthleteProfileViewController {
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: Const.tableViewTopAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargin),
-            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargin),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
         ])
         
