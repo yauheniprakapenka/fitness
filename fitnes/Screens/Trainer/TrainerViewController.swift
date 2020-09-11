@@ -16,15 +16,15 @@ private extension TrainerViewController {
 
 class TrainerViewController: UIViewController {
     
+    // MARK: - Public properties
+    
     var scrollView: UIScrollView!
     
     let abonementsVC = AbonementsViewController()
     let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
     let profileButton = FButtonWithSFSymbol(sfSymbol: "person", color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
-//    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     let activityIndicator = FActivityIndicator()
-//    let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -36,23 +36,20 @@ class TrainerViewController: UIViewController {
     var trainerAbonements: [AbonementModel] = []
     var place: PlaceModel?
     
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureScrollView()
         configureProfileButton()
-//        configureBackButton()
         configureCalendarButton()
-        
-//        configureTitleLabel()
-        
         configureHeaderView()
         configureItemsView()
         configureTrainingView()
         configureExerciseView()
         configurePlaceView()
         configureAbonementsView()
-        
         addChildVC()
     }
     
@@ -60,130 +57,41 @@ class TrainerViewController: UIViewController {
         super.viewDidAppear(animated)
         scrollView.resizeContentSizeToFitChilds()
     }
+}
+
+extension TrainerViewController: AddContactDelegate {
     
-    private func configureScrollView() {
-        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        scrollView.showsVerticalScrollIndicator = false
-        scrollView.backgroundColor = .white
-        view.addSubview(scrollView)
-        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    func addContact(contact: AbonementModel) {
+        self.dismiss(animated: true) {
+            self.trainerAbonements.insert(contact, at: 0)
+            self.abonementsVC.abonements = self.trainerAbonements
+            self.abonementsVC.reloadData()
+            print(self.trainerAbonements.count)
+        }
     }
+}
+
+extension TrainerViewController: SetPlaceVСDelegate {
     
-    private func configureCalendarButton() {
-        scrollView.addSubview(calendarButton)
-        calendarButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-        calendarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        
-        calendarButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
+    func addPlace(place: PlaceModel?) {
+        self.dismiss(animated: true) {
+            self.place = place
+            self.displayState()
+        }
     }
+}
+
+// MARK: - Private actions
+
+private extension TrainerViewController {
     
-//    private func configureBackButton() {
-//        scrollView.addSubview(backButton)
-//        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-//        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-//
-//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-//    }
-    
-    @objc private func backButtonTapped() {
+    @objc
+    func backButtonTapped() {
         dismiss(animated: true)
     }
     
-//    private func configureTitleLabel() {
-//        scrollView.addSubview(titleLabel)
-//        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//    }
-    
-    func configureProfileButton() {
-        scrollView.addSubview(profileButton)
-        profileButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
-        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
-    }
-    
-    private func configureHeaderView() {
-        scrollView.addSubview(headerView)
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 40).isActive = true
-        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
-    }
-    
-    private func configureItemsView() {
-        scrollView.addSubview(itemsView)
-        itemsView.translatesAutoresizingMaskIntoConstraints = false
-        itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
-        itemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        itemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-    }
-    
-    private func configureTrainingView() {
-        scrollView.addSubview(trainingView)
-        trainingView.translatesAutoresizingMaskIntoConstraints = false
-        trainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 10).isActive = true
-        trainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        trainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-    }
-    
-    private func configureExerciseView() {
-        scrollView.addSubview(exerciseView)
-        exerciseView.translatesAutoresizingMaskIntoConstraints = false
-        exerciseView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 110).isActive = true
-        exerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-        exerciseView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        exerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
-    }
-    
-    private func configurePlaceView() {
-        scrollView.addSubview(placeView)
-        placeView.translatesAutoresizingMaskIntoConstraints = false
-        
-        placeView.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 130).isActive = true
-        placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        placeView.heightAnchor.constraint(equalToConstant: 150).isActive = true
-
-        displayState()
-    }
-    
-    private func displayState() {
-        if let place = place {
-            let contentView = FViewContentPlace()
-            addPlaceView(view: contentView)
-            contentView.placeImageView.image = place.photo
-            contentView.addressLabel.text = place.address
-            
-            let contentViewTap = UITapGestureRecognizer(target: self, action: #selector(contentPlaceTapped))
-            contentView.addGestureRecognizer(contentViewTap)
-            
-            return
-        }
-        
-        let blankView = FViewBlankPlace()
-        addPlaceView(view: blankView)
-        
-        let blackViewTap = UITapGestureRecognizer(target: self, action: #selector(blankPlaceTapped))
-        blankView.addGestureRecognizer(blackViewTap)
-    }
-    
-    private func addPlaceView(view: UIView) {
-        placeView.addSubview(view)
-        view.topAnchor.constraint(equalTo: placeView.topAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: placeView.leadingAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: placeView.trailingAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: placeView.bottomAnchor).isActive = true
-    }
-    
     @objc
-    private func blankPlaceTapped() {
+    func blankPlaceTapped() {
         let vc = SetPlaceViewController()
         vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
@@ -192,7 +100,7 @@ class TrainerViewController: UIViewController {
     }
     
     @objc
-    private func contentPlaceTapped() {
+    func contentPlaceTapped() {
         let vc = SetPlaceViewController()
         vc.delegate = self
         vc.place = place
@@ -219,15 +127,6 @@ class TrainerViewController: UIViewController {
             }
             print(apiGetUserModel)
         }
-    }
-    
-    private func configureAbonementsView() {
-        scrollView.addSubview(abonementView)
-        abonementView.translatesAutoresizingMaskIntoConstraints = false
-        abonementView.topAnchor.constraint(equalTo: placeView.bottomAnchor, constant: 40).isActive = true
-        abonementView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        abonementView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        abonementView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
     @objc
@@ -260,10 +159,130 @@ class TrainerViewController: UIViewController {
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
+}
+
+// MARK: - Private methods
+
+private extension TrainerViewController {
     
-    // MARK: - Add Child VC
+    func configureScrollView() {
+        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.backgroundColor = .white
+        view.addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
     
-    private func addChildVC() {
+    func configureCalendarButton() {
+        scrollView.addSubview(calendarButton)
+        calendarButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+        calendarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        
+        calendarButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureProfileButton() {
+        scrollView.addSubview(profileButton)
+        profileButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureHeaderView() {
+        scrollView.addSubview(headerView)
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        headerView.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 40).isActive = true
+        headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
+    }
+    
+   func configureItemsView() {
+        scrollView.addSubview(itemsView)
+        itemsView.translatesAutoresizingMaskIntoConstraints = false
+        itemsView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20).isActive = true
+        itemsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        itemsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        itemsView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+    }
+    
+    func configureTrainingView() {
+        scrollView.addSubview(trainingView)
+        trainingView.translatesAutoresizingMaskIntoConstraints = false
+        trainingView.topAnchor.constraint(equalTo: itemsView.bottomAnchor, constant: 10).isActive = true
+        trainingView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        trainingView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        trainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
+    func configureExerciseView() {
+        scrollView.addSubview(exerciseView)
+        exerciseView.translatesAutoresizingMaskIntoConstraints = false
+        exerciseView.topAnchor.constraint(equalTo: trainingView.bottomAnchor, constant: 110).isActive = true
+        exerciseView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        exerciseView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        exerciseView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+    
+    func configurePlaceView() {
+        scrollView.addSubview(placeView)
+        placeView.translatesAutoresizingMaskIntoConstraints = false
+        
+        placeView.topAnchor.constraint(equalTo: exerciseView.bottomAnchor, constant: 130).isActive = true
+        placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        placeView.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        
+        displayState()
+    }
+    
+    func displayState() {
+        if let place = place {
+            let contentView = FViewContentPlace()
+            addPlaceView(view: contentView)
+            contentView.placeImageView.image = place.photo
+            contentView.addressLabel.text = place.address
+            
+            let contentViewTap = UITapGestureRecognizer(target: self, action: #selector(contentPlaceTapped))
+            contentView.addGestureRecognizer(contentViewTap)
+            
+            return
+        }
+        
+        let blankView = FViewBlankPlace()
+        addPlaceView(view: blankView)
+        
+        let blackViewTap = UITapGestureRecognizer(target: self, action: #selector(blankPlaceTapped))
+        blankView.addGestureRecognizer(blackViewTap)
+    }
+    
+    func addPlaceView(view: UIView) {
+        placeView.addSubview(view)
+        view.topAnchor.constraint(equalTo: placeView.topAnchor).isActive = true
+        view.leadingAnchor.constraint(equalTo: placeView.leadingAnchor).isActive = true
+        view.trailingAnchor.constraint(equalTo: placeView.trailingAnchor).isActive = true
+        view.bottomAnchor.constraint(equalTo: placeView.bottomAnchor).isActive = true
+    }
+    
+    func configureAbonementsView() {
+        scrollView.addSubview(abonementView)
+        abonementView.translatesAutoresizingMaskIntoConstraints = false
+        abonementView.topAnchor.constraint(equalTo: placeView.bottomAnchor, constant: 40).isActive = true
+        abonementView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        abonementView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        abonementView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+    }
+}
+
+// MARK: - Add Child VC
+
+private extension TrainerViewController {
+
+    func addChildVC() {
         view.backgroundColor = .white
         
         // headerVC
@@ -303,29 +322,5 @@ class TrainerViewController: UIViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
-    }
-}
-
-extension TrainerViewController: AddContactDelegate {
-    
-    func addContact(contact: AbonementModel) {
-        self.dismiss(animated: true) {
-            self.trainerAbonements.insert(contact, at: 0)
-            self.abonementsVC.abonements = self.trainerAbonements
-            self.abonementsVC.reloadData()
-            print(self.trainerAbonements.count)
-        }
-    }
-}
-
-extension TrainerViewController: SetPlaceVСDelegate {
-    
-    func addPlace(place: PlaceModel?) {
-        self.dismiss(animated: true) {
-            self.place = place
-            
-            self.displayState()
-        }
-        
     }
 }
