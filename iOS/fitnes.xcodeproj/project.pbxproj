@@ -719,24 +719,6 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
-
-		F8496E1E250975B500874F8E /* Storage */ = {
-			isa = PBXGroup;
-			children = (
-				F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */,
-				F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */,
-			);
-			path = Storage;
-			sourceTree = "<group>";
-		};
-		F8496E2325098CDD00874F8E /* EmptyListView */ = {
-			isa = PBXGroup;
-			children = (
-				F8496E2425098D0700874F8E /* EmptyListView.swift */,
-			);
-			path = EmptyListView;
-			sourceTree = "<group>";
-		};
 		3EFF9EBD250AB11800D34DE1 /* Youtube */ = {
 			isa = PBXGroup;
 			children = (
@@ -755,6 +737,14 @@
 				F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */,
 			);
 			path = Storage;
+			sourceTree = "<group>";
+		};
+		F8496E2325098CDD00874F8E /* EmptyListView */ = {
+			isa = PBXGroup;
+			children = (
+				F8496E2425098D0700874F8E /* EmptyListView.swift */,
+			);
+			path = EmptyListView;
 			sourceTree = "<group>";
 		};
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
