@@ -9,4 +9,5 @@
 enum TypeData {
     case int
     case string
+    case double
 }

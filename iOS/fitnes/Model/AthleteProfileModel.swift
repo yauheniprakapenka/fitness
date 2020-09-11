@@ -10,6 +10,7 @@ struct AthelteProfileModel {
     var description: String?
     var userDataString: String?
     var userDataInt: Int?
+    var userDataDouble: Double?
     var apiName: String?
     var typeData: TypeData
 }

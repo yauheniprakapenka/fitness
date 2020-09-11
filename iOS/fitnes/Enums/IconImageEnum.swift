@@ -7,6 +7,7 @@
 //
 
 enum IconImageEnum: String {
-    case chevronDownCircle = "chevron.down.circle" // галочка в круге
-    case multiplyCircle = "multiply.circle" // крестик в круге
+    case chevronDownCircle = "chevron.down.circle"  // галочка в круге
+    case multiplyCircle = "multiply.circle"         // крестик в круге
+    case trashCircle = "trash.circle"               // корзина в круге
 }

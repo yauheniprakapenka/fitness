@@ -21,7 +21,7 @@ class AthleteViewController: UIViewController {
     let headerVC = HeaderViewController()
     let abonementsViewController = AbonementsViewController()
     let activityIndicator = FActivityIndicator()
-    let findTrainerButton = FButtonWithSFSymbol(sfSymbol: "person")
+    let profileButton = FButtonWithSFSymbol(sfSymbol: "person", color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
     
     var athleteAbonement: [AbonementModel] = [
         AbonementModel(abonementName: "Вечерний",
@@ -39,7 +39,7 @@ class AthleteViewController: UIViewController {
         updateProfileModel()
         
         configureScrollViewLayout()
-        configureMoreButton()
+        configureProfileButton()
         configureHeader()
         configureItemsLayout()
         configureComingTraininLayout()
@@ -83,7 +83,7 @@ private extension AthleteViewController {
         
         NetworkManager.shared.getUser {
             DispatchQueue.main.async {
-                let vc = AthleteProfileViewController()
+                let vc = ProfileViewController()
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
@@ -132,12 +132,12 @@ private extension AthleteViewController {
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
-    func configureMoreButton() {
-        scrollView.addSubview(findTrainerButton)
-        findTrainerButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        findTrainerButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+    func configureProfileButton() {
+        scrollView.addSubview(profileButton)
+        profileButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         
-        findTrainerButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
     }
     
     func configureHeader() {

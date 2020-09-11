@@ -87,7 +87,7 @@
 		3EE3901824BCFEF6003AF6D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */; };
 		3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */; };
 		3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E024DD3A0500CA0530 /* AbonementsCollectionCell.swift */; };
-		3EE586E424DD5A8100CA0530 /* AthleteProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E324DD5A8100CA0530 /* AthleteProfileViewController.swift */; };
+		3EE586E424DD5A8100CA0530 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E324DD5A8100CA0530 /* ProfileViewController.swift */; };
 		3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586E924DDBF9400CA0530 /* FButtonFran.swift */; };
 		3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */; };
 		3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */; };
@@ -110,6 +110,7 @@
 		3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */; };
 		3EFF9EC1250AB28700D34DE1 /* FetchYoutubePreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */; };
 		3EFF9EC3250AB2E700D34DE1 /* YoutubePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */; };
+		3EFF9EC5250C0EE700D34DE1 /* ApiDeleteUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC4250C0EE700D34DE1 /* ApiDeleteUser.swift */; };
 		D97B8932EFE3294B6EA84B7A /* Pods_fitnes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */; };
 		F843119F24F5678A008CC50D /* TrainingProgramm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; };
 		F84311A024F5678A008CC50D /* TrainingProgramm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -223,7 +224,7 @@
 		3EE3901724BCFEF6003AF6D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementsViewController.swift; sourceTree = "<group>"; };
 		3EE586E024DD3A0500CA0530 /* AbonementsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbonementsCollectionCell.swift; sourceTree = "<group>"; };
-		3EE586E324DD5A8100CA0530 /* AthleteProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthleteProfileViewController.swift; sourceTree = "<group>"; };
+		3EE586E324DD5A8100CA0530 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		3EE586E924DDBF9400CA0530 /* FButtonFran.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FButtonFran.swift; sourceTree = "<group>"; };
 		3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerViewController.swift; sourceTree = "<group>"; };
 		3EE586EF24DEA0B100CA0530 /* FindTrainerCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTrainerCollectionCell.swift; sourceTree = "<group>"; };
@@ -246,6 +247,7 @@
 		3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdFromYoutubeUrl.swift; sourceTree = "<group>"; };
 		3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchYoutubePreviewImage.swift; sourceTree = "<group>"; };
 		3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewViewController.swift; sourceTree = "<group>"; };
+		3EFF9EC4250C0EE700D34DE1 /* ApiDeleteUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiDeleteUser.swift; sourceTree = "<group>"; };
 		AE4B935F57350FECA01943F2 /* Pods-fitnes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fitnes.debug.xcconfig"; path = "Target Support Files/Pods-fitnes/Pods-fitnes.debug.xcconfig"; sourceTree = "<group>"; };
 		E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F843119E24F5678A008CC50D /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -322,7 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				3E82E21D24DCA96500145E9D /* AthleteViewController.swift */,
-				3EE586E324DD5A8100CA0530 /* AthleteProfileViewController.swift */,
 			);
 			path = Athlete;
 			sourceTree = "<group>";
@@ -490,9 +491,9 @@
 				3E0435FB24FD70D3003501C5 /* IconImageEnum.swift */,
 				3E82C85225095291005FE93B /* KeyboardTypeEnum.swift */,
 				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
+				3E82C854250952C0005FE93B /* TypeData.swift */,
 				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
 				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,
-				3E82C854250952C0005FE93B /* TypeData.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -500,6 +501,7 @@
 		3E99FB0F24FBADA600F1F1F9 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
+				3EFF9EC4250C0EE700D34DE1 /* ApiDeleteUser.swift */,
 				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
 				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
 				3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */,
@@ -666,6 +668,7 @@
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EFF9EBD250AB11800D34DE1 /* Youtube */,
+				3EE586E324DD5A8100CA0530 /* ProfileViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -743,6 +746,15 @@
 				3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */,
 			);
 			path = Youtube;
+			sourceTree = "<group>";
+		};
+		F8496E1E250975B500874F8E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */,
+				F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
@@ -902,6 +914,7 @@
 			files = (
 				3EE586EA24DDBF9400CA0530 /* FButtonFran.swift in Sources */,
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
+				3EFF9EC5250C0EE700D34DE1 /* ApiDeleteUser.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
 				3ECCF5272504DA1400E8D603 /* ApiPutUser.swift in Sources */,
 				3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */,
@@ -993,7 +1006,7 @@
 				F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */,
 				3ED7037124DB38B600E4DB9F /* FTextField.swift in Sources */,
 				3EFF9EC1250AB28700D34DE1 /* FetchYoutubePreviewImage.swift in Sources */,
-				3EE586E424DD5A8100CA0530 /* AthleteProfileViewController.swift in Sources */,
+				3EE586E424DD5A8100CA0530 /* ProfileViewController.swift in Sources */,
 				3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */,
 				3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */,
 				3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */,

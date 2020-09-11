@@ -40,6 +40,8 @@ struct ApiGetUserModel: Decodable {
     var client: Bool
     var height: Int?
     var avatar: String?
+    var longitude: String?
+    var latitude: String?
     //      "attendances": [],
     //      "subscriptions": [],
    
@@ -75,6 +77,8 @@ struct ApiGetUserModel: Decodable {
         case client
         case height
         case avatar
+        case longitude
+        case latitude
     }
 }
 

@@ -20,11 +20,11 @@ class TrainerViewController: UIViewController {
     
     let abonementsVC = AbonementsViewController()
     let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
-    
-    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
+    let profileButton = FButtonWithSFSymbol(sfSymbol: "person", color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
+//    let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
-    
-    let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
+    let activityIndicator = FActivityIndicator()
+//    let backButton = FButtonSimple(title: "Выйти", titleColor: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 16)
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -40,11 +40,11 @@ class TrainerViewController: UIViewController {
         super.viewDidLoad()
         
         configureScrollView()
-        
-        configureBackButton()
+        configureProfileButton()
+//        configureBackButton()
         configureCalendarButton()
         
-        configureTitleLabel()
+//        configureTitleLabel()
         
         configureHeaderView()
         configureItemsView()
@@ -75,33 +75,41 @@ class TrainerViewController: UIViewController {
     private func configureCalendarButton() {
         scrollView.addSubview(calendarButton)
         calendarButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-        calendarButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        calendarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         
         calendarButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
     }
     
-    private func configureBackButton() {
-        scrollView.addSubview(backButton)
-        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
-        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        
-        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
-    }
+//    private func configureBackButton() {
+//        scrollView.addSubview(backButton)
+//        backButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 10).isActive = true
+//        backButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+//
+//        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+//    }
     
     @objc private func backButtonTapped() {
         dismiss(animated: true)
     }
     
-    private func configureTitleLabel() {
-        scrollView.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//    private func configureTitleLabel() {
+//        scrollView.addSubview(titleLabel)
+//        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+//        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+//    }
+    
+    func configureProfileButton() {
+        scrollView.addSubview(profileButton)
+        profileButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
     }
     
     private func configureHeaderView() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
+        headerView.topAnchor.constraint(equalTo: profileButton.bottomAnchor, constant: 40).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
@@ -191,6 +199,26 @@ class TrainerViewController: UIViewController {
         let nav = UINavigationController(rootViewController: vc)
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
+    }
+    
+    @objc
+    func profileButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimate()
+        }
+        
+        NetworkManager.shared.getUser {
+            DispatchQueue.main.async {
+                let vc = ProfileViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+                self.activityIndicator.stopAnimate()
+            }
+            print(apiGetUserModel)
+        }
     }
     
     private func configureAbonementsView() {
