@@ -1,0 +1,144 @@
+openapi: 3.0.0
+info:
+  title: Fitness App Api
+  description: Api for fitness app
+  version: 0.0.1
+
+servers:
+  - url: https://crossfit-api-2020.herokuapp.com/
+    description: Test server
+
+paths:
+  /registration:
+    post:
+      summary: Register trainer or athlete
+      description: Register
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegistrationBody'
+            example:
+              $ref: '#/components/examples/UserAsTrainerRegistrationDataExample'
+      responses:
+        '200':
+          description: User created
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/UserRegistrationResponseOk"
+                  - $ref: "#/components/schemas/UserRegistrationResponseOtherError"
+                  - $ref: "#/components/schemas/UserRegistrationResponseErrorWithMessage"
+  /oauth/token:
+    post:
+      summary: "User login"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserLoginByPassword"
+            example:
+              $ref: "#/components/examples/UserLoginRequestExample"
+      responses:
+        '200':
+          description: if success get token to put in header and user id
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/UserLoginSuccessResponse"
+  /api/v1/users/{id}:
+    get:
+      summary: "Get info about user"
+      parameters:
+        - $ref: "#/components/parameters/IdPathParameter"
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      responses:
+        '200':
+          description: "status of getting user info"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserGetInfoResponse"
+    put:
+      summary: "Change user info"
+      parameters:
+        - $ref: "#/components/parameters/IdPathParameter"
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref:  "#/components/schemas/UserPusInfoResponse"
+
+      responses:
+        '200':
+          description: "json with chaged user info"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserGetInfoResponse"
+  /api/v1/exercises/:
+    post:
+      summary: "Exercise creation"
+      parameters:
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExerciseCreationBody"
+      responses:
+        '200':
+          description: "json with created exercise info or json with message when error"
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: "#/components/schemas/ExerciseCreationEditingSuccessResponse"
+                  - $ref: "#/components/schemas/ErrorResponseWithMessage"
+  /api/v1/exercises/{id}:
+    get:
+      summary: "Get info about exercise"
+      parameters:
+        - $ref: "#/components/parameters/IdPathParameter"
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      responses:
+        "200":
+          description: "return info aboun exercise"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExerciseGetInfoResponse"
+    put:
+      summary: "Used to edit exercise. Body required only fields that needs change"
+      parameters:
+        - $ref: "#/components/parameters/IdPathParameter"
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExerciseEditingBody"
+      responses:
+        "200":
+          description: "Return info about exercises"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExerciseCreationEditingSuccessResponse"
+components:
+  schemas:
+    $ref: "./schemas.yaml"
+  examples:
+    $ref: "./examples.yaml"
+  parameters:
+    $ref: "./parameters.yaml"
+
+      

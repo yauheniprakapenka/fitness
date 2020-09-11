@@ -1,0 +1,248 @@
+UserRegistrationBody:
+  title: Register Body
+  description: Body when register user
+  type: object
+  properties:
+    trainer:
+      type: string
+      enum: ["trainer"]
+    email:
+      type: string
+      # simple email pattern
+      pattern: ^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$
+    password:
+      type: string
+    password_confirmation:
+      type: string
+    first_name:
+      type: string
+    last_name:
+      type: string
+    phone:
+      type: string
+  required:
+    - trainer
+    - email
+    - password
+    - password_confirmation
+    
+  # oneOf:
+  #   - required:
+  #     - trainer
+  #   - required:
+  #     - client
+
+UserRegistrationResponseOk:
+  type: object
+  properties:
+    message: 
+      type: string
+    user_id:
+      type: number
+  required:
+    - message
+    - user_id
+UserRegistrationResponseOtherError:
+  type: object
+  properties:
+    message: 
+      type: string
+    user_id:
+      type: string
+      enum: [null]
+  required:
+    - message
+    - user_id
+UserRegistrationResponseErrorWithMessage:
+  type: object
+  properties:
+    message: 
+      type: string
+      enum: ["User exist"]
+  required:
+    - message
+UserLoginByPassword:
+  type: object
+  properties:
+    grant_type: 
+      type: string
+      enum: ["password"]
+    email:
+      type: string
+      pattern: ^[^@\s]+@[^@\s\.]+\.[^@\.\s]+$
+    password:
+      type: string
+  required:
+    - "grant_type"
+    - "email"
+    - "password"
+UserLoginSuccessResponse:
+  type: object
+  properties:
+    access_token:
+      type: string
+    token_type:
+      type: string
+      enum: ["bearer"]
+    expires_in:
+      type: number
+    created_at:
+      type: number
+    user_id:
+      type: number
+    trainer:
+      type: boolean
+    client:
+      type: boolean
+  required:
+    - "access_token"
+    - "user_id"
+UserGetInfoResponse:
+  type: object
+  properties:
+    data:
+      type: object
+      properties:
+        id:
+          type: string
+        attribures:
+          type: object
+          properties:
+            email:
+              type: string
+            first-name:
+              type: string
+              nullable: true
+            last-name:
+              type: string
+              nullable: true
+            phone:
+              type: string
+              nullable: true
+          required:
+            - "email"
+            - "first-name"
+            - "last-name"
+            - "phone"
+      required:
+        - "id"
+        - "attributes"
+  required:
+    - "data"
+UserPusInfoResponse:
+  type: object
+  properties:
+    id:
+      type: integer
+    email:
+      type: string
+    first_name:
+      type: string
+    last_name:
+      type: string
+    phone:
+      type: string
+      nullable: true
+  required:
+    - "id"
+    - "email"
+    - "first_name"
+    - "last_name"
+    - "phone"
+ErrorResponseWithMessage:
+  type: object
+  properties:
+    message:
+      type: string
+  required:
+    - "message"
+
+ExerciseCreationBody:
+  description: "Json body to use when create exercise"
+  type: object
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+    videoUrl:
+      type: string
+    equipment:
+      type: string
+  required:
+    - name
+  
+ExerciseEditingBody:
+  description: "Json body to use when update(put) exercise. Required at most one parameter to edit"
+  type: object
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+    videoUrl:
+      type: string
+    equipment:
+      type: string
+  
+ExerciseCreationEditingSuccessResponse:
+  type: object
+  properties:
+    id: 
+      type: integer
+    name:
+      type: string
+    description:
+      type: string
+      nullable: true
+    videoUrl:
+      type: string
+      nullable: true
+    equipment:
+      type: string
+      nullable: true
+    created_at:
+      type: string
+    updated_at:
+      type: string
+  required:
+    - "id"
+    - "name"
+    - "description"
+    - "videoUrl"
+    - "equipment"
+    - "created_at"
+    - "updated_at"
+
+ExerciseGetInfoResponse:
+  type: object
+  properties:
+    data:
+      type: object
+      properties:
+        id:
+          type: string
+        attribures:
+          type: object
+          properties:
+            name:
+              type: string
+            description:
+              type: string
+              nullable: true
+            video-url:
+              type: string
+              nullable: true
+            equipment:
+              type: string
+              nullable: true
+          required:
+            - "name"
+            - "description"
+            - "video-url"
+            - "equipment"
+      required:
+        - "id"
+        - "attributes"
+  required:
+    - "data"

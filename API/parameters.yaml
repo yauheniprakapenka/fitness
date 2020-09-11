@@ -1,0 +1,15 @@
+IdPathParameter:
+  name: id
+  in: path
+  description: "id"
+  required: true
+  schema:
+    type: integer
+    format: int64
+AuthorizationHeaderParameter:
+  name: authorization
+  in: header
+  description: "value should be bearer: #{token_id}"
+  required: true
+  schema:
+    type: string
