@@ -44,6 +44,10 @@
 		3E6B416B250CCC320098EC20 /* ApiGetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */; };
 		3E6B416D250CDCD70098EC20 /* ApiGetUsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */; };
 		3E6B416F250CF44B0098EC20 /* GetStubAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416E250CF44B0098EC20 /* GetStubAvatarImage.swift */; };
+		3E6B4171250CFC560098EC20 /* ApiPostTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B4170250CFC560098EC20 /* ApiPostTicket.swift */; };
+		3E6B4173250D011A0098EC20 /* PostTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B4172250D011A0098EC20 /* PostTicketModel.swift */; };
+		3E6B4175250D017D0098EC20 /* ApiGetTicket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B4174250D017D0098EC20 /* ApiGetTicket.swift */; };
+		3E6B417D250D0E770098EC20 /* ApiGetTicketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B417C250D0E770098EC20 /* ApiGetTicketModel.swift */; };
 		3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */; };
 		3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12D25038AAD00353159 /* FRadioButtonView.swift */; };
 		3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */; };
@@ -181,6 +185,10 @@
 		3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUsers.swift; sourceTree = "<group>"; };
 		3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUsersModel.swift; sourceTree = "<group>"; };
 		3E6B416E250CF44B0098EC20 /* GetStubAvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStubAvatarImage.swift; sourceTree = "<group>"; };
+		3E6B4170250CFC560098EC20 /* ApiPostTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiPostTicket.swift; sourceTree = "<group>"; };
+		3E6B4172250D011A0098EC20 /* PostTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTicketModel.swift; sourceTree = "<group>"; };
+		3E6B4174250D017D0098EC20 /* ApiGetTicket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetTicket.swift; sourceTree = "<group>"; };
+		3E6B417C250D0E770098EC20 /* ApiGetTicketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetTicketModel.swift; sourceTree = "<group>"; };
 		3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsInvalidPasswordError.swift; sourceTree = "<group>"; };
 		3E70A12D25038AAD00353159 /* FRadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRadioButtonView.swift; sourceTree = "<group>"; };
 		3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAthleteCell.swift; sourceTree = "<group>"; };
@@ -466,6 +474,62 @@
 			path = QR;
 			sourceTree = "<group>";
 		};
+		3E6B4176250D07A20098EC20 /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				3E6B4174250D017D0098EC20 /* ApiGetTicket.swift */,
+				3E6B4170250CFC560098EC20 /* ApiPostTicket.swift */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		3E6B4177250D07B30098EC20 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
+				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		3E6B4178250D07D80098EC20 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				3EFF9EC4250C0EE700D34DE1 /* ApiDeleteUser.swift */,
+				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
+				3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */,
+				3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		3E6B4179250D09870098EC20 /* Ticket */ = {
+			isa = PBXGroup;
+			children = (
+				3E6B417C250D0E770098EC20 /* ApiGetTicketModel.swift */,
+				3E6B4172250D011A0098EC20 /* PostTicketModel.swift */,
+			);
+			path = Ticket;
+			sourceTree = "<group>";
+		};
+		3E6B417A250D09920098EC20 /* Users */ = {
+			isa = PBXGroup;
+			children = (
+				3E7C73C925051C9900BD21ED /* ApiGetUserModel.swift */,
+				3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */,
+			);
+			path = Users;
+			sourceTree = "<group>";
+		};
+		3E6B417B250D09A90098EC20 /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */,
+				3EAA2E4424FEE47300C8D08D /* ApiTokenModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
 		3E82E21A24DCA6B600145E9D /* CollectionCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,13 +568,9 @@
 		3E99FB0F24FBADA600F1F1F9 /* URLSession */ = {
 			isa = PBXGroup;
 			children = (
-				3EFF9EC4250C0EE700D34DE1 /* ApiDeleteUser.swift */,
-				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
-				3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */,
-				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
-				3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */,
-				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
-				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
+				3E6B4177250D07B30098EC20 /* Registration */,
+				3E6B4176250D07A20098EC20 /* Ticket */,
+				3E6B4178250D07D80098EC20 /* Users */,
 			);
 			path = URLSession;
 			sourceTree = "<group>";
@@ -518,10 +578,9 @@
 		3EAA2E4324FDB59700C8D08D /* ModelApi */ = {
 			isa = PBXGroup;
 			children = (
-				3E7C73C925051C9900BD21ED /* ApiGetUserModel.swift */,
-				3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */,
-				3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */,
-				3EAA2E4424FEE47300C8D08D /* ApiTokenModel.swift */,
+				3E6B417B250D09A90098EC20 /* Registration */,
+				3E6B4179250D09870098EC20 /* Ticket */,
+				3E6B417A250D09920098EC20 /* Users */,
 			);
 			path = ModelApi;
 			sourceTree = "<group>";
@@ -548,6 +607,7 @@
 			children = (
 				3E99FB0F24FBADA600F1F1F9 /* URLSession */,
 				3ECCF5282504E8F600E8D603 /* GetUserId.swift */,
+				3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -926,6 +986,7 @@
 				3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E6B416F250CF44B0098EC20 /* GetStubAvatarImage.swift in Sources */,
+				3E6B4171250CFC560098EC20 /* ApiPostTicket.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */,
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
@@ -934,10 +995,12 @@
 				3E7C73C825051B3300BD21ED /* CurrentProfile.swift in Sources */,
 				3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */,
 				3E82C855250952C0005FE93B /* TypeData.swift in Sources */,
+				3E6B4173250D011A0098EC20 /* PostTicketModel.swift in Sources */,
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift in Sources */,
 				3EFF9EC3250AB2E700D34DE1 /* YoutubePreviewViewController.swift in Sources */,
+				3E6B4175250D017D0098EC20 /* ApiGetTicket.swift in Sources */,
 				3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */,
 				3E444AB224D201350004B978 /* FViewItem.swift in Sources */,
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
@@ -988,6 +1051,7 @@
 				3EE5E29324FD9B9B00705B89 /* ApiRegistration.swift in Sources */,
 				3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */,
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
+				3E6B417D250D0E770098EC20 /* ApiGetTicketModel.swift in Sources */,
 				3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */,
 				3EEB9C2524D9FEA400E1EC0B /* ConverterFromEnumToString.swift in Sources */,
 				3E7C73CE25057EEB00BD21ED /* FActivityIndicator.swift in Sources */,

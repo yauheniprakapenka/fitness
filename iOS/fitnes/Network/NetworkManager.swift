@@ -16,4 +16,5 @@ class NetworkManager {
     let registration = "/registration"
     let oauthToken = "/oauth/token"
     let users = "/api/v1/users/"
+    let ticket = "/api/v1/ticket/"
 }

@@ -17,7 +17,7 @@ private extension LoginViewController {
 
 class LoginViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Private Properties
     
     private let contentScrollView = UIScrollView()
     private let backgroundImageView = UIImageView()
@@ -85,6 +85,7 @@ class LoginViewController: UIViewController {
                 print(tokenModel)
                 NetworkManager.shared.getUser {
                     self.presentProfile()
+                    NetworkManager.shared.getTicket()
                 }
             case .failure(let failure):
                 DispatchQueue.main.async {

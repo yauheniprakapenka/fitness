@@ -7,15 +7,15 @@
 //
 
 struct ApiGetUsersModel: Decodable {
-    let data: [Datum]?
+    let data: [GetUsersData]?
 }
 
-struct Datum: Decodable {
+struct GetUsersData: Decodable {
     let id: String?
-    let attributes: Attributes?
+    let attributes: GetUsersAttributes?
 }
 
-struct Attributes: Decodable {
+struct GetUsersAttributes: Decodable {
     let email: String?
     let firstName: String?
     let avatar: String?
