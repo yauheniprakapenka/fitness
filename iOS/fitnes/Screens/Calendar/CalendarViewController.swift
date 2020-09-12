@@ -21,6 +21,8 @@ private extension CalendarViewController {
         static let cancelMessage = "Отменить тренировку"
         static let activeColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
         static let cancelColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+        
+        static let cell = "cell"
     }
 }
 
@@ -35,6 +37,7 @@ class CalendarViewController: UIViewController {
     private let horisontalLineView = FViewHorisontalLine()
     private var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
     private let addTrainingDayButton = FButtonWithBackgroundColor(backgroundColor: Const.activeColor, title: Const.actionMessage, size: 18)
+    private var selectedDay: CalendarTrainingModel?
     
     private var calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(date: "Thursday-01-Oct-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
@@ -50,8 +53,6 @@ class CalendarViewController: UIViewController {
         CalendarTrainingModel(date: "Friday-09-Oct-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         
     ]
-    
-    private var selectedDay: CalendarTrainingModel?
     
     // MARK: - View life cycle
     
@@ -88,6 +89,16 @@ private extension CalendarViewController {
     //        }
     //    }
     
+    func printIsTrainingExist(date: String) {
+        if filteredCalendarTrainingModel.count > 0 {
+            if date == filteredCalendarTrainingModel[0].date {
+                print("\nЕсть тренировка")
+                print(filteredCalendarTrainingModel)
+            }
+        } else {
+            print("\nНет тренировки")
+        }
+    }
     
     func configureAddTrainingButton() {
         view.addSubview(addTrainingDayButton)
@@ -152,73 +163,48 @@ private extension CalendarViewController {
     func addTrainingButtonTapped() {
         print(#function)
         
-        if let day = selectedDay {
-            calendarTrainingModel.append(day)
-            
-            filteredCalendarTrainingModel = calendarTrainingModel.filter({
-                $0.date.contains(day.date)
-            })
-            
-            if filteredCalendarTrainingModel.count > 0 {
-                if day.date == filteredCalendarTrainingModel[0].date {
-                    print("Есть тренировка")
-                    print(filteredCalendarTrainingModel)
-                    tableView.reloadData()
-                }
-            } else {
-                print("Нет тренировки")
-                filteredCalendarTrainingModel = []
-                tableView.reloadData()
-            }
-            
-            tableView.reloadData()
-            emptyStateImageView.alpha = 0
-        }
+        guard let day = selectedDay else { return }
+        calendarTrainingModel.append(day)
+        
+        filteredCalendarTrainingModel = calendarTrainingModel.filter({
+            $0.date.contains(day.date)
+        })
+        
+        printIsTrainingExist(date: day.date)
+        
+        tableView.reloadData()
     }
     
     @objc
     func cancelButtonTapped() {
         dismiss(animated: true)
     }
-    
-    @objc
-    func deleteTrainingButtonTapped() {
-        print(#function)
-    }
 }
 
-// MARK: - FSCalendarDelegate
+// MARK: - FS Calendar Delegate
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
-        formatter.dateFormat = "EEEE-dd-MMM-yyyy"
         
+        formatter.dateFormat = "EEEE-dd-MMM-yyyy"
         let formatedData = formatter.string(from: date)
         print(formatedData)
-        selectedDay = CalendarTrainingModel(date: formatedData, description: "Добавьте описание. Его будут видеть атлеты.")
+        
+        selectedDay = CalendarTrainingModel(date: formatedData,
+                                            description: "Добавьте описание. Его будут видеть атлеты.")
         
         filteredCalendarTrainingModel = calendarTrainingModel.filter({
             $0.date.contains(formatter.string(from: date))
         })
         
-        if filteredCalendarTrainingModel.count > 0 {
-            if formatter.string(from: date) == filteredCalendarTrainingModel[0].date {
-                print("Есть тренировка")
-                print(filteredCalendarTrainingModel)
-                tableView.reloadData()
-                //                configureAddTrainingButtonbehavior(isExist: true)
-            }
-        } else {
-            print("Нет тренировки")
-            filteredCalendarTrainingModel = []
-            tableView.reloadData()
-            //            configureAddTrainingButtonbehavior(isExist: false)
-        }
+        printIsTrainingExist(date: formatter.string(from: date))
+        
+        tableView.reloadData()
     }
 }
 
-// MARK: - FSCalendarDataSource
+// MARK: - FS Calendar Data Source
 
 extension CalendarViewController: FSCalendarDataSource {
     func minimumDate(for calendar: FSCalendar) -> Date {
@@ -226,7 +212,7 @@ extension CalendarViewController: FSCalendarDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UI Table View Delegate
 
 extension CalendarViewController: UITableViewDelegate {
     private func setupTableView() {
@@ -242,11 +228,11 @@ extension CalendarViewController: UITableViewDelegate {
         tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
         
-        tableView.register(CalendarTrainingCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(CalendarTrainingCell.self, forCellReuseIdentifier: Const.cell)
     }
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UI Table View Data Source
 
 extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -261,7 +247,7 @@ extension CalendarViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CalendarTrainingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: Const.cell, for: indexPath) as! CalendarTrainingCell
         
         cell.selectionStyle = .none
         cell.dayOfWeekLabel.text = DayOfWeekConverter.shared.convert(date: filteredCalendarTrainingModel[indexPath.row].date)
