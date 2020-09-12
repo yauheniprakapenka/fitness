@@ -9,22 +9,24 @@
 import UIKit
 
 class FindTrainerViewController: UIViewController {
+    
+    // MARK: - Properties
 
     let searchBar = UISearchBar()
     
     var filteredFindTrainerModel = [TrainerModel]()
     var isFilterMode = false
     
-    let findTrainerModel: [TrainerModel] = [
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), trainerName: "Александр Овечкин", cost: "1 занятие - 6 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), trainerName: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Ул. Хатаевича 30, Школа 50"),
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), trainerName: "Алексей Загитов", cost: "1 занятие - 5 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), trainerName: "Алексей Ягудин", cost: "1 занятие - 11 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), trainerName: "Мария Колесникова", cost: "1 занятие - 9 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), trainerName: "Вячеслав Малафеев", cost: "1 занятие - 7 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №34, ул. Хатаевича 25"),
-        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), trainerName: "Инна Малинова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №44, ул. Ланге 17")
+    var findTrainerModel: [TrainerModel] = [
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.34"), trainerName: "Александр Овечкин", cost: "1 занятие - 6 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №12, ул. Ленина 21"),
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.43"), trainerName: "Юлия Ефимова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Ул. Хатаевича 30, Школа 50"),
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.27.36"), trainerName: "Алексей Загитов", cost: "1 занятие - 5 руб.", schoolImage: #imageLiteral(resourceName: "school1"), trainingPlace: "Стадион СОШ №27, ул. Ленина 11"),
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.27"), trainerName: "Алексей Ягудин", cost: "1 занятие - 11 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №60, ул. Советская 2"),
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.29.10"), trainerName: "Мария Колесникова", cost: "1 занятие - 9 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №15, ул. Полесская 55"),
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.21"), trainerName: "Вячеслав Малафеев", cost: "1 занятие - 7 руб.", schoolImage: #imageLiteral(resourceName: "school72"), trainingPlace: "Стадион СОШ №34, ул. Хатаевича 25"),
+//        TrainerModel(avatarImage: #imageLiteral(resourceName: "Screenshot 08-08-2020 14.28.59-1"), trainerName: "Инна Малинова", cost: "1 занятие - 8 руб.", schoolImage: #imageLiteral(resourceName: "school3"), trainingPlace: "Стадион СОШ №44, ул. Ланге 17")
     ]
-
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -36,14 +38,41 @@ class FindTrainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addUsersToTrainerModel()
+        
         configureNavigation()
         configureCollectionView()
         
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+}
+
+// MARK: - Private methods
+
+private extension FindTrainerViewController {
     
-    private func configureNavigation() {
+    func addUsersToTrainerModel() {
+        for user in apiGetUsersModel.data! {
+            var currentAvatar: UIImage = GetStubAvatarImage.shared.getImage()
+            
+            if let fetchedAvatar = user.attributes?.avatar {
+                let convertedImage = Base64Converter.shared.stringToImage(imageBase64String: fetchedAvatar)
+                currentAvatar = convertedImage
+            }
+            
+            let item = TrainerModel(avatarImage: currentAvatar,
+                                    trainerName: user.attributes?.firstName,
+                                    cost: user.attributes?.email,
+                                    schoolImage: nil,
+                                    trainingPlace: user.attributes?.phone)
+            
+            print(item)
+            findTrainerModel.append(item)
+        }
+    }
+    
+    func configureNavigation() {
         view.backgroundColor = .white
         collectionView.backgroundColor = .white
         
@@ -61,19 +90,7 @@ class FindTrainerViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(searchButtonTapped))
     }
     
-    @objc private func searchButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        navigationItem.titleView = searchBar
-        searchBar.showsCancelButton = true
-        navigationItem.rightBarButtonItem = nil
-        searchBar.becomeFirstResponder()
-    }
-    
-    @objc private func cancelButtonTapped() {
-        dismiss(animated: true)
-    }
-    
-    private func configureCollectionView() {
+    func configureCollectionView() {
         view.addSubview(collectionView)
         
         collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
@@ -82,6 +99,26 @@ class FindTrainerViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
 }
+
+// MARK: - Private actions
+
+private extension FindTrainerViewController {
+    @objc
+    func searchButtonTapped() {
+        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        navigationItem.titleView = searchBar
+        searchBar.showsCancelButton = true
+        navigationItem.rightBarButtonItem = nil
+        searchBar.becomeFirstResponder()
+    }
+    
+    @objc
+    func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout, UICollectionViewDataSource
 
 extension FindTrainerViewController: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
@@ -111,6 +148,8 @@ extension FindTrainerViewController: UICollectionViewDelegateFlowLayout, UIColle
     }
 }
 
+// MARK: - UISearchBarDelegate
+
 extension FindTrainerViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -138,7 +177,7 @@ extension FindTrainerViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filteredFindTrainerModel = findTrainerModel.filter({$0.trainerName.lowercased().contains(searchText.lowercased())})
+        filteredFindTrainerModel = findTrainerModel.filter({$0.trainerName!.lowercased().contains(searchText.lowercased())})
         isFilterMode = true
         
         collectionView.reloadData()

@@ -43,6 +43,7 @@
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
 		3E6B416B250CCC320098EC20 /* ApiGetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */; };
 		3E6B416D250CDCD70098EC20 /* ApiGetUsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */; };
+		3E6B416F250CF44B0098EC20 /* GetStubAvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416E250CF44B0098EC20 /* GetStubAvatarImage.swift */; };
 		3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */; };
 		3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12D25038AAD00353159 /* FRadioButtonView.swift */; };
 		3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */; };
@@ -179,6 +180,7 @@
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUsers.swift; sourceTree = "<group>"; };
 		3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUsersModel.swift; sourceTree = "<group>"; };
+		3E6B416E250CF44B0098EC20 /* GetStubAvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStubAvatarImage.swift; sourceTree = "<group>"; };
 		3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsInvalidPasswordError.swift; sourceTree = "<group>"; };
 		3E70A12D25038AAD00353159 /* FRadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRadioButtonView.swift; sourceTree = "<group>"; };
 		3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAthleteCell.swift; sourceTree = "<group>"; };
@@ -599,6 +601,7 @@
 				3EE586FA24DFAFB100CA0530 /* CalendarConverter */,
 				3E60118824E9844800CAE51B /* ColorConverter */,
 				3ED8381624F10A3D00C12B42 /* GeolocationConverter */,
+				3E6B416E250CF44B0098EC20 /* GetStubAvatarImage.swift */,
 				3EE5870524E01BF700CA0530 /* HapticFeedback */,
 				3E60118F24E9BEBA00CAE51B /* KeyboardHandler */,
 				3E0CDED724EB2EE3001546CD /* QRGenerator */,
@@ -922,6 +925,7 @@
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
 				3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
+				3E6B416F250CF44B0098EC20 /* GetStubAvatarImage.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */,
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,

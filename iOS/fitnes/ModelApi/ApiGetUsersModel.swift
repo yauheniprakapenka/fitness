@@ -19,11 +19,13 @@ struct Attributes: Decodable {
     let email: String?
     let firstName: String?
     let avatar: String?
+    let phone: String?
 
     enum CodingKeys: String, CodingKey {
         case email
         case firstName = "first-name"
         case avatar
+        case phone
     }
 }
 

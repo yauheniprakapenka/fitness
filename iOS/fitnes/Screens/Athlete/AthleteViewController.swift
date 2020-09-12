@@ -97,9 +97,13 @@ private extension AthleteViewController {
     func findTrainerButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
-        let nav = UINavigationController(rootViewController: FindTrainerViewController())
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
+        NetworkManager.shared.getUsers {
+            DispatchQueue.main.async {
+                let nav = UINavigationController(rootViewController: FindTrainerViewController())
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+            }
+        }
     }
 }
 

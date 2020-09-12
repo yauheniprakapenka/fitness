@@ -9,9 +9,9 @@
 import UIKit
 
 struct TrainerModel {
-    var avatarImage: UIImage
-    var trainerName: String
-    var cost: String
-    var schoolImage: UIImage
-    var trainingPlace: String
+    var avatarImage: UIImage?
+    var trainerName: String?
+    var cost: String?
+    var schoolImage: UIImage?
+    var trainingPlace: String?
 }
