@@ -9,6 +9,7 @@
 import UIKit
 
 struct TrainerModel {
+    var id: String?
     var avatarImage: UIImage?
     var trainerName: String?
     var cost: String?

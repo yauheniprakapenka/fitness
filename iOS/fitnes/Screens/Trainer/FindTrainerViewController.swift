@@ -61,7 +61,8 @@ private extension FindTrainerViewController {
                 currentAvatar = convertedImage
             }
             
-            let item = TrainerModel(avatarImage: currentAvatar,
+            let item = TrainerModel(id: user.id,
+                                    avatarImage: currentAvatar,
                                     trainerName: user.attributes?.firstName,
                                     cost: user.attributes?.email,
                                     schoolImage: nil,
