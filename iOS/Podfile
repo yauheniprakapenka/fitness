@@ -15,10 +15,7 @@ target 'fitnes' do
   use_frameworks!
 
   # Pods for fitnes
-  pod 'Firebase/Analytics'
-  pod 'Firebase/Auth'
-  pod 'Firebase/Firestore'
-  pod 'FirebaseFirestoreSwift'
+  pod 'Alamofire', '~> 5.2'
   pod 'FSCalendar'
   pod 'SwiftGen', '~> 6.0'
 
