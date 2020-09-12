@@ -14,14 +14,16 @@ import FSCalendar
 
 class CalendarViewController: UIViewController {
     
-    var calendar: FSCalendar!
-    var formatter = DateFormatter()
-    let tableView = UITableView()
-    let emptyStateImageView = FImageView(frame: .zero)
+    // MARK: - Private properties
     
-    let horisontalLineView = FViewHorisontalLine()
+    private var calendar: FSCalendar!
+    private var formatter = DateFormatter()
+    private let tableView = UITableView()
+    private let emptyStateImageView = FImageView(frame: .zero)
+    private let horisontalLineView = FViewHorisontalLine()
+    private var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
     
-    let calendarTrainingModel: [CalendarTrainingModel] = [
+    private let calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(date: "Sunday-16-Aug-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
         CalendarTrainingModel(date: "Monday-17-Aug-2020", description: "14:00 - 19:00 |  Отрабатываем наклоны"),
         CalendarTrainingModel(date: "Tuesday-18-Aug-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
@@ -30,28 +32,31 @@ class CalendarViewController: UIViewController {
         CalendarTrainingModel(date: "Monday-24-Aug-2020", description: "09:00 - 18:00 | Отрабатываем наклоны"),
         CalendarTrainingModel(date: "Wednesday-26-Aug-2020", description: "12:00 - 18:30 | Езда на велосипеде"),
         CalendarTrainingModel(date: "Friday-28-Aug-2020", description: "09:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-         CalendarTrainingModel(date: "Wednesday-02-Sep-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-          CalendarTrainingModel(date: "Thursday-03-Sep-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-           CalendarTrainingModel(date: "Saturday-05-Sep-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Wednesday-02-Sep-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Thursday-03-Sep-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Saturday-05-Sep-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         
     ]
     
-    var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         configureView()
-        
         configureNavigation()
-        
         configureCalendar()
         configureHorisontalLineView()
         setupTableView()
         configureEmptyStateImageView()
     }
+}
+
+// MARK: - Private methods
+
+private extension CalendarViewController {
     
-    private func configureCalendar() {
+    func configureCalendar() {
         calendar = FSCalendar(frame: CGRect(x: 0, y: 90, width: self.view.frame.size.width, height: 300))
         calendar.scrollDirection = .horizontal
         calendar.scope = .month
@@ -64,11 +69,11 @@ class CalendarViewController: UIViewController {
         calendar.dataSource = self
     }
     
-    private func configureView() {
+    func configureView() {
         view.backgroundColor = .white
     }
     
-    private func configureNavigation() {
+    func configureNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Расписание тренера"
         
@@ -76,12 +81,7 @@ class CalendarViewController: UIViewController {
         navigationItem.leftBarButtonItem = cancelButton
     }
     
-    @objc
-    private func cancelButtonTapped() {
-        dismiss(animated: true)
-    }
-    
-    private func configureHorisontalLineView() {
+    func configureHorisontalLineView() {
         view.addSubview(horisontalLineView)
         horisontalLineView.topAnchor.constraint(equalTo: view.topAnchor, constant: 410).isActive = true
         horisontalLineView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -89,7 +89,7 @@ class CalendarViewController: UIViewController {
         horisontalLineView.heightAnchor.constraint(equalToConstant: 1).isActive = true
     }
     
-    private func configureEmptyStateImageView() {
+    func configureEmptyStateImageView() {
         view.addSubview(emptyStateImageView)
         emptyStateImageView.topAnchor.constraint(equalTo: horisontalLineView.bottomAnchor, constant: 40).isActive = true
         emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -97,6 +97,18 @@ class CalendarViewController: UIViewController {
         emptyStateImageView.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
 }
+
+// MARK: - Actions
+
+private extension CalendarViewController {
+    
+    @objc
+    func cancelButtonTapped() {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - FSCalendarDelegate
 
 extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
@@ -120,11 +132,15 @@ extension CalendarViewController: FSCalendarDelegate {
     }
 }
 
+// MARK: - FSCalendarDataSource
+
 extension CalendarViewController: FSCalendarDataSource {
     func minimumDate(for calendar: FSCalendar) -> Date {
         return Date()
     }
 }
+
+// MARK: - UITableViewDelegate
 
 extension CalendarViewController: UITableViewDelegate {
     private func setupTableView() {
@@ -143,6 +159,8 @@ extension CalendarViewController: UITableViewDelegate {
         tableView.register(CalendarTrainingCell.self, forCellReuseIdentifier: "cell")
     }
 }
+
+// MARK: - UITableViewDataSource
 
 extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -171,5 +189,4 @@ extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         60
     }
-    
 }
