@@ -36,7 +36,7 @@ class CalendarViewController: UIViewController {
     private var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
     private let addTrainingDayButton = FButtonWithBackgroundColor(backgroundColor: Const.activeColor, title: Const.actionMessage, size: 18)
     
-    private let calendarTrainingModel: [CalendarTrainingModel] = [
+    private var calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(date: "Thursday-01-Oct-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
         CalendarTrainingModel(date: "Monday-17-Aug-2020", description: "14:00 - 19:00 |  Отрабатываем наклоны"),
         CalendarTrainingModel(date: "Friday-02-Oct-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
@@ -51,6 +51,8 @@ class CalendarViewController: UIViewController {
         
     ]
     
+    private var selectedDay: CalendarTrainingModel?
+    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -64,7 +66,7 @@ class CalendarViewController: UIViewController {
         configureEmptyStateImageView()
         
         if apiGetUserModel.trainer {
-            configureAddTrainingButtonLayout()
+            configureAddTrainingButton()
         }
     }
 }
@@ -73,20 +75,21 @@ class CalendarViewController: UIViewController {
 
 private extension CalendarViewController {
     
-    func configureAddTrainingButtonbehavior(isExist: Bool) {
-        switch isExist {
-        case true:
-            addTrainingDayButton.backgroundColor = Const.cancelColor
-            addTrainingDayButton.setTitle(Const.cancelMessage, for: .normal)
-            addTrainingDayButton.addTarget(self, action: #selector(deleteTrainingButtonTapped), for: .touchUpInside)
-        case false:
-            addTrainingDayButton.backgroundColor = Const.activeColor
-            addTrainingDayButton.setTitle(Const.actionMessage, for: .normal)
-            addTrainingDayButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
-        }
-    }
+    //    func configureAddTrainingButtonbehavior(isExist: Bool) {
+    //        switch isExist {
+    //        case true:
+    //            addTrainingDayButton.backgroundColor = Const.cancelColor
+    //            addTrainingDayButton.setTitle(Const.cancelMessage, for: .normal)
+    //            addTrainingDayButton.addTarget(self, action: #selector(deleteTrainingButtonTapped), for: .touchUpInside)
+    //        case false:
+    //            addTrainingDayButton.backgroundColor = Const.activeColor
+    //            addTrainingDayButton.setTitle(Const.actionMessage, for: .normal)
+    //            addTrainingDayButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
+    //        }
+    //    }
     
-    func configureAddTrainingButtonLayout() {
+    
+    func configureAddTrainingButton() {
         view.addSubview(addTrainingDayButton)
         
         NSLayoutConstraint.activate([
@@ -95,6 +98,8 @@ private extension CalendarViewController {
             addTrainingDayButton.heightAnchor.constraint(equalToConstant: 50),
             addTrainingDayButton.widthAnchor.constraint(equalToConstant: Const.widthScreen / 2)
         ])
+        
+        addTrainingDayButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
     }
     
     func configureCalendar() {
@@ -144,13 +149,36 @@ private extension CalendarViewController {
 private extension CalendarViewController {
     
     @objc
-    func cancelButtonTapped() {
-        dismiss(animated: true)
+    func addTrainingButtonTapped() {
+        print(#function)
+        
+        if let day = selectedDay {
+            calendarTrainingModel.append(day)
+            
+            filteredCalendarTrainingModel = calendarTrainingModel.filter({
+                $0.date.contains(day.date)
+            })
+            
+            if filteredCalendarTrainingModel.count > 0 {
+                if day.date == filteredCalendarTrainingModel[0].date {
+                    print("Есть тренировка")
+                    print(filteredCalendarTrainingModel)
+                    tableView.reloadData()
+                }
+            } else {
+                print("Нет тренировки")
+                filteredCalendarTrainingModel = []
+                tableView.reloadData()
+            }
+            
+            tableView.reloadData()
+            emptyStateImageView.alpha = 0
+        }
     }
     
     @objc
-    func addTrainingButtonTapped() {
-        print(#function)
+    func cancelButtonTapped() {
+        dismiss(animated: true)
     }
     
     @objc
@@ -165,23 +193,27 @@ extension CalendarViewController: FSCalendarDelegate {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         formatter.dateFormat = "EEEE-dd-MMM-yyyy"
-        print(formatter.string(from: date))
+        
+        let formatedData = formatter.string(from: date)
+        print(formatedData)
+        selectedDay = CalendarTrainingModel(date: formatedData, description: "Добавьте описание. Его будут видеть атлеты.")
         
         filteredCalendarTrainingModel = calendarTrainingModel.filter({
-            $0.date.contains(formatter.string(from: date))})
+            $0.date.contains(formatter.string(from: date))
+        })
         
         if filteredCalendarTrainingModel.count > 0 {
             if formatter.string(from: date) == filteredCalendarTrainingModel[0].date {
                 print("Есть тренировка")
                 print(filteredCalendarTrainingModel)
                 tableView.reloadData()
-                configureAddTrainingButtonbehavior(isExist: true)
+                //                configureAddTrainingButtonbehavior(isExist: true)
             }
         } else {
             print("Нет тренировки")
             filteredCalendarTrainingModel = []
             tableView.reloadData()
-            configureAddTrainingButtonbehavior(isExist: false)
+            //            configureAddTrainingButtonbehavior(isExist: false)
         }
     }
 }
