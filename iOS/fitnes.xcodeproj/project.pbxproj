@@ -41,6 +41,8 @@
 		3E60119324E9E06700CAE51B /* ViewColorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E60119224E9E06700CAE51B /* ViewColorEnum.swift */; };
 		3E63718824CF4C7600483A56 /* QRGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718724CF4C7600483A56 /* QRGenerator.swift */; };
 		3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63718B24CF621100483A56 /* QRScannerViewController.swift */; };
+		3E6B416B250CCC320098EC20 /* ApiGetUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */; };
+		3E6B416D250CDCD70098EC20 /* ApiGetUsersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */; };
 		3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */; };
 		3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E70A12D25038AAD00353159 /* FRadioButtonView.swift */; };
 		3E7C73C42505197A00BD21ED /* ProfileAthleteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */; };
@@ -175,6 +177,8 @@
 		3E60119224E9E06700CAE51B /* ViewColorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewColorEnum.swift; sourceTree = "<group>"; };
 		3E63718724CF4C7600483A56 /* QRGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRGenerator.swift; sourceTree = "<group>"; };
 		3E63718B24CF621100483A56 /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUsers.swift; sourceTree = "<group>"; };
+		3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUsersModel.swift; sourceTree = "<group>"; };
 		3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IsInvalidPasswordError.swift; sourceTree = "<group>"; };
 		3E70A12D25038AAD00353159 /* FRadioButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FRadioButtonView.swift; sourceTree = "<group>"; };
 		3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileAthleteCell.swift; sourceTree = "<group>"; };
@@ -500,6 +504,7 @@
 			children = (
 				3EFF9EC4250C0EE700D34DE1 /* ApiDeleteUser.swift */,
 				3E3B66052500231C00D1068F /* ApiGetUser.swift */,
+				3E6B416A250CCC320098EC20 /* ApiGetUsers.swift */,
 				3EAA2E4124FDB3A300C8D08D /* ApiOauthToken.swift */,
 				3ECCF5262504DA1400E8D603 /* ApiPutUser.swift */,
 				3EE5E29224FD9B9A00705B89 /* ApiRegistration.swift */,
@@ -512,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				3E7C73C925051C9900BD21ED /* ApiGetUserModel.swift */,
+				3E6B416C250CDCD70098EC20 /* ApiGetUsersModel.swift */,
 				3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */,
 				3EAA2E4424FEE47300C8D08D /* ApiTokenModel.swift */,
 			);
@@ -939,6 +945,7 @@
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
 				F8496E2225097B3E00874F8E /* UserDefaultsStorage.swift in Sources */,
 				3E63718C24CF621100483A56 /* QRScannerViewController.swift in Sources */,
+				3E6B416B250CCC320098EC20 /* ApiGetUsers.swift in Sources */,
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
 				3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */,
 				3E7C73CC25051CF100BD21ED /* AthleteProfileModel.swift in Sources */,
@@ -961,6 +968,7 @@
 				3E0435FC24FD70D3003501C5 /* SfSymbolEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */,
+				3E6B416D250CDCD70098EC20 /* ApiGetUsersModel.swift in Sources */,
 				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,
 				3E444AAC24D1E5A40004B978 /* ComingTrainingViewController.swift in Sources */,
 				3EE5870224DFC2DC00CA0530 /* MonthConverter.swift in Sources */,

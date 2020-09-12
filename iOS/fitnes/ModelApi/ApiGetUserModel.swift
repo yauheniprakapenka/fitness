@@ -6,8 +6,6 @@
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
 
-import Foundation
-
 struct ApiGetUserModel: Decodable {
     var firstName: String?
 //    var lastName: String?
