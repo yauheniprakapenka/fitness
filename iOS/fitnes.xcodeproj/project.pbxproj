@@ -116,7 +116,6 @@
 		F84311A024F5678A008CC50D /* TrainingProgramm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8496E2025097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */; };
 		F8496E2225097B3E00874F8E /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */; };
-		F8496E2525098D0700874F8E /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496E2425098D0700874F8E /* EmptyListView.swift */; };
 		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
 		F8754E18250450D50063F5D6 /* CommonViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; };
 		F8754E19250450D50063F5D6 /* CommonViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -253,7 +252,6 @@
 		F843119E24F5678A008CC50D /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStoredPropertyWrapper.swift; sourceTree = "<group>"; };
 		F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
-		F8496E2425098D0700874F8E /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		F8754E17250450D50063F5D6 /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -414,7 +412,6 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F8496E2325098CDD00874F8E /* EmptyListView */,
 				3E70A12D25038AAD00353159 /* FRadioButtonView.swift */,
 				3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */,
 				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
@@ -739,14 +736,6 @@
 			path = Storage;
 			sourceTree = "<group>";
 		};
-		F8496E2325098CDD00874F8E /* EmptyListView */ = {
-			isa = PBXGroup;
-			children = (
-				F8496E2425098D0700874F8E /* EmptyListView.swift */,
-			);
-			path = EmptyListView;
-			sourceTree = "<group>";
-		};
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -945,7 +934,6 @@
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
 				3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */,
 				3E7C73CA25051C9900BD21ED /* ApiGetUserModel.swift in Sources */,
-				F8496E2525098D0700874F8E /* EmptyListView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
 				3E60118C24E98C4300CAE51B /* FViewColors.swift in Sources */,
 				3EE5870724E01C1000CA0530 /* HapticFeedback.swift in Sources */,
