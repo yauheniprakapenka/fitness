@@ -7,7 +7,7 @@
 <img src="https://user-images.githubusercontent.com/47568606/92991511-e7677e00-f4ec-11ea-8fe8-ff69b3182ebb.png" width="140"></a>
 <img src="https://user-images.githubusercontent.com/47568606/92991516-f9492100-f4ec-11ea-99ea-7112e8a06ac2.png" width="140"></a>
 
-**Руководитель проекта:** Грачев В. А.<br>
+**Руководитель проекта, бизнес-аналитик:** Грачев В. А.<br>
 **Дизайнер:** Пустовалова Ю. А.<br>
 **Backend разработчик:** Сущинский Д. В.<br>
 **iOS разработчики:** Захаренко В. А., Пракопенко Е. С.<br>

@@ -12,6 +12,18 @@ import FSCalendar
 // FSCalendar tutorial - https://www.youtube.com/watch?v=FipNDF7g9tE
 // NSDateFormatter - https://nsdateformatter.com/
 
+private extension CalendarViewController {
+    enum Const {
+        static let screenSize: CGRect = UIScreen.main.bounds
+        static let widthScreen: CGFloat = screenSize.width
+        
+        static let actionMessage = "Буду тренировать"
+        static let cancelMessage = "Отменить тренировку"
+        static let activeColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
+        static let cancelColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
+    }
+}
+
 class CalendarViewController: UIViewController {
     
     // MARK: - Private properties
@@ -22,11 +34,12 @@ class CalendarViewController: UIViewController {
     private let emptyStateImageView = FImageView(frame: .zero)
     private let horisontalLineView = FViewHorisontalLine()
     private var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
+    private let addTrainingDayButton = FButtonWithBackgroundColor(backgroundColor: Const.activeColor, title: Const.actionMessage, size: 18)
     
     private let calendarTrainingModel: [CalendarTrainingModel] = [
-        CalendarTrainingModel(date: "Sunday-16-Aug-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
+        CalendarTrainingModel(date: "Thursday-01-Oct-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
         CalendarTrainingModel(date: "Monday-17-Aug-2020", description: "14:00 - 19:00 |  Отрабатываем наклоны"),
-        CalendarTrainingModel(date: "Tuesday-18-Aug-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
+        CalendarTrainingModel(date: "Friday-02-Oct-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
         CalendarTrainingModel(date: "Wednesday-19-Aug-2020", description: "14:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         CalendarTrainingModel(date: "Friday-21-Aug-2020", description: "12:00 - 18:00 | Тренировка «Пешком в Мордор». Взять кольца и провизию"),
         CalendarTrainingModel(date: "Monday-24-Aug-2020", description: "09:00 - 18:00 | Отрабатываем наклоны"),
@@ -34,7 +47,7 @@ class CalendarViewController: UIViewController {
         CalendarTrainingModel(date: "Friday-28-Aug-2020", description: "09:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         CalendarTrainingModel(date: "Wednesday-02-Sep-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         CalendarTrainingModel(date: "Thursday-03-Sep-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-        CalendarTrainingModel(date: "Saturday-05-Sep-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Friday-09-Oct-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         
     ]
     
@@ -49,12 +62,40 @@ class CalendarViewController: UIViewController {
         configureHorisontalLineView()
         setupTableView()
         configureEmptyStateImageView()
+        
+        if apiGetUserModel.trainer {
+            configureAddTrainingButtonLayout()
+        }
     }
 }
 
 // MARK: - Private methods
 
 private extension CalendarViewController {
+    
+    func configureAddTrainingButtonbehavior(isExist: Bool) {
+        switch isExist {
+        case true:
+            addTrainingDayButton.backgroundColor = Const.cancelColor
+            addTrainingDayButton.setTitle(Const.cancelMessage, for: .normal)
+            addTrainingDayButton.addTarget(self, action: #selector(deleteTrainingButtonTapped), for: .touchUpInside)
+        case false:
+            addTrainingDayButton.backgroundColor = Const.activeColor
+            addTrainingDayButton.setTitle(Const.actionMessage, for: .normal)
+            addTrainingDayButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
+        }
+    }
+    
+    func configureAddTrainingButtonLayout() {
+        view.addSubview(addTrainingDayButton)
+        
+        NSLayoutConstraint.activate([
+            addTrainingDayButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            addTrainingDayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            addTrainingDayButton.heightAnchor.constraint(equalToConstant: 50),
+            addTrainingDayButton.widthAnchor.constraint(equalToConstant: Const.widthScreen / 2)
+        ])
+    }
     
     func configureCalendar() {
         calendar = FSCalendar(frame: CGRect(x: 0, y: 90, width: self.view.frame.size.width, height: 300))
@@ -93,7 +134,7 @@ private extension CalendarViewController {
         view.addSubview(emptyStateImageView)
         emptyStateImageView.topAnchor.constraint(equalTo: horisontalLineView.bottomAnchor, constant: 40).isActive = true
         emptyStateImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        emptyStateImageView.widthAnchor.constraint(equalToConstant: view.frame.size.width/2).isActive = true
+        emptyStateImageView.widthAnchor.constraint(equalToConstant: view.frame.size.width / 1.5).isActive = true
         emptyStateImageView.heightAnchor.constraint(equalToConstant: 400).isActive = true
     }
 }
@@ -106,6 +147,16 @@ private extension CalendarViewController {
     func cancelButtonTapped() {
         dismiss(animated: true)
     }
+    
+    @objc
+    func addTrainingButtonTapped() {
+        print(#function)
+    }
+    
+    @objc
+    func deleteTrainingButtonTapped() {
+        print(#function)
+    }
 }
 
 // MARK: - FSCalendarDelegate
@@ -116,18 +167,21 @@ extension CalendarViewController: FSCalendarDelegate {
         formatter.dateFormat = "EEEE-dd-MMM-yyyy"
         print(formatter.string(from: date))
         
-        filteredCalendarTrainingModel = calendarTrainingModel.filter({$0.date.contains(formatter.string(from: date))})
+        filteredCalendarTrainingModel = calendarTrainingModel.filter({
+            $0.date.contains(formatter.string(from: date))})
         
         if filteredCalendarTrainingModel.count > 0 {
             if formatter.string(from: date) == filteredCalendarTrainingModel[0].date {
-                print("совпало")
+                print("Есть тренировка")
                 print(filteredCalendarTrainingModel)
                 tableView.reloadData()
+                configureAddTrainingButtonbehavior(isExist: true)
             }
         } else {
-            print("не совпало")
+            print("Нет тренировки")
             filteredCalendarTrainingModel = []
             tableView.reloadData()
+            configureAddTrainingButtonbehavior(isExist: false)
         }
     }
 }
@@ -166,7 +220,7 @@ extension CalendarViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if filteredCalendarTrainingModel.count < 1 {
             emptyStateImageView.alpha = 1
-            emptyStateImageView.image = #imageLiteral(resourceName: "no-training")
+            emptyStateImageView.image = apiGetUserModel.trainer ? #imageLiteral(resourceName: "no-training-trainer") : #imageLiteral(resourceName: "no-training-athlete")
         } else {
             emptyStateImageView.alpha = 0
         }
