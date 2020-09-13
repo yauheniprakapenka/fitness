@@ -97,7 +97,6 @@ private extension ProfileViewController {
         vc.modalPresentationStyle = .overCurrentContext
         
         vc.actionButton.addTarget(self, action: #selector(deleteProfileTapped), for: .touchUpInside)
-        vc.cancelButton.addTarget(self, action: #selector(cancelAlertButtonTapped), for: .touchUpInside)
         
         present(vc, animated: true)
     }
@@ -113,11 +112,6 @@ private extension ProfileViewController {
                 self.present(vc, animated: false)
             }
         }
-    }
-    
-    @objc
-    func cancelAlertButtonTapped() {
-        dismiss(animated: true)
     }
 }
 
