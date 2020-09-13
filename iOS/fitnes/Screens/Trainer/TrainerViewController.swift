@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Constants
+
 private extension TrainerViewController {
     enum Const {
         static let horizontalListInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -16,25 +18,23 @@ private extension TrainerViewController {
 
 class TrainerViewController: UIViewController {
     
-    // MARK: - Public properties
+    // MARK: - Private properties
     
-    var scrollView: UIScrollView!
-    
-    let abonementsVC = AbonementsViewController()
-    let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
-    let profileButton = FButtonWithSFSymbol(sfSymbol: .docRichtext, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 28)
-    let calendarButton = FButtonSimple(title: "Мое расписание", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
-    let activityIndicator = FActivityIndicator()
-    
-    let headerView = UIView()
-    let itemsView = UIView()
-    let exerciseView = UIView()
-    let trainingView = UIView()
-    var placeView = UIView()
-    let abonementView = UIView()
-    
-    var trainerAbonements: [AbonementModel] = []
-    var place: PlaceModel?
+    private let headerVC = HeaderViewController()
+    private let abonementsVC = AbonementsViewController()
+    private let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
+    private let profileButton = FButtonWithSFSymbol(sfSymbol: .docRichtext, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 28)
+    private let calendarButton = FButtonSimple(title: "Мое расписание", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+    private let activityIndicator = FActivityIndicator()
+    private let headerView = UIView()
+    private let itemsView = UIView()
+    private let exerciseView = UIView()
+    private let trainingView = UIView()
+    private var placeView = UIView()
+    private let abonementView = UIView()
+    private var scrollView: UIScrollView!
+    private var trainerAbonements: [AbonementModel] = []
+    private var place: PlaceModel?
     
     // MARK: - View life cycle
     
@@ -57,7 +57,15 @@ class TrainerViewController: UIViewController {
         super.viewDidAppear(animated)
         scrollView.resizeContentSizeToFitChilds()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+        configureProfileData()
+    }
 }
+
+// MARK: - Add Contact Delegate
 
 extension TrainerViewController: AddContactDelegate {
     
@@ -70,6 +78,8 @@ extension TrainerViewController: AddContactDelegate {
         }
     }
 }
+
+// MARK: - Set Place VС Delegate
 
 extension TrainerViewController: SetPlaceVСDelegate {
     
@@ -164,6 +174,12 @@ private extension TrainerViewController {
 // MARK: - Private methods
 
 private extension TrainerViewController {
+    
+    func configureProfileData() {
+        SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
+        SetProfileName.shared.set(label: headerVC.nameLabel)
+        SetProflleDescription.shared.set(label: headerVC.descriptionLabel)
+    }
     
     func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -287,9 +303,9 @@ private extension TrainerViewController {
         
         // headerVC
         
-        let headerViewController = HeaderViewController()
-        self.add(childVC: headerViewController, to: self.headerView)
-        headerViewController.nameLabel.text = "Кристина Птицами"
+        self.add(childVC: headerVC, to: self.headerView)
+        headerVC.nameLabel.text = "Кристина Птицами"
+        SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
         
         // itemsTrainerVC
         
