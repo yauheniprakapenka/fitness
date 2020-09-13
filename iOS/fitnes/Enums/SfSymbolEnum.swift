@@ -11,4 +11,5 @@ enum SfSymbolEnum: String {
     case multiplyCircle = "multiply.circle"         // крестик в круге
     case trashCircle = "trash.circle"               // корзина в круге
     case person = "person"                          // силуэт
+    case docRichtext = "doc.richtext"
 }

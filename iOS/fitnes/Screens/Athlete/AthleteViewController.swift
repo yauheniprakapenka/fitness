@@ -10,18 +10,20 @@ import UIKit
 
 class AthleteViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Private properties
     
-    var scrollView: UIScrollView!
-    let headerView = UIView()
-    let itemsView = UIView()
-    let comingTrainingView = UIView()
-    let trainingView = UIView()
-    let abonementsView = UIView()
-    let headerVC = HeaderViewController()
-    let abonementsViewController = AbonementsViewController()
-    let activityIndicator = FActivityIndicator()
-    let profileButton = FButtonWithSFSymbol(sfSymbol: .person, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
+    private let headerView = UIView()
+    private let itemsView = UIView()
+    private let comingTrainingView = UIView()
+    private let trainingView = UIView()
+    private let abonementsView = UIView()
+    private let headerVC = HeaderViewController()
+    private let abonementsViewController = AbonementsViewController()
+    private let activityIndicator = FActivityIndicator()
+    private let profileButton = FButtonWithSFSymbol(sfSymbol: .docRichtext, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 28)
+    private  var scrollView: UIScrollView!
+
+    // MARK: - Public properties
     
     var athleteAbonement: [AbonementModel] = [
         AbonementModel(abonementName: "Вечерний",
@@ -37,7 +39,6 @@ class AthleteViewController: UIViewController {
         super.viewDidLoad()
         
         updateProfileModel()
-        
         configureScrollViewLayout()
         configureProfileButton()
         configureHeader()
@@ -46,7 +47,6 @@ class AthleteViewController: UIViewController {
         configureTrainingLayout()
         configureAbonements()
         configureActivityIndicator()
-        
         addChildVC()
     }
     
@@ -55,12 +55,6 @@ class AthleteViewController: UIViewController {
         
         abonementsViewController.currentVC = .athletVC
         configureProfileData()
-    }
-    
-    func configureProfileData() {
-        SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
-        SetProfileName.shared.set(label: headerVC.nameLabel)
-        SetProflleDescription.shared.set(label: headerVC.descriptionLabel)
     }
 }
 
@@ -96,8 +90,11 @@ private extension AthleteViewController {
     @objc
     func findTrainerButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
+        self.activityIndicator.startAnimate()
         
         NetworkManager.shared.getUsers {
+            self.activityIndicator.stopAnimate()
+            
             DispatchQueue.main.async {
                 let nav = UINavigationController(rootViewController: FindTrainerViewController())
                 nav.modalPresentationStyle = .fullScreen
@@ -119,6 +116,12 @@ extension AthleteViewController {
 // MARK: - Private methods
 
 private extension AthleteViewController {
+    
+    func configureProfileData() {
+        SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)
+        SetProfileName.shared.set(label: headerVC.nameLabel)
+        SetProflleDescription.shared.set(label: headerVC.descriptionLabel)
+    }
     
     func configureActivityIndicator() {
         view.addSubview(activityIndicator)

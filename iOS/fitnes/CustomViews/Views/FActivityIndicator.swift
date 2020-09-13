@@ -33,7 +33,9 @@ extension FActivityIndicator {
     }
     
     func stopAnimate() {
-        self.stopAnimating()
+        DispatchQueue.main.async {
+            self.stopAnimating()
+        }
     }
 }
     // MARK: - Private methods

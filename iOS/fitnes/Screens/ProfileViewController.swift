@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Constants
+
 private extension ProfileViewController {
     enum Const {
         static let avatarTopAnchor: CGFloat = 120
@@ -21,16 +23,19 @@ private extension ProfileViewController {
         static let cameraAnchor: CGFloat = 0
         
         static let trashButtonSize: CGFloat = 60
+        static let trashButtonTitle = "Удалить профиль?"
+        static let trashButtonDescription = "Будут удалены все ваши данные без возможности их восстановления"
+        static let trashButtonAction = "Удалить"
+        static let trashButtonCancel = "Отменить"
     }
 }
 
 class ProfileViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Private properties
     
     private let avatarContainerView = UIView()
     private let avatarImageView = UIImageView()
-    let tableView = UITableView()
     private var safeArea: UILayoutGuide!
     
     private let cameraImageView: UIImageView = {
@@ -44,6 +49,10 @@ class ProfileViewController: UIViewController {
         imageView.clipsToBounds = true
         return imageView
     }()
+    
+    // MARK: - Public properties
+    
+    let tableView = UITableView()
     
     // MARK: - View life cycle
     
@@ -75,29 +84,36 @@ private extension ProfileViewController {
     
     @objc
     func avatarTapped() {
-        let alert = UIAlertController(title: "Добавить фото", message: "Выберите изображение для вашего профиля", preferredStyle: .actionSheet)
-        alert.addAction(UIAlertAction(title: "Камера", style: .default, handler: { _ in
+        let alert = UIAlertController(title: "Добавить фото",
+                                      message: "Выберите изображение для вашего профиля",
+                                      preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Камера",
+                                      style: .default,
+                                      handler: { _ in
             self.openCamera()
         }))
         
-        alert.addAction(UIAlertAction(title: "Галерея", style: .default, handler: { _ in
+        alert.addAction(UIAlertAction(title: "Галерея",
+                                      style: .default,
+                                      handler: { _ in
             self.openGallery()
         }))
         
-        alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
-        
+        alert.addAction(UIAlertAction.init(title: "Отменить", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     @objc
     func trashButtonTapped() {
-        print(#function)
-        let vc = AlertViewController(question: "Удалить профиль?", description: "Будут удалены все ваши данные без возможности их восстановления", actionButtonTitle: "Удалить", cancelButtonTitle: "Отменить", icon: .trashCircle)
+        let vc = AlertViewController(question: Const.trashButtonTitle,
+                                     description: Const.trashButtonDescription,
+                                     actionButtonTitle: Const.trashButtonAction,
+                                     cancelButtonTitle: Const.trashButtonCancel,
+                                     icon: .trashCircle)
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
-        
         vc.actionButton.addTarget(self, action: #selector(deleteProfileTapped), for: .touchUpInside)
-        
         present(vc, animated: true)
     }
     
