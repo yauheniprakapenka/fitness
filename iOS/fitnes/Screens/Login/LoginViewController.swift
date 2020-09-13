@@ -12,8 +12,12 @@ import UIKit
 
 private extension LoginViewController {
     enum Const {
-        static let leftRightMargins: CGFloat = 25
+        static let leftRightMargins: CGFloat = 20
         static let inputBorderColor = UIColor(named: "loginScreenInputFieldBorder")!
+        
+        static let copyrightBottomAnchor: CGFloat = 20
+        static let githubViewSize: CGFloat = 20
+        static let copyrightColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
 }
 
@@ -33,6 +37,7 @@ class LoginViewController: UIViewController {
     private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
     private let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
     private let createProfileButton = FButtonSimple(title: "Создать новый профиль", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
+    private let githubView = FGithubView()
     
     // MARK: - View Life Cycle
     
@@ -51,8 +56,9 @@ class LoginViewController: UIViewController {
         configurePasswordLabel(addTo: contentScrollView)
         configurePasswordTextField(addTo: contentScrollView)
         
-        configureCreateNewAccountButton()
-        configureContinueButton()
+        configureGithubView()
+        configureCreateProfleButton()
+        configureLoginButton()
         configureActivityIndicator()
         
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
@@ -118,6 +124,27 @@ class LoginViewController: UIViewController {
 // MARK: - Private methods
 
 private extension LoginViewController {
+    
+    func configureGithubView() {
+        view.addSubview(githubView)
+        
+        NSLayoutConstraint.activate([
+            githubView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
+            githubView.widthAnchor.constraint(equalToConstant: 180),
+            githubView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            githubView.heightAnchor.constraint(equalToConstant: 50)
+        ])
+    }
+    
+    func configureCreateProfleButton() {
+        view.addSubview(createProfileButton)
+        createProfileButton.translatesAutoresizingMaskIntoConstraints = false
+        createProfileButton.bottomAnchor.constraint(equalTo: githubView.topAnchor, constant: -30).isActive = true
+        createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        createProfileButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        createProfileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
+    }
     
     func configureActivityIndicator() {
         view.addSubview(activityIndicator)
@@ -229,24 +256,14 @@ private extension LoginViewController {
         passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func configureContinueButton() {
+    func configureLoginButton() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.bottomAnchor.constraint(equalTo: createProfileButton.topAnchor, constant: -30).isActive = true
+        loginButton.bottomAnchor.constraint(equalTo: createProfileButton.topAnchor, constant: -20).isActive = true
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
         loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         loginButton.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
-    }
-    
-    func configureCreateNewAccountButton() {
-        view.addSubview(createProfileButton)
-        createProfileButton.translatesAutoresizingMaskIntoConstraints = false
-        createProfileButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
-        createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
-        createProfileButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
-        createProfileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
     }
 }

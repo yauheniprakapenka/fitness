@@ -115,6 +115,7 @@
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
 		3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */; };
 		3EF39A56250DF77C00DF2DB9 /* AlertCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */; };
+		3EF39A58250E5B8F00DF2DB9 /* FGithubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */; };
 		3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */; };
 		3EFF9EC1250AB28700D34DE1 /* FetchYoutubePreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */; };
 		3EFF9EC3250AB2E700D34DE1 /* YoutubePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */; };
@@ -259,6 +260,7 @@
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
 		3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewBlankPlace.swift; sourceTree = "<group>"; };
 		3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCalendarViewController.swift; sourceTree = "<group>"; };
+		3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGithubView.swift; sourceTree = "<group>"; };
 		3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdFromYoutubeUrl.swift; sourceTree = "<group>"; };
 		3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchYoutubePreviewImage.swift; sourceTree = "<group>"; };
 		3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewViewController.swift; sourceTree = "<group>"; };
@@ -429,6 +431,8 @@
 		3E444AB024D201090004B978 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3E7C73CD25057EEB00BD21ED /* FActivityIndicator.swift */,
+				3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */,
 				3E70A12D25038AAD00353159 /* FRadioButtonView.swift */,
 				3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */,
 				3E60118B24E98C4300CAE51B /* FViewColors.swift */,
@@ -436,7 +440,6 @@
 				3E444ABA24D220760004B978 /* FViewHorisontalLine.swift */,
 				3E444AB124D201350004B978 /* FViewItem.swift */,
 				3E444ABE24D340560004B978 /* FViewShape.swift */,
-				3E7C73CD25057EEB00BD21ED /* FActivityIndicator.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -979,6 +982,7 @@
 				3E444ABB24D220760004B978 /* FViewHorisontalLine.swift in Sources */,
 				3E444ABF24D340560004B978 /* FViewShape.swift in Sources */,
 				3ECCF5292504E8F600E8D603 /* GetUserId.swift in Sources */,
+				3EF39A58250E5B8F00DF2DB9 /* FGithubView.swift in Sources */,
 				3EB0F98024D0B91D00AC97EB /* TrainerViewController.swift in Sources */,
 				3E444AAF24D1E5DD0004B978 /* FLabel.swift in Sources */,
 				3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */,

@@ -6,6 +6,7 @@
 <img src="https://user-images.githubusercontent.com/47568606/92991480-b71fdf80-f4ec-11ea-9bc8-2f14216ccbf9.png" width="140"></a>
 <img src="https://user-images.githubusercontent.com/47568606/92991511-e7677e00-f4ec-11ea-8fe8-ff69b3182ebb.png" width="140"></a>
 <img src="https://user-images.githubusercontent.com/47568606/92991516-f9492100-f4ec-11ea-99ea-7112e8a06ac2.png" width="140"></a>
+<img src="https://user-images.githubusercontent.com/47568606/93018337-b87a0680-f5d7-11ea-932e-d7466a226bdd.png" width="140"></a>
 
 **Бизнес-аналитик:** Грачев В. А.<br>
 **Дизайнер:** Пустовалова Ю. А.<br>
@@ -31,3 +32,4 @@ pod install
 ```
 brew install swiftlint
 ```
+Хакатон 2020 © Intervale
