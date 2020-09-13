@@ -246,3 +246,37 @@ ExerciseGetInfoResponse:
         - "attributes"
   required:
     - "data"
+
+ExerciseGetListResponse:
+  type: object
+  properties:
+    message:
+      type: array
+      items: 
+        type: object
+        properties:
+          id:
+            type: integer
+          name:
+            type: string
+            nullable: true
+          description:
+            type: string
+            nullable: true
+          videoUrl:
+            type: string
+            nullable: true
+          equipment:
+            type: string
+            nullable: true
+          user_id:
+            type: string
+            nullable: true
+        required:
+          - name
+          - description
+          - videoUrl
+          - equipment
+          - user_id
+  required:
+    - message

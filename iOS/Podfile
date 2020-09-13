@@ -15,7 +15,7 @@ target 'fitnes' do
   use_frameworks!
 
   # Pods for fitnes
-  pod 'Alamofire', '~> 5.2'
+  pod 'FitnessAPI', :path => './LocalCocoaPods/FitnessAPI' 
   pod 'FSCalendar'
   pod 'SwiftGen', '~> 6.0'
 
@@ -23,6 +23,7 @@ end
 
 target 'TrainingProgramm' do
   project 'TrainingProgramm/TrainingProgramm.xcodeproj'
+  pod 'FitnessAPI', :path => './LocalCocoaPods/FitnessAPI' 
   pod 'SwiftGen', '~> 6.0'
 end
 

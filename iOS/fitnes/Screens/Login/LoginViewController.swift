@@ -77,6 +77,7 @@ class LoginViewController: UIViewController {
         NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
+                AuthorizationHandler.shared.userAuthorized(token: tokenModel.accessToken!)
                 UserDefaultsStorage.shared.previousEnteredLogin = currentProfile.email
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()
@@ -140,9 +141,12 @@ private extension LoginViewController {
             }
             
             if let trainer = apiTokenModel.trainer, trainer {
+                let router = Router()
                 let vc = TrainerViewController()
                 vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+                vc.router = router
+                router.push(vc: vc)
+                self.present(router.navigationController, animated: true)
                 return
             }
             self.presentAlertVC(errorMessage: "Не удалось определить роль")

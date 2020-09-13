@@ -34,6 +34,7 @@
 		F85536B824FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536B724FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift */; };
 		F855FAFD25030BA400A53385 /* TPAddSectionViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855FAFC25030BA400A53385 /* TPAddSectionViewHolder.swift */; };
 		F855FB0025039F5200A53385 /* TPTrainingSectionItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855FAFF25039F5200A53385 /* TPTrainingSectionItemContentView.swift */; };
+		F863C91D250E0F4800ED88A8 /* TPExercisesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863C91C250E0F4800ED88A8 /* TPExercisesService.swift */; };
 		F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */; };
 		F86F787B24FB2D2500F9167F /* TPExerciseItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */; };
 		F86F787D24FB2D4100F9167F /* TPExerciseItemContentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */; };
@@ -89,6 +90,7 @@
 		F85536B724FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPAddToTrainingListItemContentView.swift; sourceTree = "<group>"; };
 		F855FAFC25030BA400A53385 /* TPAddSectionViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPAddSectionViewHolder.swift; sourceTree = "<group>"; };
 		F855FAFF25039F5200A53385 /* TPTrainingSectionItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionItemContentView.swift; sourceTree = "<group>"; };
+		F863C91C250E0F4800ED88A8 /* TPExercisesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExercisesService.swift; sourceTree = "<group>"; };
 		F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimeSelectionContentView.swift; sourceTree = "<group>"; };
 		F86F787A24FB2D2500F9167F /* TPExerciseItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExerciseItemContentView.swift; sourceTree = "<group>"; };
 		F86F787C24FB2D4100F9167F /* TPExerciseItemContentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPExerciseItemContentView.xib; sourceTree = "<group>"; };
@@ -254,6 +256,14 @@
 			path = TPAddTrainingViews;
 			sourceTree = "<group>";
 		};
+		F863C91B250E0F3000ED88A8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				F863C91C250E0F4800ED88A8 /* TPExercisesService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		F86F787924FB2CF800F9167F /* TPExerciseView */ = {
 			isa = PBXGroup;
 			children = (
@@ -360,6 +370,7 @@
 		F8D830F824F558E500610ABF /* TrainingProgramm */ = {
 			isa = PBXGroup;
 			children = (
+				F863C91B250E0F3000ED88A8 /* Service */,
 				F8012CE624FF7D0B00AA8A8B /* Common */,
 				F8012CE124FF7C5100AA8A8B /* Screens */,
 				F8BF4F2824FA679E000251A2 /* Generated */,
@@ -562,6 +573,7 @@
 				F86F788624FBCB2300F9167F /* TPExerciseListItemView.swift in Sources */,
 				F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */,
 				F81E44B4250941B10089F20F /* TPTrainingSectionsItemListView.swift in Sources */,
+				F863C91D250E0F4800ED88A8 /* TPExercisesService.swift in Sources */,
 				F85536B824FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift in Sources */,
 				F86F788424FBC97E00F9167F /* TPExerciseListView.swift in Sources */,
 				F8754E27250531EB0063F5D6 /* TPTrainingViewAddSectionItemView.swift in Sources */,

@@ -25,13 +25,11 @@ class ExercisesViewController: UIViewController {
     
     let exerciseLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
     let createButton = FButtonSimple(title: "Создать", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
+    let activityIndicator = FActivityIndicator()
     
-    let exercisesModel = [
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Будь Арни", kindInventory: "Гантели"),
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталлоне", kindInventory: "Скакалка"),
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Бабочка", kindInventory: "Штанга"),
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталь", kindInventory: "Брусья")
-    ]
+    private var exercises: [ExercisesModel] = []
+    
+    var viewModel: ExercisesViewModel?
     
     var state: State = .normal {
         didSet {
@@ -77,6 +75,7 @@ class ExercisesViewController: UIViewController {
         configureLayout()
         configureUIElements()
         configureMoreButton()
+        configureActivityIndicator()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -85,6 +84,19 @@ class ExercisesViewController: UIViewController {
         collectionView.showsHorizontalScrollIndicator = false
         
         configureState()
+        
+        viewModel?.onExercisesListChanged = { [weak self] exercises in
+            self?.exercises = exercises
+            self?.collectionView.reloadData()
+        }
+        viewModel?.onLoadingStatusChanged = { [weak self] status in
+            if status {
+                self?.activityIndicator.startAnimate()
+            } else {
+                self?.activityIndicator.stopAnimate()
+            }
+        }
+        viewModel?.viewPrepared()
     }
     
     private func configureLayout() {
@@ -115,14 +127,20 @@ class ExercisesViewController: UIViewController {
     private func configureUIElements() {
         exerciseLabel.text = "Упражнения"
         collectionView.backgroundColor = .white
+        emptyListView.onActionButtonTapped = createButtonTapped
+    }
+    
+    private func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
     }
     
     private func configureMoreButton() {
-        createButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
     
-    @objc func moreButtonTapped() {
-        print("button tapped")
+    @objc func createButtonTapped() {
+        viewModel?.createExerciseTapped()
     }
 }
 
@@ -148,12 +166,12 @@ extension ExercisesViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        exercisesModel.count
+        exercises.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyExerciseCell", for: indexPath) as! MyExerciseCollectionCell
-        cell.data = self.exercisesModel[indexPath.row]
+        cell.data = self.exercises[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         
         cell.layer.shadowColor = UIColor.black.cgColor

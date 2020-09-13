@@ -1,10 +1,12 @@
 PODS:
-  - Alamofire (5.2.2)
+  - Alamofire (4.9.1)
+  - FitnessAPI (0.0.1):
+    - Alamofire (~> 4.9.0)
   - FSCalendar (2.8.1)
   - SwiftGen (6.3.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 5.2)
+  - FitnessAPI (from `./LocalCocoaPods/FitnessAPI`)
   - FSCalendar
   - SwiftGen (~> 6.0)
 
@@ -14,11 +16,16 @@ SPEC REPOS:
     - FSCalendar
     - SwiftGen
 
+EXTERNAL SOURCES:
+  FitnessAPI:
+    :path: "./LocalCocoaPods/FitnessAPI"
+
 SPEC CHECKSUMS:
-  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  FitnessAPI: 7b2a1812072a782ad9e51d3f5020ffa8e1de9307
   FSCalendar: 5245140456fcbcac5824c203b98bd8068bdfee1a
   SwiftGen: 3d5024a47ea79e408cded20763d7a17d18a4548c
 
-PODFILE CHECKSUM: 23313b3773043832b79c69896a09feadba9f2d67
+PODFILE CHECKSUM: bdd211b49d8da419ec1860961fd7f39b4304661a
 
 COCOAPODS: 1.9.3

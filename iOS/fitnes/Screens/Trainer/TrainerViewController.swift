@@ -15,6 +15,7 @@ private extension TrainerViewController {
 }
 
 class TrainerViewController: UIViewController {
+    var router: Router?
     
     // MARK: - Public properties
     
@@ -305,7 +306,8 @@ private extension TrainerViewController {
         
         // ExercisesVC
         
-        self.add(childVC: ExercisesViewController(contentInset: Const.horizontalListInsets), to: self.exerciseView)
+        let exericseVC = ExercisesViewModuleConfigurator().create(insets: Const.horizontalListInsets, router: router!)
+        self.add(childVC: exericseVC, to: self.exerciseView)
         
         // abonementsVC
         

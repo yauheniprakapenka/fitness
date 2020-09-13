@@ -7,78 +7,6 @@ servers:
   - url: 'https://crossfit-api-2020.herokuapp.com/'
     description: Test server
 paths:
-  /registration:
-    post:
-      summary: Register trainer or athlete
-      description: Register
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserRegistrationBody'
-            example:
-              $ref: '#/components/examples/UserAsTrainerRegistrationDataExample'
-      responses:
-        '200':
-          description: User created
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - $ref: '#/components/schemas/UserRegistrationResponseOk'
-                  - $ref: '#/components/schemas/UserRegistrationResponseOtherError'
-                  - $ref: '#/components/schemas/UserRegistrationResponseErrorWithMessage'
-  /oauth/token:
-    post:
-      summary: User login
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserLoginByPassword'
-            example:
-              $ref: '#/components/examples/UserLoginRequestExample'
-      responses:
-        '200':
-          description: if success get token to put in header and user id
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - $ref: '#/components/schemas/UserLoginSuccessResponse'
-  '/api/v1/users/{id}':
-    get:
-      summary: Get info about user
-      parameters:
-        - $ref: '#/components/parameters/IdPathParameter'
-        - $ref: '#/components/parameters/AuthorizationHeaderParameter'
-      responses:
-        '200':
-          description: status of getting user info
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGetInfoResponse'
-    put:
-      summary: Change user info
-      parameters:
-        - $ref: '#/components/parameters/IdPathParameter'
-        - $ref: '#/components/parameters/AuthorizationHeaderParameter'
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserPusInfoResponse'
-      responses:
-        '200':
-          description: json with chaged user info
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/UserGetInfoResponse'
   /api/v1/exercises/:
     post:
       summary: Exercise creation
@@ -96,9 +24,19 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: '#/components/schemas/ExerciseCreationEditingSuccessResponse'
-                  - $ref: '#/components/schemas/ErrorResponseWithMessage'
+                $ref: '#/components/schemas/ExerciseCreationEditingSuccessResponse'
+    get:
+      summary: Get list of exercises
+      parameters:
+        - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+        - $ref: '#/components/parameters/UserIdUrlParameter'
+      responses:
+        '200':
+          description: Json with list of exercises of user with id
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExerciseGetListResponse'
   '/api/v1/exercises/{id}':
     get:
       summary: Get info about exercise
@@ -373,6 +311,39 @@ components:
             - attributes
       required:
         - data
+    ExerciseGetListResponse:
+      type: object
+      properties:
+        message:
+          type: array
+          items:
+            type: object
+            properties:
+              id:
+                type: integer
+              name:
+                type: string
+                nullable: true
+              description:
+                type: string
+                nullable: true
+              videoUrl:
+                type: string
+                nullable: true
+              equipment:
+                type: string
+                nullable: true
+              user_id:
+                type: string
+                nullable: true
+            required:
+              - name
+              - description
+              - videoUrl
+              - equipment
+              - user_id
+      required:
+        - message
   examples:
     UserAsTrainerRegistrationDataExample:
       value:
@@ -424,3 +395,9 @@ components:
       required: true
       schema:
         type: string
+    UserIdUrlParameter:
+      name: user_id
+      in: query
+      schema:
+        type: integer
+      description: Id of user

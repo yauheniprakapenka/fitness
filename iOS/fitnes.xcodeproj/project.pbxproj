@@ -120,6 +120,11 @@
 		F870DC2224F464A2003C3A29 /* RoundedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F870DC2124F464A2003C3A29 /* RoundedTextField.swift */; };
 		F8754E18250450D50063F5D6 /* CommonViews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; };
 		F8754E19250450D50063F5D6 /* CommonViews.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8754E17250450D50063F5D6 /* CommonViews.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		F8B05BED250E44AC00899B6C /* AuthorizationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B05BEC250E44AC00899B6C /* AuthorizationHandler.swift */; };
+		F8B05BF0250E4B7300899B6C /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B05BEF250E4B7300899B6C /* Router.swift */; };
+		F8B05BF5250E4F3600899B6C /* AddEditExerciseConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8B05BF4250E4F3600899B6C /* AddEditExerciseConfigurator.swift */; };
+		F8C97F73250E3C39004E873A /* ExercisesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C97F72250E3C39004E873A /* ExercisesViewModel.swift */; };
+		F8C97F75250E3E49004E873A /* ExercisesViewModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C97F74250E3E49004E873A /* ExercisesViewModuleConfigurator.swift */; };
 		F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; };
 		F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -256,6 +261,11 @@
 		F8496E2425098D0700874F8E /* EmptyListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
 		F870DC2124F464A2003C3A29 /* RoundedTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedTextField.swift; sourceTree = "<group>"; };
 		F8754E17250450D50063F5D6 /* CommonViews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CommonViews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F8B05BEC250E44AC00899B6C /* AuthorizationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationHandler.swift; sourceTree = "<group>"; };
+		F8B05BEF250E4B7300899B6C /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		F8B05BF4250E4F3600899B6C /* AddEditExerciseConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditExerciseConfigurator.swift; sourceTree = "<group>"; };
+		F8C97F72250E3C39004E873A /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
+		F8C97F74250E3E49004E873A /* ExercisesViewModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModuleConfigurator.swift; sourceTree = "<group>"; };
 		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5424F51E1400B52063 /* fitnes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fitnes-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -313,6 +323,7 @@
 		3E10DA3424C3914600163F26 /* Trainer */ = {
 			isa = PBXGroup;
 			children = (
+				F8B05BF3250E4F2000899B6C /* AddEditExercise */,
 				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
 				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
 				3EB0F97F24D0B91D00AC97EB /* TrainerViewController.swift */,
@@ -391,10 +402,10 @@
 		3E444AA824D1E5370004B978 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F8C97F71250E3C26004E873A /* Exercises */,
 				3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */,
 				3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */,
 				3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */,
-				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
 				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
 				3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */,
 				3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */,
@@ -638,6 +649,8 @@
 		3EE38FFF24BCE78A003AF6D8 /* fitnes */ = {
 			isa = PBXGroup;
 			children = (
+				F8B05BEE250E4B6300899B6C /* Navigation */,
+				F8B05BEB250E449B00899B6C /* Authorization */,
 				F8496E1E250975B500874F8E /* Storage */,
 				3EB0F97A24D0B0B100AC97EB /* AppDelegate */,
 				3EB0F97924D0B09600AC97EB /* Assets */,
@@ -745,6 +758,40 @@
 				F8496E2425098D0700874F8E /* EmptyListView.swift */,
 			);
 			path = EmptyListView;
+			sourceTree = "<group>";
+		};
+		F8B05BEB250E449B00899B6C /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				F8B05BEC250E44AC00899B6C /* AuthorizationHandler.swift */,
+			);
+			path = Authorization;
+			sourceTree = "<group>";
+		};
+		F8B05BEE250E4B6300899B6C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				F8B05BEF250E4B7300899B6C /* Router.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		F8B05BF3250E4F2000899B6C /* AddEditExercise */ = {
+			isa = PBXGroup;
+			children = (
+				F8B05BF4250E4F3600899B6C /* AddEditExerciseConfigurator.swift */,
+			);
+			path = AddEditExercise;
+			sourceTree = "<group>";
+		};
+		F8C97F71250E3C26004E873A /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
+				F8C97F72250E3C39004E873A /* ExercisesViewModel.swift */,
+				F8C97F74250E3E49004E873A /* ExercisesViewModuleConfigurator.swift */,
+			);
+			path = Exercises;
 			sourceTree = "<group>";
 		};
 		F8FACC5024F51D6C00B52063 /* Frameworks */ = {
@@ -906,6 +953,7 @@
 				3EE586FE24DFBEFC00CA0530 /* NumberOfDayConverter.swift in Sources */,
 				3EFF9EC5250C0EE700D34DE1 /* ApiDeleteUser.swift in Sources */,
 				3EE5A64E24D71631004110C6 /* MyTrainingCollectionCell.swift in Sources */,
+				F8B05BF0250E4B7300899B6C /* Router.swift in Sources */,
 				3ECCF5272504DA1400E8D603 /* ApiPutUser.swift in Sources */,
 				3EAA2E4224FDB3A300C8D08D /* ApiOauthToken.swift in Sources */,
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
@@ -926,6 +974,7 @@
 				3E82E22024DCAC3800145E9D /* ItemsAthleteViewController.swift in Sources */,
 				3EC9CD6224D8A8BD00B1F8C6 /* RoleEnum.swift in Sources */,
 				3EE586F424DEEA1B00CA0530 /* FViewContentPlace.swift in Sources */,
+				F8B05BF5250E4F3600899B6C /* AddEditExerciseConfigurator.swift in Sources */,
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */,
@@ -944,6 +993,7 @@
 				3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */,
 				3EC9CD6024D87F7500B1F8C6 /* MyExerciseCollectionCell.swift in Sources */,
 				3E82E21C24DCA8B100145E9D /* FButtonWithSFSymbol.swift in Sources */,
+				F8C97F73250E3C39004E873A /* ExercisesViewModel.swift in Sources */,
 				3E7C73CA25051C9900BD21ED /* ApiGetUserModel.swift in Sources */,
 				F8496E2525098D0700874F8E /* EmptyListView.swift in Sources */,
 				3E444AC124D35E2D0004B978 /* FButtonSimple.swift in Sources */,
@@ -990,6 +1040,7 @@
 				3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */,
 				3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */,
 				3EEB9C2524D9FEA400E1EC0B /* ConverterFromEnumToString.swift in Sources */,
+				F8C97F75250E3E49004E873A /* ExercisesViewModuleConfigurator.swift in Sources */,
 				3E7C73CE25057EEB00BD21ED /* FActivityIndicator.swift in Sources */,
 				3E99FB1324FBD86300F1F1F9 /* ApiErrorEnum.swift in Sources */,
 				3E3D928124E8555800EEE0C6 /* RegistrationViewController.swift in Sources */,
@@ -998,6 +1049,7 @@
 				3EFF9EC1250AB28700D34DE1 /* FetchYoutubePreviewImage.swift in Sources */,
 				3EE586E424DD5A8100CA0530 /* ProfileViewController.swift in Sources */,
 				3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */,
+				F8B05BED250E44AC00899B6C /* AuthorizationHandler.swift in Sources */,
 				3E444AB424D2065E0004B978 /* ItemsTrainerViewController.swift in Sources */,
 				3EE586F024DEA0B100CA0530 /* FindTrainerCollectionCell.swift in Sources */,
 				3E82C79124DC8CA000145E9D /* FButtonCheckmark.swift in Sources */,
