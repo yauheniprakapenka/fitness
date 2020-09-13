@@ -32,6 +32,8 @@ private extension ProfileViewController {
         static let logoutButtonDescription = "Для входа в профиль заново необходимо будет ввети почту и пароль"
         static let logoutButtonAction = "Выйти"
         static let logoutButtonCancel = "Отменить"
+        
+        static let grayColor = #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1)
     }
 }
 
@@ -180,7 +182,7 @@ private extension ProfileViewController {
             containerView.trailingAnchor.constraint(equalTo: avatarImageView.leadingAnchor)
         ])
         
-        let trashButton = FButtonWithSFSymbol(sfSymbol: .personCrop, color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
+        let trashButton = FButtonWithSFSymbol(sfSymbol: .personCrop, color: Const.grayColor, size: 44)
         containerView.addSubview(trashButton)
         
         NSLayoutConstraint.activate([
@@ -189,6 +191,13 @@ private extension ProfileViewController {
         ])
         
         trashButton.addTarget(self, action: #selector(trashButtonTapped), for: .touchUpInside)
+        
+        let descriptionLabel = FLabel(fontSize: 14, weight: .light, color: Const.grayColor, message: "Удалить")
+        containerView.addSubview(descriptionLabel)
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: trashButton.bottomAnchor, constant: 6),
+            descriptionLabel.centerXAnchor.constraint(equalTo: trashButton.centerXAnchor)
+        ])
     }
     
     func configureLogoutButton() {
@@ -203,7 +212,7 @@ private extension ProfileViewController {
             containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        let logoutButton = FButtonWithSFSymbol(sfSymbol: .paperplane, color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
+        let logoutButton = FButtonWithSFSymbol(sfSymbol: .paperplane, color: Const.grayColor, size: 44)
         containerView.addSubview(logoutButton)
         
         NSLayoutConstraint.activate([
@@ -212,6 +221,14 @@ private extension ProfileViewController {
         ])
         
         logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
+        
+        let descriptionLabel = FLabel(fontSize: 14, weight: .light, color: Const.grayColor, message: "Выйти")
+        containerView.addSubview(descriptionLabel)
+        NSLayoutConstraint.activate([
+            descriptionLabel.topAnchor.constraint(equalTo: logoutButton.bottomAnchor, constant: 6),
+            descriptionLabel.centerXAnchor.constraint(equalTo: logoutButton.centerXAnchor)
+        ])
+        
     }
     
     func configureView() {
