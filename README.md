@@ -13,10 +13,12 @@
 **Backend разработчик:** Сущинский Д. В.<br>
 **iOS разработчики:** Захаренко В. А., Пракопенко Е. С.<br>
 <br>
-> **Платформа:** iOS<br>
+> **Мобильная платформа:** iOS<br>
 **Минимальная поддерживаемая версия:** iOS 13.0<br>
 **Язык разработки:** Swift 5<br>
-**Управление зависимостями:** CocoaPods<br>
+**Управление зависимостями:** CocoaPods<br><br>
+**Backend API:** Ruby on Rails + Heroku (https://github.com/dmitryS1666/crossfit-api)<br> 
+
 <br>
 
 ## Getting Started
