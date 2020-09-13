@@ -12,12 +12,14 @@ import FSCalendar
 // FSCalendar tutorial - https://www.youtube.com/watch?v=FipNDF7g9tE
 // NSDateFormatter - https://nsdateformatter.com/
 
+// MARK: - Constants
+
 private extension CalendarViewController {
     enum Const {
         static let screenSize: CGRect = UIScreen.main.bounds
         static let widthScreen: CGFloat = screenSize.width
         
-        static let actionMessage = "Буду тренировать"
+        static let actionMessage = "Добавить тренировку"
         static let cancelMessage = "Отменить тренировку"
         static let activeColor = #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1)
         static let cancelColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
@@ -36,8 +38,9 @@ class CalendarViewController: UIViewController {
     private let emptyStateImageView = FImageView(frame: .zero)
     private let horisontalLineView = FViewHorisontalLine()
     private var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
-    private let addTrainingDayButton = FButtonWithBackgroundColor(backgroundColor: Const.activeColor, title: Const.actionMessage, size: 18)
+    private let addTrainingButton = FButtonWithBackgroundColor(backgroundColor: Const.activeColor, title: Const.actionMessage, size: 18)
     private var selectedDay: CalendarTrainingModel?
+    private let alertVC = AlertCalendarViewController()
     
     private var calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(date: "Thursday-01-Oct-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
@@ -75,20 +78,7 @@ class CalendarViewController: UIViewController {
 // MARK: - Private methods
 
 private extension CalendarViewController {
-    
-    //    func configureAddTrainingButtonbehavior(isExist: Bool) {
-    //        switch isExist {
-    //        case true:
-    //            addTrainingDayButton.backgroundColor = Const.cancelColor
-    //            addTrainingDayButton.setTitle(Const.cancelMessage, for: .normal)
-    //            addTrainingDayButton.addTarget(self, action: #selector(deleteTrainingButtonTapped), for: .touchUpInside)
-    //        case false:
-    //            addTrainingDayButton.backgroundColor = Const.activeColor
-    //            addTrainingDayButton.setTitle(Const.actionMessage, for: .normal)
-    //            addTrainingDayButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
-    //        }
-    //    }
-    
+
     func printIsTrainingExist(date: String) {
         if filteredCalendarTrainingModel.count > 0 {
             if date == filteredCalendarTrainingModel[0].date {
@@ -101,16 +91,16 @@ private extension CalendarViewController {
     }
     
     func configureAddTrainingButton() {
-        view.addSubview(addTrainingDayButton)
+        view.addSubview(addTrainingButton)
         
         NSLayoutConstraint.activate([
-            addTrainingDayButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
-            addTrainingDayButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
-            addTrainingDayButton.heightAnchor.constraint(equalToConstant: 50),
-            addTrainingDayButton.widthAnchor.constraint(equalToConstant: Const.widthScreen / 2)
+            addTrainingButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60),
+            addTrainingButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40),
+            addTrainingButton.heightAnchor.constraint(equalToConstant: 50),
+            addTrainingButton.widthAnchor.constraint(equalToConstant: Const.widthScreen / 2)
         ])
         
-        addTrainingDayButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
+        addTrainingButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
     }
     
     func configureCalendar() {
@@ -134,7 +124,7 @@ private extension CalendarViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "Расписание тренера"
         
-        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
+        let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(navigationCancelButtonTapped))
         navigationItem.leftBarButtonItem = cancelButton
     }
     
@@ -161,9 +151,19 @@ private extension CalendarViewController {
     
     @objc
     func addTrainingButtonTapped() {
-        print(#function)
+        alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.modalTransitionStyle = .crossDissolve
         
-        guard let day = selectedDay else { return }
+        alertVC.actionButton.addTarget(self, action: #selector(alertActionButtonTapped), for: .touchUpInside)
+        alertVC.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
+        
+        present(alertVC, animated: true)
+    }
+    
+    @objc
+    func alertActionButtonTapped() {
+        guard var day = selectedDay else { return }
+        day.description = alertVC.dateTextfield.text ?? ""
         calendarTrainingModel.append(day)
         
         filteredCalendarTrainingModel = calendarTrainingModel.filter({
@@ -173,10 +173,19 @@ private extension CalendarViewController {
         printIsTrainingExist(date: day.date)
         
         tableView.reloadData()
+        
+        dismiss(animated: true, completion: {
+            self.alertVC.dateTextfield.text = ""
+        })
     }
     
     @objc
-    func cancelButtonTapped() {
+    func alertCancelButtonTapped() {
+        dismiss(animated: true)
+    }
+    
+    @objc
+    func navigationCancelButtonTapped() {
         dismiss(animated: true)
     }
 }
@@ -188,11 +197,10 @@ extension CalendarViewController: FSCalendarDelegate {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
         formatter.dateFormat = "EEEE-dd-MMM-yyyy"
-        let formatedData = formatter.string(from: date)
-        print(formatedData)
+        let formattedData = formatter.string(from: date)
+        print(formattedData)
         
-        selectedDay = CalendarTrainingModel(date: formatedData,
-                                            description: "Добавьте описание. Его будут видеть атлеты.")
+        selectedDay = CalendarTrainingModel(date: formattedData, description: "")
         
         filteredCalendarTrainingModel = calendarTrainingModel.filter({
             $0.date.contains(formatter.string(from: date))

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Constants
+
 private extension LoginViewController {
     enum Const {
         static let leftRightMargins: CGFloat = 25

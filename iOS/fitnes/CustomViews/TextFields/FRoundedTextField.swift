@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RoundedTextField: UITextField {
+class FRoundedTextField: UITextField {
     var padding = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 5)
     var borderColor: UIColor = .white {
         didSet {
