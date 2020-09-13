@@ -27,6 +27,11 @@ private extension ProfileViewController {
         static let trashButtonDescription = "Будут удалены все ваши данные без возможности их восстановления"
         static let trashButtonAction = "Удалить"
         static let trashButtonCancel = "Отменить"
+        
+        static let logoutButtonTitle = "Выйти из профиля?"
+        static let logoutButtonDescription = "Для входа в профиль заново необходимо будет ввети почту и пароль"
+        static let logoutButtonAction = "Выйти"
+        static let logoutButtonCancel = "Отменить"
     }
 }
 
@@ -42,7 +47,7 @@ class ProfileViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFill
-        let cameraImage = UIImage(systemName: "camera.circle.fill")?.withTintColor(#colorLiteral(red: 0.3195307553, green: 0.8156289458, blue: 0.7399761081, alpha: 1), renderingMode: .alwaysOriginal)
+        let cameraImage = UIImage(systemName: SfSymbolEnum.camera.rawValue)?.withTintColor(#colorLiteral(red: 0.3195307553, green: 0.8156289458, blue: 0.7399761081, alpha: 1), renderingMode: .alwaysOriginal)
         imageView.image = cameraImage
         imageView.backgroundColor = .white
         imageView.layer.cornerRadius = Const.cameraSize / 2
@@ -70,6 +75,7 @@ class ProfileViewController: UIViewController {
         configureAvatarContainerView()
         configureTrashButton()
         configureTableView()
+        configureLogoutButton()
     }
 }
 
@@ -91,13 +97,13 @@ private extension ProfileViewController {
         alert.addAction(UIAlertAction(title: "Камера",
                                       style: .default,
                                       handler: { _ in
-            self.openCamera()
+                                        self.openCamera()
         }))
         
         alert.addAction(UIAlertAction(title: "Галерея",
                                       style: .default,
                                       handler: { _ in
-            self.openGallery()
+                                        self.openGallery()
         }))
         
         alert.addAction(UIAlertAction.init(title: "Отменить", style: .cancel, handler: nil))
@@ -113,12 +119,25 @@ private extension ProfileViewController {
                                      icon: .trashCircle)
         vc.modalTransitionStyle = .crossDissolve
         vc.modalPresentationStyle = .overCurrentContext
-        vc.actionButton.addTarget(self, action: #selector(deleteProfileTapped), for: .touchUpInside)
+        vc.actionButton.addTarget(self, action: #selector(deleteAlertTapped), for: .touchUpInside)
         present(vc, animated: true)
     }
     
     @objc
-    func deleteProfileTapped() {
+    func logoutButtonTapped() {
+        let vc = AlertViewController(question: Const.logoutButtonTitle,
+                                     description: Const.logoutButtonDescription,
+                                     actionButtonTitle: Const.logoutButtonAction,
+                                     cancelButtonTitle: Const.logoutButtonCancel,
+                                     icon: .paperplane)
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overCurrentContext
+        vc.actionButton.addTarget(self, action: #selector(logoutAlertTapped), for: .touchUpInside)
+        present(vc, animated: true)
+    }
+    
+    @objc
+    func deleteAlertTapped() {
         NetworkManager.shared.deleteUser {
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
@@ -127,6 +146,17 @@ private extension ProfileViewController {
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: false)
             }
+        }
+    }
+    
+    @objc
+    func logoutAlertTapped() {
+        DispatchQueue.main.async {
+            self.dismiss(animated: true)
+            
+            let vc = LoginViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false)
         }
     }
 }
@@ -147,7 +177,7 @@ private extension ProfileViewController {
             containerView.trailingAnchor.constraint(equalTo: avatarImageView.leadingAnchor)
         ])
         
-        let trashButton = FButtonWithSFSymbol(sfSymbol: .trashCircle, color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
+        let trashButton = FButtonWithSFSymbol(sfSymbol: .personCrop, color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
         containerView.addSubview(trashButton)
         
         NSLayoutConstraint.activate([
@@ -156,6 +186,29 @@ private extension ProfileViewController {
         ])
         
         trashButton.addTarget(self, action: #selector(trashButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureLogoutButton() {
+        let containerView = UIView()
+        view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            containerView.topAnchor.constraint(equalTo: avatarImageView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: avatarImageView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: avatarImageView.trailingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+        ])
+        
+        let logoutButton = FButtonWithSFSymbol(sfSymbol: .paperplane, color: #colorLiteral(red: 0.8721661568, green: 0.8723127246, blue: 0.8721467853, alpha: 1), size: 44)
+        containerView.addSubview(logoutButton)
+        
+        NSLayoutConstraint.activate([
+            logoutButton.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
+            logoutButton.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+        ])
+        
+        logoutButton.addTarget(self, action: #selector(logoutButtonTapped), for: .touchUpInside)
     }
     
     func configureView() {
@@ -197,7 +250,7 @@ private extension ProfileViewController {
     func showAlert(title: String, keyboardType: KeyboardTypeEnum, completion: @escaping (String) -> Void) {
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
-
+        
         alert.addTextField(configurationHandler: { textField in
             textField.placeholder = "Укажите данные"
             
@@ -208,14 +261,14 @@ private extension ProfileViewController {
                 textField.keyboardType = .alphabet
             }
         })
-
+        
         alert.addAction(UIAlertAction(title: "Сохранить", style: .default, handler: { action in
-
+            
             if let data = alert.textFields?.first?.text {
                 completion(data)
             }
         }))
-
+        
         present(alert, animated: true)
     }
 }
@@ -303,7 +356,7 @@ extension ProfileViewController: UITableViewDelegate {
         case .double:
             currentAlertKeyboard = .numberPad
         }
-
+        
         print(athleteProfileModel[indexPath.row])
         
         showAlert(title: athleteProfileModel[indexPath.row].description ?? "missing description", keyboardType: currentAlertKeyboard!) { (data) in

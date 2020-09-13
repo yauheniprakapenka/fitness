@@ -7,9 +7,12 @@
 //
 
 enum SfSymbolEnum: String {
-    case chevronDownCircle = "chevron.down.circle"  // галочка в круге
-    case multiplyCircle = "multiply.circle"         // крестик в круге
-    case trashCircle = "trash.circle"               // корзина в круге
-    case person = "person"                          // силуэт
-    case docRichtext = "doc.richtext"
+    case chevronDownCircle = "chevron.down.circle"      // галочка в круге
+    case multiplyCircle = "multiply.circle"             // крестик в круге
+    case trashCircle = "trash.circle"                   // корзина в круге
+    case person = "person"                              // силуэт
+    case docRichtext = "doc.richtext"                   // документ
+    case personCrop = "person.crop.circle.badge.xmark"  // аватар с крестиком
+    case camera = "camera.circle.fill"                  // камера
+    case paperplane = "paperplane"      // идущий человек
 }
