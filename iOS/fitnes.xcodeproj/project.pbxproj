@@ -116,6 +116,8 @@
 		3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */; };
 		3EF39A56250DF77C00DF2DB9 /* AlertCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */; };
 		3EF39A58250E5B8F00DF2DB9 /* FGithubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */; };
+		3EF39A5A250EBBED00DF2DB9 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A59250EBBEC00DF2DB9 /* GenderViewController.swift */; };
+		3EF39A5C250EC45200DF2DB9 /* GenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A5B250EC45200DF2DB9 /* GenderEnum.swift */; };
 		3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */; };
 		3EFF9EC1250AB28700D34DE1 /* FetchYoutubePreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */; };
 		3EFF9EC3250AB2E700D34DE1 /* YoutubePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */; };
@@ -261,6 +263,8 @@
 		3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewBlankPlace.swift; sourceTree = "<group>"; };
 		3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCalendarViewController.swift; sourceTree = "<group>"; };
 		3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGithubView.swift; sourceTree = "<group>"; };
+		3EF39A59250EBBEC00DF2DB9 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
+		3EF39A5B250EC45200DF2DB9 /* GenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderEnum.swift; sourceTree = "<group>"; };
 		3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdFromYoutubeUrl.swift; sourceTree = "<group>"; };
 		3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchYoutubePreviewImage.swift; sourceTree = "<group>"; };
 		3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewViewController.swift; sourceTree = "<group>"; };
@@ -412,6 +416,7 @@
 				3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */,
 				3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */,
 				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
+				3EF39A59250EBBEC00DF2DB9 /* GenderViewController.swift */,
 				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
 				3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */,
 				3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */,
@@ -567,6 +572,7 @@
 				3E82C854250952C0005FE93B /* TypeData.swift */,
 				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
 				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,
+				3EF39A5B250EC45200DF2DB9 /* GenderEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -996,6 +1002,7 @@
 				3E6B4171250CFC560098EC20 /* ApiPostTicket.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */,
+				3EF39A5A250EBBED00DF2DB9 /* GenderViewController.swift in Sources */,
 				3EF39A56250DF77C00DF2DB9 /* AlertCalendarViewController.swift in Sources */,
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
 				3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */,
@@ -1030,6 +1037,7 @@
 				3E82C8512507E9B4005FE93B /* SetProflleDescription.swift in Sources */,
 				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
+				3EF39A5C250EC45200DF2DB9 /* GenderEnum.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3EAA2E4524FEE47300C8D08D /* ApiTokenModel.swift in Sources */,
 				3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */,

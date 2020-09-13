@@ -65,10 +65,6 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         
         updateProfileModel()
-        
-        print("\nОтвет от сервера\n\(apiGetUserModel)\n")
-        print("\nМоделька для table view\n\(athleteProfileModel)\n")
-        
         configureView()
         configureNavigationBar()
         configureBackNavigationButton()
@@ -76,6 +72,13 @@ class ProfileViewController: UIViewController {
         configureTrashButton()
         configureTableView()
         configureLogoutButton()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        updateProfileModel()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -342,7 +345,7 @@ extension ProfileViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UI Table View Delegate
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -359,10 +362,15 @@ extension ProfileViewController: UITableViewDelegate {
         
         print(athleteProfileModel[indexPath.row])
         
+        if athleteProfileModel[indexPath.row].apiName == "sex" {
+            let vc = GenderViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+            return
+        }
+        
         showAlert(title: athleteProfileModel[indexPath.row].description ?? "missing description", keyboardType: currentAlertKeyboard!) { (data) in
-            
-            print(athleteProfileModel[indexPath.row])
-            
+            //            print(athleteProfileModel[indexPath.row])
             if athleteProfileModel[indexPath.row].typeData == TypeData.int {
                 athleteProfileModel[indexPath.row].userDataInt = Int(data)
             } else if athleteProfileModel[indexPath.row].typeData == TypeData.string {
@@ -370,8 +378,7 @@ extension ProfileViewController: UITableViewDelegate {
             } else {
                 print("Error: unknown type data")
             }
-            
-            print(athleteProfileModel[indexPath.row])
+            //            print(athleteProfileModel[indexPath.row])
             
             NetworkManager.shared.putUser(bodyData: athleteProfileModel[indexPath.row])
             tableView.reloadData()
