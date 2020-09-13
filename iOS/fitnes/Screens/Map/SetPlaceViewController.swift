@@ -285,14 +285,14 @@ private extension SetPlaceViewController {
             longitude: currentLongitude)
         
         let latitude = AthelteProfileModel(description: "",
-                                           userDataDouble: currnetLatitude as Double,
+                                           userDataString: String(currnetLatitude),
                                            apiName: "latitude",
-                                           typeData: .double)
+                                           typeData: .string)
         
         let longitude = AthelteProfileModel(description: "",
-                                            userDataDouble: currentLongitude as Double,
+                                            userDataString: String(currentLongitude),
                                             apiName: "longitude",
-                                            typeData: .double)
+                                            typeData: .string)
         
         // Реализовано одновременное обновление только одного параметра профиля,
         // поэтому отправляется по одному

@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
         emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
         
         // test data
-        emailTextField.text = "tony@hawk.trainer"
+        emailTextField.text = "tony5@hawk.trainer"
         passwordTextField.text = "123456"
     }
     

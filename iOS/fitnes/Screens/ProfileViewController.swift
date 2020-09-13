@@ -257,8 +257,8 @@ private extension ProfileViewController {
             switch keyboardType {
             case .numberPad:
                 textField.keyboardType = .numberPad
-            case .alphabet:
-                textField.keyboardType = .alphabet
+            case .defaultKeyboard:
+                textField.keyboardType = .default
             }
         })
         
@@ -352,7 +352,7 @@ extension ProfileViewController: UITableViewDelegate {
         case .int:
             currentAlertKeyboard = .numberPad
         case .string:
-            currentAlertKeyboard = .alphabet
+            currentAlertKeyboard = .defaultKeyboard
         case .double:
             currentAlertKeyboard = .numberPad
         }
@@ -393,7 +393,11 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         avatarImageView.image = image
         
         let stringAvatar = Base64Converter.shared.imageToString(img: image)
-        let avatarProfileModel = AthelteProfileModel(description: "Фото", userDataString: stringAvatar, userDataInt: nil, apiName: "avatar", typeData: .string)
+        let avatarProfileModel = AthelteProfileModel(description: "Фото",
+                                                     userDataString: stringAvatar,
+                                                     userDataInt: nil,
+                                                     apiName: "avatar",
+                                                     typeData: .string)
         
         NetworkManager.shared.putUser(bodyData: avatarProfileModel) {
             DispatchQueue.main.async {

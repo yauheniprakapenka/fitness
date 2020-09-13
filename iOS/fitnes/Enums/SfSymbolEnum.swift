@@ -14,5 +14,5 @@ enum SfSymbolEnum: String {
     case docRichtext = "doc.richtext"                   // документ
     case personCrop = "person.crop.circle.badge.xmark"  // аватар с крестиком
     case camera = "camera.circle.fill"                  // камера
-    case paperplane = "paperplane"      // идущий человек
+    case paperplane = "paperplane"                      // идущий человек
 }

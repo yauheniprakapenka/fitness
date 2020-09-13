@@ -8,5 +8,5 @@
 
 enum KeyboardTypeEnum {
     case numberPad
-    case alphabet
+    case defaultKeyboard
 }

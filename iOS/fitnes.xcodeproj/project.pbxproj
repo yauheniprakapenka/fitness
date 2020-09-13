@@ -561,9 +561,9 @@
 			children = (
 				3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */,
 				3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */,
-				3E0435FB24FD70D3003501C5 /* SfSymbolEnum.swift */,
 				3E82C85225095291005FE93B /* KeyboardTypeEnum.swift */,
 				3EC9CD6124D8A8BD00B1F8C6 /* RoleEnum.swift */,
+				3E0435FB24FD70D3003501C5 /* SfSymbolEnum.swift */,
 				3E82C854250952C0005FE93B /* TypeData.swift */,
 				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
 				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,

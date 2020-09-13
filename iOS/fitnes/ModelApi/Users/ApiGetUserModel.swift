@@ -39,7 +39,7 @@ struct ApiGetUserModel: Decodable {
     var height: Int?
     var avatar: String?
     var longitude: Double?
-    var latitude: Double?
+    var latitude: String?
     //      "attendances": [],
     //      "subscriptions": [],
    
