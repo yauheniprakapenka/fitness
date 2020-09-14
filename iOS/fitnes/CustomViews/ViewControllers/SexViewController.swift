@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GenderViewController: UIViewController {
+class SexViewController: UIViewController {
     
     // MARK: - Private methods
     
@@ -28,7 +28,7 @@ class GenderViewController: UIViewController {
 
 // MARK: - Private methods
 
-private extension GenderViewController {
+private extension SexViewController {
     
     func configureBackgroundImageView() {
         let backgroundImageView = UIImageView()
@@ -76,13 +76,13 @@ private extension GenderViewController {
 
 // MARK: - Private actions
 
-private extension GenderViewController {
+private extension SexViewController {
     
     @objc
     func leftButtonTapped() {
         
         let gender = AthelteProfileModel(description: nil,
-                                         userDataString: GenderEnum.female.rawValue,
+                                         userDataString: SexEnum.female.rawValue,
                                          userDataInt: nil,
                                          userDataDouble: nil,
                                          apiName: "sex",
@@ -98,14 +98,14 @@ private extension GenderViewController {
     @objc
     func rightButtonTapped() {
         
-        let gender = AthelteProfileModel(description: nil,
-                                         userDataString: GenderEnum.male.rawValue,
+        let sex = AthelteProfileModel(description: nil,
+                                         userDataString: SexEnum.male.rawValue,
                                          userDataInt: nil,
                                          userDataDouble: nil,
                                          apiName: "sex",
                                          typeData: .string)
         
-        NetworkManager.shared.putUser(bodyData: gender) {
+        NetworkManager.shared.putUser(bodyData: sex) {
             DispatchQueue.main.async {
                 self.dismiss(animated: true)
             }

@@ -16,6 +16,8 @@
 		3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */; };
 		3E1752E024E2954F00F823A8 /* TrainingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E1752DF24E2954F00F823A8 /* TrainingCell.swift */; };
 		3E3B66062500231C00D1068F /* ApiGetUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3B66052500231C00D1068F /* ApiGetUser.swift */; };
+		3E3BB001250FDB7800C89CC0 /* ImagePositionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BB000250FDB7800C89CC0 /* ImagePositionEnum.swift */; };
+		3E3BB00425100CBD00C89CC0 /* ConfigureAlertWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BB00325100CBD00C89CC0 /* ConfigureAlertWithImage.swift */; };
 		3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */; };
 		3E3D927D24E80D4400EEE0C6 /* HapticFeedbackEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */; };
 		3E3D927F24E813E200EEE0C6 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */; };
@@ -114,10 +116,10 @@
 		3EEB9C2724D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EEB9C2624D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift */; };
 		3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */; };
 		3EF15F8E24EC6BEE00ED5A1C /* FViewBlankPlace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */; };
-		3EF39A56250DF77C00DF2DB9 /* AlertCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */; };
+		3EF39A56250DF77C00DF2DB9 /* AlertWithImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A55250DF77C00DF2DB9 /* AlertWithImageViewController.swift */; };
 		3EF39A58250E5B8F00DF2DB9 /* FGithubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */; };
-		3EF39A5A250EBBED00DF2DB9 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A59250EBBEC00DF2DB9 /* GenderViewController.swift */; };
-		3EF39A5C250EC45200DF2DB9 /* GenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A5B250EC45200DF2DB9 /* GenderEnum.swift */; };
+		3EF39A5A250EBBED00DF2DB9 /* SexViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A59250EBBEC00DF2DB9 /* SexViewController.swift */; };
+		3EF39A5C250EC45200DF2DB9 /* SexEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EF39A5B250EC45200DF2DB9 /* SexEnum.swift */; };
 		3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */; };
 		3EFF9EC1250AB28700D34DE1 /* FetchYoutubePreviewImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */; };
 		3EFF9EC3250AB2E700D34DE1 /* YoutubePreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */; };
@@ -161,6 +163,8 @@
 		3E1752D724E1E99000F823A8 /* FindPlaceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPlaceViewController.swift; sourceTree = "<group>"; };
 		3E1752DF24E2954F00F823A8 /* TrainingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingCell.swift; sourceTree = "<group>"; };
 		3E3B66052500231C00D1068F /* ApiGetUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiGetUser.swift; sourceTree = "<group>"; };
+		3E3BB000250FDB7800C89CC0 /* ImagePositionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePositionEnum.swift; sourceTree = "<group>"; };
+		3E3BB00325100CBD00C89CC0 /* ConfigureAlertWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigureAlertWithImage.swift; sourceTree = "<group>"; };
 		3E3D927A24E8017300EEE0C6 /* CreateAbonementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAbonementViewController.swift; sourceTree = "<group>"; };
 		3E3D927C24E80D4400EEE0C6 /* HapticFeedbackEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticFeedbackEnum.swift; sourceTree = "<group>"; };
 		3E3D927E24E813E200EEE0C6 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -261,10 +265,10 @@
 		3EEB9C2624D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterFromStringToEnum.swift; sourceTree = "<group>"; };
 		3EF15F8B24EC6A8400ED5A1C /* SetPlaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPlaceViewController.swift; sourceTree = "<group>"; };
 		3EF15F8D24EC6BEE00ED5A1C /* FViewBlankPlace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FViewBlankPlace.swift; sourceTree = "<group>"; };
-		3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCalendarViewController.swift; sourceTree = "<group>"; };
+		3EF39A55250DF77C00DF2DB9 /* AlertWithImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertWithImageViewController.swift; sourceTree = "<group>"; };
 		3EF39A57250E5B8F00DF2DB9 /* FGithubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FGithubView.swift; sourceTree = "<group>"; };
-		3EF39A59250EBBEC00DF2DB9 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
-		3EF39A5B250EC45200DF2DB9 /* GenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderEnum.swift; sourceTree = "<group>"; };
+		3EF39A59250EBBEC00DF2DB9 /* SexViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexViewController.swift; sourceTree = "<group>"; };
+		3EF39A5B250EC45200DF2DB9 /* SexEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexEnum.swift; sourceTree = "<group>"; };
 		3EFF9EBE250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetIdFromYoutubeUrl.swift; sourceTree = "<group>"; };
 		3EFF9EC0250AB28700D34DE1 /* FetchYoutubePreviewImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchYoutubePreviewImage.swift; sourceTree = "<group>"; };
 		3EFF9EC2250AB2E700D34DE1 /* YoutubePreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YoutubePreviewViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +369,15 @@
 			path = Storyboard;
 			sourceTree = "<group>";
 		};
+		3E3BB00225100C9D00C89CC0 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				3EE586E324DD5A8100CA0530 /* ProfileViewController.swift */,
+				3E3BB00325100CBD00C89CC0 /* ConfigureAlertWithImage.swift */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
 		3E4219FF2506D30C00BFD0D5 /* Base64Converter */ = {
 			isa = PBXGroup;
 			children = (
@@ -412,11 +425,11 @@
 			isa = PBXGroup;
 			children = (
 				3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */,
-				3EF39A55250DF77C00DF2DB9 /* AlertCalendarViewController.swift */,
+				3EF39A55250DF77C00DF2DB9 /* AlertWithImageViewController.swift */,
 				3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */,
 				3E444AAB24D1E5A40004B978 /* ComingTrainingViewController.swift */,
 				3EC9CD5D24D87C1800B1F8C6 /* ExercisesViewController.swift */,
-				3EF39A59250EBBEC00DF2DB9 /* GenderViewController.swift */,
+				3EF39A59250EBBEC00DF2DB9 /* SexViewController.swift */,
 				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
 				3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */,
 				3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */,
@@ -572,7 +585,8 @@
 				3E82C854250952C0005FE93B /* TypeData.swift */,
 				3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */,
 				3E60119224E9E06700CAE51B /* ViewColorEnum.swift */,
-				3EF39A5B250EC45200DF2DB9 /* GenderEnum.swift */,
+				3EF39A5B250EC45200DF2DB9 /* SexEnum.swift */,
+				3E3BB000250FDB7800C89CC0 /* ImagePositionEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -743,10 +757,10 @@
 				3E1752C524E15C9000F823A8 /* Chat */,
 				3EE2DDE224C0DAA800D85CAE /* Login */,
 				3EF15F8A24EC69DA00ED5A1C /* Map */,
+				3E3BB00225100C9D00C89CC0 /* Profile */,
 				3E63718624CF4C5D00483A56 /* QR */,
 				3E10DA3424C3914600163F26 /* Trainer */,
 				3EFF9EBD250AB11800D34DE1 /* Youtube */,
-				3EE586E324DD5A8100CA0530 /* ProfileViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -1002,9 +1016,10 @@
 				3E6B4171250CFC560098EC20 /* ApiPostTicket.swift in Sources */,
 				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */,
-				3EF39A5A250EBBED00DF2DB9 /* GenderViewController.swift in Sources */,
-				3EF39A56250DF77C00DF2DB9 /* AlertCalendarViewController.swift in Sources */,
+				3EF39A5A250EBBED00DF2DB9 /* SexViewController.swift in Sources */,
+				3EF39A56250DF77C00DF2DB9 /* AlertWithImageViewController.swift in Sources */,
 				3E60118E24E9BE4D00CAE51B /* DismissKeyboardWhenTap.swift in Sources */,
+				3E3BB001250FDB7800C89CC0 /* ImagePositionEnum.swift in Sources */,
 				3E70A12C2503785F00353159 /* IsInvalidPasswordError.swift in Sources */,
 				3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */,
 				3E7C73C825051B3300BD21ED /* CurrentProfile.swift in Sources */,
@@ -1032,12 +1047,13 @@
 				3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */,
 				3E7C73CC25051CF100BD21ED /* AthleteProfileModel.swift in Sources */,
 				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
+				3E3BB00425100CBD00C89CC0 /* ConfigureAlertWithImage.swift in Sources */,
 				F8496E2025097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,
 				3E82C8512507E9B4005FE93B /* SetProflleDescription.swift in Sources */,
 				3EF15F8C24EC6A8400ED5A1C /* SetPlaceViewController.swift in Sources */,
 				3EC9CD5E24D87C1800B1F8C6 /* ExercisesViewController.swift in Sources */,
-				3EF39A5C250EC45200DF2DB9 /* GenderEnum.swift in Sources */,
+				3EF39A5C250EC45200DF2DB9 /* SexEnum.swift in Sources */,
 				3E1752D024E1A01500F823A8 /* TrainingModel.swift in Sources */,
 				3EAA2E4524FEE47300C8D08D /* ApiTokenModel.swift in Sources */,
 				3E3F6FBB24F57F15007A1E67 /* AlertViewController.swift in Sources */,

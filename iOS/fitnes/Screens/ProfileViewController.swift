@@ -44,6 +44,7 @@ class ProfileViewController: UIViewController {
     private let avatarContainerView = UIView()
     private let avatarImageView = UIImageView()
     private var safeArea: UILayoutGuide!
+    private var didSelectAthleteRow: AthelteProfileModel!
     
     private let cameraImageView: UIImageView = {
         let imageView = UIImageView()
@@ -60,6 +61,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Public properties
     
     let tableView = UITableView()
+    var alertVC: AlertWithImageViewController!
     
     // MARK: - View life cycle
     
@@ -366,39 +368,26 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        var currentAlertKeyboard: KeyboardTypeEnum?
+        didSelectAthleteRow = athleteProfileModel[indexPath.row]
+        //        var currentAlertKeyboard: KeyboardTypeEnum?
+        //
+        //
+        //        switch didSelectAthleteRow.typeData {
+        //        case .int:
+        //            currentAlertKeyboard = .numberPad
+        //        case .string:
+        //            currentAlertKeyboard = .defaultKeyboard
+        //        case .double:
+        //            currentAlertKeyboard = .numberPad
+        //        }
         
-        switch athleteProfileModel[indexPath.row].typeData {
-        case .int:
-            currentAlertKeyboard = .numberPad
-        case .string:
-            currentAlertKeyboard = .defaultKeyboard
-        case .double:
-            currentAlertKeyboard = .numberPad
-        }
-        
-        print(athleteProfileModel[indexPath.row])
-        
-        if athleteProfileModel[indexPath.row].apiName == "sex" {
-            let vc = GenderViewController()
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: true)
+        switch didSelectAthleteRow.apiName {
+        case "sex":
+            presentSexVC(didSelectAthleteRow: didSelectAthleteRow)
+        case "email":
             return
-        }
-        
-        showAlert(title: athleteProfileModel[indexPath.row].description ?? "missing description", keyboardType: currentAlertKeyboard!) { (data) in
-            //            print(athleteProfileModel[indexPath.row])
-            if athleteProfileModel[indexPath.row].typeData == TypeData.int {
-                athleteProfileModel[indexPath.row].userDataInt = Int(data)
-            } else if athleteProfileModel[indexPath.row].typeData == TypeData.string {
-                athleteProfileModel[indexPath.row].userDataString = data
-            } else {
-                print("Error: unknown type data")
-            }
-            //            print(athleteProfileModel[indexPath.row])
-            
-            NetworkManager.shared.putUser(bodyData: athleteProfileModel[indexPath.row])
-            tableView.reloadData()
+        default:
+            presentAlertWithImageVC(didSelectAthleteRow: didSelectAthleteRow)
         }
     }
 }
@@ -446,5 +435,58 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         imagePicker.sourceType = .photoLibrary
         imagePicker.allowsEditing = true
         present(imagePicker, animated: true)
+    }
+}
+
+// MARK: - Present Alert With Image VC
+
+private extension ProfileViewController {
+    
+    func presentSexVC(didSelectAthleteRow: AthelteProfileModel) {
+        if didSelectAthleteRow.apiName == "sex" {
+            let vc = SexViewController()
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true)
+            return
+        }
+    }
+    
+    func presentAlertWithImageVC(didSelectAthleteRow: AthelteProfileModel) {
+        configureAlertWithImage(apiName: didSelectAthleteRow.apiName ?? "")
+        
+        alertVC.modalPresentationStyle = .overCurrentContext
+        alertVC.modalTransitionStyle = .crossDissolve
+        
+        alertVC.actionButton.addTarget(self, action: #selector(alertActionButtonTapped), for: .touchUpInside)
+        alertVC.cancelButton.addTarget(self, action: #selector(alertCancelButtonTapped), for: .touchUpInside)
+        alertVC.userInputTextfield.becomeFirstResponder()
+        
+        present(alertVC, animated: true)
+        return
+    }
+    
+    @objc
+    func alertActionButtonTapped() {
+        switch didSelectAthleteRow.typeData {
+        case .int:
+            didSelectAthleteRow.userDataInt = Int(alertVC.userInputTextfield.text ?? "")
+        case .string:
+            didSelectAthleteRow.userDataString = String(alertVC.userInputTextfield.text ?? "")
+        default:
+            print("Error: unknown type data")
+        }
+        
+        NetworkManager.shared.putUser(bodyData: didSelectAthleteRow) {
+            updateProfileModel()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.dismiss(animated: true)
+            }
+        }
+    }
+    
+    @objc
+    func alertCancelButtonTapped() {
+        self.dismiss(animated: true)
     }
 }

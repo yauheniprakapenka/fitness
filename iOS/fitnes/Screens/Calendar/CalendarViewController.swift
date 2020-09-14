@@ -40,7 +40,11 @@ class CalendarViewController: UIViewController {
     private var filteredCalendarTrainingModel: [CalendarTrainingModel] = []
     private let addTrainingButton = FButtonWithBackgroundColor(backgroundColor: Const.activeColor, title: Const.actionMessage, size: 18)
     private var selectedDay: CalendarTrainingModel?
-    private let alertVC = AlertCalendarViewController()
+    private let alertVC = AlertWithImageViewController(title: "Укажите время тренировки",
+                                                      description: "Атлеты будут видеть время проведения ваши тренировок",
+                                                      placeholder: "Например, 10:00 - 18:00",
+                                                      image: #imageLiteral(resourceName: "fitnes-illustration"),
+                                                      position: .leftTop)
     
     private var calendarTrainingModel: [CalendarTrainingModel] = [
         CalendarTrainingModel(date: "Thursday-01-Oct-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
@@ -162,8 +166,9 @@ private extension CalendarViewController {
     
     @objc
     func alertActionButtonTapped() {
+        
         guard var day = selectedDay else { return }
-        day.description = alertVC.dateTextfield.text ?? ""
+        day.description = alertVC.userInputTextfield.text ?? ""
         calendarTrainingModel.append(day)
         
         filteredCalendarTrainingModel = calendarTrainingModel.filter({
@@ -175,7 +180,7 @@ private extension CalendarViewController {
         tableView.reloadData()
         
         dismiss(animated: true, completion: {
-            self.alertVC.dateTextfield.text = ""
+            self.alertVC.userInputTextfield.text = ""
         })
     }
     

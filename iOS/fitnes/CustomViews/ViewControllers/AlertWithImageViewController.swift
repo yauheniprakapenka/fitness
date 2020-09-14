@@ -10,22 +10,20 @@ import UIKit
 
 // MARK: - Constants
 
-private extension AlertCalendarViewController {
+private extension AlertWithImageViewController {
     
     enum Const {
         static let screenSize: CGRect = UIScreen.main.bounds
         static let screenHeight: CGFloat = screenSize.height
         
-        static let viewColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3451817024)
+        static let viewColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.7471719456)
         
         static let alertLeftRightMargin: CGFloat = 40
         static let alertHeght: CGFloat = 270
         
         static let logoSize: CGFloat = 90
         static let logoTopLeftMargin: CGFloat = -20
-        static let logoImage = #imageLiteral(resourceName: "fitnes-illustration")
         
-        static let titleLabelMessage = "Укажите время тренировки"
         static let titleLabelColor = #colorLiteral(red: 0.3768857121, green: 0.5291256905, blue: 0.5530951619, alpha: 1)
         static let titleLabelTopMargin: CGFloat = 30
         static let titleLabelLeftRightMargin: CGFloat = 20
@@ -34,9 +32,7 @@ private extension AlertCalendarViewController {
         static let descriptionTopMargin: CGFloat = 20
         static let descriptionLeftRigthMargin: CGFloat = 20
         static let descriptionFontSize: CGFloat = 14
-        static let descriptionMessage = "Атлеты будут видеть время проведения ваши тренировок"
         
-        static let textfieldPlaceholder = "Например, 10:00 - 18:00"
         static let textfieldLeftRightMargin: CGFloat = 20
         static let textFieldTopMargin: CGFloat = 20
         static let textfieldBorderColor: CGColor = #colorLiteral(red: 0.7058702707, green: 0.9068961143, blue: 0.9431461692, alpha: 1)
@@ -50,7 +46,7 @@ private extension AlertCalendarViewController {
     }
 }
 
-class AlertCalendarViewController: UIViewController {
+class AlertWithImageViewController: UIViewController {
     
     // MARK: - Private properties
     
@@ -58,16 +54,37 @@ class AlertCalendarViewController: UIViewController {
     private let logoImageView = UIImageView()
     private let descriptionLabel = UILabel()
     private let buttonStackView = UIStackView()
+    private let titleLabel = UILabel()
     
     // MARK: - Public properties
     
-    let dateTextfield = FTextField(placeholderText: Const.textfieldPlaceholder,
-                               placeholderColor: Const.textfieldPlaceholderColor)
+    var userInputTextfield: FTextField!
     
-    let actionButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1),
-                                                  title: "Добавить", size: 16)
-    let cancelButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1),
-                                                  title: "Отменить", size: 16)
+    let actionButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Добавить", size: 16)
+    let cancelButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), title: "Отменить", size: 16)
+    
+    // MARK: - Initializer
+    
+    init(title: String, description: String, placeholder: String, image: UIImage, position: ImagePositionEnum) {
+        super.init(nibName: nil, bundle: nil)
+        
+        titleLabel.text = title
+        descriptionLabel.text = description
+        logoImageView.image = image
+        userInputTextfield = FTextField(placeholderText: placeholder,
+                           placeholderColor:  Const.textfieldPlaceholderColor)
+        
+        switch position {
+        case .leftTop:
+            configureLeftTopImage()
+        case .center:
+            configureCenterImage()
+        }
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - View life cycle
     
@@ -76,7 +93,6 @@ class AlertCalendarViewController: UIViewController {
         
         configureView()
         configureAlertView()
-        configureLogoImageView()
         configureTitleLabel()
         configureDescriptionLabel()
         configureTextfield()
@@ -87,7 +103,7 @@ class AlertCalendarViewController: UIViewController {
 
 // MARK: - Private methods
 
-private extension AlertCalendarViewController {
+private extension AlertWithImageViewController {
     
     func configureAlertView() {
         view.addSubview(alertView)
@@ -103,26 +119,9 @@ private extension AlertCalendarViewController {
         ])
     }
     
-    func configureLogoImageView() {
-        alertView.addSubview(logoImageView)
-        logoImageView.translatesAutoresizingMaskIntoConstraints = false
-        logoImageView.layer.cornerRadius = Const.logoSize / 2
-        logoImageView.clipsToBounds = true
-        logoImageView.image = Const.logoImage
-        
-        NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: alertView.topAnchor, constant: Const.logoTopLeftMargin),
-            logoImageView.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: Const.logoTopLeftMargin),
-            logoImageView.widthAnchor.constraint(equalToConstant: Const.logoSize),
-            logoImageView.heightAnchor.constraint(equalToConstant: Const.logoSize)
-        ])
-    }
-    
     func configureTitleLabel() {
-        let titleLabel = UILabel()
         alertView.addSubview(titleLabel)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        titleLabel.text = Const.titleLabelMessage
         titleLabel.textColor = Const.titleLabelColor
         titleLabel.textAlignment = .center
         titleLabel.font = UIFont.systemFont(ofSize: Const.titleLabelFontSize, weight: .medium)
@@ -139,9 +138,9 @@ private extension AlertCalendarViewController {
         alertView.addSubview(descriptionLabel)
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         descriptionLabel.numberOfLines = 2
-        descriptionLabel.text = Const.descriptionMessage
         descriptionLabel.font = UIFont.systemFont(ofSize: Const.descriptionFontSize, weight: .regular)
         descriptionLabel.textColor = Const.titleLabelColor
+        descriptionLabel.textAlignment = .center
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: Const.descriptionTopMargin),
@@ -151,17 +150,17 @@ private extension AlertCalendarViewController {
     }
     
     func configureTextfield() {
-        alertView.addSubview(dateTextfield)
-        dateTextfield.layer.borderColor = Const.textfieldBorderColor
-        dateTextfield.textColor = Const.textfieldTextColor
-        dateTextfield.becomeFirstResponder()
-        dateTextfield.delegate = self
+        alertView.addSubview(userInputTextfield)
+        userInputTextfield.layer.borderColor = Const.textfieldBorderColor
+        userInputTextfield.textColor = Const.textfieldTextColor
+        userInputTextfield.becomeFirstResponder()
+        userInputTextfield.delegate = self
         
         NSLayoutConstraint.activate([
-            dateTextfield.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Const.textFieldTopMargin),
-            dateTextfield.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: Const.textfieldLeftRightMargin),
-            dateTextfield.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -Const.textfieldLeftRightMargin),
-            dateTextfield.heightAnchor.constraint(equalToConstant: Const.textFieldHeightAnchor)
+            userInputTextfield.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: Const.textFieldTopMargin),
+            userInputTextfield.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: Const.textfieldLeftRightMargin),
+            userInputTextfield.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -Const.textfieldLeftRightMargin),
+            userInputTextfield.heightAnchor.constraint(equalToConstant: Const.textFieldHeightAnchor)
         ])
     }
     
@@ -176,7 +175,7 @@ private extension AlertCalendarViewController {
         buttonStackView.addArrangedSubview(cancelButton)
         
         NSLayoutConstraint.activate([
-            buttonStackView.topAnchor.constraint(equalTo: dateTextfield.bottomAnchor, constant: Const.stackViewTopMargin),
+            buttonStackView.topAnchor.constraint(equalTo: userInputTextfield.bottomAnchor, constant: Const.stackViewTopMargin),
             buttonStackView.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: Const.stackViewLeftRightMargin),
             buttonStackView.trailingAnchor.constraint(equalTo: alertView.trailingAnchor, constant: -Const.stackViewLeftRightMargin),
             buttonStackView.heightAnchor.constraint(equalToConstant: Const.stackViewHeight)
@@ -196,10 +195,45 @@ private extension AlertCalendarViewController {
     }
 }
 
-extension AlertCalendarViewController: UITextFieldDelegate {
+// MARK: - UI TextField Delegate
+
+extension AlertWithImageViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.view.endEditing(true)
         return false
+    }
+}
+
+// MARK: - Image position
+
+private extension AlertWithImageViewController {
+    
+    func configureLeftTopImage() {
+        alertView.addSubview(logoImageView)
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.layer.cornerRadius = Const.logoSize / 2
+        logoImageView.clipsToBounds = true
+        
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: alertView.topAnchor, constant: Const.logoTopLeftMargin),
+            logoImageView.leadingAnchor.constraint(equalTo: alertView.leadingAnchor, constant: Const.logoTopLeftMargin),
+            logoImageView.widthAnchor.constraint(equalToConstant: Const.logoSize),
+            logoImageView.heightAnchor.constraint(equalToConstant: Const.logoSize)
+        ])
+    }
+    
+    func configureCenterImage() {
+        alertView.addSubview(logoImageView)
+        logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        logoImageView.contentMode = .scaleAspectFit
+        
+        NSLayoutConstraint.activate([
+            logoImageView.topAnchor.constraint(equalTo: alertView.topAnchor, constant: -60),
+            logoImageView.centerXAnchor.constraint(equalTo: alertView.centerXAnchor),
+            logoImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.alertLeftRightMargin),
+            logoImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.alertLeftRightMargin),
+            logoImageView.heightAnchor.constraint(equalToConstant: 140)
+        ])
     }
 }
