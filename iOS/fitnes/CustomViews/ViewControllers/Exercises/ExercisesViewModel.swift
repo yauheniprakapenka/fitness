@@ -66,8 +66,8 @@ class ExercisesViewModel {
                     return ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: item.name ?? "", kindInventory: item.inventory ?? "")
                 }
                 self.onExercisesListChanged?(maped)
-            default:
-                break
+            case .failure(_):
+                return
             }
             
         }

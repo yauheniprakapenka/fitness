@@ -16,6 +16,7 @@ class AddEditExerciseConfigurator {
     
     init(exercise: TPExercise?, onSaveHandler: (() -> Void)?) {
         self.exercise = exercise
+        self.onSaveHandler = onSaveHandler
     }
     
     func create() -> UIViewController {

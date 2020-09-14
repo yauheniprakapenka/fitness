@@ -8,10 +8,26 @@
 
 import UIKit
 import TrainingProgramm
+import Common
 
 class ExercisesViewModuleConfigurator {
-    func create(insets: UIEdgeInsets, router: Router) -> ExercisesViewController {
+    private var insets: UIEdgeInsets
+    private var router: Router
+    private var activityIndicator: ActivityIndicatorProtocol
+    
+    init(
+        insets: UIEdgeInsets,
+        router: Router,
+        indicator: ActivityIndicatorProtocol
+    ) {
+        self.insets = insets
+        self.router = router
+        self.activityIndicator = indicator
+    }
+    
+    func create() -> ExercisesViewController {
         let vc = ExercisesViewController(contentInset: insets)
+        vc.activityIndicator = activityIndicator
         let viewModel = ExercisesViewModel(router: router, service: .shared)
         vc.viewModel = viewModel
         return vc

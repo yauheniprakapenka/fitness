@@ -188,9 +188,10 @@ private extension RegistrationViewController {
            trainer {
             
             DispatchQueue.main.async {
-                let vc = TrainerViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+                let router = Router()
+                let vc = TrainerModuleConfigrator(with: router).create()
+                router.push(vc: vc)
+                self.present(router.navigationController, animated: true)
             }
         }
     }

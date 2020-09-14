@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Common
 
 struct ExercisesModel {
     var image: UIImage
@@ -22,10 +23,8 @@ extension ExercisesViewController {
 }
 
 class ExercisesViewController: UIViewController {
-    
     let exerciseLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
     let createButton = FButtonSimple(title: "Создать", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
-    let activityIndicator = FActivityIndicator()
     
     private var exercises: [ExercisesModel] = []
     
@@ -36,6 +35,8 @@ class ExercisesViewController: UIViewController {
             configureState()
         }
     }
+    
+    weak var activityIndicator: ActivityIndicatorProtocol?
     
     let contentInset: UIEdgeInsets
     
@@ -75,7 +76,6 @@ class ExercisesViewController: UIViewController {
         configureLayout()
         configureUIElements()
         configureMoreButton()
-        configureActivityIndicator()
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -88,12 +88,13 @@ class ExercisesViewController: UIViewController {
         viewModel?.onExercisesListChanged = { [weak self] exercises in
             self?.exercises = exercises
             self?.collectionView.reloadData()
+            self?.state = exercises.isEmpty ? .empty : .normal
         }
         viewModel?.onLoadingStatusChanged = { [weak self] status in
             if status {
-                self?.activityIndicator.startAnimate()
+                self?.activityIndicator?.startIndicator()
             } else {
-                self?.activityIndicator.stopAnimate()
+                self?.activityIndicator?.stopIndicator()
             }
         }
         viewModel?.viewPrepared()
@@ -129,12 +130,6 @@ class ExercisesViewController: UIViewController {
         collectionView.backgroundColor = .white
         emptyListView.onActionButtonTapped = createButtonTapped
     }
-    
-    private func configureActivityIndicator() {
-        view.addSubview(activityIndicator)
-        activityIndicator.center = view.center
-    }
-    
     private func configureMoreButton() {
         createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }

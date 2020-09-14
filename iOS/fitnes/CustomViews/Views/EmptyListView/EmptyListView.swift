@@ -129,11 +129,13 @@ private extension EmptyListView {
     
     func createButton(addTo superview: UIView, topAnchor: NSLayoutYAxisAnchor, topOffset: CGFloat) -> UIButton {
         let button = UIButton()
+        button.isUserInteractionEnabled = true
         button.translatesAutoresizingMaskIntoConstraints = false
         superview.addSubview(button)
         button.centerXAnchor.constraint(equalTo: superview.centerXAnchor).isActive = true
         button.topAnchor.constraint(equalTo: topAnchor, constant: topOffset).isActive = true
         button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+        button.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
         return button
     }
 }

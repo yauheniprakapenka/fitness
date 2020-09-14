@@ -15,6 +15,9 @@
       location = "container:"
       name = "CoreModules">
       <FileRef
+         location = "group:Common/Common.xcodeproj">
+      </FileRef>
+      <FileRef
          location = "group:FitnessExtensions/FitnessExtensions.xcodeproj">
       </FileRef>
       <FileRef

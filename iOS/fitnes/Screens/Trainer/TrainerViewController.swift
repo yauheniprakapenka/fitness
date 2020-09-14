@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Common
 
 private extension TrainerViewController {
     enum Const {
@@ -25,7 +26,8 @@ class TrainerViewController: UIViewController {
     let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
     let profileButton = FButtonWithSFSymbol(sfSymbol: .person, color: #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1), size: 28)
     let calendarButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
-    let activityIndicator = FActivityIndicator()
+    private let activityIndicatorView = FActivityIndicator()
+    private weak var activityIndicator: ActivityIndicatorProtocol!
     
     let headerView = UIView()
     let itemsView = UIView()
@@ -51,6 +53,7 @@ class TrainerViewController: UIViewController {
         configureExerciseView()
         configurePlaceView()
         configureAbonementsView()
+        configureActivityIndicator()
         addChildVC()
     }
     
@@ -114,9 +117,7 @@ private extension TrainerViewController {
     func profileButtonTapped() {
         HapticFeedback.shared.makeHapticFeedback(type: .light)
         
-        DispatchQueue.main.async {
-            self.activityIndicator.startAnimate()
-        }
+        activityIndicator.startIndicator()
         
         NetworkManager.shared.getUser {
             DispatchQueue.main.async {
@@ -124,7 +125,7 @@ private extension TrainerViewController {
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)
-                self.activityIndicator.stopAnimate()
+                self.activityIndicator.stopIndicator()
             }
             print(apiGetUserModel)
         }
@@ -163,8 +164,12 @@ private extension TrainerViewController {
 }
 
 // MARK: - Private methods
-
 private extension TrainerViewController {
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicatorView)
+        activityIndicatorView.center = view.center
+        activityIndicator = self
+    }
     
     func configureScrollView() {
         scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
@@ -305,8 +310,11 @@ private extension TrainerViewController {
         trainingVC.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
         
         // ExercisesVC
-        
-        let exericseVC = ExercisesViewModuleConfigurator().create(insets: Const.horizontalListInsets, router: router!)
+        let configurator = ExercisesViewModuleConfigurator(
+            insets: Const.horizontalListInsets,
+            router: router!,
+            indicator: activityIndicator)
+        let exericseVC = configurator.create()
         self.add(childVC: exericseVC, to: self.exerciseView)
         
         // abonementsVC
@@ -324,5 +332,19 @@ private extension TrainerViewController {
         containerView.addSubview(childVC.view)
         childVC.view.frame = containerView.bounds
         childVC.didMove(toParent: self)
+    }
+}
+
+extension TrainerViewController: ActivityIndicatorProtocol {
+    func startIndicator() {
+        activityIndicatorView.startAnimate()
+    }
+    
+    func stopIndicator() {
+        activityIndicatorView.stopAnimate()
+    }
+    
+    var isStarted: Bool {
+        return activityIndicatorView.isAnimating
     }
 }

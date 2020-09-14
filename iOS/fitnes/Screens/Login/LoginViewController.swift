@@ -142,8 +142,7 @@ private extension LoginViewController {
             
             if let trainer = apiTokenModel.trainer, trainer {
                 let router = Router()
-                let vc = TrainerViewController()
-                vc.modalPresentationStyle = .fullScreen
+                let vc = TrainerModuleConfigrator(with: router).create()
                 vc.router = router
                 router.push(vc: vc)
                 self.present(router.navigationController, animated: true)
