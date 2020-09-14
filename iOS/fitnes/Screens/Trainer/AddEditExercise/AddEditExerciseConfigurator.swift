@@ -13,18 +13,25 @@ class AddEditExerciseConfigurator {
     
     var exercise: TPExercise?
     var onSaveHandler: (() -> Void)?
+    var userId: Int
+    var inventoryList: [String]
     
-    init(exercise: TPExercise?, onSaveHandler: (() -> Void)?) {
+    init(userId: Int, exercise: TPExercise?, inventoryList: [String], onSaveHandler: (() -> Void)?) {
+        self.userId = userId
         self.exercise = exercise
+        self.inventoryList = inventoryList
         self.onSaveHandler = onSaveHandler
     }
     
     func create() -> UIViewController {
         let vc = TPNewExerciseViewController()
         if let exercise = exercise {
-            vc.exercise = exercise
+            vc.mode = .edit(exercise: exercise)
+        } else {
+            vc.mode = .create
         }
-        vc.inventory = ["Клюшка", "Уюшка", "Черпак", "Кулак"]
+        vc.userId = userId
+        vc.inventory = inventoryList
         vc.onSaveHandler = onSaveHandler
         vc.service = TPExercisesService.shared
         return vc

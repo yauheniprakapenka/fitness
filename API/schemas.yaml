@@ -169,8 +169,11 @@ ExerciseCreationBody:
       type: string
     equipment:
       type: string
+    user_id:
+      type: string
   required:
     - name
+    - user_id
   
 ExerciseEditingBody:
   description: "Json body to use when update(put) exercise. Required at most one parameter to edit"

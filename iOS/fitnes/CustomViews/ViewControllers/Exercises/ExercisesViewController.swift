@@ -179,4 +179,7 @@ extension ExercisesViewController: UICollectionViewDelegateFlowLayout, UICollect
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.exerciseSelected(index: indexPath.item)
+    }
 }

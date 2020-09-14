@@ -36,13 +36,25 @@ class ExercisesViewModel {
         loadExercises()
     }
     func createExerciseTapped() {
-        let vc = AddEditExerciseConfigurator(exercise: nil, onSaveHandler: handleExercisesChanged).create()
+        let exercisesInventory = exercises.compactMap { $0.inventory }.filter { !$0.isEmpty }
+        let uniqInventory = Array(Set(exercisesInventory))
+        let vc = AddEditExerciseConfigurator(
+            userId: Int(apiTokenModel.userId!),
+            exercise: nil,
+            inventoryList: uniqInventory,
+            onSaveHandler: handleExercisesChanged).create()
         router.push(vc: vc)
     }
     
     func exerciseSelected(index: Int) {
         let exercise = exercises[index]
-        let vc = AddEditExerciseConfigurator(exercise: exercise, onSaveHandler: handleExercisesChanged).create()
+        let exercisesInventory = exercises.compactMap { $0.inventory }.filter { !$0.isEmpty }
+        let uniqInventory = Array(Set(exercisesInventory))
+        let vc = AddEditExerciseConfigurator(
+            userId: Int(apiTokenModel.userId!),
+            exercise: exercise,
+            inventoryList: uniqInventory,
+            onSaveHandler: handleExercisesChanged).create()
         router.push(vc: vc)
     }
     
@@ -61,12 +73,12 @@ class ExercisesViewModel {
             self.onLoadingStatusChanged?(false)
             switch result {
             case .success(let exercises):
-                self.exercises = exercises
-                let maped = exercises.map { item in
+                self.exercises = exercises.reversed()
+                let maped = self.exercises.map { item in
                     return ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: item.name ?? "", kindInventory: item.inventory ?? "")
                 }
                 self.onExercisesListChanged?(maped)
-            case .failure(_):
+            case .failure:
                 return
             }
             

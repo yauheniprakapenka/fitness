@@ -39,8 +39,8 @@ public class TPExercisesService {
         authorization = token
     }
     
-    public func addExercise(_ exercise: TPExercise, completion: @escaping AddExerciseCompletionHandler) {
-        let body = ExerciseCreationBody(from: exercise)
+    public func addExercise(_ exercise: TPExercise, userId: Int, completion: @escaping AddExerciseCompletionHandler) {
+        let body = ExerciseCreationBody(from: exercise, userId: "\(userId)")
         let request = FitnessAPI.PostApiV1Exercises.Request(authorization: authorizationParam, body: body)
     
         APIClient.default.makeRequest(request, complete: { response in
@@ -51,7 +51,26 @@ public class TPExercisesService {
                 } else {
                     completion(.failure(.other))
                 }
-            case .failure(_):
+            case .failure:
+                completion(.failure(.other))
+            }
+        })
+    }
+    
+    public func editExercise(_ exercise: TPExercise, userId: Int, completion: @escaping EditExerciseCompletionHandler) {
+        guard let exerciseId = exercise.id else { fatalError() }
+        
+        let body = ExerciseEditingBody(description: exercise.description, equipment: exercise.inventory, name: exercise.name, videoUrl: exercise.video?.url.absoluteString)
+        let request = FitnessAPI.PutApiV1ExercisesById.Request(id: exerciseId, authorization: authorizationParam, body: body)
+        APIClient.default.makeRequest(request, complete: { response in
+            switch response.result {
+            case .success(let result):
+                if let _ = result.success {
+                    completion(.success(exercise))
+                } else {
+                    completion(.failure(.other))
+                }
+            case .failure:
                 completion(.failure(.other))
             }
         })
@@ -67,10 +86,12 @@ public class TPExercisesService {
                         let urlString = item.videoUrl ?? ""
                         let url = URL(string: urlString)
                         let video: VideoLink? = url != nil ? .remote(url: url!) : nil
-                        return TPExercise(name: item.name,
-                                          inventory: item.equipment,
-                                          description: item.description,
-                                          video: video)
+                        return TPExercise(
+                            name: item.name,
+                            inventory: item.equipment,
+                            description: item.description,
+                            video: video,
+                            id: item.id)
                     }
                     completion(.success(exercises))
                 } else {
@@ -85,9 +106,10 @@ public class TPExercisesService {
 }
 
 extension ExerciseCreationBody {
-    convenience init(from exercise: TPExercise) {
+    convenience init(from exercise: TPExercise, userId: String) {
         self.init(
             name: exercise.name ?? "Без имени",
+            userId: userId,
             description: exercise.description,
             equipment: exercise.inventory,
             videoUrl: exercise.video?.url.absoluteString

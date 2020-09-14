@@ -191,8 +191,6 @@ extension TPDropdownList: TPTextInputViewDelegate {
     }
     
     public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
-        //let changedfromNil = textInputItem == nil && changedText != nil
-        //let changedToNil = textInputItem != nil && changedText == nil
         textInputItem = changedText
         selectedItem = textInputItem
         pickerView.reloadAllComponents()
