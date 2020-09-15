@@ -38,8 +38,8 @@ extension NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let userResponse = try decoder.decode(ApiGetUserModel.self, from: data)
-//                print(userResponse)
-                apiGetUserModel = userResponse
+                print(userResponse.createdSubscribers as Any)
+//                apiGetUserModel = userResponse
                 completion?()
             } catch let error {
                 print(error)

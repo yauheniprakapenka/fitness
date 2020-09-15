@@ -65,7 +65,7 @@ class LoginViewController: UIViewController {
         
         // test data
         
-        emailTextField.text = "a@a.com"
+        emailTextField.text = "t@t.com"
         passwordTextField.text = "123456"
     }
     

@@ -10,7 +10,7 @@ extension NetworkManager {
     
     func getTicket(completion: (() -> Void)? = nil) {
         
-        let url = URL(string: baseURL + ticket + String(1))
+        let url = URL(string: baseURL + ticket + String(7))
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
