@@ -29,6 +29,7 @@ end
 
 target 'PrototypingProject' do
   project 'PrototypingProject/PrototypingProject.xcodeproj'
+  pod 'FitnessAPI', :path => './LocalCocoaPods/FitnessAPI'
   pod 'SwiftGen', '~> 6.0'
 end
 

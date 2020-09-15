@@ -99,6 +99,7 @@ public class TPExercisesService {
                 }
             case .failure(let error):
                 print(error)
+                completion(.failure(.other))
             }
         })
     }

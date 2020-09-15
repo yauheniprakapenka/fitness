@@ -144,6 +144,22 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ExerciseCreationEditingSuccessResponse"
+  /api/v1/trainings:
+    post:
+      summary: "Create training"
+      parameters:
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateTrainingBody"
+      responses:
+        '200':
+          description: "Ok, training created"
+
+
 components:
   schemas:
     $ref: "./schemas.yaml"

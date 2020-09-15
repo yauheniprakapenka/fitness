@@ -16,6 +16,8 @@
 		F81E44B4250941B10089F20F /* TPTrainingSectionsItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E44B3250941B10089F20F /* TPTrainingSectionsItemListView.swift */; };
 		F82960612506BE0600FC1283 /* TPTrainingSectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82960602506BE0600FC1283 /* TPTrainingSectionItemCell.swift */; };
 		F82960632506C18500FC1283 /* TPTrainingSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82960622506C18500FC1283 /* TPTrainingSectionItem.swift */; };
+		F830E69E25101014007A5B18 /* TPNewTrainingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F830E69D25101014007A5B18 /* TPNewTrainingViewController.storyboard */; };
+		F830E6A325102FD2007A5B18 /* TPTrainingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830E6A225102FD2007A5B18 /* TPTrainingService.swift */; };
 		F843119A24F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119924F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift */; };
 		F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F843119B24F56378008CC50D /* TrainingProgrammModule.swift */; };
 		F84311A224F5BB00008CC50D /* TPTrainingTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A124F5BB00008CC50D /* TPTrainingTypeView.swift */; };
@@ -32,7 +34,6 @@
 		F85536B224FDC4C6001E2F1A /* TPDropdownList.xib in Resources */ = {isa = PBXBuildFile; fileRef = F85536B124FDC4C6001E2F1A /* TPDropdownList.xib */; };
 		F85536B524FEDB12001E2F1A /* TPSquaredCheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536B424FEDB12001E2F1A /* TPSquaredCheckboxView.swift */; };
 		F85536B824FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F85536B724FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift */; };
-		F855FAFD25030BA400A53385 /* TPAddSectionViewHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855FAFC25030BA400A53385 /* TPAddSectionViewHolder.swift */; };
 		F855FB0025039F5200A53385 /* TPTrainingSectionItemContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F855FAFF25039F5200A53385 /* TPTrainingSectionItemContentView.swift */; };
 		F863C91D250E0F4800ED88A8 /* TPExercisesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F863C91C250E0F4800ED88A8 /* TPExercisesService.swift */; };
 		F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */; };
@@ -72,6 +73,8 @@
 		F81E44B3250941B10089F20F /* TPTrainingSectionsItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionsItemListView.swift; sourceTree = "<group>"; };
 		F82960602506BE0600FC1283 /* TPTrainingSectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionItemCell.swift; sourceTree = "<group>"; };
 		F82960622506C18500FC1283 /* TPTrainingSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionItem.swift; sourceTree = "<group>"; };
+		F830E69D25101014007A5B18 /* TPNewTrainingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TPNewTrainingViewController.storyboard; sourceTree = "<group>"; };
+		F830E6A225102FD2007A5B18 /* TPTrainingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingService.swift; sourceTree = "<group>"; };
 		F843119924F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingProgramSelectableItemView.swift; sourceTree = "<group>"; };
 		F843119B24F56378008CC50D /* TrainingProgrammModule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingProgrammModule.swift; sourceTree = "<group>"; };
 		F84311A124F5BB00008CC50D /* TPTrainingTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingTypeView.swift; sourceTree = "<group>"; };
@@ -88,7 +91,6 @@
 		F85536B124FDC4C6001E2F1A /* TPDropdownList.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TPDropdownList.xib; sourceTree = "<group>"; };
 		F85536B424FEDB12001E2F1A /* TPSquaredCheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPSquaredCheckboxView.swift; sourceTree = "<group>"; };
 		F85536B724FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPAddToTrainingListItemContentView.swift; sourceTree = "<group>"; };
-		F855FAFC25030BA400A53385 /* TPAddSectionViewHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPAddSectionViewHolder.swift; sourceTree = "<group>"; };
 		F855FAFF25039F5200A53385 /* TPTrainingSectionItemContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionItemContentView.swift; sourceTree = "<group>"; };
 		F863C91C250E0F4800ED88A8 /* TPExercisesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExercisesService.swift; sourceTree = "<group>"; };
 		F86F787424FB140600F9167F /* TPTimeSelectionContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTimeSelectionContentView.swift; sourceTree = "<group>"; };
@@ -203,10 +205,10 @@
 			isa = PBXGroup;
 			children = (
 				F84B28812503084000C8638A /* TPNewTrainingViewController.swift */,
-				F855FAFC25030BA400A53385 /* TPAddSectionViewHolder.swift */,
 				F8754E1A2504D3280063F5D6 /* TPTraining.swift */,
 				F8754E1C2504D38E0063F5D6 /* TPTrainingSection.swift */,
 				F82960622506C18500FC1283 /* TPTrainingSectionItem.swift */,
+				F830E69D25101014007A5B18 /* TPNewTrainingViewController.storyboard */,
 			);
 			path = NewTraining;
 			sourceTree = "<group>";
@@ -260,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				F863C91C250E0F4800ED88A8 /* TPExercisesService.swift */,
+				F830E6A225102FD2007A5B18 /* TPTrainingService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -490,6 +493,7 @@
 				F85536AD24FD7530001E2F1A /* TPTimePickerView.xib in Resources */,
 				F84D6D1425042FF500C96FCE /* TPSectionHeaderView.xib in Resources */,
 				F86F787D24FB2D4100F9167F /* TPExerciseItemContentView.xib in Resources */,
+				F830E69E25101014007A5B18 /* TPNewTrainingViewController.storyboard in Resources */,
 				F8012CDE24FF04FD00AA8A8B /* TPAddToTrainingListItemContentView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,7 +590,6 @@
 				F8012CE524FF7CE600AA8A8B /* TPExercise.swift in Sources */,
 				F86F787B24FB2D2500F9167F /* TPExerciseItemContentView.swift in Sources */,
 				F86F787524FB140600F9167F /* TPTimeSelectionContentView.swift in Sources */,
-				F855FAFD25030BA400A53385 /* TPAddSectionViewHolder.swift in Sources */,
 				F85536AB24FD7525001E2F1A /* TPTimePickerView.swift in Sources */,
 				F85536A324FC4622001E2F1A /* TPTextInputView.swift in Sources */,
 				F85536B024FDC419001E2F1A /* TPDropdownList.swift in Sources */,
@@ -598,6 +601,7 @@
 				F8012CE024FF072800AA8A8B /* TPAddToTrainingListView.swift in Sources */,
 				F85536B524FEDB12001E2F1A /* TPSquaredCheckboxView.swift in Sources */,
 				F84D6D1225042FB900C96FCE /* TPSectionHeaderView.swift in Sources */,
+				F830E6A325102FD2007A5B18 /* TPTrainingService.swift in Sources */,
 				F843119A24F562AF008CC50D /* TPTrainingProgramSelectableItemView.swift in Sources */,
 				F8CDD41A24FB12A300772D30 /* TPTimeSelectionItemView.swift in Sources */,
 			);

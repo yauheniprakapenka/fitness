@@ -132,7 +132,9 @@ extension TPTrainingHeaderView: TPTextInputViewDelegate {
     
     public func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {}
     
-    public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {
+    public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {}
+    
+    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
         switch sender {
         case nameTextInputView:
             viewDelegate?.tpTrainingHeaderView(self, nameChanged: sender.text)
@@ -142,6 +144,4 @@ extension TPTrainingHeaderView: TPTextInputViewDelegate {
             fatalError()
         }
     }
-    
-    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {}
 }

@@ -15,5 +15,6 @@ class AuthorizationHandler {
         
     func userAuthorized(token: String) {
         TPExercisesService.shared.initialize(withAuthorizationToken: token)
+        TPTrainingService.shared.initialize(withAuthorizationToken: token)
     }
 }

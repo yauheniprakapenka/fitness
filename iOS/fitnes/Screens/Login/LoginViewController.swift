@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TrainingProgramm
 
 private extension LoginViewController {
     enum Const {
@@ -141,8 +142,25 @@ private extension LoginViewController {
             }
             
             if let trainer = apiTokenModel.trainer, trainer {
+                
+//                TPExercisesService.shared.exercisesList(userId: Int(apiTokenModel.userId!)) { result in
+//                    switch result {
+//                    case .success(let exercises):
+//                        let configurator = AddEditTrainingConfigurator(
+//                            exercises: exercises,
+//                            trainingService: TPTrainingService.shared,
+//                            userId: Int(apiTokenModel.userId!))
+//                        let router = Router()
+//                        router.push(vc: configurator.create())
+//                        self.present(router.navigationController, animated: true)
+//                    case .failure:
+//                        print("failed")
+//                    }
+//                }
+                
                 let router = Router()
                 let vc = TrainerModuleConfigrator(with: router).create()
+
                 vc.router = router
                 router.push(vc: vc)
                 self.present(router.navigationController, animated: true)

@@ -68,6 +68,20 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExerciseCreationEditingSuccessResponse'
+  /api/v1/trainings:
+    post:
+      summary: Create training
+      parameters:
+        - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateTrainingBody'
+      responses:
+        '200':
+          description: 'Ok, training created'
 components:
   schemas:
     UserRegistrationBody:
@@ -347,6 +361,123 @@ components:
               - user_id
       required:
         - message
+    CreateTrainingBody:
+      type: object
+      required:
+        - name
+        - trainer_id
+        - start_time
+        - description
+        - sections
+      properties:
+        name:
+          type: string
+        trainer_id:
+          type: string
+        start_time:
+          type: string
+        description:
+          type: string
+        sections:
+          type: array
+          items:
+            $ref: '#/components/schemas/TrainingSection'
+    TrainingSection:
+      oneOf:
+        - $ref: '#/components/schemas/EmomTrainingSection'
+        - $ref: '#/components/schemas/RestTrainingSection'
+        - $ref: '#/components/schemas/AmrapOrForTimeTrainingSection'
+      discriminator:
+        propertyName: section_type
+        mapping:
+          EMOM: '#/components/schemas/EmomTrainingSection'
+          REST: '#/components/schemas/RestTrainingSection'
+          AMRAP: '#/components/schemas/AmrapOrForTimeTrainingSection'
+          FOR_TIME: '#/components/schemas/AmrapOrForTimeTrainingSection'
+    EmomTrainingSection:
+      type: object
+      required:
+        - section_type
+        - start_minute
+        - duration
+      properties:
+        section_type:
+          type: string
+        duration:
+          type: number
+        start_minute:
+          type: number
+        actions:
+          type: array
+          items:
+            type: object
+            required:
+              - exercise_id
+              - minute
+            properties:
+              default_value_man:
+                type: number
+              default_value_woman:
+                type: number
+              distance:
+                type: number
+              profile_index:
+                type: string
+              reps:
+                type: integer
+              exercise_id:
+                type: integer
+              minute:
+                type: integer
+              ratio:
+                type: integer
+    RestTrainingSection:
+      type: object
+      required:
+        - section_type
+        - start_minute
+        - duration
+      properties:
+        section_type:
+          type: string
+        duration:
+          type: number
+        start_minute:
+          type: number
+    AmrapOrForTimeTrainingSection:
+      type: object
+      required:
+        - section_type
+        - start_minute
+        - duration
+      properties:
+        section_type:
+          type: string
+        duration:
+          type: number
+        start_minute:
+          type: number
+        actions:
+          type: array
+          items:
+            type: object
+            required:
+              - exercise_id
+            properties:
+              default_value_man:
+                type: number
+              default_value_woman:
+                type: number
+              distance:
+                type: number
+              profile_index:
+                type: string
+              reps:
+                type: integer
+              exercise_id:
+                type: integer
+              ratio:
+                type: integer
   examples:
     UserAsTrainerRegistrationDataExample:
       value:

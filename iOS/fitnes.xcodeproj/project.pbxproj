@@ -115,6 +115,7 @@
 		F830E699250FCC65007A5B18 /* Common.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F830E698250FCC65007A5B18 /* Common.framework */; };
 		F830E69A250FCC65007A5B18 /* Common.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F830E698250FCC65007A5B18 /* Common.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F830E69C250FCF43007A5B18 /* TrainerModuleConfigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830E69B250FCF43007A5B18 /* TrainerModuleConfigrator.swift */; };
+		F830E6A1251026D1007A5B18 /* AddEditTrainingConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830E6A0251026D1007A5B18 /* AddEditTrainingConfigurator.swift */; };
 		F843119F24F5678A008CC50D /* TrainingProgramm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; };
 		F84311A024F5678A008CC50D /* TrainingProgramm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F843119E24F5678A008CC50D /* TrainingProgramm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F8496E2025097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */; };
@@ -261,6 +262,7 @@
 		E01013C623807B1D5ED3E017 /* Pods_fitnes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_fitnes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F830E698250FCC65007A5B18 /* Common.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Common.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F830E69B250FCF43007A5B18 /* TrainerModuleConfigrator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainerModuleConfigrator.swift; sourceTree = "<group>"; };
+		F830E6A0251026D1007A5B18 /* AddEditTrainingConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTrainingConfigurator.swift; sourceTree = "<group>"; };
 		F843119E24F5678A008CC50D /* TrainingProgramm.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = TrainingProgramm.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8496E1F25097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultStoredPropertyWrapper.swift; sourceTree = "<group>"; };
 		F8496E2125097B3E00874F8E /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
@@ -330,6 +332,7 @@
 		3E10DA3424C3914600163F26 /* Trainer */ = {
 			isa = PBXGroup;
 			children = (
+				F830E69F251026B8007A5B18 /* AddEditTraining */,
 				F8B05BF3250E4F2000899B6C /* AddEditExercise */,
 				3EE586EB24DE863600CA0530 /* FindTrainerViewController.swift */,
 				3EE586F124DED1A000CA0530 /* TrainerFromSearchViewController.swift */,
@@ -751,6 +754,14 @@
 			path = Youtube;
 			sourceTree = "<group>";
 		};
+		F830E69F251026B8007A5B18 /* AddEditTraining */ = {
+			isa = PBXGroup;
+			children = (
+				F830E6A0251026D1007A5B18 /* AddEditTrainingConfigurator.swift */,
+			);
+			path = AddEditTraining;
+			sourceTree = "<group>";
+		};
 		F8496E1E250975B500874F8E /* Storage */ = {
 			isa = PBXGroup;
 			children = (
@@ -997,6 +1008,7 @@
 				3E1752D224E1A09000F823A8 /* CalendarTrainingModel.swift in Sources */,
 				3E3D927B24E8017300EEE0C6 /* CreateAbonementViewController.swift in Sources */,
 				3EEB9C2724D9FF2C00E1EC0B /* ConverterFromStringToEnum.swift in Sources */,
+				F830E6A1251026D1007A5B18 /* AddEditTrainingConfigurator.swift in Sources */,
 				3EFF9EC3250AB2E700D34DE1 /* YoutubePreviewViewController.swift in Sources */,
 				3E1752D824E1E99000F823A8 /* FindPlaceViewController.swift in Sources */,
 				3E444AB224D201350004B978 /* FViewItem.swift in Sources */,

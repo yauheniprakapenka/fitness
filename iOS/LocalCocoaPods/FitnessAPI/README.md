@@ -150,12 +150,17 @@ To add support for a specific asynchronous library, just add an extension on `AP
 
 ## Models
 
+- **AmrapOrForTimeTrainingSection**
+- **CreateTrainingBody**
+- **EmomTrainingSection**
 - **ErrorResponseWithMessage**
 - **ExerciseCreationBody**
 - **ExerciseCreationEditingSuccessResponse**
 - **ExerciseEditingBody**
 - **ExerciseGetInfoResponse**
 - **ExerciseGetListResponse**
+- **RestTrainingSection**
+- **TrainingSection**
 - **UserGetInfoResponse**
 - **UserLoginByPassword**
 - **UserLoginSuccessResponse**
@@ -170,4 +175,5 @@ To add support for a specific asynchronous library, just add an extension on `AP
 - **FitnessAPI.GetApiV1Exercises**: GET `/api/v1/exercises/`
 - **FitnessAPI.GetApiV1ExercisesById**: GET `/api/v1/exercises/{id}`
 - **FitnessAPI.PostApiV1Exercises**: POST `/api/v1/exercises/`
+- **FitnessAPI.PostApiV1Trainings**: POST `/api/v1/trainings`
 - **FitnessAPI.PutApiV1ExercisesById**: PUT `/api/v1/exercises/{id}`

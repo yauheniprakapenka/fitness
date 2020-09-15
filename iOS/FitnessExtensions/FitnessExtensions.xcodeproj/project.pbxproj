@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F830E6A625103491007A5B18 /* RationalNumbers+Conversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830E6A525103491007A5B18 /* RationalNumbers+Conversion.swift */; };
+		F830E6A825103505007A5B18 /* ConversionToDifferentTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = F830E6A725103505007A5B18 /* ConversionToDifferentTypes.swift */; };
 		F84311A524F5CE87008CC50D /* CGSize+UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */; };
 		F8CDD40F24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD40E24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift */; };
 		F8CDD41524FAF90100772D30 /* CGRect+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8CDD41424FAF90100772D30 /* CGRect+Utils.swift */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F830E6A525103491007A5B18 /* RationalNumbers+Conversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RationalNumbers+Conversion.swift"; sourceTree = "<group>"; };
+		F830E6A725103505007A5B18 /* ConversionToDifferentTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversionToDifferentTypes.swift; sourceTree = "<group>"; };
 		F84311A424F5CE87008CC50D /* CGSize+UIEdgeInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+UIEdgeInsets.swift"; sourceTree = "<group>"; };
 		F8CDD40E24FAEF5B00772D30 /* UIEdgeInsets+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+Utils.swift"; sourceTree = "<group>"; };
 		F8CDD41424FAF90100772D30 /* CGRect+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGRect+Utils.swift"; sourceTree = "<group>"; };
@@ -41,6 +45,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F830E6A425103470007A5B18 /* Numbers */ = {
+			isa = PBXGroup;
+			children = (
+				F830E6A525103491007A5B18 /* RationalNumbers+Conversion.swift */,
+				F830E6A725103505007A5B18 /* ConversionToDifferentTypes.swift */,
+			);
+			path = Numbers;
+			sourceTree = "<group>";
+		};
 		F84311A324F5CE6F008CC50D /* CGSize */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,6 +107,7 @@
 		F8FACC3724F51A5400B52063 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F830E6A425103470007A5B18 /* Numbers */,
 				F8CDD41324FAF8EA00772D30 /* CGRect */,
 				F8CDD40D24FAEF4800772D30 /* UIEdgeInsets */,
 				F84311A324F5CE6F008CC50D /* CGSize */,
@@ -233,6 +247,8 @@
 				F8FACC4124F51A8E00B52063 /* UIScrollView+ContentSize.swift in Sources */,
 				F8FACC4424F51ABC00B52063 /* UIView+Constraints.swift in Sources */,
 				F84311A524F5CE87008CC50D /* CGSize+UIEdgeInsets.swift in Sources */,
+				F830E6A825103505007A5B18 /* ConversionToDifferentTypes.swift in Sources */,
+				F830E6A625103491007A5B18 /* RationalNumbers+Conversion.swift in Sources */,
 				F8FACC4F24F51D2E00B52063 /* String + Extension.swift in Sources */,
 				F8FACC4824F51B8100B52063 /* UIView+Nib.swift in Sources */,
 				F8CDD41524FAF90100772D30 /* CGRect+Utils.swift in Sources */,
