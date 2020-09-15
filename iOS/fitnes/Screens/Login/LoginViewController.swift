@@ -74,51 +74,6 @@ class LoginViewController: UIViewController {
         super.viewDidLayoutSubviews()
         contentScrollView.resizeContentSizeToFitChilds()
     }
-    
-    // MARK: - Actions
-    
-    @objc
-    func loginButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        activityIndicator.startAnimate()
-        saveUserDataToModel()
-        
-        NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
-            switch result {
-            case .success(let tokenModel):
-                UserDefaultsStorage.shared.previousEnteredLogin = currentProfile.email
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                }
-                print(tokenModel)
-                NetworkManager.shared.getUser {
-                    self.presentProfile()
-                    NetworkManager.shared.getTicket()
-                }
-            case .failure(let failure):
-                DispatchQueue.main.async {
-                    self.activityIndicator.stopAnimating()
-                }
-                print(failure)
-                self.presentAlertVC(errorMessage: failure.rawValue)
-            }
-        })
-    }
-    
-    @objc
-    func createProfileButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
-        
-        let vc = RegistrationViewController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        present(nav, animated: true)
-    }
-    
-    @objc
-    func alertCancelButtonTapped() {
-        dismiss(animated: false)
-    }
 }
 
 // MARK: - Private methods
@@ -265,5 +220,53 @@ private extension LoginViewController {
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         loginButton.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+}
+
+// MARK: - Private extension
+
+private extension LoginViewController {
+    
+    @objc
+    func loginButtonTapped() {
+        HapticFeedback.shared.make(type: .light)
+        activityIndicator.startAnimate()
+        saveUserDataToModel()
+        
+        NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
+            switch result {
+            case .success(let tokenModel):
+                UserDefaultsStorage.shared.previousEnteredLogin = currentProfile.email
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+                print(tokenModel)
+                NetworkManager.shared.getUser {
+                    self.presentProfile()
+                    NetworkManager.shared.getTicket()
+                }
+            case .failure(let failure):
+                DispatchQueue.main.async {
+                    self.activityIndicator.stopAnimating()
+                }
+                print(failure)
+                self.presentAlertVC(errorMessage: failure.rawValue)
+            }
+        })
+    }
+    
+    @objc
+    func createProfileButtonTapped() {
+        HapticFeedback.shared.make(type: .light)
+        
+        let vc = RegistrationViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
+    }
+    
+    @objc
+    func alertCancelButtonTapped() {
+        dismiss(animated: false)
     }
 }

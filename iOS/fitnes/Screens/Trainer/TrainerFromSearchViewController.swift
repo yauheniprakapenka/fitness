@@ -77,7 +77,7 @@ private extension TrainerFromSearchViewController {
     
     @objc
     func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)

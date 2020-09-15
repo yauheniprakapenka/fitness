@@ -45,6 +45,7 @@ class ProfileViewController: UIViewController {
     private let avatarImageView = UIImageView()
     private var safeArea: UILayoutGuide!
     private var didSelectAthleteRow: AthelteProfileModel!
+    private let activityIndicator = FActivityIndicator()
     
     private let cameraImageView: UIImageView = {
         let imageView = UIImageView()
@@ -119,6 +120,7 @@ private extension ProfileViewController {
     
     @objc
     func trashButtonTapped() {
+        HapticFeedback.shared.make(type: .error)
         let vc = AlertViewController(question: Const.trashButtonTitle,
                                      description: Const.trashButtonDescription,
                                      actionButtonTitle: Const.trashButtonAction,
@@ -132,6 +134,7 @@ private extension ProfileViewController {
     
     @objc
     func logoutButtonTapped() {
+        HapticFeedback.shared.make(type: .error)
         let vc = AlertViewController(question: Const.logoutButtonTitle,
                                      description: Const.logoutButtonDescription,
                                      actionButtonTitle: Const.logoutButtonAction,
@@ -171,6 +174,11 @@ private extension ProfileViewController {
 // MARK: - Private methods
 
 private extension ProfileViewController {
+    
+    func configureActivityIndicator() {
+        alertVC.view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
     
     func configureTrashButton() {
         let containerView = UIView()
@@ -467,6 +475,9 @@ private extension ProfileViewController {
     
     @objc
     func alertActionButtonTapped() {
+        configureActivityIndicator()
+        
+        self.activityIndicator.startAnimate()
         switch didSelectAthleteRow.typeData {
         case .int:
             didSelectAthleteRow.userDataInt = Int(alertVC.userInputTextfield.text ?? "")
@@ -481,6 +492,10 @@ private extension ProfileViewController {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.dismiss(animated: true)
+            }
+            
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimate()
             }
         }
     }

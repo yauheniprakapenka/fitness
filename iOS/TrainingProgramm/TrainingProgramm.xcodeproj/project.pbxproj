@@ -721,9 +721,10 @@
 			baseConfigurationReference = 5A7E84A8CCE186755BF9F460 /* Pods-TrainingProgramm.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = BA72LHA8D9;
+				DEVELOPMENT_TEAM = 2H6CKN6S5G;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -735,7 +736,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.kek.TrainingProgramm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blabfsfsfdsfafla.kek.TrainingProgramm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;
@@ -750,9 +751,10 @@
 			baseConfigurationReference = F1AD985F0EA9385A73FE3FAD /* Pods-TrainingProgramm.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = BA72LHA8D9;
+				DEVELOPMENT_TEAM = 2H6CKN6S5G;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -764,7 +766,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.blabla.kek.TrainingProgramm;
+				PRODUCT_BUNDLE_IDENTIFIER = com.blabfsfsfdsfafla.kek.TrainingProgramm;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SUPPORTS_MACCATALYST = NO;

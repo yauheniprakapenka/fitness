@@ -87,8 +87,6 @@
 		3ED7037424DB45EE00E4DB9F /* ExerciseModelNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */; };
 		3ED8381524F10A3100C12B42 /* GeolocationConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */; };
 		3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EDB022224ED977200A4808F /* PlaceModel.swift */; };
-		3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */; };
-		3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */; };
 		3EE3900124BCE78A003AF6D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3900024BCE78A003AF6D8 /* AppDelegate.swift */; };
 		3EE3900324BCE78A003AF6D8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EE3900224BCE78A003AF6D8 /* SceneDelegate.swift */; };
 		3EE3900824BCE78A003AF6D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EE3900624BCE78A003AF6D8 /* Main.storyboard */; };
@@ -234,8 +232,6 @@
 		3ED7037324DB45EE00E4DB9F /* ExerciseModelNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseModelNew.swift; sourceTree = "<group>"; };
 		3ED8381424F10A3100C12B42 /* GeolocationConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationConverter.swift; sourceTree = "<group>"; };
 		3EDB022224ED977200A4808F /* PlaceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceModel.swift; sourceTree = "<group>"; };
-		3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
-		3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		3EE38FFD24BCE78A003AF6D8 /* fitnes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fitnes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EE3900024BCE78A003AF6D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EE3900224BCE78A003AF6D8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -768,8 +764,6 @@
 		3EE586F924DFAFA000CA0530 /* Validation */ = {
 			isa = PBXGroup;
 			children = (
-				3EE2DDDF24C0D4D800D85CAE /* ValidationError.swift */,
-				3EE2DDDD24C0CF7E00D85CAE /* EmailValidation.swift */,
 				3E70A12B2503785F00353159 /* IsInvalidPasswordError.swift */,
 			);
 			path = Validation;
@@ -1014,7 +1008,6 @@
 				3E444AA724D1E5230004B978 /* FAvatarImageView.swift in Sources */,
 				3E6B416F250CF44B0098EC20 /* GetStubAvatarImage.swift in Sources */,
 				3E6B4171250CFC560098EC20 /* ApiPostTicket.swift in Sources */,
-				3EE2DDDE24C0CF7E00D85CAE /* EmailValidation.swift in Sources */,
 				3EFF9EBF250AB15B00D34DE1 /* GetIdFromYoutubeUrl.swift in Sources */,
 				3EF39A5A250EBBED00DF2DB9 /* SexViewController.swift in Sources */,
 				3EF39A56250DF77C00DF2DB9 /* AlertWithImageViewController.swift in Sources */,
@@ -1046,7 +1039,6 @@
 				3EA5A5C524E2CD5A00745F73 /* WKWebViewController.swift in Sources */,
 				3EAD44E924E45D9A0044264C /* BuyAbonementViewController.swift in Sources */,
 				3E7C73CC25051CF100BD21ED /* AthleteProfileModel.swift in Sources */,
-				3EE2DDE024C0D4D800D85CAE /* ValidationError.swift in Sources */,
 				3E3BB00425100CBD00C89CC0 /* ConfigureAlertWithImage.swift in Sources */,
 				F8496E2025097A0000874F8E /* UserDefaultStoredPropertyWrapper.swift in Sources */,
 				3EE586E124DD3A0500CA0530 /* AbonementsCollectionCell.swift in Sources */,

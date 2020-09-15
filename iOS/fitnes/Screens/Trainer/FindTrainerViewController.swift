@@ -106,7 +106,7 @@ private extension FindTrainerViewController {
 private extension FindTrainerViewController {
     @objc
     func searchButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         navigationItem.titleView = searchBar
         searchBar.showsCancelButton = true
         navigationItem.rightBarButtonItem = nil

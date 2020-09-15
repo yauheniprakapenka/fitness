@@ -101,11 +101,13 @@ private extension FGithubView {
     }
 }
 
+// MARK: - Private actions
+
 private extension FGithubView {
     
     @objc
     func githubViewTapped() {
-        print(#function)
+        HapticFeedback.shared.make(type: .rigid)
         
         if let url = URL(string: "https://github.com/yauheniprakapenka/Fitnes") {
             UIApplication.shared.open(url)

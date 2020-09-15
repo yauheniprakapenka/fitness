@@ -13,7 +13,7 @@ class HapticFeedback {
     static let shared = HapticFeedback()
     let generator = UINotificationFeedbackGenerator()
     
-    func makeHapticFeedback(type: HapticFeedbackEnum) {
+    func make(type: HapticFeedbackEnum) {
         switch type {
         case .error:
             let generator = UINotificationFeedbackGenerator()
@@ -32,6 +32,12 @@ class HapticFeedback {
             generator.impactOccurred()
         case .heavy:
             let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        case .soft:
+            let generator = UIImpactFeedbackGenerator(style: .soft)
+            generator.impactOccurred()
+        case .rigid:
+            let generator = UIImpactFeedbackGenerator(style: .rigid)
             generator.impactOccurred()
         }
     }

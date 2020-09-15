@@ -162,12 +162,14 @@ private extension FRadioButtonView {
     
     @objc
     func trainerContainerViewTap(containerView: UIView) {
+        HapticFeedback.shared.make(type: .light)
         currentRole = .trainer
         configureActiveVioletView()
     }
     
     @objc
     func athleteContainerViewTap() {
+        HapticFeedback.shared.make(type: .light)
         currentRole = .athlete
         configureActiveVioletView()
     }

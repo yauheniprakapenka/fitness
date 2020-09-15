@@ -56,18 +56,11 @@ class AlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - View controller life cycle
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.5)
-    }
-    
-    // MARK: - Actions
-    
-    @objc
-    private func cancelButtonTapped() {
-        dismiss(animated: true)
+        view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.6019867081)
     }
 }
 
@@ -170,5 +163,15 @@ private extension AlertViewController {
             cancelButton.setTitle(cancelButtonTitle, for: .normal)
             buttonsStackView.addArrangedSubview(cancelButton)
         }
+    }
+}
+
+// MARK: - Private actions
+
+private extension AlertViewController {
+    
+    @objc
+    private func cancelButtonTapped() {
+        dismiss(animated: true)
     }
 }

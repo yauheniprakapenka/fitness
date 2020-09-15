@@ -185,21 +185,21 @@ class CreateAbonementViewController: UIViewController {
     
     @objc
     private func blueViewTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         selectedColor = "blue"
         fViewColors.shaowChechmark(view: .blueView)
     }
     
     @objc
     private func pinkViewTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         selectedColor = "pink"
         fViewColors.shaowChechmark(view: .pinkView)
     }
     
     @objc
     private func orangeViewTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         selectedColor = "orange"
         fViewColors.shaowChechmark(view: .orangeView)
     }

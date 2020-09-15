@@ -121,7 +121,7 @@ private extension TrainerViewController {
     
     @objc
     func profileButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         
         DispatchQueue.main.async {
             self.activityIndicator.startAnimate()
@@ -146,7 +146,7 @@ private extension TrainerViewController {
     
     @objc
     func calendarButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         let nav = UINavigationController(rootViewController: CalendarViewController())
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
@@ -154,13 +154,13 @@ private extension TrainerViewController {
     
     @objc
     func addTrainingButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         print("button tapped")
     }
     
     @objc
     func createAbonementButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         
         let vc = CreateAbonementViewController()
         vc.delegate = self

@@ -12,6 +12,6 @@ enum ApiErrorEnum: String, Error {
     case userExist = "Пользователь уже существует"
     case passwordDoesNotMatch = "Пароли не совпадают"
     case incorrectPasswordLength = "Длина пароля от 4 до 8 символов"
-    case invalidGrant = "Неверно указан email или пароль"
+    case invalidGrant = "Такой пользователь еще не существует"
     case invalidPassword = "Неверно указан пароль"
 }

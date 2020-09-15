@@ -69,7 +69,7 @@ private extension AthleteViewController {
     
     @objc
     func profileButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         
         DispatchQueue.main.async {
             self.activityIndicator.startAnimate()
@@ -89,7 +89,7 @@ private extension AthleteViewController {
     
     @objc
     func findTrainerButtonTapped() {
-        HapticFeedback.shared.makeHapticFeedback(type: .light)
+        HapticFeedback.shared.make(type: .light)
         self.activityIndicator.startAnimate()
         
         NetworkManager.shared.getUsers {

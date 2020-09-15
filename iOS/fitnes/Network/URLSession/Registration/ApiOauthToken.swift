@@ -35,6 +35,8 @@ extension NetworkManager {
                 apiTokenModel = responseToken
                 
                 if let responseToken = responseToken.error {
+                    HapticFeedback.shared.make(type: .warning)
+                    
                     switch responseToken {
                     case "invalid_grant":
                         completion(.failure(.invalidGrant))
