@@ -35,6 +35,32 @@ public class TPTrainingHeaderView: UIView {
     private weak var descriptionTextInputView: TPTextInputView!
     private weak var timePickerView: TPTimePickerView!
     
+    public var time: Date? {
+        get {
+            timePickerView.currentDate
+        }
+        set {
+            timePickerView.currentDate = newValue ?? Date()
+        }
+    }
+    public var name: String? {
+        get {
+            return nameTextInputView.text
+        }
+        set {
+            nameTextInputView.text = newValue
+        }
+    }
+    
+    public var descriptionText: String? {
+        get {
+            return descriptionTextInputView.text
+        }
+        set {
+            descriptionTextInputView.text = newValue
+        }
+    }
+    
     // MARK: - Constraints
     public weak var trainingTimePickerHeightConstraint: NSLayoutConstraint!
     
@@ -132,7 +158,9 @@ extension TPTrainingHeaderView: TPTextInputViewDelegate {
     
     public func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {}
     
-    public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {
+    public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {}
+    
+    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
         switch sender {
         case nameTextInputView:
             viewDelegate?.tpTrainingHeaderView(self, nameChanged: sender.text)
@@ -142,6 +170,4 @@ extension TPTrainingHeaderView: TPTextInputViewDelegate {
             fatalError()
         }
     }
-    
-    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {}
 }

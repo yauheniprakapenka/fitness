@@ -8,115 +8,166 @@
 import UIKit
 import CommonViews
 
-private extension TPNewTrainingViewController {
-    enum Const {
-        static let titleLabelDecoration: Decoration<UILabel> = { label in
-            label.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
-            label.textColor = Asset.TrainingProgramm.CommonColors.tpBlackText.color
-        }
-        static let offsetTopTitleFirst: CGFloat = 38
-        static let offsetTopTitleOthers: CGFloat = 25
-        static let offsetTopInputFields: CGFloat = 15
-        static let offsetLeftRightAllFields: CGFloat = 25
+public extension TPNewTrainingViewController {
+    enum Mode {
+        case creation
+        case edit(training: TPTraining)
     }
+}
+
+public extension TPNewTrainingViewController {
+    typealias OnSaveHandler = () -> Void
 }
 
 public class TPNewTrainingViewController: UIViewController {
-    // MARK: - Views
-    private weak var rootScrollView: UIScrollView!
-    private weak var nameTextInputView: TPTextInputView!
-    private weak var descriptionTextInputView: TPTextInputView!
-    private weak var timePickerView: TPTimePickerView!
-    
-    // MARK: - Constraints
-    private weak var trainingTimePickerHeightConstraint: NSLayoutConstraint!
-
-    // MARK: - Properties
-    
-    // MARK: - Lifecycle
-    public override func loadView() {
-        super.loadView()
-        let scrollView = TPFormControllerUtils.createRootScrollView(superview: view)
-        rootScrollView = scrollView
-        view.backgroundColor = .white
-        createContentViews(addTo: rootScrollView)
-        setupDelegates()
+    public static func instance() -> TPNewTrainingViewController {
+        let storyboard = UIStoryboard(name: "TPNewTrainingViewController", bundle: TrainingProgrammModule.bundle)
+        let controller = storyboard.instantiateViewController(identifier: "TPNewTrainingViewController") as! TPNewTrainingViewController
+        return controller
     }
     
-    public override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        handleContentSizeChange()
+    @IBOutlet weak var listView: TPTrainingView!
+    @IBOutlet weak var addSectionFloatingView: TPTrainingAddEntityView!
+    @IBOutlet weak var addSectionFloatingViewTopConstraint: NSLayoutConstraint!
+    @IBOutlet weak var floatingViewContainerView: UIView!
+    
+    // MARK: - Properties
+    public var mode: Mode = .creation
+    public var exercises: [TPExercise] = []
+    private var training: TPTraining = TPTraining()
+    public var userId: Int?
+    public var trainingsService: TPTrainingService?
+    public var onSaveHandler: OnSaveHandler?
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        switch mode {
+        case .edit(training: let trainingToEdit):
+            self.training = trainingToEdit
+        default:
+            break
+        }
+        
+        configureTrainingView()
+        configureFloatingView()
+        configureNavigationBar()
+        configureSaveButtonEnabled()
+    }
+    
+    // MARK: - Actions and Action Callbacks
+    @objc
+    private func saveButtonTapped() {
+        guard let userId = userId else { fatalError() }
+        switch mode {
+        case .creation:
+            trainingsService?.addTraining(training, userId: userId, completion: { result in
+                self.onSaveHandler?()
+                switch result {
+                case .success:
+                    self.navigationController?.popViewController(animated: true)
+                case .failure:
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        case .edit:
+            fatalError("not implemented")
+        }
     }
 }
 
 private extension TPNewTrainingViewController {
-    func handleContentSizeChange() {
-        rootScrollView.resizeContentSizeToFitChilds()
+    func animateFloatingView(isVisible: Bool) {
+        UIView.animate(withDuration: 0.2, delay: 0, options: [.curveEaseInOut], animations: {
+            
+            let delta: CGFloat = isVisible ? 50 : -50
+            self.addSectionFloatingViewTopConstraint.constant += delta
+            self.view.layoutIfNeeded()
+            
+        }, completion: { _ in })
     }
     
-    func createContentViews(addTo superview: UIView) {
-        let nameLabel = TPFormControllerUtils.createTitleLabel(
-            superview: superview,
-            text: "Название тренировки",
-            topAnchor: superview.topAnchor,
-            topOffet: Const.offsetTopTitleFirst)
-        nameTextInputView = TPFormControllerUtils.createInputField(
-            superview: superview,
-            placeholderText: "Введите название",
-            topAnchor: nameLabel.bottomAnchor,
-            topOffset: Const.offsetTopInputFields)
-        let descriptionTitle = TPFormControllerUtils.createTitleLabel(
-            superview: superview,
-            text: "Описание",
-            topAnchor: nameTextInputView.bottomAnchor,
-            topOffet: Const.offsetTopTitleOthers)
-        descriptionTextInputView = TPFormControllerUtils.createInputField(
-            superview: superview,
-            placeholderText: "Введите описание",
-            topAnchor: descriptionTitle.bottomAnchor,
-            topOffset: Const.offsetTopInputFields)
-        let startTimeLabel = TPFormControllerUtils.createTitleLabel(
-            superview: superview,
-            text: "Время начала",
-            topAnchor: descriptionTextInputView.bottomAnchor,
-            topOffet: Const.offsetTopTitleOthers)
-        (timePickerView, trainingTimePickerHeightConstraint) = createTimePicker(superview: superview, topAnchor: startTimeLabel.bottomAnchor)
-        
-        let addSectionHolder = TPAddSectionViewHolder(superview: superview)
-        addSectionHolder.topAnchor.constraint(equalTo: timePickerView.bottomAnchor, constant: 20).isActive = true
-        
-        addSectionHolder.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+    func configureTrainingView() {
+        listView.configure(withAllowedExercises: exercises)
+        listView.configureCommon()
+        listView.configure(withTraining: training)
+        listView.viewDelegate = self
     }
     
-    func createTimePicker(superview: UIView, topAnchor: NSLayoutYAxisAnchor) -> (TPTimePickerView, NSLayoutConstraint) {
-        let picker = TPTimePickerView()
-        superview.addSubview(picker)
-        picker.timeViewLeftConstraint.constant = 0
-        TPFormControllerUtils.makeConstraints(to: picker, topAnchor: topAnchor, topOffset: Const.offsetTopInputFields)
-        let heightConstraint = picker.heightAnchor.constraint(equalToConstant: 55)
-        heightConstraint.isActive = true
-        return (picker, heightConstraint)
+    func configureFloatingView() {
+        addSectionFloatingView.viewDelegate = self
+        addSectionFloatingView.isHidden = false
+        addSectionFloatingViewTopConstraint.constant -= 50
+        floatingViewContainerView.clipsToBounds = true
     }
     
-    func setupDelegates() {
-        timePickerView.viewDelegate = self
+    func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navigationItem.rightBarButtonItem?.title = "Сохранить"
     }
     
+    func configureSaveButtonEnabled() {
+        guard
+            let name = training.name,
+            let description = training.descriptionText,
+            let sections = training.sections
+        else {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            return
+        }
+        guard !name.isEmpty && !description.isEmpty && !sections.isEmpty else {
+            navigationItem.rightBarButtonItem?.isEnabled = false
+            return
+        }
+        for section in sections {
+            guard sectionValid(section: section) else {
+                navigationItem.rightBarButtonItem?.isEnabled = false
+                return
+            }
+        }
+        navigationItem.rightBarButtonItem?.isEnabled = true
+    }
+    
+    func sectionValid(section: TPTrainingSection) -> Bool {
+        switch section {
+        case .rest(minutes: _, name: let name):
+            return !(name ?? "").isEmpty
+        case .amrap, .forTime, .emom:
+            guard let items = section.items,
+                  let name = section.name,
+                  !name.isEmpty
+            else {
+                return false
+            }
+            
+            for item in items {
+                guard sectionItemValid(item: item) else {
+                    return false
+                }
+            }
+        }
+        return true
+    }
+    
+    func sectionItemValid(item: TPTrainingSectionItem) -> Bool {
+        return item.exerciseId != nil
+    }
 }
 
-extension TPNewTrainingViewController: TPTimePickerViewDelegate {
-    public func tpTimePickerViewWillBegintAnimate(_ sender: TPTimePickerView, heightDelta: CGFloat, animationDuration: TimeInterval) {
-        rootScrollView.layoutIfNeeded()
-        UIView.animate(withDuration: animationDuration, animations: {
-            self.trainingTimePickerHeightConstraint.constant += heightDelta
-            self.rootScrollView.layoutIfNeeded()
-            
-        })
+extension TPNewTrainingViewController: TPTrainingViewDelegate {
+    public func tpTrainingViewTrainingChanged(_ sender: TPTrainingView, training: TPTraining) {
+        self.training = training
+        configureSaveButtonEnabled()
     }
     
-    public func tpTimePickerView(_ sender: TPTimePickerView, openStatusChanged isOpened: Bool) {
-        handleContentSizeChange()
+    public func tpTrainingViewAddSectionVisibilityChange(_ sender: TPTrainingView, isVisible: Bool) {
+        animateFloatingView(isVisible: !isVisible)
     }
-    
-    public func tpTimePickerView(_ sender: TPTimePickerView, selectedTimeChanged time: Date) {}
+}
+
+extension TPNewTrainingViewController: TPTrainingAddEntityViewDelegate {
+    public func tpTrainingAddEntityViewButtonDidTap(_ sender: TPTrainingAddEntityView, userData: [AnyHashable : Any]?) {
+        listView.addSection()
+    }
 }

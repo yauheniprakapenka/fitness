@@ -59,7 +59,6 @@ private extension FGithubView {
         githubStackView.axis = .horizontal
         githubStackView.distribution = .fillProportionally
         githubStackView.spacing = 8
-        githubStackView.backgroundColor = .red
         
         addSubview(githubStackView)
         

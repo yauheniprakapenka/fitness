@@ -47,6 +47,7 @@ private extension TPTrainingSectionItemContentView {
         static let offsetLeftRightAllFields: CGFloat = 25
         static let offsetInnerSpaceTwoViews: CGFloat = 15
         static let inputFieldRowHeight: CGFloat = 50
+        static let pickerFieldHeight: CGFloat = 55
     }
 }
 
@@ -55,7 +56,7 @@ public class TPTrainingSectionItemContentView: UIView {
     // MARK: - Views
     private weak var nibContnetView: UIView!
     @IBOutlet weak var exercisePickerView: TPDropdownList!
-    @IBOutlet weak var profileValueInputView: TPTextInputView!
+    @IBOutlet weak var profileValuePickerView: TPDropdownList!
     @IBOutlet weak var koefficientInputView: TPTextInputView!
     @IBOutlet weak var weightMan: TPTextInputView!
     @IBOutlet weak var weightWoman: TPTextInputView!
@@ -65,6 +66,8 @@ public class TPTrainingSectionItemContentView: UIView {
     
     // MARK: - Constraints
     @IBOutlet weak var exercisePickerViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profileValueHeightConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var firstRowHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var secondRowHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var thirdRowHeightConstraint: NSLayoutConstraint!
@@ -83,6 +86,7 @@ public class TPTrainingSectionItemContentView: UIView {
     
     public private(set) var model: TPTrainingSectionItem!
     public private(set) var exercises: [TPExercise] = []
+    public private(set) var profileValues: [String] = []
     private var emptyFields: [Field] = []
     private var notValidFields: [Field] = []
     
@@ -105,9 +109,10 @@ public class TPTrainingSectionItemContentView: UIView {
         nibContnetView = view
         exercisePickerView.viewPickerDelegate = self
         exercisePickerView.enableCustomInput = false
+        profileValuePickerView.viewPickerDelegate = self
+        profileValuePickerView.enableCustomInput = false
         emptyFields = Field.allCases
         model = TPTrainingSectionItem()
-        profileValueInputView.viewDelegate = self
         koefficientInputView.viewDelegate = self
         weightMan.viewDelegate = self
         weightWoman.viewDelegate = self
@@ -120,21 +125,26 @@ public class TPTrainingSectionItemContentView: UIView {
         self.exercises = exercises
     }
     
+    public func configure(with profileValues: [String]) {
+        self.profileValues = profileValues
+    }
+    
     public func configure(with model: TPTrainingSectionItem) {
         emptyFields = []
         notValidFields = []
         
         if
-            let exercise = model.exercise,
-            let index = exercises.firstIndex(where: { $0.name == exercise.name }) {
+            let exerciseId = model.exerciseId,
+            let index = exercises.firstIndex(where: { $0.id == exerciseId }) {
             
             exercisePickerView.select(itemAt: index)
         } else {
             emptyFields.append(.profileValue)
         }
         
-        if let profileValue = model.profileValue {
-            profileValueInputView.text = "\(profileValue)"
+        if let profileValue = model.profileValue,
+           let index = profileValues.firstIndex(of: profileValue) {
+            profileValuePickerView.select(itemAt: index)
         } else {
             emptyFields.append(.profileValue)
         }
@@ -143,12 +153,12 @@ public class TPTrainingSectionItemContentView: UIView {
         } else {
             emptyFields.append(.koeff)
         }
-        if let weightMan = model.weightForManKg {
+        if let weightMan = model.defaultForMan {
             self.weightMan.text = "\(weightMan)"
         } else {
             emptyFields.append(.defaultWeightMan)
         }
-        if let weightWoman = model.weightForWomanKg {
+        if let weightWoman = model.defaultForWoman {
             self.weightWoman.text = "\(weightWoman)"
         } else {
             emptyFields.append(.defaultWeightWoman)
@@ -173,6 +183,10 @@ private extension TPTrainingSectionItemContentView {
     }
     func getIntValue(_ text: String?) -> Int? {
         return Int(text ?? "")
+    }
+    
+    func getStringValue(_ text: String?) -> String? {
+        return text
     }
     
     func removeEmptyField(_ field: Field) {
@@ -214,15 +228,36 @@ private extension TPTrainingSectionItemContentView {
 // MARK: - TPDropdownListPickerDelegate
 extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     public func tpDropdownListNeedAnimateHeight(_ sender: TPDropdownList, heightDelta: CGFloat, animationDuration: TimeInterval) {
-        
-        UIView.animate(withDuration: animationDuration, animations: {
-            self.exercisePickerViewHeightConstraint.constant += heightDelta
-            let inputFieldsHeight: CGFloat = heightDelta > 0 ? 0 : Const.inputFieldRowHeight
-            self.firstRowHeightConstraint.constant = inputFieldsHeight
-            self.secondRowHeightConstraint.constant = inputFieldsHeight
-            self.nibContnetView.layoutIfNeeded()
-        })
-        
+        switch sender {
+        case exercisePickerView:
+            UIView.animate(withDuration: animationDuration, animations: {
+                self.exercisePickerViewHeightConstraint.constant += heightDelta
+                let inputFieldsHeight: CGFloat = heightDelta > 0 ? 0 : Const.inputFieldRowHeight
+                let pickerViewHeight: CGFloat = heightDelta > 0 ? 0 : Const.pickerFieldHeight
+                self.profileValueHeightConstraint.constant = pickerViewHeight
+                self.firstRowHeightConstraint.constant = inputFieldsHeight
+                self.secondRowHeightConstraint.constant = inputFieldsHeight
+                let alpha: CGFloat = heightDelta > 0 ? 0 : 1
+                [self.profileValuePickerView, self.koefficientInputView, self.weightMan, self.weightWoman].forEach { view in
+                    view?.alpha = alpha
+                }
+                self.nibContnetView.layoutIfNeeded()
+            })
+        case profileValuePickerView:
+            UIView.animate(withDuration: animationDuration, animations: {
+                self.profileValueHeightConstraint.constant += heightDelta
+                let inputFieldsHeight: CGFloat = heightDelta > 0 ? 0 : Const.inputFieldRowHeight
+                self.firstRowHeightConstraint.constant = inputFieldsHeight
+                self.secondRowHeightConstraint.constant = inputFieldsHeight
+                let alpha: CGFloat = heightDelta > 0 ? 0 : 1
+                [self.koefficientInputView, self.weightWoman, self.weightMan].forEach { view in
+                    view?.alpha = alpha
+                }
+                self.nibContnetView.layoutIfNeeded()
+            })
+        default:
+            preconditionFailure()
+        }
         viewDelegate?.tpTrainingSectionItemContentWillNeedAnimateHeightChange(self, heightDelta: heightDelta, animationDuration: animationDuration, userData: userData)
     }
     
@@ -231,7 +266,14 @@ extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     }
     
     public func tpDropdownList(_ sender: TPDropdownList, selectedItemAtIndex index: Int) {
-        model.exercise = exercises[index]
+        switch sender {
+        case profileValuePickerView:
+            model.profileValue = profileValues[index]
+        case exercisePickerView:
+            model.exerciseId = exercises[index].id
+        default:
+            preconditionFailure()
+        }
         viewDelegate?.tpTrainingSectionItemContentView(self, modelUpdated: model, emptyFields: emptyFields, notValidFields: notValidFields, userData: userData)
     }
     
@@ -240,7 +282,14 @@ extension TPTrainingSectionItemContentView: TPDropdownListPickerDelegate {
     }
     
     public func tpDropdownListItems(_ sender: TPDropdownList) -> [String] {
-        return exercises.map { $0.name ?? "Без имени" }
+        switch sender {
+        case profileValuePickerView:
+            return profileValues
+        case exercisePickerView:
+            return exercises.map { $0.name ?? "Без имени" }
+        default:
+            preconditionFailure()
+        }
     }
 }
 
@@ -251,19 +300,23 @@ extension TPTrainingSectionItemContentView: TPTextInputViewDelegate {
     
     public func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {
         sender.state = .normal
+        if exercisePickerView.isOpened {
+            exercisePickerView.isOpened = false
+        }
+        if profileValuePickerView.isOpened {
+            profileValuePickerView.isOpened = false
+        }
     }
     
     public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {
         
         switch sender {
-        case profileValueInputView:
-            model.profileValue = getAndValidateValue(textField: sender, functionToCheck: getFloatValue(_:), field: .profileValue)
         case koefficientInputView:
             model.koeff = getAndValidateValue(textField: sender, functionToCheck: getFloatValue(_:), field: .koeff)
         case weightMan:
-            model.weightForManKg = getAndValidateValue(textField: sender, functionToCheck: getFloatValue(_:), field: .defaultWeightMan)
+            model.defaultForMan = getAndValidateValue(textField: sender, functionToCheck: getFloatValue(_:), field: .defaultWeightMan)
         case weightWoman:
-            model.weightForWomanKg = getAndValidateValue(textField: sender, functionToCheck: getFloatValue(_:), field: .defaultWeightWoman)
+            model.defaultForWoman = getAndValidateValue(textField: sender, functionToCheck: getFloatValue(_:), field: .defaultWeightWoman)
         case repeatsInputView:
             model.repeats = getAndValidateValue(textField: sender, functionToCheck: getIntValue(_:), field: .repeats)
         case distanceInputView:

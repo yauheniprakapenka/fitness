@@ -23,6 +23,17 @@ private extension TPNewExerciseViewController {
     }
 }
 
+public extension TPNewExerciseViewController {
+    enum Mode {
+        case create
+        case edit(exercise: TPExercise)
+    }
+}
+
+public extension TPNewExerciseViewController {
+    typealias OnSaveHandler = () -> Void
+}
+
 public class TPNewExerciseViewController: UIViewController {
     // MARK: - Views
     private weak var rootScrollView: UIScrollView!
@@ -36,19 +47,21 @@ public class TPNewExerciseViewController: UIViewController {
     private weak var inventoryPickerHeightConstraint: NSLayoutConstraint!
     
     // MARK: - Properties
-    private var inventory = [String]()
-    
-    public var onPrepared: (() -> Void)?
+    public var userId: Int?
+    public var onSaveHandler: OnSaveHandler?
+    public var inventory = [String]()
+    public var mode: Mode = .create
+    private var exercise: TPExercise = TPExercise()
+    public var service: TPExercisesService?
     
     // MARK: - Lifecycle
     public override func loadView() {
         super.loadView()
-        let scrollView = TPFormControllerUtils.createRootScrollView(superview: view)
+        let scrollView = createRootScrollView(superview: view)
         rootScrollView = scrollView
         view.backgroundColor = .white
         createContentViews(addTo: scrollView)
         setupDelegates()
-        
     }
     
     public override func viewDidLayoutSubviews() {
@@ -58,7 +71,9 @@ public class TPNewExerciseViewController: UIViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        onPrepared?()
+        configure()
+        configureNavigationBar()
+        configureSaveEnabled()
     }
     
     // MARK: - Main Interface
@@ -67,21 +82,81 @@ public class TPNewExerciseViewController: UIViewController {
         inventoryPickerView.refreshData()
     }
     
-    public func configure(with training: TPExercise?) {
-        guard let training = training else {
-            return
+    public func configure() {
+        switch mode {
+        case .edit(exercise: let exercise):
+            self.exercise = exercise
+        default:
+            break
         }
-        nameTextInputView.text = training.name
-        if let index = inventory.firstIndex(of: training.inventory ?? "") {
+        
+        nameTextInputView.text = exercise.name
+        if let index = inventory.firstIndex(of: exercise.inventory ?? "") {
             inventoryPickerView.select(itemAt: index)
         }
-        descriptionTextInputView.text = training.description
-        videoTextInputView.text = training.video?.url.absoluteString
+        descriptionTextInputView.text = exercise.description
+        videoTextInputView.text = exercise.video?.url.absoluteString
+    }
+    
+    // MARK: - Action and Action Callabacks
+    @objc
+    private func saveButtonTapped() {
+        guard let userId = userId else { fatalError() }
+        switch mode {
+        case .create:
+            service?.addExercise(exercise, userId: userId, completion: { result in
+                self.onSaveHandler?()
+                switch result {
+                case .success:
+                    self.navigationController?.popViewController(animated: true)
+                case .failure:
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        case .edit:
+            service?.editExercise(exercise, userId: userId, completion: { result in
+                self.onSaveHandler?()
+                switch result {
+                case .success:
+                    self.navigationController?.popViewController(animated: true)
+                case .failure:
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
 }
 
 // MARK: - Private Methods
 private extension TPNewExerciseViewController {
+    func configureSaveEnabled() {
+        let valid = exercise.name != nil && exercise.inventory != nil
+        navigationItem.rightBarButtonItem?.isEnabled = valid
+    }
+    
+    func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navigationItem.rightBarButtonItem?.title = "Сохранить"
+    }
+    
+    func createRootScrollView(superview: UIView) -> UIScrollView {
+        let scrollView = UIScrollView()
+        scrollView.showsVerticalScrollIndicator = false
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        superview.addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
+        let keyboardBottomConstraint = KeyboardLayoutConstraint(
+            item: superview, attribute: .bottom, relatedBy: .equal,
+            toItem: scrollView, attribute: .bottom, multiplier: 1, constant: superview.safeAreaInsets.bottom)
+        keyboardBottomConstraint.configureCreatedFromCodeConstraint()
+        superview.addConstraint(keyboardBottomConstraint)
+        scrollView.leadingAnchor.constraint(equalTo: superview.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: superview.trailingAnchor).isActive = true
+        return scrollView
+    }
+    
     func createInventoryPicker(superview: UIView, topAnchor: NSLayoutYAxisAnchor) -> (TPDropdownList, NSLayoutConstraint) {
         let picker = TPDropdownList()
         picker.inputViewLeftConstraint.constant = 0
@@ -149,14 +224,20 @@ private extension TPNewExerciseViewController {
             text: "Добавить в тренировку",
             topAnchor: videoTextInputView.bottomAnchor,
             topOffet: Const.offsetTopTitleOthers)
+        addToTrainingTitle.isHidden = true
         trainingListView = createTrainingList(superview: superview, topAnchor: addToTrainingTitle.bottomAnchor)
-        
+        trainingListView.isHidden = true
         trainingListView.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
     }
     
     func setupDelegates() {
         trainingListView.viewDelegate = self
         trainingListView.refreshData()
+        nameTextInputView.viewDelegate = self
+        descriptionTextInputView.viewDelegate = self
+        videoTextInputView.viewDelegate = self
+        inventoryPickerView.viewTextInputDelegate = self
+        inventoryPickerView.viewPickerDelegate = self
     }
     
     private func handleContentSizeChange() {
@@ -169,7 +250,10 @@ extension TPNewExerciseViewController: TPDropdownListPickerDelegate {
         handleContentSizeChange()
     }
     
-    public func tpDropdownList(_ sender: TPDropdownList, selectedItemAtIndex index: Int) {}
+    public func tpDropdownList(_ sender: TPDropdownList, selectedItemAtIndex index: Int) {
+        exercise.inventory = inventory[index]
+        configureSaveEnabled()
+    }
     
     public func tpDropdownList(_ sender: TPDropdownList, selectedTextInputItem item: String?) {}
     
@@ -185,6 +269,21 @@ extension TPNewExerciseViewController: TPDropdownListPickerDelegate {
     }
 }
 
+extension TPNewExerciseViewController: TPDropdownListTextInputDelegate {
+    public func tpDropdownListDidBeginEditing(_ sender: TPDropdownList) {}
+    
+    public func tpDropdownListDidEndEditing(_ sender: TPDropdownList, byReturn: Bool) {}
+    
+    public func tpDropdowList(_ sender: TPDropdownList, textChanged text: String?) {
+        exercise.inventory = text
+        configureSaveEnabled()
+    }
+    
+    public func tpDropdownListShouldReturn(_ sender: TPDropdownList) -> Bool {
+        return true
+    }
+}
+
 extension TPNewExerciseViewController: TPAddToTrainingListViewDelegate {
     public func tpAddToTrainingListViewItems(_ sender: TPAddToTrainingListView) -> [(String, Bool)] {
         return [("Training1", false), ("Training2", true)]
@@ -192,5 +291,33 @@ extension TPNewExerciseViewController: TPAddToTrainingListViewDelegate {
     
     public func tpAddToTrainingListView(_ sender: TPAddToTrainingListView, checboxStatusChanged isChecked: Bool, atIndex index: Int) {
         
+    }
+}
+
+extension TPNewExerciseViewController: TPTextInputViewDelegate {
+    public func tpTextInputViewShouldReturn(_ sender: TPTextInputView) -> Bool {
+        return true
+    }
+    
+    public func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {}
+    
+    public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {}
+    
+    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
+        switch sender {
+        case nameTextInputView:
+            exercise.name = sender.text
+            configureSaveEnabled()
+        case descriptionTextInputView:
+            exercise.description = sender.text
+            configureSaveEnabled()
+        case videoTextInputView:
+            if let url = URL(string: sender.text ?? "") {
+                exercise.video = .remote(url: url)
+                configureSaveEnabled()
+            }
+        default:
+            return
+        }
     }
 }

@@ -113,10 +113,11 @@ extension TPSectionHeaderView: TPTextInputViewDelegate {
     public func tpTextInputViewDidBeginEditing(_ sender: TPTextInputView) {}
     
     public func tpTextInputViewDidEndEditing(_ sender: TPTextInputView, byReturn: Bool) {
-        viewDelegate?.tpSectionHeaderView(self, inputName: nameInputView.text, userData: userData)
     }
     
-    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {}
+    public func tpTextInputViewTextChanged(_ sender: TPTextInputView, changedText: String?) {
+        viewDelegate?.tpSectionHeaderView(self, inputName: nameInputView.text, userData: userData)
+    }
 }
 
 // MARK: - TPTimeSelectionViewDelegate

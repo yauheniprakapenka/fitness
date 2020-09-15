@@ -55,18 +55,15 @@ class LoginViewController: UIViewController {
         configureEmailTextField(addTo: contentScrollView)
         configurePasswordLabel(addTo: contentScrollView)
         configurePasswordTextField(addTo: contentScrollView)
+        configureLoginButton(addTo: contentScrollView)
+        configureCreateProfleButton(addTo: contentScrollView)
+        configureGithubView(addTo: contentScrollView)
         
-        configureGithubView()
-        configureCreateProfleButton()
-        configureLoginButton()
         configureActivityIndicator()
-        
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
-        
         emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
         
         // test data
-        emailTextField.text = "a@a.com"//"tony5@hawk.trainer"
         passwordTextField.text = "123456"
     }
     
@@ -77,30 +74,7 @@ class LoginViewController: UIViewController {
 }
 
 // MARK: - Private methods
-
 private extension LoginViewController {
-    
-    func configureGithubView() {
-        view.addSubview(githubView)
-        
-        NSLayoutConstraint.activate([
-            githubView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40),
-            githubView.widthAnchor.constraint(equalToConstant: 180),
-            githubView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            githubView.heightAnchor.constraint(equalToConstant: 50)
-        ])
-    }
-    
-    func configureCreateProfleButton() {
-        view.addSubview(createProfileButton)
-        createProfileButton.translatesAutoresizingMaskIntoConstraints = false
-        createProfileButton.bottomAnchor.constraint(equalTo: githubView.topAnchor, constant: -30).isActive = true
-        createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
-        createProfileButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
-        createProfileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
-    }
-    
     func configureActivityIndicator() {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
@@ -126,9 +100,11 @@ private extension LoginViewController {
             }
             
             if let trainer = apiTokenModel.trainer, trainer {
-                let vc = TrainerViewController()
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+                let router = Router()
+                let vc = TrainerModuleConfigrator(with: router).create()
+                vc.router = router
+                router.push(vc: vc)
+                self.present(router.navigationController, animated: true)
                 return
             }
             self.presentAlertVC(errorMessage: "Не удалось определить роль")
@@ -211,15 +187,37 @@ private extension LoginViewController {
         passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func configureLoginButton() {
+    func configureLoginButton(addTo view: UIView) {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.bottomAnchor.constraint(equalTo: createProfileButton.topAnchor, constant: -20).isActive = true
+        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
         loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
         loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
         loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         loginButton.cornerRadius = 5
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureCreateProfleButton(addTo view: UIView) {
+        view.addSubview(createProfileButton)
+        createProfileButton.translatesAutoresizingMaskIntoConstraints = false
+        createProfileButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 30).isActive = true
+        createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
+        createProfileButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
+        createProfileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureGithubView(addTo view: UIView) {
+        view.addSubview(githubView)
+        
+        NSLayoutConstraint.activate([
+            githubView.topAnchor.constraint(equalTo: createProfileButton.bottomAnchor, constant: 40),
+            githubView.widthAnchor.constraint(equalToConstant: 180),
+            githubView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            githubView.heightAnchor.constraint(equalToConstant: 50),
+            githubView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+        ])
     }
 }
 
@@ -236,6 +234,7 @@ private extension LoginViewController {
         NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "", completion: { (result) in
             switch result {
             case .success(let tokenModel):
+                AuthorizationHandler.shared.userAuthorized(token: tokenModel.accessToken!)
                 UserDefaultsStorage.shared.previousEnteredLogin = currentProfile.email
                 DispatchQueue.main.async {
                     self.activityIndicator.stopAnimating()

@@ -4,6 +4,7 @@
 //
 //  Created by Vitali on 9/6/20.
 //
+//swiftlint:disable function_body_length
 
 import UIKit
 
@@ -74,6 +75,12 @@ public class TPTrainingView: UITableView {
         reloadData()
     }
     
+    public func configureCommon() {
+        if training.time == nil {
+            training.time = (tableHeaderView as? TPTrainingHeaderView)?.time
+        }
+    }
+    
     public func configure(withAllowedExercises exercises: [TPExercise]) {
         self.exercises = exercises
         reloadData()
@@ -85,7 +92,20 @@ public class TPTrainingView: UITableView {
     
     public func addSection() {
         trainingSections.append(.emom(minutes: 1, items: [], name: nil))
+        notifyTrainingChanged()
         reloadData()
+    }
+}
+
+// MARK: - Private Methods
+private extension TPTrainingView {
+    func notifyTrainingChanged() {
+        var training = TPTraining()
+        training.name = self.training.name
+        training.descriptionText = self.training.descriptionText
+        training.time = self.training.time
+        training.sections = trainingSections
+        viewDelegate?.tpTrainingViewTrainingChanged(self, training: training)
     }
 }
 
@@ -229,6 +249,7 @@ extension TPTrainingView: TPSectionHeaderViewDelegate {
         case .rest:
             trainingSections[index] = .rest(minutes: minutes, name: name)
         }
+        notifyTrainingChanged()
         let reloadSection = IndexSet(integer: tableSection)
         beginUpdates()
         deleteSections(reloadSection, with: .fade)
@@ -241,6 +262,7 @@ extension TPTrainingView: TPSectionHeaderViewDelegate {
             let index = userData?["TrainingSectionIndex"] as? Int
         else { fatalError() }
         trainingSections[index] = trainingSections[index].withChangedTime(newMinutes: selectTime)
+        notifyTrainingChanged()
     }
     
     public func tpSectionHeaderView(_ sender: TPSectionHeaderView, inputName: String?, userData: [AnyHashable : Any]?) {
@@ -248,6 +270,7 @@ extension TPTrainingView: TPSectionHeaderViewDelegate {
             let index = userData?["TrainingSectionIndex"] as? Int
         else { fatalError() }
         trainingSections[index] = trainingSections[index].withChangedName(newName: inputName)
+        notifyTrainingChanged()
     }
     
 }
@@ -258,6 +281,7 @@ extension TPTrainingView: TPTrainingAddEntityViewDelegate {
         
         if let trainintSectionIndex = userData?["TrainingSectionIndex"] as? Int {
             trainingSections[trainintSectionIndex] = trainingSections[trainintSectionIndex].addedEmptyItem()
+            notifyTrainingChanged()
             let reloadSection = IndexSet(integer: trainintSectionIndex + 1)
             beginUpdates()
             deleteSections(reloadSection, with: .fade)
@@ -267,6 +291,7 @@ extension TPTrainingView: TPTrainingAddEntityViewDelegate {
         }
         
         trainingSections.append(.emom(minutes: 1, items: [], name: nil))
+        notifyTrainingChanged()
         reloadData()
 
     }
@@ -291,7 +316,7 @@ extension TPTrainingView: TPTrainingSectionItemContentViewDelegate {
         }
         exercises[itemIndex] = model
         trainingSections[trainingSectionIndex] = trainingSections[trainingSectionIndex].changeItems(exercises)
-        
+        notifyTrainingChanged()
     }
     
     public func tpTrainingSectionItemContentWillNeedAnimateHeightChange(_ sender: TPTrainingSectionItemContentView, heightDelta: CGFloat, animationDuration: TimeInterval, userData: [AnyHashable: Any]?) {
@@ -311,17 +336,17 @@ extension TPTrainingView: TPTrainingHeaderViewDelegate {
     
     public func tpTrainingHeaderView(_ sender: TPTrainingHeaderView, nameChanged newName: String?) {
         training.name = newName
-        viewDelegate?.tpTrainingViewTrainingChanged(self, training: training)
+        notifyTrainingChanged()
     }
     
     public func tpTrainingHeaderView(_ sender: TPTrainingHeaderView, descriptionChanged newDescription: String?) {
         training.descriptionText = newDescription
-        viewDelegate?.tpTrainingViewTrainingChanged(self, training: training)
+        notifyTrainingChanged()
     }
     
     public func tpTrainingHeaderView(_ sender: TPTrainingHeaderView, timeChanged newTime: Date?) {
         training.time = newTime
-        viewDelegate?.tpTrainingViewTrainingChanged(self, training: training)
+        notifyTrainingChanged()
     }
 }
 

@@ -28,10 +28,17 @@ public class KeyboardLayoutConstraint: NSLayoutConstraint {
     private var offset : CGFloat = 0
     private var keyboardVisibleHeight : CGFloat = 0
     
+    public func configureCreatedFromCodeConstraint() {
+        initCommon()
+    }
+    
     @available(tvOS, unavailable)
     override public func awakeFromNib() {
         super.awakeFromNib()
-        
+        initCommon()
+    }
+    
+    func initCommon() {
         offset = constant
         
         NotificationCenter.default.addObserver(self, selector: #selector(KeyboardLayoutConstraint.keyboardWillShowNotification(_:)), name: UIWindow.keyboardWillShowNotification, object: nil)

@@ -10,28 +10,28 @@ import Foundation
 public struct TPTrainingSectionItem {
     
     public var koeff: Float?
-    public var exercise: TPExercise?
-    public var profileValue: Float?
-    public var weightForManKg: Float?
-    public var weightForWomanKg: Float?
+    public var exerciseId: Int?
+    public var profileValue: String?
+    public var defaultForMan: Float?
+    public var defaultForWoman: Float?
     public var repeats: Int?
     public var distanceMeters: Int?
     
     public init(
         koeff: Float?,
-        exercise: TPExercise?,
-        profileValue: Float?,
-        weightForManKg: Float?,
-        weightForWomanKg: Float?,
+        exerciseId: Int?,
+        profileValue: String?,
+        defaultForMan: Float?,
+        defaultForWoman: Float?,
         repeats: Int?,
         distanceMeters: Int?
     ) {
         
         self.koeff = koeff
-        self.exercise = exercise
+        self.exerciseId = exerciseId
         self.profileValue = profileValue
-        self.weightForManKg = weightForManKg
-        self.weightForWomanKg = weightForWomanKg
+        self.defaultForMan = defaultForMan
+        self.defaultForWoman = defaultForWoman
         self.repeats = repeats
         self.distanceMeters = distanceMeters
         
@@ -39,10 +39,10 @@ public struct TPTrainingSectionItem {
     
     public init() {
         self.init(koeff: nil,
-                  exercise: nil,
+                  exerciseId: nil,
                   profileValue: nil,
-                  weightForManKg: nil,
-                  weightForWomanKg: nil,
+                  defaultForMan: nil,
+                  defaultForWoman: nil,
                   repeats: nil,
                   distanceMeters: nil)
     }

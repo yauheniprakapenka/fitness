@@ -16,7 +16,8 @@
                 <outlet property="exercisePickerViewHeightConstraint" destination="2lg-Ip-JGt" id="js7-iU-B4Z"/>
                 <outlet property="firstRowHeightConstraint" destination="Gb9-zU-k0E" id="GDU-dt-svw"/>
                 <outlet property="koefficientInputView" destination="RPq-g0-E1m" id="enA-8g-CCE"/>
-                <outlet property="profileValueInputView" destination="RPp-4J-Zo1" id="Q1E-47-xMD"/>
+                <outlet property="profileValueHeightConstraint" destination="W2E-Au-Xtw" id="Nat-Fp-SYt"/>
+                <outlet property="profileValuePickerView" destination="RPp-4J-Zo1" id="pPf-tD-POG"/>
                 <outlet property="repeatsInputView" destination="RDs-Hc-xIK" id="dDv-Ae-nAS"/>
                 <outlet property="secondRowHeightConstraint" destination="sU0-7p-7Rd" id="kSo-M7-Zv4"/>
                 <outlet property="thirdRowHeightConstraint" destination="pNZ-Te-xEG" id="0NM-cA-KmV"/>
@@ -27,17 +28,17 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="6n5-nt-VZ6">
-            <rect key="frame" x="0.0" y="0.0" width="414" height="284"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="358"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Минута 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pvR-O8-9Wj">
-                    <rect key="frame" x="25" y="10" width="364" height="17"/>
+                    <rect key="frame" x="25" y="10" width="364" height="26"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" name="tp_blackText"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nQM-pN-9Zh" customClass="TPDropdownList" customModule="TrainingProgramm" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="37" width="414" height="55"/>
+                    <rect key="frame" x="0.0" y="46" width="414" height="55"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="2lg-Ip-JGt"/>
@@ -46,18 +47,21 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Упражнение"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-4J-Zo1" userLabel="profileValue" customClass="TPDropdownList" customModule="TrainingProgramm" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="111" width="414" height="55"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="55" id="W2E-Au-Xtw"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Показатель профиля"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="OFZ-7w-20Z" userLabel="firstRowStackView">
-                    <rect key="frame" x="25" y="102" width="364" height="50"/>
+                    <rect key="frame" x="25" y="176" width="364" height="50"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPp-4J-Zo1" userLabel="profileValue" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="0.0" width="174.5" height="50"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Показатель профиля"/>
-                            </userDefinedRuntimeAttributes>
-                        </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPq-g0-E1m" userLabel="koeff" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
-                            <rect key="frame" x="189.5" y="0.0" width="174.5" height="50"/>
+                            <rect key="frame" x="0.0" y="0.0" width="364" height="50"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Коэф.(%)"/>
@@ -69,7 +73,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="TMy-3A-xxe" userLabel="secondRowStackView">
-                    <rect key="frame" x="25" y="162" width="364" height="50"/>
+                    <rect key="frame" x="25" y="236" width="364" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cae-SN-l97" userLabel="weightM" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="174.5" height="50"/>
@@ -91,7 +95,7 @@
                     </constraints>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Aad-LI-TQ1" userLabel="thirdRowStackView">
-                    <rect key="frame" x="25" y="222" width="364" height="50"/>
+                    <rect key="frame" x="25" y="296" width="364" height="50"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDs-Hc-xIK" userLabel="repeats" customClass="TPTextInputView" customModule="TrainingProgramm" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="174.5" height="50"/>
@@ -122,18 +126,21 @@
                 <constraint firstAttribute="trailing" secondItem="Aad-LI-TQ1" secondAttribute="trailing" constant="25" id="Gno-Ir-WEq"/>
                 <constraint firstItem="nQM-pN-9Zh" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" id="IT2-eV-Nda"/>
                 <constraint firstAttribute="trailing" secondItem="OFZ-7w-20Z" secondAttribute="trailing" constant="25" id="K52-Fc-Wxh"/>
-                <constraint firstItem="OFZ-7w-20Z" firstAttribute="top" secondItem="nQM-pN-9Zh" secondAttribute="bottom" constant="10" id="Kxl-W8-XtB"/>
                 <constraint firstItem="pvR-O8-9Wj" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="NNe-24-o4e"/>
                 <constraint firstItem="OFZ-7w-20Z" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="RZR-Jd-T6G"/>
                 <constraint firstItem="TMy-3A-xxe" firstAttribute="top" secondItem="OFZ-7w-20Z" secondAttribute="bottom" constant="10" id="SO2-TR-KpC"/>
                 <constraint firstAttribute="trailing" secondItem="nQM-pN-9Zh" secondAttribute="trailing" id="VlT-Pg-KbC"/>
                 <constraint firstItem="nQM-pN-9Zh" firstAttribute="top" secondItem="pvR-O8-9Wj" secondAttribute="bottom" constant="10" id="Xk9-Br-MqT"/>
+                <constraint firstItem="RPp-4J-Zo1" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" id="b4e-xh-3fv"/>
                 <constraint firstItem="Aad-LI-TQ1" firstAttribute="leading" secondItem="6n5-nt-VZ6" secondAttribute="leading" constant="25" id="bIi-I2-riE"/>
                 <constraint firstItem="pvR-O8-9Wj" firstAttribute="top" secondItem="6n5-nt-VZ6" secondAttribute="top" constant="10" id="cs5-oM-cN9"/>
+                <constraint firstItem="RPp-4J-Zo1" firstAttribute="top" secondItem="nQM-pN-9Zh" secondAttribute="bottom" constant="10" id="fgu-fo-z4n"/>
+                <constraint firstItem="OFZ-7w-20Z" firstAttribute="top" secondItem="RPp-4J-Zo1" secondAttribute="bottom" constant="10" id="l7d-lm-M54"/>
                 <constraint firstItem="Aad-LI-TQ1" firstAttribute="top" secondItem="TMy-3A-xxe" secondAttribute="bottom" constant="10" id="sB2-4R-Se9"/>
+                <constraint firstAttribute="trailing" secondItem="RPp-4J-Zo1" secondAttribute="trailing" id="vA3-w4-GSx"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="102.89855072463769" y="-96.428571428571431"/>
+            <point key="canvasLocation" x="102.89855072463769" y="-71.651785714285708"/>
         </view>
     </objects>
     <resources>

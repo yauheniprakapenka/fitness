@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Common
 
 struct ExercisesModel {
     var image: UIImage
@@ -14,17 +15,28 @@ struct ExercisesModel {
     var kindInventory: String
 }
 
+extension ExercisesViewController {
+    enum State {
+        case empty
+        case normal
+    }
+}
+
 class ExercisesViewController: UIViewController {
-    
     let exerciseLabel = FLabel(fontSize: 17, weight: .bold, color: .black, message: "")
-    let moreButton = FButtonSimple(title: "Все", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
+    let createButton = FButtonSimple(title: "Создать", titleColor: #colorLiteral(red: 0.2787401974, green: 0.3830315471, blue: 0.9142643213, alpha: 1), size: 14)
     
-    let exercisesModel = [
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Будь Арни", kindInventory: "Гантели"),
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталлоне", kindInventory: "Скакалка"),
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Бабочка", kindInventory: "Штанга"),
-        ExercisesModel(image: #imageLiteral(resourceName: "scott-webb-U5kQvbQWoG0-unsplash"), exerciseName: "Сталь", kindInventory: "Брусья")
-    ]
+    private var exercises: [ExercisesModel] = []
+    
+    var viewModel: ExercisesViewModel?
+    
+    var state: State = .normal {
+        didSet {
+            configureState()
+        }
+    }
+    
+    weak var activityIndicator: ActivityIndicatorProtocol?
     
     let contentInset: UIEdgeInsets
     
@@ -47,6 +59,17 @@ class ExercisesViewController: UIViewController {
         return cv
     }()
     
+    private let emptyListView: EmptyListView = {
+       let view = EmptyListView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.messageText = "Вы еще не добавили ни одного упражнения"
+        view.buttonTitle = "Добавить"
+        view.image = UIImage(named: "exercisesListView_noExercises")!
+        view.buttonTextColor = UIColor(named: "fitness_BlueAccent")!
+        view.messageColor = UIColor(named: "fitness_BlackText")!
+        return view
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,38 +82,75 @@ class ExercisesViewController: UIViewController {
         collectionView.contentInset = contentInset
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
+        
+        configureState()
+        
+        viewModel?.onExercisesListChanged = { [weak self] exercises in
+            self?.exercises = exercises
+            self?.collectionView.reloadData()
+            self?.state = exercises.isEmpty ? .empty : .normal
+        }
+        viewModel?.onLoadingStatusChanged = { [weak self] status in
+            if status {
+                self?.activityIndicator?.startIndicator()
+            } else {
+                self?.activityIndicator?.stopIndicator()
+            }
+        }
+        viewModel?.viewPrepared()
     }
     
     private func configureLayout() {
         view.addSubview(exerciseLabel)
-        view.addSubview(moreButton)
+        view.addSubview(createButton)
         view.addSubview(collectionView)
+        view.addSubview(emptyListView)
         
         exerciseLabel.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         exerciseLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: contentInset.left).isActive = true
         exerciseLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -contentInset.right).isActive = true
         exerciseLabel.textAlignment = .left
         
-        moreButton.bottomAnchor.constraint(equalTo: exerciseLabel.bottomAnchor).isActive = true
-        moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
+        createButton.bottomAnchor.constraint(equalTo: exerciseLabel.bottomAnchor).isActive = true
+        createButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         
         collectionView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         collectionView.heightAnchor.constraint(equalTo: collectionView.widthAnchor, multiplier: 1).isActive = true
+        
+        emptyListView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        emptyListView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive  = true
+        emptyListView.topAnchor.constraint(equalTo: exerciseLabel.bottomAnchor, constant: 20).isActive = true
+        emptyListView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
     }
     
     private func configureUIElements() {
         exerciseLabel.text = "Упражнения"
         collectionView.backgroundColor = .white
+        emptyListView.onActionButtonTapped = createButtonTapped
     }
-    
     private func configureMoreButton() {
-        moreButton.addTarget(self, action: #selector(moreButtonTapped), for: .touchUpInside)
+        createButton.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
     
-    @objc func moreButtonTapped() {
-        print("button tapped")
+    @objc func createButtonTapped() {
+        viewModel?.createExerciseTapped()
+    }
+}
+
+private extension ExercisesViewController {
+    func configureState() {
+        switch state {
+        case .normal:
+            collectionView.isHidden = false
+            createButton.isHidden = false
+            emptyListView.isHidden = true
+        case .empty:
+            collectionView.isHidden = true
+            createButton.isHidden = true
+            emptyListView.isHidden = false
+        }
     }
 }
 
@@ -101,12 +161,12 @@ extension ExercisesViewController: UICollectionViewDelegateFlowLayout, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        exercisesModel.count
+        exercises.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MyExerciseCell", for: indexPath) as! MyExerciseCollectionCell
-        cell.data = self.exercisesModel[indexPath.row]
+        cell.data = self.exercises[indexPath.row]
         cell.backgroundColor = #colorLiteral(red: 0.9999071956, green: 1, blue: 0.999881804, alpha: 1)
         
         cell.layer.shadowColor = UIColor.black.cgColor
@@ -119,4 +179,7 @@ extension ExercisesViewController: UICollectionViewDelegateFlowLayout, UICollect
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel?.exerciseSelected(index: indexPath.item)
+    }
 }

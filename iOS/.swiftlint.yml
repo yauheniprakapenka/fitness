@@ -12,6 +12,7 @@ disabled_rules:
 
 excluded:
   - Pods
+  - LocalCocoaPods/FitnessAPI
 
 identifier_name:
   min_length: 1

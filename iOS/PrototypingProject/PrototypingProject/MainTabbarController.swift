@@ -20,14 +20,11 @@ class MainTabbarController: UITabBarController {
         
         let tp3 = TPNewExerciseViewController()
         tp3.tabBarItem = UITabBarItem(title: "NewExerc", image: nil, selectedImage: nil)
-        tp3.onPrepared = {
-            tp3.configure(with: TrainingExcercisesStubData.trainingInventoryDropdown)
-            tp3.configure(with: TrainingExcercisesStubData.exercise)
-        }
+        
         let tp4 = TPNewTrainingViewController()
         tp4.tabBarItem = UITabBarItem(title: "NewTrain", image: nil, selectedImage: nil)
         
-        let tp5 = UIViewController.trainingProgrammViewController3
+        let tp5 = TPNewTrainingViewController.instance()
         tp5.tabBarItem = UITabBarItem(title: "TP3", image: nil, selectedImage: nil)
         
         let list = [

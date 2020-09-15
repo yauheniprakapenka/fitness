@@ -9,84 +9,85 @@ servers:
     description: Test server
 
 paths:
-  /registration:
-    post:
-      summary: Register trainer or athlete
-      description: Register
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserRegistrationBody'
-            example:
-              $ref: '#/components/examples/UserAsTrainerRegistrationDataExample'
-      responses:
-        '200':
-          description: User created
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - $ref: "#/components/schemas/UserRegistrationResponseOk"
-                  - $ref: "#/components/schemas/UserRegistrationResponseOtherError"
-                  - $ref: "#/components/schemas/UserRegistrationResponseErrorWithMessage"
-  /oauth/token:
-    post:
-      summary: "User login"
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/UserLoginByPassword"
-            example:
-              $ref: "#/components/examples/UserLoginRequestExample"
-      responses:
-        '200':
-          description: if success get token to put in header and user id
-          content:
-            application/json:
-              schema:
-                oneOf:
-                  - $ref: "#/components/schemas/UserLoginSuccessResponse"
-  /api/v1/users/{id}:
-    get:
-      summary: "Get info about user"
-      parameters:
-        - $ref: "#/components/parameters/IdPathParameter"
-        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
-      responses:
-        '200':
-          description: "status of getting user info"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/UserGetInfoResponse"
-    put:
-      summary: "Change user info"
-      parameters:
-        - $ref: "#/components/parameters/IdPathParameter"
-        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref:  "#/components/schemas/UserPusInfoResponse"
+  # /registration:
+  #   post:
+  #     summary: Register trainer or athlete
+  #     description: Register
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: '#/components/schemas/UserRegistrationBody'
+  #           example:
+  #             $ref: '#/components/examples/UserAsTrainerRegistrationDataExample'
+  #     responses:
+  #       '200':
+  #         description: User created
+  #         content:
+  #           application/json:
+  #             schema:
+  #               oneOf:
+  #                 - $ref: "#/components/schemas/UserRegistrationResponseOk"
+  #                 - $ref: "#/components/schemas/UserRegistrationResponseOtherError"
+  #                 - $ref: "#/components/schemas/UserRegistrationResponseErrorWithMessage"
+  # /oauth/token:
+  #   post:
+  #     summary: "User login"
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref: "#/components/schemas/UserLoginByPassword"
+  #           example:
+  #             $ref: "#/components/examples/UserLoginRequestExample"
+  #     responses:
+  #       '200':
+  #         description: if success get token to put in header and user id
+  #         content:
+  #           application/json:
+  #             schema:
+  #               oneOf:
+  #                 - $ref: "#/components/schemas/UserLoginSuccessResponse"
+  # /api/v1/users/{id}:
+  #   get:
+  #     summary: "Get info about user"
+  #     parameters:
+  #       - $ref: "#/components/parameters/IdPathParameter"
+  #       - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+  #     responses:
+  #       '200':
+  #         description: "status of getting user info"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/UserGetInfoResponse"
+  #   put:
+  #     summary: "Change user info"
+  #     parameters:
+  #       - $ref: "#/components/parameters/IdPathParameter"
+  #       - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+  #     requestBody:
+  #       required: true
+  #       content:
+  #         application/json:
+  #           schema:
+  #             $ref:  "#/components/schemas/UserPusInfoResponse"
 
-      responses:
-        '200':
-          description: "json with chaged user info"
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/UserGetInfoResponse"
+  #     responses:
+  #       '200':
+  #         description: "json with chaged user info"
+  #         content:
+  #           application/json:
+  #             schema:
+  #               $ref: "#/components/schemas/UserGetInfoResponse"
   /api/v1/exercises/:
     post:
       summary: "Exercise creation"
       parameters:
         - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      operationId: createExercise
       requestBody:
         required: true
         content:
@@ -99,15 +100,28 @@ paths:
           content:
             application/json:
               schema:
-                oneOf:
-                  - $ref: "#/components/schemas/ExerciseCreationEditingSuccessResponse"
-                  - $ref: "#/components/schemas/ErrorResponseWithMessage"
+                $ref: "#/components/schemas/ExerciseCreationEditingSuccessResponse"
+    get:
+      summary: "Get list of exercises"
+      parameters:
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+        - $ref: "#/components/parameters/UserIdUrlParameter"
+      operationId: getExerciseListByUserId
+      responses:
+        '200':
+          description: "Json with list of exercises of user with id"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExerciseGetListResponse"
+
   /api/v1/exercises/{id}:
     get:
       summary: "Get info about exercise"
       parameters:
         - $ref: "#/components/parameters/IdPathParameter"
         - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      operationId: getExerciseById
       responses:
         "200":
           description: "return info aboun exercise"
@@ -133,6 +147,36 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ExerciseCreationEditingSuccessResponse"
+  /api/v1/trainings:
+    post:
+      summary: "Create training"
+      parameters:
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      operationId: createTraining
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Training"
+      responses:
+        '200':
+          description: "Ok, training created"
+    get:
+      summary: "Get List of trainings"
+      parameters:
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+        - $ref: "#/components/parameters/TrainerIdUrlParameter"
+      operationId: getTrainingsListByTrainerId
+      responses:
+        "200":
+          description: "List of trainings"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrainingsList"
+
+
 components:
   schemas:
     $ref: "./schemas.yaml"
@@ -140,5 +184,3 @@ components:
     $ref: "./examples.yaml"
   parameters:
     $ref: "./parameters.yaml"
-
-      

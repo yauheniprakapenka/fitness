@@ -5,6 +5,7 @@
 //  Created by yauheni prakapenka on 14.09.2020.
 //  Copyright © 2020 yauheni prakapenka. All rights reserved.
 //
+//swiftlint:disable function_body_length
 
 import UIKit
 

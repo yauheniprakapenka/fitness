@@ -64,7 +64,6 @@ class CalendarViewController: UIViewController {
         CalendarTrainingModel(date: "Wednesday-07-Oct-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         CalendarTrainingModel(date: "Saturday-10-Oct-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте")
         
-        
     ]
     
     // MARK: - View life cycle

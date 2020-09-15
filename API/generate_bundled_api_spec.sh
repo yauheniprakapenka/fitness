@@ -1,0 +1,1 @@
+swagger-cli bundle openapi3.yaml --outfile Bundled/openapi3combined.yaml --type yaml
