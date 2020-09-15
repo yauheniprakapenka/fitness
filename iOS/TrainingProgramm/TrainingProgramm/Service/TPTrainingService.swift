@@ -18,6 +18,7 @@ public typealias TPTrainingServiceResult<T> = Result<T, TPTrainingServiceError>
 public extension TPTrainingService {
     typealias AddTrainingCompletionHandler = (TPExerciseServiceResult<Void>) -> Void
     typealias TrainingListCompletionHandler = (TPExerciseServiceResult<[TPTraining]>) -> Void
+    typealias EditTrainingCompletionHandler = (TPExerciseServiceResult<Void>) -> Void
 }
 
 fileprivate let timeFormatter: DateFormatter = {
@@ -87,6 +88,42 @@ public class TPTrainingService {
             
         }
     }
+    
+    public func editTraining(training: TPTraining, userId: Int, completion: @escaping EditTrainingCompletionHandler) {
+        guard let id = training.id,
+              let trainingId = Int(id)
+        else {
+            completion(.failure(.other))
+            return
+        }
+        
+        let sections: [TrainingSection] = training.sections!.map { TrainingSection(section: $0 )}
+        let body = Training(
+            name: training.name ?? "",
+            trainerId: "\(userId)",
+            startTime: "\(timeFormatter.string(from: training.time!))",
+            description: training.descriptionText ?? "",
+            sections: sections,
+            id: trainingId
+            )
+        let request = FitnessAPI.ChangeTrainingById.Request(
+            authorization: authorizationParam,
+            id: trainingId,
+            body: body)
+        APIClient.default.makeRequest(request, complete: { response in
+            switch response.result {
+            case .success(let result):
+                if let _ = result.success {
+                    completion(.success(()))
+                } else {
+                    completion(.failure(.other))
+                }
+            case .failure(let error):
+                print(error)
+                completion(.failure(.other))
+            }
+        })
+    }
 }
 
 private extension TrainingSection {
@@ -99,8 +136,8 @@ private extension TrainingSection {
             self = .emomTrainingSection(EmomTrainingSection(minutes: minutes, items: items, name: name))
         case .forTime(minutes: let minutes, items: let items, name: let name):
             self = .amrapOrForTimeTrainingSection(AmrapOrForTimeTrainingSection(minutes: minutes, items: items, name: name, type: "FOR_TIME"))
-        case .rest(minutes: let minutes, name: _):
-            self = .restTrainingSection(RestTrainingSection(sectionType: "REST", startMinute: 0, duration: minutes.toDouble))
+        case .rest(minutes: let minutes, name: let name):
+            self = .restTrainingSection(RestTrainingSection(sectionType: "REST", startMinute: 0, duration: minutes.toDouble, sectionName: name))
         }
     }
 }
@@ -125,7 +162,9 @@ private extension EmomTrainingSection {
             sectionType: "EMOM",
             startMinute: 0,
             duration: minutes.toDouble,
-            actions: actions)
+            actions: actions,
+            sectionName: name
+        )
     }
 }
 
@@ -148,7 +187,8 @@ private extension AmrapOrForTimeTrainingSection {
             sectionType: type,
             startMinute: 0,
             duration: minutes.toDouble,
-            actions: actions)
+            actions: actions,
+            sectionName: name)
     }
 }
 

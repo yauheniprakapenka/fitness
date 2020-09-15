@@ -34,6 +34,7 @@ public class TPNewTrainingViewController: UIViewController {
     // MARK: - Properties
     public var mode: Mode = .creation
     public var exercises: [TPExercise] = []
+    public var profileValues: [String] = []
     private var training: TPTraining = TPTraining()
     public var userId: Int?
     public var trainingsService: TPTrainingService?
@@ -71,7 +72,15 @@ public class TPNewTrainingViewController: UIViewController {
                 }
             })
         case .edit:
-            fatalError("not implemented")
+            trainingsService?.editTraining(training: training, userId: userId, completion: { result in
+                self.onSaveHandler?()
+                switch result {
+                case .success:
+                    self.navigationController?.popViewController(animated: true)
+                case .failure:
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
         }
     }
 }
@@ -88,9 +97,9 @@ private extension TPNewTrainingViewController {
     }
     
     func configureTrainingView() {
-        listView.configure(withAllowedExercises: exercises)
-        listView.configureCommon()
+        listView.configure(withAllowedExercises: exercises, profileValues: profileValues)
         listView.configure(withTraining: training)
+        listView.configureCommon()
         listView.viewDelegate = self
     }
     

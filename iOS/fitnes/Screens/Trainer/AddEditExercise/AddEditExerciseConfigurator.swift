@@ -34,6 +34,7 @@ class AddEditExerciseConfigurator {
         vc.inventory = inventoryList
         vc.onSaveHandler = onSaveHandler
         vc.service = TPExercisesService.shared
+        vc.modalPresentationStyle = .fullScreen
         return vc
     }
 }

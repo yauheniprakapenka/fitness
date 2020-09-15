@@ -38,6 +38,15 @@ class EmptyListView: UIView {
         }
     }
     
+    public var buttonHidden: Bool {
+        get {
+            return actionButton.isHidden
+        }
+        set {
+            actionButton.isHidden = newValue
+        }
+    }
+    
     public var messageText: String? {
         get {
             return messageLabel.text

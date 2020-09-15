@@ -13,7 +13,7 @@ public enum TPTrainingSection {
     case forTime(minutes: Int, items: [TPTrainingSectionItem], name: String?)
     case rest(minutes: Int, name: String?)
     
-    var trainingType: TPTrainingType {
+    public var trainingType: TPTrainingType {
         switch self {
         case .emom: return .emom
         case .amrap: return .amrap
@@ -22,7 +22,7 @@ public enum TPTrainingSection {
         }
     }
     
-    var items: [TPTrainingSectionItem]? {
+    public var items: [TPTrainingSectionItem]? {
         switch self {
         case .amrap(minutes: _, items: let items, name: _):
             return items
@@ -35,7 +35,7 @@ public enum TPTrainingSection {
         }
     }
     
-    var minutes: Int {
+    public var minutes: Int {
         switch self {
         case .amrap(minutes: let minutes, items: _, name: _): return minutes
         case .emom(minutes: let minutes, items: _, name: _): return minutes
@@ -44,7 +44,7 @@ public enum TPTrainingSection {
         }
     }
     
-    var name: String? {
+    public var name: String? {
         switch self {
         case .amrap(minutes: _, items: _, name: let name):
             return name

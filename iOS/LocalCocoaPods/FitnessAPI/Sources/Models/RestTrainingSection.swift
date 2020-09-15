@@ -13,10 +13,13 @@ public class RestTrainingSection: APIModel {
 
     public var duration: Double
 
-    public init(sectionType: String, startMinute: Double, duration: Double) {
+    public var sectionName: String?
+
+    public init(sectionType: String, startMinute: Double, duration: Double, sectionName: String? = nil) {
         self.sectionType = sectionType
         self.startMinute = startMinute
         self.duration = duration
+        self.sectionName = sectionName
     }
 
     public required init(from decoder: Decoder) throws {
@@ -25,6 +28,7 @@ public class RestTrainingSection: APIModel {
         sectionType = try container.decode("section_type")
         startMinute = try container.decode("start_minute")
         duration = try container.decode("duration")
+        sectionName = try container.decodeIfPresent("section_name")
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -33,6 +37,7 @@ public class RestTrainingSection: APIModel {
         try container.encode(sectionType, forKey: "section_type")
         try container.encode(startMinute, forKey: "start_minute")
         try container.encode(duration, forKey: "duration")
+        try container.encodeIfPresent(sectionName, forKey: "section_name")
     }
 
     public func isEqual(to object: Any?) -> Bool {
@@ -40,6 +45,7 @@ public class RestTrainingSection: APIModel {
       guard self.sectionType == object.sectionType else { return false }
       guard self.startMinute == object.startMinute else { return false }
       guard self.duration == object.duration else { return false }
+      guard self.sectionName == object.sectionName else { return false }
       return true
     }
 

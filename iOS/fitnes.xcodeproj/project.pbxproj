@@ -141,6 +141,8 @@
 		F8C97F75250E3E49004E873A /* ExercisesViewModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8C97F74250E3E49004E873A /* ExercisesViewModuleConfigurator.swift */; };
 		F8F99412251137B000A7283A /* ExercisesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F99411251137B000A7283A /* ExercisesViewController.swift */; };
 		F8F9941525113EDD00A7283A /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F9941425113EDD00A7283A /* EmptyListView.swift */; };
+		F8F994172511568800A7283A /* TrainingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F994162511568800A7283A /* TrainingsViewModel.swift */; };
+		F8F99419251167DD00A7283A /* TrainingViewModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8F99418251167DD00A7283A /* TrainingViewModuleConfigurator.swift */; };
 		F8FACC5224F51D6C00B52063 /* FitnessExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; };
 		F8FACC5324F51D6C00B52063 /* FitnessExtensions.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -298,6 +300,8 @@
 		F8C97F74250E3E49004E873A /* ExercisesViewModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModuleConfigurator.swift; sourceTree = "<group>"; };
 		F8F99411251137B000A7283A /* ExercisesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExercisesViewController.swift; sourceTree = "<group>"; };
 		F8F9941425113EDD00A7283A /* EmptyListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		F8F994162511568800A7283A /* TrainingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingsViewModel.swift; sourceTree = "<group>"; };
+		F8F99418251167DD00A7283A /* TrainingViewModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainingViewModuleConfigurator.swift; sourceTree = "<group>"; };
 		F8FACC5124F51D6C00B52063 /* FitnessExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FitnessExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8FACC5424F51E1400B52063 /* fitnes-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "fitnes-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -891,6 +895,8 @@
 			isa = PBXGroup;
 			children = (
 				3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */,
+				F8F994162511568800A7283A /* TrainingsViewModel.swift */,
+				F8F99418251167DD00A7283A /* TrainingViewModuleConfigurator.swift */,
 			);
 			path = Trainings;
 			sourceTree = "<group>";
@@ -1079,6 +1085,7 @@
 				3EE586DF24DD376200CA0530 /* AbonementsViewController.swift in Sources */,
 				3E444AA424D1E4B70004B978 /* ComingTrainingCollectionCell.swift in Sources */,
 				3E444AAA24D1E5830004B978 /* HeaderViewController.swift in Sources */,
+				F8F99419251167DD00A7283A /* TrainingViewModuleConfigurator.swift in Sources */,
 				3E82C78F24DC72EB00145E9D /* TitleAndCheckboxCell.swift in Sources */,
 				3EE5870424DFCB7000CA0530 /* FImageView.swift in Sources */,
 				3EE586EC24DE863600CA0530 /* FindTrainerViewController.swift in Sources */,
@@ -1151,6 +1158,7 @@
 				3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */,
 				3E421A012506D32800BFD0D5 /* Base64Converter.swift in Sources */,
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
+				F8F994172511568800A7283A /* TrainingsViewModel.swift in Sources */,
 				3E0435FC24FD70D3003501C5 /* SfSymbolEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
 				3E94E98E2510DDA1009179E1 /* ChatCell.swift in Sources */,

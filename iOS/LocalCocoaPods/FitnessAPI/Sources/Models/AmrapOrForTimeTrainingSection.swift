@@ -15,6 +15,8 @@ public class AmrapOrForTimeTrainingSection: APIModel {
 
     public var actions: [Actions]?
 
+    public var sectionName: String?
+
     public class Actions: APIModel {
 
         public var exerciseId: Int
@@ -82,11 +84,12 @@ public class AmrapOrForTimeTrainingSection: APIModel {
         }
     }
 
-    public init(sectionType: String, startMinute: Double, duration: Double, actions: [Actions]? = nil) {
+    public init(sectionType: String, startMinute: Double, duration: Double, actions: [Actions]? = nil, sectionName: String? = nil) {
         self.sectionType = sectionType
         self.startMinute = startMinute
         self.duration = duration
         self.actions = actions
+        self.sectionName = sectionName
     }
 
     public required init(from decoder: Decoder) throws {
@@ -96,6 +99,7 @@ public class AmrapOrForTimeTrainingSection: APIModel {
         startMinute = try container.decode("start_minute")
         duration = try container.decode("duration")
         actions = try container.decodeArrayIfPresent("actions")
+        sectionName = try container.decodeIfPresent("section_name")
     }
 
     public func encode(to encoder: Encoder) throws {
@@ -105,6 +109,7 @@ public class AmrapOrForTimeTrainingSection: APIModel {
         try container.encode(startMinute, forKey: "start_minute")
         try container.encode(duration, forKey: "duration")
         try container.encodeIfPresent(actions, forKey: "actions")
+        try container.encodeIfPresent(sectionName, forKey: "section_name")
     }
 
     public func isEqual(to object: Any?) -> Bool {
@@ -113,6 +118,7 @@ public class AmrapOrForTimeTrainingSection: APIModel {
       guard self.startMinute == object.startMinute else { return false }
       guard self.duration == object.duration else { return false }
       guard self.actions == object.actions else { return false }
+      guard self.sectionName == object.sectionName else { return false }
       return true
     }
 

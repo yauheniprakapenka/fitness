@@ -342,6 +342,8 @@ EmomTrainingSection:
     - start_minute
     - duration
   properties:
+    section_name:
+      type: string
     section_type:
       type: string
     duration:
@@ -380,6 +382,8 @@ RestTrainingSection:
     - start_minute
     - duration
   properties:
+    section_name:
+      type: string
     section_type:
       type: string
     duration:
@@ -394,6 +398,8 @@ AmrapOrForTimeTrainingSection:
     - start_minute
     - duration
   properties:
+    section_name:
+      type: string
     section_type:
       type: string
     duration:

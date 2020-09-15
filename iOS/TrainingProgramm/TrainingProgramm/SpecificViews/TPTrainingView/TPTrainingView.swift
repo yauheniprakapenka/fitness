@@ -33,6 +33,7 @@ public class TPTrainingView: UITableView {
     
     private weak var headerHeightConstraint: NSLayoutConstraint!
     private var exercises: [TPExercise] = []
+    private var profileValues: [String] = []
     private var isAddSecionRowVisible: Bool = true
     
     // MARK: - Init
@@ -81,8 +82,9 @@ public class TPTrainingView: UITableView {
         }
     }
     
-    public func configure(withAllowedExercises exercises: [TPExercise]) {
+    public func configure(withAllowedExercises exercises: [TPExercise], profileValues: [String]) {
         self.exercises = exercises
+        self.profileValues = profileValues
         reloadData()
     }
     
@@ -186,6 +188,7 @@ extension TPTrainingView: UITableViewDataSource {
                 ]
                 cell.configure(withTitle: title,
                                sectionItem: item,
+                               profileValues: profileValues,
                                exercises: exercises,
                                viewDelegate: self,
                                userData: userData)

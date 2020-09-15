@@ -137,11 +137,6 @@ private extension TrainerViewController {
     }
     
     @objc
-    func moreButtonTrainingTapped() {
-        print(#function)
-    }
-    
-    @objc
     func calendarButtonTapped() {
         HapticFeedback.shared.make(type: .light)
         let nav = UINavigationController(rootViewController: CalendarViewController())
@@ -314,9 +309,12 @@ private extension TrainerViewController {
         itemsTrainerViewController.createButton.addTarget(self, action: #selector(addTrainingButtonTapped), for: .touchUpInside)
         
         // trainingVC
-        let trainingVC = TrainingViewController(contentInset: Const.horizontalListInsets)
+        let trainingConfigurator = TrainingViewModuleConfigurator(
+            insets: Const.horizontalListInsets,
+            router: router!,
+            activityIndicator: activityIndicator)
+        let trainingVC = trainingConfigurator.create()
         self.add(childVC: trainingVC, to: self.trainingView)
-        trainingVC.moreButton.addTarget(self, action: #selector(moreButtonTrainingTapped), for: .touchUpInside)
         
         // ExercisesVC
         let configurator = ExercisesViewModuleConfigurator(

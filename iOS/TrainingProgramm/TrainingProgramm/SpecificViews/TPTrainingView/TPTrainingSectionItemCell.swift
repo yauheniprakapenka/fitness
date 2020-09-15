@@ -33,6 +33,7 @@ public class TPTrainingSectionItemCell: UITableViewCell {
     // MARK: - Main Interface
     public func configure(withTitle title: String,
                           sectionItem: TPTrainingSectionItem,
+                          profileValues: [String],
                           exercises: [TPExercise],
                           viewDelegate: TPTrainingSectionItemContentViewDelegate,
                           userData: [AnyHashable: Any]) {
@@ -41,6 +42,7 @@ public class TPTrainingSectionItemCell: UITableViewCell {
         cellContentView.viewDelegate = viewDelegate
         cellContentView.userData = userData
         cellContentView.configure(with: exercises)
+        cellContentView.configure(with: profileValues)
         cellContentView.configure(with: sectionItem)
     }
 }

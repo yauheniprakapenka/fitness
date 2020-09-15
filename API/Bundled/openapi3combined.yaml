@@ -99,6 +99,21 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/TrainingsList'
+    put:
+      summary: Used to change training
+      parameters:
+        - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+        - $ref: '#/components/parameters/IdPathParameter'
+      operationId: changeTrainingById
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Training'
+      responses:
+        '200':
+          description: 'Ok, training changed'
 components:
   schemas:
     UserRegistrationBody:
@@ -429,6 +444,8 @@ components:
         - start_minute
         - duration
       properties:
+        section_name:
+          type: string
         section_type:
           type: string
         duration:
@@ -466,6 +483,8 @@ components:
         - start_minute
         - duration
       properties:
+        section_name:
+          type: string
         section_type:
           type: string
         duration:
@@ -479,6 +498,8 @@ components:
         - start_minute
         - duration
       properties:
+        section_name:
+          type: string
         section_type:
           type: string
         duration:

@@ -22,7 +22,7 @@ class TrainingProgrammViewController3: UIViewController {
             TPExercise(name: "Кувырки", inventory: nil, description: nil, video: nil),
             TPExercise(name: "Подтягивания", inventory: nil, description: nil, video: nil),
         ]
-        listView.configure(withAllowedExercises: exercises)
+        listView.configure(withAllowedExercises: exercises, profileValues: ["Кувырки", "Прыжки", "Жим лежа"])
         listView.viewDelegate = self
         addSectionFloatingView.viewDelegate = self
         addSectionFloatingView.isHidden = false

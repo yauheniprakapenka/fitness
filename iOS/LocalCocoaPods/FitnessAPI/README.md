@@ -173,6 +173,7 @@ To add support for a specific asynchronous library, just add an extension on `AP
 
 ## Requests
 
+- **FitnessAPI.ChangeTrainingById**: PUT `/api/v1/trainings`
 - **FitnessAPI.CreateExercise**: POST `/api/v1/exercises/`
 - **FitnessAPI.CreateTraining**: POST `/api/v1/trainings`
 - **FitnessAPI.GetExerciseById**: GET `/api/v1/exercises/{id}`
