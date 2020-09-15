@@ -94,6 +94,7 @@ private extension TrainerFromSearchViewController {
         NetworkManager.shared.getUser(id: trainer?.id) {
             DispatchQueue.main.async {
                 let vc = ProfileViewController()
+                vc.isEditMode = false
                 let nav = UINavigationController(rootViewController: vc)
                 nav.modalPresentationStyle = .fullScreen
                 self.present(nav, animated: true)

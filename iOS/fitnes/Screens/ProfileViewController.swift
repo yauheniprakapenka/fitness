@@ -63,6 +63,7 @@ class ProfileViewController: UIViewController {
     
     let tableView = UITableView()
     var alertVC: AlertWithImageViewController!
+    var isEditMode = true
     
     // MARK: - View life cycle
     
@@ -74,9 +75,12 @@ class ProfileViewController: UIViewController {
         configureNavigationBar()
         configureBackNavigationButton()
         configureAvatarContainerView()
-        configureTrashButton()
         configureTableView()
-        configureLogoutButton()
+        
+        if isEditMode {
+            configureTrashButton()
+            configureLogoutButton()
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -318,9 +322,11 @@ private extension ProfileViewController {
             avatarContainerView.widthAnchor.constraint(equalToConstant: Const.imageSize)
         ])
         
-        avatarContainerView.isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
-        avatarContainerView.addGestureRecognizer(tap)
+        if isEditMode {
+            avatarContainerView.isUserInteractionEnabled = true
+            let tap = UITapGestureRecognizer(target: self, action: #selector(avatarTapped))
+            avatarContainerView.addGestureRecognizer(tap)
+        }
         
         configureAvatarImageView()
     }
@@ -342,7 +348,9 @@ private extension ProfileViewController {
             avatarImageView.bottomAnchor.constraint(equalTo: avatarContainerView.bottomAnchor)
         ])
         
-        configureCameraImage()
+        if isEditMode {
+            configureCameraImage()
+        }
     }
     
     func configureCameraImage() {
@@ -376,6 +384,7 @@ extension ProfileViewController: UITableViewDataSource {
 
 extension ProfileViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if !isEditMode { return }
         didSelectAthleteRow = athleteProfileModel[indexPath.row]
         //        var currentAlertKeyboard: KeyboardTypeEnum?
         //
@@ -405,7 +414,6 @@ extension ProfileViewController: UITableViewDelegate {
 extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
         guard let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else {
             dismiss(animated: true)
             return
