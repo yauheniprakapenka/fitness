@@ -75,7 +75,7 @@ private extension AthleteViewController {
             self.activityIndicator.startAnimate()
         }
         
-        NetworkManager.shared.getUser {
+        NetworkManager.shared.getUser(id: nil) {
             DispatchQueue.main.async {
                 let vc = ProfileViewController()
                 let nav = UINavigationController(rootViewController: vc)

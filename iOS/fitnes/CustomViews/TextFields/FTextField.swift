@@ -28,9 +28,10 @@ class FTextField: UITextField {
         configure()
     }
     
-    init(placeholderText: String, placeholderColor: UIColor) {
+    init(placeholderText: String, placeholderColor: UIColor, color: UIColor) {
         super.init(frame: .zero)
         attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: placeholderColor])
+        textColor = color
         configure()
     }
     
@@ -43,7 +44,6 @@ class FTextField: UITextField {
         layer.borderWidth = 1
         layer.borderColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         translatesAutoresizingMaskIntoConstraints = false
-        textColor = .white
         autocorrectionType = .no
     }
 }

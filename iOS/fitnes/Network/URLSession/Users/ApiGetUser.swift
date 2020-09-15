@@ -9,9 +9,15 @@
 import Foundation
 
 extension NetworkManager {
-    func getUser(completion: (() -> Void)? = nil) {
+    func getUser(id: String?, completion: (() -> Void)? = nil) {
+        var url = URL(string: "missing get user url")
         
-        let url = URL(string: baseURL + users + GetUserId.getUserId())
+        if id != nil {
+            url = URL(string: baseURL + users + id!)
+        } else {
+            url = URL(string: baseURL + users + GetUserId.getUserId())
+        }
+        
         guard let requestUrl = url else { return }
         
         var request = URLRequest(url: requestUrl)
@@ -32,7 +38,7 @@ extension NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let userResponse = try decoder.decode(ApiGetUserModel.self, from: data)
-                print(userResponse)
+//                print(userResponse)
                 apiGetUserModel = userResponse
                 completion?()
             } catch let error {

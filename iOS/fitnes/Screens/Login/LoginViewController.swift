@@ -32,9 +32,9 @@ class LoginViewController: UIViewController {
     private let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
     private let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
     private let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
-    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529), color: .white)
     private let passwordLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Пароль")
-    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529), color: .white)
     private let loginButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Войти", size: 18)
     private let createProfileButton = FButtonSimple(title: "Создать новый профиль", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 18)
     private let githubView = FGithubView()
@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
         emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
         
         // test data
-        emailTextField.text = "tony5@hawk.trainer"
+        emailTextField.text = "a@a.com"//"tony5@hawk.trainer"
         passwordTextField.text = "123456"
     }
     
@@ -241,7 +241,7 @@ private extension LoginViewController {
                     self.activityIndicator.stopAnimating()
                 }
                 print(tokenModel)
-                NetworkManager.shared.getUser {
+                NetworkManager.shared.getUser(id: nil) {
                     self.presentProfile()
                     NetworkManager.shared.getTicket()
                 }

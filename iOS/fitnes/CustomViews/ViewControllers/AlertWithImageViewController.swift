@@ -72,7 +72,7 @@ class AlertWithImageViewController: UIViewController {
         descriptionLabel.text = description
         logoImageView.image = image
         userInputTextfield = FTextField(placeholderText: placeholder,
-                           placeholderColor:  Const.textfieldPlaceholderColor)
+                                        placeholderColor:  Const.textfieldPlaceholderColor, color: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
         
         switch position {
         case .leftTop:

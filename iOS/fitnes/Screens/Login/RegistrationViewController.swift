@@ -30,9 +30,9 @@ class RegistrationViewController: UIViewController {
     private let activityIndicator = FActivityIndicator()
     
     private let emailLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Почта")
-    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529), color: .white)
     private let passwordLabel = FLabel(fontSize: Const.labelFontSize, weight: .regular, color: .white, message: "Пароль")
-    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529))
+    private let passwordTextField = FTextField(placeholderText: "Введите пароль", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529), color: .white)
     private let createUserButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Создать профиль", size: 18)
     
     private let trainerContainerView = UIView()
@@ -223,7 +223,7 @@ private extension RegistrationViewController {
                     switch result {
                     case .success(let success):
                         print(success)
-                        NetworkManager.shared.getUser {
+                        NetworkManager.shared.getUser(id: nil) {
                             self.presentVC()
                         }
                     case .failure(let failure):

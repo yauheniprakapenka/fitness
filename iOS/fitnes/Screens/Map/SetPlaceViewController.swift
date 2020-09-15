@@ -20,7 +20,7 @@ class SetPlaceViewController: UIViewController {
     private let bottomContainerView = UIView()
     
     private let descriptionLabel = FLabel(fontSize: 13, weight: .light, color: .black, message: "Отметьте место на карте. В поле ниже отредактируйте адрес, который увидит атлет.")
-    private var addressTextField = FTextField(placeholderText: "г. Гомель, ул. Кирова, 32а", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    private var addressTextField = FTextField(placeholderText: "г. Гомель, ул. Кирова, 32а", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), color: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
     
     private let userPin = MKPointAnnotation()
     

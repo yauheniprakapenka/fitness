@@ -69,6 +69,7 @@
 		3E87231F24BF9476005FC365 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3E87231E24BF9476005FC365 /* GoogleService-Info.plist */; };
 		3E87232724BFAD35005FC365 /* UIViewController + Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */; };
 		3E8DE58324CD9DFA00DFB220 /* TypeSectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */; };
+		3E94E98E2510DDA1009179E1 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E94E98D2510DDA1009179E1 /* ChatCell.swift */; };
 		3E99FB1124FBADF700F1F1F9 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */; };
 		3E99FB1324FBD86300F1F1F9 /* ApiErrorEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */; };
 		3E99FB1524FBD8FB00F1F1F9 /* ApiRegistrationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */; };
@@ -214,6 +215,7 @@
 		3E87231E24BF9476005FC365 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3E87232624BFAD35005FC365 /* UIViewController + Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Alerts.swift"; sourceTree = "<group>"; };
 		3E8DE58224CD9DFA00DFB220 /* TypeSectionEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeSectionEnum.swift; sourceTree = "<group>"; };
+		3E94E98D2510DDA1009179E1 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		3E99FB1024FBADF700F1F1F9 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3E99FB1224FBD86300F1F1F9 /* ApiErrorEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorEnum.swift; sourceTree = "<group>"; };
 		3E99FB1424FBD8FB00F1F1F9 /* ApiRegistrationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRegistrationModel.swift; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				3E7C73C32505197A00BD21ED /* ProfileAthleteCell.swift */,
 				3E82C78E24DC72EB00145E9D /* TitleAndCheckboxCell.swift */,
 				3E1752DF24E2954F00F823A8 /* TrainingCell.swift */,
+				3E94E98D2510DDA1009179E1 /* ChatCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1058,6 +1061,7 @@
 				3E0CDEB424EAFE05001546CD /* AthleteQRAbonementViewController.swift in Sources */,
 				3E0435FC24FD70D3003501C5 /* SfSymbolEnum.swift in Sources */,
 				3EE5A64C24D7150C004110C6 /* TrainingViewController.swift in Sources */,
+				3E94E98E2510DDA1009179E1 /* ChatCell.swift in Sources */,
 				3E70A12E25038AAD00353159 /* FRadioButtonView.swift in Sources */,
 				3E6B416D250CDCD70098EC20 /* ApiGetUsersModel.swift in Sources */,
 				3EDB022324ED977200A4808F /* PlaceModel.swift in Sources */,

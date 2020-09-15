@@ -21,16 +21,16 @@ class CreateAbonementViewController: UIViewController {
     let logoImageView = UIImageView()
     
     let nameLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Название абонемента")
-    let nameTextField = FTextField(placeholderText: "Например, вечерние занятия", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let nameTextField = FTextField(placeholderText: "Например, вечерние занятия", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), color: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
     
     let costLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Стоимость, бел руб")
-    let costTextField = FTextField(placeholderText: "Например, 60 бел руб", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let costTextField = FTextField(placeholderText: "Например, 60 бел руб", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), color: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
     
     let durationLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Длительность")
     let daysLeftButton = UIButton()
     
     let visitLabel = FLabel(fontSize: 14, weight: .regular, color: .black, message: "Количество посещений")
-    let visitTextField = FTextField(placeholderText: "12 посещений", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+    let visitTextField = FTextField(placeholderText: "12 посещений", placeholderColor: #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1), color: #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1))
     
     private var selectedDayDuration: UInt8 = 0
     private var selectedColor: String = ""

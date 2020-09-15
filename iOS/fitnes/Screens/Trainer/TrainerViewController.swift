@@ -51,6 +51,7 @@ class TrainerViewController: UIViewController {
         configurePlaceView()
         configureAbonementsView()
         addChildVC()
+        configureActivityIndicator()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -74,7 +75,7 @@ extension TrainerViewController: AddContactDelegate {
             self.trainerAbonements.insert(contact, at: 0)
             self.abonementsVC.abonements = self.trainerAbonements
             self.abonementsVC.reloadData()
-            print(self.trainerAbonements.count)
+//            print(self.trainerAbonements.count)
         }
     }
 }
@@ -127,7 +128,7 @@ private extension TrainerViewController {
             self.activityIndicator.startAnimate()
         }
         
-        NetworkManager.shared.getUser {
+        NetworkManager.shared.getUser(id: nil) {
             DispatchQueue.main.async {
                 let vc = ProfileViewController()
                 let nav = UINavigationController(rootViewController: vc)
@@ -135,7 +136,7 @@ private extension TrainerViewController {
                 self.present(nav, animated: true)
                 self.activityIndicator.stopAnimate()
             }
-            print(apiGetUserModel)
+//            print(apiGetUserModel)
         }
     }
     
@@ -174,6 +175,11 @@ private extension TrainerViewController {
 // MARK: - Private methods
 
 private extension TrainerViewController {
+    
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
     
     func configureProfileData() {
         SetAvatarImage.shared.set(imageView: headerVC.avatarImageView)

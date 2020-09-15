@@ -47,17 +47,23 @@ class CalendarViewController: UIViewController {
                                                       position: .leftTop)
     
     private var calendarTrainingModel: [CalendarTrainingModel] = [
-        CalendarTrainingModel(date: "Thursday-01-Oct-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
-        CalendarTrainingModel(date: "Monday-17-Aug-2020", description: "14:00 - 19:00 |  Отрабатываем наклоны"),
-        CalendarTrainingModel(date: "Friday-02-Oct-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
-        CalendarTrainingModel(date: "Wednesday-19-Aug-2020", description: "14:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Wednesday-16-Sep-2020", description: "12:00 - 18:00 | Сегодня будем слушать много современного рэпчика еее"),
+        CalendarTrainingModel(date: "Thursday-17-Sep-2020", description: "14:00 - 19:00 |  Отрабатываем наклоны"),
+        CalendarTrainingModel(date: "Friday-18-Sep-2020", description: "11:00 - 15:00 | Езда на велосипеде"),
+        CalendarTrainingModel(date: "Monday-21-Sep-2020", description: "14:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
         CalendarTrainingModel(date: "Friday-21-Aug-2020", description: "12:00 - 18:00 | Тренировка «Пешком в Мордор». Взять кольца и провизию"),
-        CalendarTrainingModel(date: "Monday-24-Aug-2020", description: "09:00 - 18:00 | Отрабатываем наклоны"),
-        CalendarTrainingModel(date: "Wednesday-26-Aug-2020", description: "12:00 - 18:30 | Езда на велосипеде"),
+        CalendarTrainingModel(date: "Wednesday-21-Sep-2020", description: "09:00 - 18:00 | Отрабатываем наклоны"),
+        CalendarTrainingModel(date: "Wednesday-23-Sep-2020", description: "12:00 - 18:30 | Езда на велосипеде"),
         CalendarTrainingModel(date: "Friday-28-Aug-2020", description: "09:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-        CalendarTrainingModel(date: "Wednesday-02-Sep-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-        CalendarTrainingModel(date: "Thursday-03-Sep-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
-        CalendarTrainingModel(date: "Friday-09-Oct-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Friday-25-Sep-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Monday-28-Sep-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Wednesday-30-Sep-2020", description: "12:30 - 15:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Saturday-03-Oct-2020", description: "09:00 - 18:00 | Отрабатываем наклоны"),
+        CalendarTrainingModel(date: "Monday-05-Oct-2020", description: "12:00 - 18:30 | Езда на велосипеде"),
+        CalendarTrainingModel(date: "Tuesday-06-Oct-2020", description: "09:00 - 22:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Wednesday-07-Oct-2020", description: "12:00 - 18:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте"),
+        CalendarTrainingModel(date: "Saturday-10-Oct-2020", description: "09:00 - 21:00 | Бег 400 метров, тренировка с канатом, езда на велосипеде, прыжки на батуте")
+        
         
     ]
     

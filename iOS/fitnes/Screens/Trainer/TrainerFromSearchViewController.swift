@@ -13,13 +13,15 @@ class TrainerFromSearchViewController: UIViewController {
     // MARK: - Private properties
     
     private var scrollView: UIScrollView!
-    private let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
-    private let moreButton = FButtonSimple(title: "Календарь", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
+//    private let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
+    private let profileButton = FButtonWithSFSymbol(sfSymbol: .docRichtext, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 28)
+    private let calendarButton = FButtonSimple(title: "Расписание этого тренера", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     private let headerView = UIView()
     private let itemsView = UIView()
     private let comingTrainingView = UIView()
     private let abonementsView = UIView()
     private let placeView = FViewContentPlace()
+    private let activityIndicator = FActivityIndicator()
     private let place = PlaceModel(address: "Ул. Тимофеенко, 23", photo: #imageLiteral(resourceName: "kirova"), fileName: "", latitude: 52.44153252930357, longitude: 31.00078923354539)
     private var trainerAbonement = [
         AbonementModel(abonementName: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", countVisit: 12, daysLeft: 5),
@@ -38,22 +40,20 @@ class TrainerFromSearchViewController: UIViewController {
         view.backgroundColor = .white
         
         configureScrollView()
-        configureTitleLabel()
-        configureMoreButton()
+        configureCalendarButton()
         configureHeaderView()
-        
-        addChildVC()
         
         configureItemsView()
         configureComingTrainingView()
         configureTrainingPlaceView()
         configureAbonementsView()
-        
-        print(trainer as Any)
+        configureProfileButton()
+        configureActivityIndicator()
+        addChildVC()
     }
 }
 
-// MARK: - Actions
+// MARK: - Private actions
 
 private extension TrainerFromSearchViewController {
     
@@ -82,16 +82,57 @@ private extension TrainerFromSearchViewController {
         nav.modalPresentationStyle = .fullScreen
         present(nav, animated: true)
     }
+    
+    @objc
+    func profileButtonTapped() {
+        HapticFeedback.shared.make(type: .light)
+        
+        DispatchQueue.main.async {
+            self.activityIndicator.startAnimate()
+        }
+        
+        NetworkManager.shared.getUser(id: trainer?.id) {
+            DispatchQueue.main.async {
+                let vc = ProfileViewController()
+                let nav = UINavigationController(rootViewController: vc)
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true)
+                self.activityIndicator.stopAnimate()
+            }
+            print(apiGetUserModel)
+        }
+    }
 }
 
 // MARK: - Private methods
 
 private extension TrainerFromSearchViewController {
+    
+    func configureActivityIndicator() {
+        view.addSubview(activityIndicator)
+        activityIndicator.center = view.center
+    }
+    
+    func configureProfileButton() {
+        scrollView.addSubview(profileButton)
+        profileButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        profileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        
+        profileButton.addTarget(self, action: #selector(profileButtonTapped), for: .touchUpInside)
+    }
+    
+    func configureCalendarButton() {
+        scrollView.addSubview(calendarButton)
+        calendarButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
+        calendarButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        
+        calendarButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
+    }
 
     func configureHeaderView() {
         scrollView.addSubview(headerView)
         headerView.translatesAutoresizingMaskIntoConstraints = false
-        headerView.topAnchor.constraint(equalTo: moreButton.bottomAnchor, constant: 20).isActive = true
+        headerView.topAnchor.constraint(equalTo: calendarButton.bottomAnchor, constant: 20).isActive = true
         headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 90).isActive = true
@@ -177,19 +218,5 @@ private extension TrainerFromSearchViewController {
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-    }
-    
-    func configureTitleLabel() {
-        scrollView.addSubview(titleLabel)
-        titleLabel.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-    }
-    
-    func configureMoreButton() {
-        scrollView.addSubview(moreButton)
-        moreButton.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 20).isActive = true
-        moreButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        
-        moreButton.addTarget(self, action: #selector(calendarButtonTapped), for: .touchUpInside)
     }
 }
