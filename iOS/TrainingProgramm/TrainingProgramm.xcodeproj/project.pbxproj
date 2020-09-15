@@ -13,7 +13,6 @@
 		F8012CE324FF7C7500AA8A8B /* TPNewExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8012CE224FF7C7400AA8A8B /* TPNewExerciseViewController.swift */; };
 		F8012CE524FF7CE600AA8A8B /* TPExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8012CE424FF7CE600AA8A8B /* TPExercise.swift */; };
 		F8012CE824FF7D1F00AA8A8B /* VideoLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8012CE724FF7D1F00AA8A8B /* VideoLink.swift */; };
-		F81E44B4250941B10089F20F /* TPTrainingSectionsItemListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81E44B3250941B10089F20F /* TPTrainingSectionsItemListView.swift */; };
 		F82960612506BE0600FC1283 /* TPTrainingSectionItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82960602506BE0600FC1283 /* TPTrainingSectionItemCell.swift */; };
 		F82960632506C18500FC1283 /* TPTrainingSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F82960622506C18500FC1283 /* TPTrainingSectionItem.swift */; };
 		F830E69E25101014007A5B18 /* TPNewTrainingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F830E69D25101014007A5B18 /* TPNewTrainingViewController.storyboard */; };
@@ -70,7 +69,6 @@
 		F8012CE224FF7C7400AA8A8B /* TPNewExerciseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPNewExerciseViewController.swift; sourceTree = "<group>"; };
 		F8012CE424FF7CE600AA8A8B /* TPExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPExercise.swift; sourceTree = "<group>"; };
 		F8012CE724FF7D1F00AA8A8B /* VideoLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLink.swift; sourceTree = "<group>"; };
-		F81E44B3250941B10089F20F /* TPTrainingSectionsItemListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionsItemListView.swift; sourceTree = "<group>"; };
 		F82960602506BE0600FC1283 /* TPTrainingSectionItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionItemCell.swift; sourceTree = "<group>"; };
 		F82960622506C18500FC1283 /* TPTrainingSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TPTrainingSectionItem.swift; sourceTree = "<group>"; };
 		F830E69D25101014007A5B18 /* TPNewTrainingViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TPNewTrainingViewController.storyboard; sourceTree = "<group>"; };
@@ -288,7 +286,6 @@
 		F8754E1E2504D5AC0063F5D6 /* TPTrainingView */ = {
 			isa = PBXGroup;
 			children = (
-				F81E44B3250941B10089F20F /* TPTrainingSectionsItemListView.swift */,
 				F8754E1F2504D5C00063F5D6 /* TPTrainingView.swift */,
 				F8754E212504D6620063F5D6 /* TPTrainingAddEntityView.swift */,
 				F8754E26250531EB0063F5D6 /* TPTrainingViewAddSectionItemView.swift */,
@@ -576,7 +573,6 @@
 				F87AD6E82506638900BAAD90 /* TPTrainingViewAddSectionItemCell.swift in Sources */,
 				F86F788624FBCB2300F9167F /* TPExerciseListItemView.swift in Sources */,
 				F843119C24F56378008CC50D /* TrainingProgrammModule.swift in Sources */,
-				F81E44B4250941B10089F20F /* TPTrainingSectionsItemListView.swift in Sources */,
 				F863C91D250E0F4800ED88A8 /* TPExercisesService.swift in Sources */,
 				F85536B824FF01B1001E2F1A /* TPAddToTrainingListItemContentView.swift in Sources */,
 				F86F788424FBC97E00F9167F /* TPExerciseListView.swift in Sources */,

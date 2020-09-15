@@ -87,6 +87,7 @@ paths:
       summary: "Exercise creation"
       parameters:
         - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      operationId: createExercise
       requestBody:
         required: true
         content:
@@ -105,6 +106,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/AuthorizationHeaderParameter"
         - $ref: "#/components/parameters/UserIdUrlParameter"
+      operationId: getExerciseListByUserId
       responses:
         '200':
           description: "Json with list of exercises of user with id"
@@ -119,6 +121,7 @@ paths:
       parameters:
         - $ref: "#/components/parameters/IdPathParameter"
         - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      operationId: getExerciseById
       responses:
         "200":
           description: "return info aboun exercise"
@@ -149,15 +152,29 @@ paths:
       summary: "Create training"
       parameters:
         - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+      operationId: createTraining
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/CreateTrainingBody"
+              $ref: "#/components/schemas/Training"
       responses:
         '200':
           description: "Ok, training created"
+    get:
+      summary: "Get List of trainings"
+      parameters:
+        - $ref: "#/components/parameters/AuthorizationHeaderParameter"
+        - $ref: "#/components/parameters/TrainerIdUrlParameter"
+      operationId: getTrainingsListByTrainerId
+      responses:
+        "200":
+          description: "List of trainings"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TrainingsList"
 
 
 components:

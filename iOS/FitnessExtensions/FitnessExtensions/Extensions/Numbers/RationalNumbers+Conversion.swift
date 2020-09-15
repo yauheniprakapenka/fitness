@@ -13,4 +13,9 @@ public extension Float {
             return Int(self * 100)
         }
     }
+    var fromItegerPercentsToRatio: Float {
+        get {
+            return Float(self) / 100
+        }
+    }
 }

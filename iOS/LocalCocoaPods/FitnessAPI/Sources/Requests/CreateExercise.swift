@@ -7,42 +7,39 @@ import Foundation
 
 extension FitnessAPI {
 
-    /** Get info about exercise */
-    public enum GetApiV1ExercisesById {
+    /** Exercise creation */
+    public enum CreateExercise {
 
-        public static let service = APIService<Response>(id: "getApiV1ExercisesById", tag: "", method: "GET", path: "/api/v1/exercises/{id}", hasBody: false, securityRequirements: [])
+        public static let service = APIService<Response>(id: "createExercise", tag: "", method: "POST", path: "/api/v1/exercises/", hasBody: true, securityRequirements: [])
 
         public final class Request: APIRequest<Response> {
 
             public struct Options {
 
-                /** id */
-                public var id: Int
-
                 /** value should be bearer: #{token_id} */
                 public var authorization: String
 
-                public init(id: Int, authorization: String) {
-                    self.id = id
+                public init(authorization: String) {
                     self.authorization = authorization
                 }
             }
 
             public var options: Options
 
-            public init(options: Options) {
+            public var body: ExerciseCreationBody
+
+            public init(body: ExerciseCreationBody, options: Options, encoder: RequestEncoder? = nil) {
+                self.body = body
                 self.options = options
-                super.init(service: GetApiV1ExercisesById.service)
+                super.init(service: CreateExercise.service) { defaultEncoder in
+                    return try (encoder ?? defaultEncoder).encode(body)
+                }
             }
 
             /// convenience initialiser so an Option doesn't have to be created
-            public convenience init(id: Int, authorization: String) {
-                let options = Options(id: id, authorization: authorization)
-                self.init(options: options)
-            }
-
-            public override var path: String {
-                return super.path.replacingOccurrences(of: "{" + "id" + "}", with: "\(self.options.id)")
+            public convenience init(authorization: String, body: ExerciseCreationBody) {
+                let options = Options(authorization: authorization)
+                self.init(body: body, options: options)
             }
 
             override var headerParameters: [String: String] {
@@ -53,12 +50,12 @@ extension FitnessAPI {
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = ExerciseGetInfoResponse
+            public typealias SuccessType = ExerciseCreationEditingSuccessResponse
 
-            /** return info aboun exercise */
-            case status200(ExerciseGetInfoResponse)
+            /** json with created exercise info or json with message when error */
+            case status200(ExerciseCreationEditingSuccessResponse)
 
-            public var success: ExerciseGetInfoResponse? {
+            public var success: ExerciseCreationEditingSuccessResponse? {
                 switch self {
                 case .status200(let response): return response
                 }
@@ -84,7 +81,7 @@ extension FitnessAPI {
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = try .status200(decoder.decode(ExerciseGetInfoResponse.self, from: data))
+                case 200: self = try .status200(decoder.decode(ExerciseCreationEditingSuccessResponse.self, from: data))
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
                 }
             }

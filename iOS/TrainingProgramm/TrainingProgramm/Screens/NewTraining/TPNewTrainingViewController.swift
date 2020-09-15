@@ -8,6 +8,17 @@
 import UIKit
 import CommonViews
 
+public extension TPNewTrainingViewController {
+    enum Mode {
+        case creation
+        case edit(training: TPTraining)
+    }
+}
+
+public extension TPNewTrainingViewController {
+    typealias OnSaveHandler = () -> Void
+}
+
 public class TPNewTrainingViewController: UIViewController {
     public static func instance() -> TPNewTrainingViewController {
         let storyboard = UIStoryboard(name: "TPNewTrainingViewController", bundle: TrainingProgrammModule.bundle)
@@ -21,40 +32,47 @@ public class TPNewTrainingViewController: UIViewController {
     @IBOutlet weak var floatingViewContainerView: UIView!
     
     // MARK: - Properties
+    public var mode: Mode = .creation
     public var exercises: [TPExercise] = []
-    public var training: TPTraining = TPTraining()
+    private var training: TPTraining = TPTraining()
     public var userId: Int?
     public var trainingsService: TPTrainingService?
+    public var onSaveHandler: OnSaveHandler?
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        listView.configure(withAllowedExercises: exercises)
-        listView.viewDelegate = self
-        addSectionFloatingView.viewDelegate = self
-        addSectionFloatingView.isHidden = false
-        addSectionFloatingViewTopConstraint.constant -= 50
-        floatingViewContainerView.clipsToBounds = true
+        switch mode {
+        case .edit(training: let trainingToEdit):
+            self.training = trainingToEdit
+        default:
+            break
+        }
         
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
-        navigationItem.rightBarButtonItem?.title = "Сохранить"
+        configureTrainingView()
+        configureFloatingView()
+        configureNavigationBar()
         configureSaveButtonEnabled()
-        
     }
     
     // MARK: - Actions and Action Callbacks
     @objc
     private func saveButtonTapped() {
         guard let userId = userId else { fatalError() }
-        trainingsService?.addTraining(training, userId: userId, completion: { result in
-            switch result {
-            case .success:
-                print("success")
-            case .failure:
-                print("failure")
-            }
-        })
+        switch mode {
+        case .creation:
+            trainingsService?.addTraining(training, userId: userId, completion: { result in
+                self.onSaveHandler?()
+                switch result {
+                case .success:
+                    self.navigationController?.popViewController(animated: true)
+                case .failure:
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        case .edit:
+            fatalError("not implemented")
+        }
     }
 }
 
@@ -67,6 +85,26 @@ private extension TPNewTrainingViewController {
             self.view.layoutIfNeeded()
             
         }, completion: { _ in })
+    }
+    
+    func configureTrainingView() {
+        listView.configure(withAllowedExercises: exercises)
+        listView.configureCommon()
+        listView.configure(withTraining: training)
+        listView.viewDelegate = self
+    }
+    
+    func configureFloatingView() {
+        addSectionFloatingView.viewDelegate = self
+        addSectionFloatingView.isHidden = false
+        addSectionFloatingViewTopConstraint.constant -= 50
+        floatingViewContainerView.clipsToBounds = true
+    }
+    
+    func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navigationItem.rightBarButtonItem?.title = "Сохранить"
     }
     
     func configureSaveButtonEnabled() {
@@ -92,24 +130,28 @@ private extension TPNewTrainingViewController {
     }
     
     func sectionValid(section: TPTrainingSection) -> Bool {
-        guard let sectionName = section.name,
-              let sectionItems = section.items
-        else {
-            return false
-        }
-        guard !sectionItems.isEmpty && !sectionName.isEmpty else {
-            return false
-        }
-        for item in sectionItems {
-            guard sectionItemValid(item: item) else {
+        switch section {
+        case .rest(minutes: _, name: let name):
+            return !(name ?? "").isEmpty
+        case .amrap, .forTime, .emom:
+            guard let items = section.items,
+                  let name = section.name,
+                  !name.isEmpty
+            else {
                 return false
+            }
+            
+            for item in items {
+                guard sectionItemValid(item: item) else {
+                    return false
+                }
             }
         }
         return true
     }
     
     func sectionItemValid(item: TPTrainingSectionItem) -> Bool {
-        return item.exercise != nil
+        return item.exerciseId != nil
     }
 }
 

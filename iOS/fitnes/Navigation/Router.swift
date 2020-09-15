@@ -17,7 +17,6 @@ class Router {
         navigationController.isNavigationBarHidden = true
     }
     
-    
     func push(vc: UIViewController, animated: Bool = true) {
         navigationController.pushViewController(vc, animated: animated)
     }

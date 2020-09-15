@@ -7,10 +7,10 @@ import Foundation
 
 extension FitnessAPI {
 
-    /** Exercise creation */
-    public enum PostApiV1Exercises {
+    /** Get list of exercises */
+    public enum GetExerciseListByUserId {
 
-        public static let service = APIService<Response>(id: "postApiV1Exercises", tag: "", method: "POST", path: "/api/v1/exercises/", hasBody: true, securityRequirements: [])
+        public static let service = APIService<Response>(id: "getExerciseListByUserId", tag: "", method: "GET", path: "/api/v1/exercises/", hasBody: false, securityRequirements: [])
 
         public final class Request: APIRequest<Response> {
 
@@ -19,27 +19,34 @@ extension FitnessAPI {
                 /** value should be bearer: #{token_id} */
                 public var authorization: String
 
-                public init(authorization: String) {
+                /** Id of user */
+                public var userId: Int?
+
+                public init(authorization: String, userId: Int? = nil) {
                     self.authorization = authorization
+                    self.userId = userId
                 }
             }
 
             public var options: Options
 
-            public var body: ExerciseCreationBody
-
-            public init(body: ExerciseCreationBody, options: Options, encoder: RequestEncoder? = nil) {
-                self.body = body
+            public init(options: Options) {
                 self.options = options
-                super.init(service: PostApiV1Exercises.service) { defaultEncoder in
-                    return try (encoder ?? defaultEncoder).encode(body)
-                }
+                super.init(service: GetExerciseListByUserId.service)
             }
 
             /// convenience initialiser so an Option doesn't have to be created
-            public convenience init(authorization: String, body: ExerciseCreationBody) {
-                let options = Options(authorization: authorization)
-                self.init(body: body, options: options)
+            public convenience init(authorization: String, userId: Int? = nil) {
+                let options = Options(authorization: authorization, userId: userId)
+                self.init(options: options)
+            }
+
+            public override var queryParameters: [String: Any] {
+                var params: [String: Any] = [:]
+                if let userId = options.userId {
+                  params["user_id"] = userId
+                }
+                return params
             }
 
             override var headerParameters: [String: String] {
@@ -50,12 +57,12 @@ extension FitnessAPI {
         }
 
         public enum Response: APIResponseValue, CustomStringConvertible, CustomDebugStringConvertible {
-            public typealias SuccessType = ExerciseCreationEditingSuccessResponse
+            public typealias SuccessType = ExerciseGetListResponse
 
-            /** json with created exercise info or json with message when error */
-            case status200(ExerciseCreationEditingSuccessResponse)
+            /** Json with list of exercises of user with id */
+            case status200(ExerciseGetListResponse)
 
-            public var success: ExerciseCreationEditingSuccessResponse? {
+            public var success: ExerciseGetListResponse? {
                 switch self {
                 case .status200(let response): return response
                 }
@@ -81,7 +88,7 @@ extension FitnessAPI {
 
             public init(statusCode: Int, data: Data, decoder: ResponseDecoder) throws {
                 switch statusCode {
-                case 200: self = try .status200(decoder.decode(ExerciseCreationEditingSuccessResponse.self, from: data))
+                case 200: self = try .status200(decoder.decode(ExerciseGetListResponse.self, from: data))
                 default: throw APIClientError.unexpectedStatusCode(statusCode: statusCode, data: data)
                 }
             }

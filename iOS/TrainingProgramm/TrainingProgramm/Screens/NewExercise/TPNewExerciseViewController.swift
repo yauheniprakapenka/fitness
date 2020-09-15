@@ -72,9 +72,7 @@ public class TPNewExerciseViewController: UIViewController {
     public override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        navigationController?.isNavigationBarHidden = false
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
-        navigationItem.rightBarButtonItem?.title = "Сохранить"
+        configureNavigationBar()
         configureSaveEnabled()
     }
     
@@ -134,6 +132,12 @@ private extension TPNewExerciseViewController {
     func configureSaveEnabled() {
         let valid = exercise.name != nil && exercise.inventory != nil
         navigationItem.rightBarButtonItem?.isEnabled = valid
+    }
+    
+    func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonTapped))
+        navigationItem.rightBarButtonItem?.title = "Сохранить"
     }
     
     func createRootScrollView(superview: UIView) -> UIScrollView {

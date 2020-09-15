@@ -41,7 +41,7 @@ public class TPExercisesService {
     
     public func addExercise(_ exercise: TPExercise, userId: Int, completion: @escaping AddExerciseCompletionHandler) {
         let body = ExerciseCreationBody(from: exercise, userId: "\(userId)")
-        let request = FitnessAPI.PostApiV1Exercises.Request(authorization: authorizationParam, body: body)
+        let request = FitnessAPI.CreateExercise.Request(authorization: authorizationParam, body: body)
     
         APIClient.default.makeRequest(request, complete: { response in
             switch response.result {
@@ -77,7 +77,7 @@ public class TPExercisesService {
     }
     
     public func exercisesList(userId: Int, completion: @escaping ExercisesListCompletionHandler) {
-        let request = FitnessAPI.GetApiV1Exercises.Request(authorization: authorizationParam, userId: userId)
+        let request = FitnessAPI.GetExerciseListByUserId.Request(authorization: authorizationParam, userId: userId)
         APIClient.default.makeRequest(request, complete: { response in
             switch response.result {
             case .success(let result):

@@ -19,3 +19,9 @@ UserIdUrlParameter:
   schema:
     type: integer
   description: Id of user
+TrainerIdUrlParameter:
+  name: trainer_id
+  in: query
+  schema:
+    type: integer
+  description: Id of trainer

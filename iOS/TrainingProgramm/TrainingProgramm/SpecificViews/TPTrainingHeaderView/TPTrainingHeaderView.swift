@@ -35,6 +35,32 @@ public class TPTrainingHeaderView: UIView {
     private weak var descriptionTextInputView: TPTextInputView!
     private weak var timePickerView: TPTimePickerView!
     
+    public var time: Date? {
+        get {
+            timePickerView.currentDate
+        }
+        set {
+            timePickerView.currentDate = newValue ?? Date()
+        }
+    }
+    public var name: String? {
+        get {
+            return nameTextInputView.text
+        }
+        set {
+            nameTextInputView.text = newValue
+        }
+    }
+    
+    public var descriptionText: String? {
+        get {
+            return descriptionTextInputView.text
+        }
+        set {
+            descriptionTextInputView.text = newValue
+        }
+    }
+    
     // MARK: - Constraints
     public weak var trainingTimePickerHeightConstraint: NSLayoutConstraint!
     

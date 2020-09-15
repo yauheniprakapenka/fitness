@@ -4,6 +4,7 @@
 //
 //  Created by Vitali on 9/6/20.
 //
+//swiftlint:disable function_body_length
 
 import UIKit
 
@@ -74,6 +75,12 @@ public class TPTrainingView: UITableView {
         reloadData()
     }
     
+    public func configureCommon() {
+        if training.time == nil {
+            training.time = (tableHeaderView as? TPTrainingHeaderView)?.time
+        }
+    }
+    
     public func configure(withAllowedExercises exercises: [TPExercise]) {
         self.exercises = exercises
         reloadData()
@@ -93,7 +100,7 @@ public class TPTrainingView: UITableView {
 // MARK: - Private Methods
 private extension TPTrainingView {
     func notifyTrainingChanged() {
-        let training = TPTraining()
+        var training = TPTraining()
         training.name = self.training.name
         training.descriptionText = self.training.descriptionText
         training.time = self.training.time

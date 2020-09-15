@@ -285,7 +285,7 @@ ExerciseGetListResponse:
     - message
 
 
-CreateTrainingBody:
+Training:
   type: object
   required:
     - name
@@ -294,6 +294,8 @@ CreateTrainingBody:
     - description
     - sections
   properties:
+    id:
+      type: integer
     name:
       type: string
     trainer_id:
@@ -308,6 +310,17 @@ CreateTrainingBody:
         $ref: "#/TrainingSection"
 
 
+TrainingsList:
+  type: object
+  required:
+    - message
+  properties:
+    message:
+      type: array
+      items:
+        $ref: "#/Training"
+
+
 TrainingSection:
   oneOf:
     - $ref: '#/EmomTrainingSection'
@@ -320,6 +333,7 @@ TrainingSection:
       REST: '#/components/schemas/RestTrainingSection'
       AMRAP: '#/components/schemas/AmrapOrForTimeTrainingSection'
       FOR_TIME: '#/components/schemas/AmrapOrForTimeTrainingSection'
+
 
 EmomTrainingSection:
   type: object

@@ -12,6 +12,7 @@ paths:
       summary: Exercise creation
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+      operationId: createExercise
       requestBody:
         required: true
         content:
@@ -30,6 +31,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeaderParameter'
         - $ref: '#/components/parameters/UserIdUrlParameter'
+      operationId: getExerciseListByUserId
       responses:
         '200':
           description: Json with list of exercises of user with id
@@ -43,6 +45,7 @@ paths:
       parameters:
         - $ref: '#/components/parameters/IdPathParameter'
         - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+      operationId: getExerciseById
       responses:
         '200':
           description: return info aboun exercise
@@ -73,15 +76,29 @@ paths:
       summary: Create training
       parameters:
         - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+      operationId: createTraining
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/CreateTrainingBody'
+              $ref: '#/components/schemas/Training'
       responses:
         '200':
           description: 'Ok, training created'
+    get:
+      summary: Get List of trainings
+      parameters:
+        - $ref: '#/components/parameters/AuthorizationHeaderParameter'
+        - $ref: '#/components/parameters/TrainerIdUrlParameter'
+      operationId: getTrainingsListByTrainerId
+      responses:
+        '200':
+          description: List of trainings
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TrainingsList'
 components:
   schemas:
     UserRegistrationBody:
@@ -361,7 +378,7 @@ components:
               - user_id
       required:
         - message
-    CreateTrainingBody:
+    Training:
       type: object
       required:
         - name
@@ -370,6 +387,8 @@ components:
         - description
         - sections
       properties:
+        id:
+          type: integer
         name:
           type: string
         trainer_id:
@@ -382,6 +401,15 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TrainingSection'
+    TrainingsList:
+      type: object
+      required:
+        - message
+      properties:
+        message:
+          type: array
+          items:
+            $ref: '#/components/schemas/Training'
     TrainingSection:
       oneOf:
         - $ref: '#/components/schemas/EmomTrainingSection'
@@ -535,3 +563,9 @@ components:
       schema:
         type: integer
       description: Id of user
+    TrainerIdUrlParameter:
+      name: trainer_id
+      in: query
+      schema:
+        type: integer
+      description: Id of trainer
