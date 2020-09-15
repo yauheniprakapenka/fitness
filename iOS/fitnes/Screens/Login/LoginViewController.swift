@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     private let backgroundImageView = UIImageView()
     private let activityIndicator = FActivityIndicator()
     
-    private let startLabel = FLabel(fontSize: 34, weight: .semibold, color: .white, message: "Начнем")
+    private let startLabel = FLabel(fontSize: 34, weight: .medium, color: .white, message: "Начнем")
     private let signinLabel = FLabel(fontSize: 20, weight: .light, color: .white, message: "Войдите для начала занятий")
     private let emailLabel = FLabel(fontSize: 14, weight: .regular, color: .white, message: "Email")
     private let emailTextField = FTextField(placeholderText: "Введите email", placeholderColor: #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0.5965073529), color: .white)
@@ -55,15 +55,17 @@ class LoginViewController: UIViewController {
         configureEmailTextField(addTo: contentScrollView)
         configurePasswordLabel(addTo: contentScrollView)
         configurePasswordTextField(addTo: contentScrollView)
-        configureLoginButton(addTo: contentScrollView)
-        configureCreateProfleButton(addTo: contentScrollView)
-        configureGithubView(addTo: contentScrollView)
+        configureGithubView()
+        configureCreateProfleButton()
+        configureLoginButton()
         
         configureActivityIndicator()
         DismissKeyboardWhenTap.shared.dismissKeyboard(view: contentScrollView)
         emailTextField.text = UserDefaultsStorage.shared.previousEnteredLogin
         
         // test data
+        
+        emailTextField.text = "t@t.com"
         passwordTextField.text = "123456"
     }
     
@@ -74,7 +76,9 @@ class LoginViewController: UIViewController {
 }
 
 // MARK: - Private methods
+
 private extension LoginViewController {
+    
     func configureActivityIndicator() {
         view.addSubview(activityIndicator)
         activityIndicator.center = view.center
@@ -138,7 +142,7 @@ private extension LoginViewController {
         view.addSubview(startLabel)
         startLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 90).isActive = true
+        startLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
         startLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
     }
     
@@ -173,7 +177,7 @@ private extension LoginViewController {
     func configurePasswordLabel(addTo view: UIView) {
         view.addSubview(passwordLabel)
         passwordLabel.translatesAutoresizingMaskIntoConstraints = false
-        passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 40).isActive = true
+        passwordLabel.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 20).isActive = true
         passwordLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
         passwordLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins).isActive = true
     }
@@ -187,36 +191,43 @@ private extension LoginViewController {
         passwordTextField.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
-    func configureLoginButton(addTo view: UIView) {
+    func configureLoginButton() {
         view.addSubview(loginButton)
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 20).isActive = true
-        loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
-        loginButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         loginButton.cornerRadius = 5
+        
+        NSLayoutConstraint.activate([
+        loginButton.bottomAnchor.constraint(equalTo: createProfileButton.topAnchor, constant: -10),
+        loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins),
+        loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins),
+        loginButton.heightAnchor.constraint(equalToConstant: 50)
+            ])
+        
         loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
     }
     
-    func configureCreateProfleButton(addTo view: UIView) {
+    func configureCreateProfleButton() {
         view.addSubview(createProfileButton)
         createProfileButton.translatesAutoresizingMaskIntoConstraints = false
-        createProfileButton.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 30).isActive = true
-        createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins).isActive = true
-        createProfileButton.widthAnchor.constraint(equalTo: view.widthAnchor, constant: -Const.leftRightMargins * 2).isActive = true
-        createProfileButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+        NSLayoutConstraint.activate([
+        createProfileButton.bottomAnchor.constraint(equalTo: githubView.topAnchor, constant: -30),
+        createProfileButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Const.leftRightMargins),
+        createProfileButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Const.leftRightMargins),
+        createProfileButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
         createProfileButton.addTarget(self, action: #selector(createProfileButtonTapped), for: .touchUpInside)
     }
     
-    func configureGithubView(addTo view: UIView) {
+    func configureGithubView() {
         view.addSubview(githubView)
         
         NSLayoutConstraint.activate([
-            githubView.topAnchor.constraint(equalTo: createProfileButton.bottomAnchor, constant: 40),
             githubView.widthAnchor.constraint(equalToConstant: 180),
             githubView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             githubView.heightAnchor.constraint(equalToConstant: 50),
-            githubView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+            githubView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -20)
         ])
     }
 }

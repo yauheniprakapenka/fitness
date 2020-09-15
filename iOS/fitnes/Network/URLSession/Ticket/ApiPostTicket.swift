@@ -19,7 +19,7 @@ extension NetworkManager {
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "content-type")
         
-        let jsonString = "{\"duration\":30,\"visits\":12,\"price\":58}"
+        let jsonString = "{\"duration\":30,\"visits\":12,\"price\":58,\"create\":true,\"buy\":false}"
         request.httpBody = jsonString.data(using: String.Encoding.utf8)
         
         let accessToken = "Bearer \(apiTokenModel.accessToken ?? "missingToken")"
