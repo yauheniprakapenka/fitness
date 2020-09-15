@@ -413,6 +413,7 @@
 		3E444AA824D1E5370004B978 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F8BAAC1025112ECF006EB9FD /* Trainings */,
 				F8C97F71250E3C26004E873A /* Exercises */,
 				3EE586DE24DD376200CA0530 /* AbonementsViewController.swift */,
 				3E3F6FBA24F57F15007A1E67 /* AlertViewController.swift */,
@@ -420,7 +421,6 @@
 				3E444AA924D1E5830004B978 /* HeaderViewController.swift */,
 				3E82E21F24DCAC3800145E9D /* ItemsAthleteViewController.swift */,
 				3E444AB324D2065E0004B978 /* ItemsTrainerViewController.swift */,
-				3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -801,6 +801,14 @@
 				F8B05BF4250E4F3600899B6C /* AddEditExerciseConfigurator.swift */,
 			);
 			path = AddEditExercise;
+			sourceTree = "<group>";
+		};
+		F8BAAC1025112ECF006EB9FD /* Trainings */ = {
+			isa = PBXGroup;
+			children = (
+				3EE5A64B24D7150C004110C6 /* TrainingViewController.swift */,
+			);
+			path = Trainings;
 			sourceTree = "<group>";
 		};
 		F8C97F71250E3C26004E873A /* Exercises */ = {
