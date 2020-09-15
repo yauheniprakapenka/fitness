@@ -11,25 +11,24 @@ import CoreLocation
 
 class FindPlaceViewController: UIViewController {
     
-    // MARK: - Variables
+    // MARK: - Private porperties
     
-    var mapView = MKMapView()
-    let locationManager = CLLocationManager()
+    private var mapView = MKMapView()
+    private let locationManager = CLLocationManager()
+    private let backButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад", size: 13)
+    private let trainerNameLabel = FLabel(fontSize: 12, weight: .medium, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    private let emailLabel = FLabel(fontSize: 12, weight: .regular, color: .gray, message: "Не указано")
+    private let phoneLabel = FLabel(fontSize: 12, weight: .regular, color: .lightGray, message: "Не указано")
+    private let avatarImageView = UIImageView()
+    private let bottomContainerView = UIView()
+    private let placeView = FViewContentPlace()
     
-    let backButton = FButtonWithBackgroundColor(backgroundColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), title: "Назад", size: 13)
-    
-    let trainerNameLabel = FLabel(fontSize: 12, weight: .medium, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
-    let costLabel = FLabel(fontSize: 12, weight: .regular, color: .gray, message: "Не указано")
-    let placeLabel = FLabel(fontSize: 12, weight: .regular, color: .lightGray, message: "Не указано")
-    
-    let avatarImageView = UIImageView()
-    let trainerContainerView = UIView()
-    let placeView = FViewContentPlace()
+    // MARK: - Public porperties
     
     var trainer: TrainerModel?
     var place: PlaceModel?
     
-    // MARK: - ViewController LifeCycle Methods
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,14 +41,31 @@ class FindPlaceViewController: UIViewController {
         configureTrainingPlaceView()
         
         configureAvatarImageView()
-        configureTrainerName()
-        configureCostLabel()
-        configureTrainingLabel()
+        configureNameLabel()
+        configureEmailLabel()
+        configurePhoneLabel()
+    }
+}
+
+// MARK: - Actions
+
+private extension FindPlaceViewController {
+    
+    @objc
+    private func cancelButtonTapped() {
+        dismiss(animated: true)
     }
     
-    // MARK: - Private Methods
+    @objc private func backButtonTapped() {
+        dismiss(animated: true)
+    }
+}
+
+// MARK: - Private Methods
+
+private extension FindPlaceViewController {
     
-    private func configureNavigation() {
+    func configureNavigation() {
         navigationItem.title = "Место тренировки"
         
         let cancelButton = UIBarButtonItem(title: "Назад", style: .plain, target: self, action: #selector(cancelButtonTapped))
@@ -58,8 +74,7 @@ class FindPlaceViewController: UIViewController {
         navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 15)!], for: .normal)
     }
 
-    private func configureMapView() {
-        
+    func configureMapView() {
         mapView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.view.addSubview(mapView)
         
@@ -79,7 +94,7 @@ class FindPlaceViewController: UIViewController {
         mapView.selectAnnotation(mapView.annotations[0], animated: true)
     }
     
-    private func configureTrainingPlaceView() {
+    func configureTrainingPlaceView() {
         view.addSubview(placeView)
         placeView.translatesAutoresizingMaskIntoConstraints = false
         placeView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -87,79 +102,71 @@ class FindPlaceViewController: UIViewController {
         placeView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         placeView.heightAnchor.constraint(equalToConstant: 140).isActive = true
         
-        placeView.placeImageView.image = trainer?.schoolImage
-        placeView.addressLabel.text = trainer?.trainingPlace
+        placeView.placeImageView.image = place?.photo
+        placeView.addressLabel.text = place?.address
+        placeView.seeOnMapLabel.alpha = 0
     }
     
-    private func configureTrainerView() {
-        view.addSubview(trainerContainerView)
-        trainerContainerView.translatesAutoresizingMaskIntoConstraints = false
-        trainerContainerView.heightAnchor.constraint(equalToConstant: 240).isActive = true
-        trainerContainerView.widthAnchor.constraint(equalToConstant: 140).isActive = true
-        trainerContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
-        trainerContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
+    func configureTrainerView() {
+        view.addSubview(bottomContainerView)
+        bottomContainerView.translatesAutoresizingMaskIntoConstraints = false
+        bottomContainerView.heightAnchor.constraint(equalToConstant: 240).isActive = true
+        bottomContainerView.widthAnchor.constraint(equalToConstant: 140).isActive = true
+        bottomContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15).isActive = true
+        bottomContainerView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -120).isActive = true
         
-        trainerContainerView.backgroundColor = .white
-        trainerContainerView.layer.cornerRadius = 15
+        bottomContainerView.backgroundColor = .white
+        bottomContainerView.layer.cornerRadius = 15
         
-        trainerContainerView.layer.shadowColor = UIColor.black.cgColor
-        trainerContainerView.layer.shadowOpacity = 0.4
-        trainerContainerView.layer.shadowOffset = CGSize.zero
-        trainerContainerView.layer.shadowRadius = 9
+        bottomContainerView.layer.shadowColor = UIColor.black.cgColor
+        bottomContainerView.layer.shadowOpacity = 0.4
+        bottomContainerView.layer.shadowOffset = CGSize.zero
+        bottomContainerView.layer.shadowRadius = 9
     }
     
-    private func configureAvatarImageView() {
-        trainerContainerView.addSubview(avatarImageView)
+    func configureAvatarImageView() {
+        bottomContainerView.addSubview(avatarImageView)
         avatarImageView.translatesAutoresizingMaskIntoConstraints = false
         avatarImageView.clipsToBounds = true
         avatarImageView.layer.cornerRadius = 15
         avatarImageView.contentMode = .scaleAspectFill
         
-        avatarImageView.topAnchor.constraint(equalTo: trainerContainerView.topAnchor, constant: 8).isActive = true
-        avatarImageView.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 8).isActive = true
-        avatarImageView.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -8).isActive = true
+        avatarImageView.topAnchor.constraint(equalTo: bottomContainerView.topAnchor, constant: 8).isActive = true
+        avatarImageView.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 8).isActive = true
+        avatarImageView.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -8).isActive = true
         avatarImageView.heightAnchor.constraint(equalToConstant: 120).isActive = true
         avatarImageView.image = trainer?.avatarImage
     }
 
-    private func configureTrainerName() {
-        trainerContainerView.addSubview(trainerNameLabel)
+    func configureNameLabel() {
+        bottomContainerView.addSubview(trainerNameLabel)
         trainerNameLabel.topAnchor.constraint(equalTo: avatarImageView.bottomAnchor, constant: 6).isActive = true
-        trainerNameLabel.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 4).isActive = true
-        trainerNameLabel.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -4).isActive = true
+        trainerNameLabel.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 4).isActive = true
+        trainerNameLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -4).isActive = true
         trainerNameLabel.numberOfLines = 2
         trainerNameLabel.text = trainer?.trainerName
         trainerNameLabel.textAlignment = .center
     }
     
-    private func configureCostLabel() {
-        trainerContainerView.addSubview(costLabel)
-        costLabel.topAnchor.constraint(equalTo: trainerNameLabel.bottomAnchor, constant: 6).isActive = true
-        costLabel.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 8).isActive = true
-        costLabel.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -4).isActive = true
-        costLabel.numberOfLines = 1
-        costLabel.text = trainer?.cost
-        costLabel.textAlignment = .left
+    func configureEmailLabel() {
+        bottomContainerView.addSubview(emailLabel)
+        emailLabel.topAnchor.constraint(equalTo: trainerNameLabel.bottomAnchor, constant: 6).isActive = true
+        emailLabel.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 8).isActive = true
+        emailLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -4).isActive = true
+        emailLabel.numberOfLines = 1
+        emailLabel.text = trainer?.cost
+        emailLabel.textAlignment = .center
+        emailLabel.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
     }
     
-    private func configureTrainingLabel() {
-        trainerContainerView.addSubview(placeLabel)
-        placeLabel.topAnchor.constraint(equalTo: costLabel.bottomAnchor, constant: 6).isActive = true
-        placeLabel.leadingAnchor.constraint(equalTo: trainerContainerView.leadingAnchor, constant: 8).isActive = true
-        placeLabel.trailingAnchor.constraint(equalTo: trainerContainerView.trailingAnchor, constant: -8).isActive = true
-        placeLabel.numberOfLines = 3
-        placeLabel.text = trainer?.trainingPlace
-        placeLabel.textAlignment = .left
-    }
-    
-    // MARK: - Actions 
-    
-    @objc
-    private func cancelButtonTapped() {
-        dismiss(animated: true)
-    }
-    
-    @objc private func backButtonTapped() {
-        dismiss(animated: true)
+    func configurePhoneLabel() {
+        bottomContainerView.addSubview(phoneLabel)
+        phoneLabel.topAnchor.constraint(equalTo: emailLabel.bottomAnchor, constant: 6).isActive = true
+        phoneLabel.leadingAnchor.constraint(equalTo: bottomContainerView.leadingAnchor, constant: 8).isActive = true
+        phoneLabel.trailingAnchor.constraint(equalTo: bottomContainerView.trailingAnchor, constant: -8).isActive = true
+        phoneLabel.numberOfLines = 3
+        phoneLabel.text = trainer?.trainingPlace
+        phoneLabel.textAlignment = .center
+        phoneLabel.textColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
     }
 }

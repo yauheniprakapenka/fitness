@@ -17,7 +17,7 @@ extension NetworkManager {
         var request = URLRequest(url: requestUrl)
         request.httpMethod = "POST"
         
-        let bodyData = "grant_type=password&email=\(email)&password=\(password)"
+        let bodyData = "grant_type=password&email=\(email.lowercased())&password=\(password)"
         request.httpBody = bodyData.data(using: String.Encoding.utf8)
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in

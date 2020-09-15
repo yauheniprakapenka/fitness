@@ -10,11 +10,17 @@ import UIKit
 
 class FViewContentPlace: UIView {
     
+    // MARK: - Private properties
+    
     private let titleLabel = FLabel(fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), message: "МЕСТО ТРЕНИРОВОК")
-    private let seeOnMapLabel = FLabel(fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.5999526381, green: 0.6000268459, blue: 0.5999273658, alpha: 1), message: "СМОТРЕТЬ НА КАРТЕ")
-
+    
+    // MARK: - Public properties
+    
     let placeImageView = UIImageView()
     let addressLabel = FLabel(fontSize: 15, weight: .regular, color: #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), message: "Не указано")
+    let seeOnMapLabel = FLabel(fontSize: 11, weight: .medium, color: #colorLiteral(red: 0.5999526381, green: 0.6000268459, blue: 0.5999273658, alpha: 1), message: "СМОТРЕТЬ НА КАРТЕ")
+    
+    // MARK: - View life cycle
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -26,11 +32,18 @@ class FViewContentPlace: UIView {
         configureLabel()
     }
     
+    // MARK: - Initializers
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+// MARK: - Private methods
+
+private extension FViewContentPlace {
     
-    private func configureView() {
+    func configureView() {
         backgroundColor = .white
         translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,7 +53,7 @@ class FViewContentPlace: UIView {
         layer.shadowRadius = 2.0
     }
     
-    private func configureTrainingPlaceImageView() {
+    func configureTrainingPlaceImageView() {
         addSubview(placeImageView)
         
         placeImageView.translatesAutoresizingMaskIntoConstraints = false
@@ -53,13 +66,13 @@ class FViewContentPlace: UIView {
         placeImageView.clipsToBounds = true
     }
     
-    private func configureTitleLabel() {
+    func configureTitleLabel() {
         addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: placeImageView.trailingAnchor, constant: 20).isActive = true
     }
     
-    private func configureTrainingPlaceLabel() {
+    func configureTrainingPlaceLabel() {
         addSubview(addressLabel)
         addressLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         addressLabel.leadingAnchor.constraint(equalTo: placeImageView.trailingAnchor, constant: 20).isActive = true
@@ -67,7 +80,7 @@ class FViewContentPlace: UIView {
         addressLabel.numberOfLines = 3
     }
 
-    private func configureLabel() {
+    func configureLabel() {
         addSubview(seeOnMapLabel)
         seeOnMapLabel.translatesAutoresizingMaskIntoConstraints = false
         
@@ -75,5 +88,4 @@ class FViewContentPlace: UIView {
         seeOnMapLabel.leadingAnchor.constraint(equalTo: placeImageView.trailingAnchor, constant: 20).isActive = true
         seeOnMapLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10).isActive = true
     }
-
 }

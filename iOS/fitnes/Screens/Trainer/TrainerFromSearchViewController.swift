@@ -13,7 +13,6 @@ class TrainerFromSearchViewController: UIViewController {
     // MARK: - Private properties
     
     private var scrollView: UIScrollView!
-//    private let titleLabel = FLabel(fontSize: 18, weight: .regular, color: .gray, message: "Профиль тренера")
     private let profileButton = FButtonWithSFSymbol(sfSymbol: .docRichtext, color: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 28)
     private let calendarButton = FButtonSimple(title: "Расписание этого тренера", titleColor: #colorLiteral(red: 0.4109300077, green: 0.4760656357, blue: 0.9726527333, alpha: 1), size: 16)
     private let headerView = UIView()
@@ -22,7 +21,13 @@ class TrainerFromSearchViewController: UIViewController {
     private let abonementsView = UIView()
     private let placeView = FViewContentPlace()
     private let activityIndicator = FActivityIndicator()
-    private let place = PlaceModel(address: "Ул. Тимофеенко, 23", photo: #imageLiteral(resourceName: "kirova"), fileName: "", latitude: 52.44153252930357, longitude: 31.00078923354539)
+    
+    private let place = PlaceModel(address: "Ул. Кирова, 32",
+                                   photo: #imageLiteral(resourceName: "kirova"),
+                                   fileName: "",
+                                   latitude: 52.44153252930357,
+                                   longitude: 31.00078923354539)
+    
     private var trainerAbonement = [
         AbonementModel(abonementName: "Индивидуальный план", cost: "4 месяца - 70 руб.", color: "blue", countVisit: 12, daysLeft: 5),
         AbonementModel(abonementName: "Безлимит Плюс", cost: "6 месяцев - 460 руб.", color: "pink", countVisit: 14, daysLeft: 44),
@@ -42,10 +47,9 @@ class TrainerFromSearchViewController: UIViewController {
         configureScrollView()
         configureCalendarButton()
         configureHeaderView()
-        
         configureItemsView()
         configureComingTrainingView()
-        configureTrainingPlaceView()
+        configurePlaceView()
         configureAbonementsView()
         configureProfileButton()
         configureActivityIndicator()
@@ -157,7 +161,7 @@ private extension TrainerFromSearchViewController {
         comingTrainingView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
     
-    func configureTrainingPlaceView() {
+    func configurePlaceView() {
         scrollView.addSubview(placeView)
         placeView.topAnchor.constraint(equalTo: comingTrainingView.bottomAnchor, constant: 110).isActive = true
         placeView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
