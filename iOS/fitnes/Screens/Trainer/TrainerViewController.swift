@@ -62,7 +62,7 @@ class TrainerViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        
+        navigationController?.isNavigationBarHidden = true
         configureProfileData()
     }
 }

@@ -7,19 +7,12 @@
 //
 
 struct ApiGetTicketModel: Decodable {
-    var data: GetTiketData?
-}
-
-struct GetTiketData: Decodable {
-    var id: String?
-    var type: String?
-    var attributes: GetTiketAttributes?
-}
-
-struct GetTiketAttributes: Decodable {
+    var id: Int?
     var duration: Int?
     var visits: Int?
     var price: Int?
+    var create: Bool?
+    var buy: Bool?
 }
 
 var apiGetTicketModel = ApiGetTicketModel()
