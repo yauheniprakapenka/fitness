@@ -27,7 +27,11 @@ class MainTabbarController: UITabBarController {
         let tp5 = TPNewTrainingViewController.instance()
         tp5.tabBarItem = UITabBarItem(title: "TP3", image: nil, selectedImage: nil)
         
+        let trDr = TrainingDescriptionViewController()
+        trDr.tabBarItem = UITabBarItem(title: "TrDr", image: nil, selectedImage: nil)
+        
         let list = [
+            trDr,
             trainingProgramm1,
             tp2,
             tp3,
@@ -36,7 +40,7 @@ class MainTabbarController: UITabBarController {
         ]
         
         viewControllers = list
-        setActiveController(tp5)
+        setActiveController(trDr)
     }
     
     private func setActiveController(_ controller: UIViewController) {
