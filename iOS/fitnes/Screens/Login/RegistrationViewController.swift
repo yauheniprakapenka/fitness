@@ -223,6 +223,7 @@ private extension RegistrationViewController {
                 NetworkManager.shared.getToken(email: currentProfile.email ?? "", password: currentProfile.password ?? "") { (result) in
                     switch result {
                     case .success(let success):
+                        AuthorizationHandler.shared.userAuthorized(token: success.accessToken!)
                         print(success)
                         NetworkManager.shared.getUser(id: nil) {
                             self.presentVC()
