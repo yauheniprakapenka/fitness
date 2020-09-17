@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17124"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TrainingDescriptionSectionHeaderView" customModule="TrainingProgramm" customModuleProvider="target">
+            <connections>
+                <outlet property="nameLabel" destination="p5c-Dt-aeL" id="ngj-3V-oNd"/>
+                <outlet property="typeLabel" destination="IXI-aC-BPh" id="Ydb-Yq-8BJ"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="DC6-gx-AzO">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xiw-YN-Hzj">
+                    <rect key="frame" x="25" y="10" width="364" height="121"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p5c-Dt-aeL" userLabel="nameLabel">
+                            <rect key="frame" x="0.0" y="0.0" width="227" height="121"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="34"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXI-aC-BPh" userLabel="typeLabel">
+                            <rect key="frame" x="237" y="0.0" width="127" height="121"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                            <color key="textColor" name="trainingProgramm_blueAccent"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xiw-YN-Hzj" secondAttribute="trailing" constant="25" id="adi-6x-oIR"/>
+                <constraint firstItem="xiw-YN-Hzj" firstAttribute="top" secondItem="DC6-gx-AzO" secondAttribute="top" constant="10" id="axC-2L-SuW"/>
+                <constraint firstAttribute="bottom" secondItem="xiw-YN-Hzj" secondAttribute="bottom" constant="10" id="gZn-cM-INB"/>
+                <constraint firstItem="xiw-YN-Hzj" firstAttribute="leading" secondItem="DC6-gx-AzO" secondAttribute="leading" constant="25" id="hOX-hb-b1l"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-178.2608695652174" y="-56.584821428571423"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="trainingProgramm_blueAccent">
+            <color red="0.41200000047683716" green="0.47499999403953552" blue="0.97299998998641968" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
