@@ -2,6 +2,11 @@
 <br> 
 💐  Проект занял первое место в номинации <b>«Реализация продукта»</b>
 <br><br>
+<img src="https://user-images.githubusercontent.com/47568606/93661794-53a12f00-fa63-11ea-8cb6-17c71875e7df.png" width="140"></a>
+<img src="https://user-images.githubusercontent.com/47568606/93661808-8519fa80-fa63-11ea-8247-470c3a3a63e4.png" width="140"></a>
+<img src="https://user-images.githubusercontent.com/47568606/93661850-ec37af00-fa63-11ea-9e9a-d16dfcbdf817.png" width="140"></a>
+<img src="https://user-images.githubusercontent.com/47568606/93661874-18ebc680-fa64-11ea-8c25-9e90c3e28a5d.jpg" width="140"></a>
+<br><br>
 Автоматизированный сервис коммуникации кроссфит тренеров и атлетов.
 <br><br>
 
